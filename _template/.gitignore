@@ -1,0 +1,14 @@
+# Python / app
+venv/
+__pycache__/
+*.pyc
+.env
+
+# Local kube/azure artifacts
+*.kubeconfig
+kubeconfig
+
+# Large files - share big videos via a Drive link instead
+*.zip
+*.mp4
+*.mov

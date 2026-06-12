@@ -1,0 +1,17 @@
+# CODEOWNERS — automatically request a mentor's review on every Pull Request.
+#
+# ⚠️ BEFORE THIS WORKS, DO THREE THINGS:
+#   1. Replace the placeholder handles below with the mentors' REAL GitHub usernames
+#      (the @handle they log in with — NOT their LinkedIn URL).
+#      Mentors: Manish Kumar, Gowrishankar, Kesavan, Mamtha,
+#               Srinivas, Manoj, Sunil
+#   2. Each listed person/team must have Write or Maintain access to this repo.
+#   3. (To enforce it) Settings → Branches → the `main` rule →
+#      enable "Require review from Code Owners".
+
+# Every change in the repo requests a review from the mentors:
+*   @REPLACE-manish @REPLACE-gowrishankar @REPLACE-kesavan @REPLACE-mamtha @REPLACE-srinivas @REPLACE-manoj @REPLACE-sunil
+
+# --- Alternative: use a GitHub TEAM instead of individual handles ---
+# Create a "devops-mentors" team in the careerbytecode org, give it Write access, then:
+# *   @careerbytecode/devops-mentors

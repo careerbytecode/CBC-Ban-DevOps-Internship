@@ -1,0 +1,60 @@
+# Azure DevOps Pipeline — build, push to ACR, deploy to AKS
+# Replace every <...> placeholder with your own values before running.
+trigger:
+  branches:
+    include:
+      - main
+
+variables:
+  imageName: 'cbc-banking-app'
+  imageTag: '$(Build.BuildId)'
+  aksResourceGroup: '<your-resource-group>'
+  aksClusterName: '<your-aks-cluster>'
+
+stages:
+  - stage: Build
+    displayName: Build & push image to ACR
+    jobs:
+      - job: BuildPush
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: Docker@2
+            displayName: Build and push to ACR
+            inputs:
+              containerRegistry: '<your-acr-service-connection>'
+              repository: '$(imageName)'
+              command: 'buildAndPush'
+              Dockerfile: 'app/Dockerfile'
+              buildContext: 'app'
+              tags: |
+                $(imageTag)
+                latest
+
+  - stage: Deploy
+    displayName: Deploy to AKS
+    dependsOn: Build
+    jobs:
+      - deployment: DeployToAKS
+        pool:
+          vmImage: 'ubuntu-latest'
+        environment: 'cbc-devops-aks'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: KubernetesManifest@1
+                  displayName: Deploy manifests to AKS
+                  inputs:
+                    action: 'deploy'
+                    connectionType: 'azureResourceManager'
+                    azureSubscriptionConnection: '<your-azure-service-connection>'
+                    azureResourceGroup: '$(aksResourceGroup)'
+                    kubernetesCluster: '$(aksClusterName)'
+                    manifests: |
+                      k8s/configmap.yaml
+                      k8s/secret.yaml
+                      k8s/deployment.yaml
+                      k8s/service.yaml
+                      k8s/ingress.yaml
+                      k8s/hpa.yaml

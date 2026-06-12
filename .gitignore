@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.ipynb_checkpoints/
+.DS_Store
+
+# Private full leaderboard standings (do not publish on public repo)
+tracking/private/

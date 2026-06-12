@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cbc-app-config
+data:
+  APP_ENV: "production"
+  APP_GREETING: "Hello from CareerByteCode DevOps!"

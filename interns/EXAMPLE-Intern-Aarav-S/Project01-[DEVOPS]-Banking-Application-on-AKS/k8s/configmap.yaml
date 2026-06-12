@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cbc-banking-app-config
+data:
+  APP_ENV: "production"
+  APP_GREETING: "Welcome to CBC Bank!"
