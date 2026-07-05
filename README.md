@@ -72,6 +72,23 @@ This cohort is run by a shared mentor team of industry professionals, cloud arch
 
 ---
 
+## 🎥 Class recordings & 📝 notes
+
+Missed a live session or want to revise? Every week's **recordings** live in **[`CLASS-RECORDINGS.md`](CLASS-RECORDINGS.md)**, and the matching **class notes / cheat-sheets** live in the **[`docs/`](docs/)** folder.
+
+**✅ Week 1 — Linux · Shell · Git (completed 04 July 2026):**
+
+| # | Session | 🎥 Recording | 📝 Notes |
+|---|---------|-------------|----------|
+| 1 | Linux — Session 1 | [▶ Watch](https://drive.google.com/file/d/1zYFj_e8B5q0DXTUCiLhJAqtWzv5nIxNt/view?usp=drive_link) | [Linux Basics & Troubleshooting](docs/week-1/linux.md) |
+| 2 | Bash Scripting — Session 2 | [▶ Watch](https://drive.google.com/file/d/1NRgFoLE7f9qqXcsftnltSsqOj1igN3eC/view?usp=drive_link) | [Bash Shell Scripting Cheat Sheet](docs/week-1/shell-scripting.md) |
+| 3 | Git & GitHub — Session 3 | [▶ Watch](https://drive.google.com/file/d/1k-VuEhTjZoRgimHu0womar8UATN2He29/view?usp=drive_link) | [Git & GitHub Complete Guide](docs/week-1/git-and-github.md) |
+| 4 | Ubuntu Install — Session 4 | [▶ Watch](https://drive.google.com/file/d/1ifRipeUS-9r0tsk6_vw00DZ8c-qcs0Y2/view?usp=drive_link) | — |
+
+> 🔒 Recordings are for enrolled interns only — please don't re-share. Weeks 2–4 recordings and notes will be added to [`CLASS-RECORDINGS.md`](CLASS-RECORDINGS.md) and [`docs/`](docs/) as each week completes.
+
+---
+
 ## 📖 Start here — read these in order
 
 | # | File | What's inside |
@@ -161,6 +178,7 @@ CBC-Ban-DevOps-Internship/
 ├── COHORT-SCHEDULE.md             ← week-by-week plan + attendance + weekly tasks
 ├── SOCIAL-MEDIA-AND-VIDEO.md      ← weekly post + video rules & tagging
 ├── WEEKLY-SCRIPTS.md              ← ⭐ copy-paste posts + video scripts (per week)
+├── CLASS-RECORDINGS.md            ← 🎥 weekly live-session recordings (Week 1 added)
 ├── CONTRIBUTING.md                ← fork → build your DevOps capstone → submit (start here)
 ├── SUBMISSION-GUIDE.md            ← short printable fork + PR cheat-sheet
 ├── PROJECTS-CATALOG.md            ← the 10 DevOps projects + cohort registry
@@ -169,6 +187,12 @@ CBC-Ban-DevOps-Internship/
 ├── HALL-OF-FAME.md                ← 🏛️ all-time top interns
 ├── ABOUT-CAREERBYTECODE.md        ← about the platform & community
 ├── MENTOR-SETUP.md                ← (mentors) GitHub settings for the fork/PR workflow
+│
+├── docs/                          ← 📝 class notes & cheat-sheets, by week
+│   └── week-1/                    ← Linux · Bash scripting · Git & GitHub
+│       ├── linux.md
+│       ├── shell-scripting.md
+│       └── git-and-github.md
 │
 ├── .github/                       ← (mentors) PR template + CODEOWNERS
 │   ├── CODEOWNERS

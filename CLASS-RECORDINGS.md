@@ -10,13 +10,14 @@ All live-session recordings for the cohort, week by week. Missed a class or want
 ## ✅ Week 1 — Linux · Shell · Git *(completed 04 July 2026)*
 
 **Topics:** Linux fundamentals, Bash scripting, Git & GitHub, Ubuntu installation.
+📝 **Class notes for this week:** [`docs/week-1/`](docs/week-1/)
 
-| # | Session | Recording |
-|---|---------|-----------|
-| 1 | Linux — Session 1 | [▶ Watch](https://drive.google.com/file/d/1zYFj_e8B5q0DXTUCiLhJAqtWzv5nIxNt/view?usp=drive_link) |
-| 2 | Bash Scripting — Session 2 | [▶ Watch](https://drive.google.com/file/d/1NRgFoLE7f9qqXcsftnltSsqOj1igN3eC/view?usp=drive_link) |
-| 3 | Git & GitHub — Session 3 | [▶ Watch](https://drive.google.com/file/d/1k-VuEhTjZoRgimHu0womar8UATN2He29/view?usp=drive_link) |
-| 4 | Ubuntu Install — Session 4 | [▶ Watch](https://drive.google.com/file/d/1ifRipeUS-9r0tsk6_vw00DZ8c-qcs0Y2/view?usp=drive_link) |
+| # | Session | 🎥 Recording | 📝 Notes |
+|---|---------|-------------|----------|
+| 1 | Linux — Session 1 | [▶ Watch](https://drive.google.com/file/d/1zYFj_e8B5q0DXTUCiLhJAqtWzv5nIxNt/view?usp=drive_link) | [Linux Basics & Troubleshooting](docs/week-1/linux.md) |
+| 2 | Bash Scripting — Session 2 | [▶ Watch](https://drive.google.com/file/d/1NRgFoLE7f9qqXcsftnltSsqOj1igN3eC/view?usp=drive_link) | [Bash Shell Scripting Cheat Sheet](docs/week-1/shell-scripting.md) |
+| 3 | Git & GitHub — Session 3 | [▶ Watch](https://drive.google.com/file/d/1k-VuEhTjZoRgimHu0womar8UATN2He29/view?usp=drive_link) | [Git & GitHub Complete Guide](docs/week-1/git-and-github.md) |
+| 4 | Ubuntu Install — Session 4 | [▶ Watch](https://drive.google.com/file/d/1ifRipeUS-9r0tsk6_vw00DZ8c-qcs0Y2/view?usp=drive_link) | — |
 
 ---
 
