@@ -18,6 +18,19 @@
 ### Q1.
 What is the difference between a Linux Operating System and a Windows Operating System? Mention at least **five differences**.
 
+
+| Linux                                                                        | Windows                                                                    |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Linux is open-source, so anyone can view and modify its source code.         | Windows is closed-source, so only Microsoft can modify its source code.    |
+| Linux is usually free to download and use.                                   | Windows usually requires a paid license.                                   |
+| Linux is more secure and gets fewer viruses and malware.                     | Windows is more commonly targeted by viruses and malware.                  |
+| Linux is widely used for servers, cloud computing, and software development. | Windows is mainly used on personal computers, offices, and gaming systems. |
+| Linux uses commands in the terminal along with a graphical interface.        | Windows is mainly operated through a graphical user interface (GUI).       |
+
+Linux is a free and secure operating system that is widely used by developers and companies for servers and cloud computing. 
+Windows is user-friendly and is commonly used for personal computers, office work, and gaming.
+
+
 ### Q2.
 Explain the role of the Linux Kernel. Why is it considered the core of the operating system?
 
