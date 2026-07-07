@@ -18,6 +18,7 @@
 ### Q1.
 What is the difference between a Linux Operating System and a Windows Operating System? Mention at least **five differences**.
 
+### Answer
 
 | Linux                                                                        | Windows                                                                    |
 | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
@@ -167,6 +168,8 @@ Write the Linux commands to perform the following tasks:
 - Create one file inside each directory
 - Display the complete directory structure
 
+### Answer
+
 ### Task 1: Create a directory named `DevOps`
 
 ```bash
@@ -288,6 +291,7 @@ Explain the purpose of the following commands with one example each:
 - `hostname`
 - `who`
 
+### Answer
 
 ## 1. `echo`
 
@@ -536,7 +540,7 @@ Write Linux commands to perform the following:
 - Create a file named `practice.txt`
 - Copy the file into another directory
 
----
+### Answer
 
 ## 1. Display the current Linux version
 
@@ -560,7 +564,7 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec 1 
 <img width="1200" height="42" alt="image" src="https://github.com/user-attachments/assets/df99ed93-c1e3-4ff3-81cf-2f2bd1570b4b" />
 
 
----
+
 
 ## 2. Display the system hostname
 
@@ -583,7 +587,7 @@ Deepak
 <img width="791" height="41" alt="image" src="https://github.com/user-attachments/assets/2b04711c-282a-49c1-b8e4-80e3e6d45c56" />
 
 
----
+
 
 ## 3. View command history
 
@@ -612,7 +616,7 @@ history
 
 <img width="916" height="905" alt="image" src="https://github.com/user-attachments/assets/a438c5bb-ed99-4836-8550-8972e7ce41dc" />
 
----
+
 
 ## 4. Create a file named `practice.txt`
 
@@ -630,7 +634,7 @@ touch practice.txt
 <img width="892" height="26" alt="image" src="https://github.com/user-attachments/assets/bacd4d7a-3db2-4c83-8002-684dfde9342b" />
 
 
----
+
 
 ## 5. Copy the file into another directory
 
@@ -650,7 +654,7 @@ cp practice.txt DevOps/
 <img width="937" height="242" alt="image" src="https://github.com/user-attachments/assets/e37652ee-aafe-4a70-aaaf-55504292f93c" />
 
 
----
+
 
 ## Complete Commands
 
@@ -665,7 +669,7 @@ cp practice.txt DevOps/
 <img width="1297" height="1642" alt="image" src="https://github.com/user-attachments/assets/6606fb99-06b8-4959-8add-7441e28cf8d2" />
 
 
----
+
 
 ## Summary Table
 
@@ -687,7 +691,7 @@ cp practice.txt DevOps/
 ### Q6.
 Research any **three Linux commands** that help you obtain system information. Explain their purpose with examples.
 
----
+### Answer
 
 ## 1. `lscpu`
 
@@ -716,7 +720,7 @@ Model name:          Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
 <img width="797" height="1047" alt="image" src="https://github.com/user-attachments/assets/a630f34f-3099-4237-895a-8383816de0ae" />
 
 
----
+
 
 ## 2. `free`
 
@@ -745,7 +749,7 @@ Swap:           10Gi          0B        10Gi
 <img width="870" height="90" alt="image" src="https://github.com/user-attachments/assets/38ae2df7-239c-461d-bf54-8e7aed02e7de" />
 
 
----
+
 
 ## 3. `df`
 
@@ -775,7 +779,7 @@ Filesystem      Size  Used Avail Use%  Mounted on
 
 * A system administrator can use df -h to check the available disk space before installing software, storing large files, or troubleshooting low disk space issues.
 
----
+
 
 ## Summary Table
 
@@ -787,7 +791,6 @@ Filesystem      Size  Used Avail Use%  Mounted on
 
 
 
----
 
 
 Think of it as checking the **three main system resources** of a Linux system:
@@ -819,7 +822,7 @@ Explain the purpose of the following Linux directories:
 - `/dev`
 - `/proc`
 
----
+### Answer
 
 Linux follows the Filesystem Hierarchy Standard (FHS), which defines the purpose of standard directories such as /bin, /sbin, /dev, and /proc. Although modern distributions may implement some directories as symbolic links (for example, /bin → /usr/bin), their logical purpose remains the same.
 
@@ -836,7 +839,7 @@ root   bin    sbin   dev    proc
 
 The `/` (root directory) is the top-level directory in Linux. All other directories are inside it.
 
----
+
 
 ## 1. `/root`
 
@@ -903,7 +906,7 @@ pwd
 
 The system administrator stores important scripts (Backup scripts, Maintenance scripts) and configuration files inside `/root`.
 
----
+
 
 ## 2. `/bin`
 
@@ -981,7 +984,7 @@ So the command really comes from
 ```
 
 
----
+
 
 ## 3. `/sbin`
 
@@ -1053,7 +1056,7 @@ sudo mkfs.ext4 /dev/sdb1
 Note: 
 On many modern Linux distributions, /sbin is a symbolic link to /usr/sbin.
 
----
+
 
 ### Difference between /bin and /sbin
 
@@ -1065,8 +1068,6 @@ On many modern Linux distributions, /sbin is a symbolic link to /usr/sbin.
 
 
 
-
----
 
 ## 4. `/dev`
 
@@ -1141,7 +1142,6 @@ sdd      8:48   0     1T  0 disk /
 
 
 
----
 
 ## 5. `/proc`
 
@@ -1262,7 +1262,7 @@ cat /proc/loadavg
 
 <img width="982" height="1190" alt="image" src="https://github.com/user-attachments/assets/8643aceb-7fda-4ae6-b0f1-556b138a50a4" />
 
----
+
 
 ## Summary
 
@@ -1300,6 +1300,7 @@ cat /proc/loadavg
 ### Q8.
 Differentiate between a **File** and a **Directory** in Linux. Explain with suitable examples.
 
+### Answer
 
 - A **file** is used to store data such as text, images, programs, or videos.
 - A **directory** (also called a folder) is used to organize and store files and other directories.
@@ -1442,6 +1443,7 @@ Here, **DevOps** is the **directory**, while `README.md`, `script.sh`, and `dock
 ### Q9.
 A file was accidentally moved to another directory, and you don't know its location. Which Linux command(s) would you use to find it?
 
+### Answer
 
 If a file has been accidentally moved and its location is unknown, Linux provides commands such as **`find`** and **`locate`** to search for it.
 
@@ -1557,6 +1559,8 @@ sudo updatedb
 
 ### Q10.
 Suppose you accidentally deleted a file using the `rm` command. What precautions should you follow in the future to avoid deleting important files?
+
+### Answer
 
 The `rm` command permanently deletes files and directories from the system. Unlike Windows, deleted files are **not moved to a Recycle Bin or Trash** by default. Therefore, it is important to follow safe practices before using the `rm` command.
 
@@ -1719,6 +1723,8 @@ This allows you to verify the file and confirm before deleting it.
 ### Q11.
 Explain the difference between a **Local Repository** and a **Remote Repository** in Git.
 
+### Answer
+
 A **Git repository** is a storage location where Git tracks files, folders, and their version history. Repositories can be **Local** (stored on your computer) or **Remote** (stored on a server such as GitHub).
 
 ---
@@ -1839,6 +1845,8 @@ Write the Git commands to perform the following:
 - Check available branches
 - Merge the branch into the main branch
 - Push the changes to GitHub
+
+### Answer
 
 ### Q13.
 Research any **three commonly used Git commands** that were not covered during the training and explain their purpose.
