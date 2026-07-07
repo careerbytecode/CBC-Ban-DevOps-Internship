@@ -779,6 +779,8 @@ Explain the purpose of the following Linux directories:
 
 ---
 
+Linux follows the Filesystem Hierarchy Standard (FHS), which defines the purpose of standard directories such as /bin, /sbin, /dev, and /proc. Although modern distributions may implement some directories as symbolic links (for example, /bin → /usr/bin), their logical purpose remains the same.
+
 ## Linux Directory Structure
 
 ```text
@@ -803,8 +805,8 @@ Unlike normal users, the root user has permission to access and modify almost ev
 
 The /root directory stores:
 → It stores the root user's personal files.
-→ Bash configuration files
-→ Administrative scripts
+→ Bash configuration files (such as .bashrc and .profile, if present)
+→ System administration scripts
 → System configuration backups
 
 ### Important Note
@@ -898,7 +900,7 @@ When we run:
 ls
 ```
 
-Linux executes the cp command from the system's executable directory (/bin or /usr/bin, depending on the distribution).
+Linux executes the ls command from the system's executable directory (/bin or /usr/bin, depending on the distribution).
 
 or
 
@@ -976,7 +978,7 @@ Checking a disk:
 sudo fsck /dev/sda
 ```
 - fsck repairs disks.
-- Running it on the wrong disk can corrupt data.
+- Running fsck on a mounted writable filesystem may cause data corruption. It should normally be used on an unmounted filesystem.
 - Never run it on your working system just for practice.
 
 
@@ -988,6 +990,10 @@ sudo mkfs.ext4 /dev/sdb1
 - mkfs means: Make File System
 - It formats a partition.
 - Running it on a real drive erases data.
+
+
+Note: 
+On many modern Linux distributions, /sbin is a symbolic link to /usr/sbin.
 
 ---
 
@@ -1034,11 +1040,42 @@ ls /dev
 
 ### Real Example
 
+
 ```bash
-echo "Hello" > file.txt
+echo "Hello" > /dev/null
 ```
 
-> When we save a file using echo "Hello" > file.txt, the Linux kernel communicates with the storage device through the device layer represented in /dev.
+
+> /dev/null is a special device file known as the null device. Any data written to it is immediately discarded. This demonstrates how Linux treats devices as files.
+
+
+> The text "Hello" is sent to the special device file /dev/null, where it is immediately discarded. This demonstrates how Linux treats devices as files and allows programs to interact with them using standard file operations. No output is expected because the data is discarded.
+
+
+### Showing storage devices
+
+```bash
+lsblk
+```
+> The /dev directory contains device files that represent hardware devices. Programs access storage devices through these device files rather than interacting directly with the hardware.
+
+
+Example output:
+
+```bash
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0 364.8M  1 disk
+sdb      8:16   0 144.5M  1 disk
+sdc      8:32   0    10G  0 disk [SWAP]
+sdd      8:48   0     1T  0 disk /
+```
+
+
+> The disks shown by lsblk are represented by device files inside the /dev directory, such as /dev/sda, /dev/sdb, /dev/sdc, and /dev/sdd. Programs access storage devices through these device files.
+
+
+
+
 
 ---
 
@@ -1046,8 +1083,7 @@ echo "Hello" > file.txt
 
 ### Purpose
 
-- `/proc` stands for **Processes**.  
-- `/proc` is a **virtual directory** created by the Linux kernel.
+- `/proc` is a virtual filesystem that provides information about running processes and the Linux kernel.
 
 - Unlike normal directories, /proc is a virtual filesystem.
 
@@ -1086,6 +1122,14 @@ Those numbers are **PIDs (Process IDs)**.
 
 > Numeric directories inside /proc represent running processes, where each directory name is the Process ID (PID).
 
+### Useful files
+Each process directory contains files that provide detailed information about that process. Some commonly used files are:
+
+• /proc/<PID>/status   – Displays the process status, memory usage, and other details.
+• /proc/<PID>/cmdline  – Shows the command-line arguments used to start the process.
+• /proc/<PID>/environ  – Contains the environment variables of the process.
+
+
 ```bash
 ls /bin | head
 ls /sbin | head
@@ -1093,6 +1137,18 @@ ls /dev | head
 ls /proc | head
 ```
 
+```bash
+ls /proc/1
+```
+
+> Note: Some files and symbolic links inside /proc/<PID> require root privileges. Therefore, seeing "Permission denied" for some entries is normal.
+or
+
+```bash
+cat /proc/1/status
+```
+
+> Here, 1 is the PID of the first process started by the Linux kernel (typically systemd on modern Linux systems). Viewing /proc/1/status displays information such as the process name, state, PID, memory usage, and capabilities.
 
 
 
@@ -1133,7 +1189,7 @@ cat /proc/loadavg
 
 | Directory | Full Meaning        | Purpose                                                      | Example Command     |
 | --------- | ------------------- | ------------------------------------------------------------ | ------------------- |
-| `/root`   | Root User Home      | Stores files of the root (administrator) user                | `ls /root`          |
+| `/root`   | Root User Home      | Stores the personal files of the root user (administrator) user                | `ls /root`          |
 | `/bin`    | Binary              | Essential commands for all users                             | `ls /bin`           |
 | `/sbin`   | System Binary       | Essential system administration commands                     | `ls /sbin`          |
 | `/dev`    | Devices             | Contains device files representing hardware                  | `ls /dev`           |
@@ -1143,10 +1199,10 @@ cat /proc/loadavg
 ---
 
 * **`/root` → Root User** → Home directory of the root (administrator) user.
-* **`/bin` → Basic Commands** → Basic Essential commands for everyone.
+* **`/bin` → Basic Commands** → Basic Essential user commands available to all users.
 * **`/sbin` → System Commands** → System Commands mainly for the system administrator.
 * **`/dev` → Devices** → Represents hardware devices as files.
-* **`/proc` → Processes** → Shows information about running processes and the system.
+* **`/proc` → Processes** → Provides live information about running processes, the kernel, memory, CPU, and other system resources.
 
 ---
 
