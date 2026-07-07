@@ -136,7 +136,8 @@ touch notes.txt
 
 This example shows how the Linux kernel manages communication between software and hardware.
 
-![alt text](image-2.png)
+<img width="1692" height="357" alt="image" src="https://github.com/user-attachments/assets/ebae09e5-4059-4223-bafd-a4d1fce27a70" />
+
 
 ---
 
@@ -255,7 +256,9 @@ touch Git/git.txt
 tree
 ```
 
-![alt text](image-3.png)
+<img width="1817" height="845" alt="image" src="https://github.com/user-attachments/assets/439d2bbc-1d1c-4cba-90f6-df568bbdf9c9" />
+
+
 
 ---
 
@@ -296,7 +299,8 @@ Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
 
 You can display a welcome message or check the value of a variable while writing Bash scripts.
 
-![alt text](image-4.png)
+<img width="1172" height="47" alt="image" src="https://github.com/user-attachments/assets/7fa6bae6-bdfb-42ee-8ef8-6a18d5843e17" />
+
 
 ---
 
@@ -322,7 +326,8 @@ man ls
 
 If you forget how the `ls` command works, you can use `man ls` to read its manual.
 
-![alt text](image-5.png)
+<img width="1512" height="1348" alt="image" src="https://github.com/user-attachments/assets/064b261d-13a4-414e-9995-e8c8ea3fee98" />
+
 
 ---
 
@@ -350,7 +355,8 @@ uname -a
 Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-![alt text](image-6.png)
+<img width="1195" height="58" alt="image" src="https://github.com/user-attachments/assets/be06d481-2bd7-447c-a5f2-f315d0b4923a" />
+
 
 | Part                                                 | Meaning                            | Equivalent Command    |
 | ---------------------------------------------------- | ---------------------------------- | --------------------- |
@@ -362,6 +368,8 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1
 | `x86_64`                                             | Processor Type                     | `uname -p`            |
 | `x86_64`                                             | Hardware Platform                  | `uname -i`            |
 | `GNU/Linux`                                          | Operating System                   | `uname -o`            |
+
+<img width="1200" height="222" alt="image" src="https://github.com/user-attachments/assets/06d391ff-6a8b-433d-a005-d69ffe81dd98" />
 
 
 ### Real Example
@@ -384,7 +392,7 @@ A system administrator can use `uname -a` to check the Linux kernel version befo
 | `uname -o` | **Operating System**        | Displays the operating system (e.g., `GNU/Linux`).           |
 
 
-https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-shetty/interns/Malathi-Shetty/images/Q4%20Explain%20the%20purpose%20of%20the%20following%20commands%20with%20one%20example%20each/3.%20uname-common_commands.png?raw=true
+<img width="1215" height="447" alt="image" src="https://github.com/user-attachments/assets/7e79e399-1f48-425e-b000-fc75d4068858" />
 
 ---
 
@@ -412,7 +420,9 @@ hostname
 ubuntu / Deepak
 ```
 
-https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-shetty/interns/Malathi-Shetty/images/Q4%20Explain%20the%20purpose%20of%20the%20following%20commands%20with%20one%20example%20each/4.%20hostname.png?raw=true
+<img width="587" height="56" alt="image" src="https://github.com/user-attachments/assets/69d1e397-bf3d-4925-bf42-842916189b2d" />
+
+
 
 ### Real Example
 
@@ -428,7 +438,8 @@ When connecting to another computer over a network, you can use the hostname to 
 | `hostname -f` | Displays the Fully Qualified Domain Name (FQDN), if configured.                   | `server.example.com`                     |
 | `hostname -A` | Displays all configured hostnames (if available).                                 | Depends on the system                    |
 
-https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-shetty/interns/Malathi-Shetty/images/Q4%20Explain%20the%20purpose%20of%20the%20following%20commands%20with%20one%20example%20each/4.%20hostname-common_commands.png?raw=true
+<img width="682" height="425" alt="image" src="https://github.com/user-attachments/assets/06ec4a5b-6e35-415c-a76b-e75c6e8c2b9c" />
+
 
 
 ---
@@ -457,7 +468,8 @@ who
 malathi  pts/1        2026-07-07 05:32
 ```
 
-![alt text](image-7.png)
+<img width="547" height="47" alt="image" src="https://github.com/user-attachments/assets/a384ffac-4662-4a7e-8dd4-fef9792c932e" />
+
 
 ### Real Example
 
@@ -476,7 +488,8 @@ On a shared Linux server, an administrator can use `who` to see which users are 
 
 > Note: On WSL2, who am i may not display any output because WSL does not create a traditional Linux login session. This is expected behavior.
 
-https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-shetty/interns/Malathi-Shetty/images/Q4%20Explain%20the%20purpose%20of%20the%20following%20commands%20with%20one%20example%20each/5.%20who-common_commands.png?raw=true
+<img width="632" height="250" alt="image" src="https://github.com/user-attachments/assets/1e8c15df-31e6-42a8-9cbf-0724ac90b6d3" />
+
 
 ---
 
@@ -485,12 +498,13 @@ https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-
 | Command    | Purpose                              | Example                   |
 | ---------- | ------------------------------------ | ------------------------- |
 | `echo`     | Displays text or variable values.    | `echo "Welcome to Linux"` |
-| `man`      | Opens the manual page for a command. | `man ls`                  |
-| `uname`    | Displays system information.         | `uname -a`                |
+| `man`      | Opens the manual page for a command. | `man cat`                  |
+| `uname`    | Displays system information.         | `uname -s`                |
 | `hostname` | Displays the computer's hostname.    | `hostname`                |
 | `who`      | Shows the users currently logged in. | `who`                     |
 
 
+<img width="742" height="197" alt="image" src="https://github.com/user-attachments/assets/a3532b77-6891-4a08-a861-e78b476fd79e" />
 
 
 ---
