@@ -27,9 +27,8 @@ What is the difference between a Linux Operating System and a Windows Operating 
 | Linux is widely used for servers, cloud computing, and software development. | Windows is mainly used on personal computers, offices, and gaming systems. |
 | Linux supports both the Command Line Interface (CLI) and Graphical User Interface (GUI).        | Windows is mainly operated through a graphical user interface (GUI).       |
 
-🔹Linux is a free and secure operating system that is widely used by developers and companies for servers and cloud computing.
-
-🔹Windows is user-friendly and is commonly used for personal computers, office work, and gaming.
+- Linux is a free and secure operating system that is widely used by developers and companies for servers and cloud computing.   
+- Windows is user-friendly and is commonly used for personal computers, office work, and gaming.
 
 ```text
                 Operating Systems
@@ -37,12 +36,12 @@ What is the difference between a Linux Operating System and a Windows Operating 
           ┌────────────┴────────────┐
           │                         │
       Linux                     Windows
-          │                         │
-  🔹 Open Source             🔹 Closed Source
-  🔹 Free                    🔹 Paid Licensed
-  🔹 CLI + GUI               🔹 Mainly GUI Focused
-  🔹 Cloud & Servers         🔹 Personal PCs & Gaming
-  🔹 More Secure             🔹 More Malware Targeted
+        │                         │
+    Open Source               Closed Source
+    Free                      Paid Licensed
+    CLI + GUI                 Mainly GUI Focused
+    Cloud & Servers           Personal PCs & Gaming
+    More Secure               More Malware Targeted
 
 ```
 
@@ -56,10 +55,10 @@ Explain the role of the Linux Kernel. Why is it considered the core of the opera
 
 ### Answer
 
-→ The **Linux Kernel** is the **core part** of the Linux operating system.   
-→ It manages communication between the software and the hardware.   
-→ When a user runs a program or enters a command, the request goes through the shell to the Linux kernel.   
-→ The kernel then communicates with the hardware and returns the result to the application.  
+- The **Linux Kernel** is the **core part** of the Linux operating system.   
+- It manages communication between the software and the hardware.   
+- When a user runs a program or enters a command, the request goes through the shell to the Linux kernel.   
+- The kernel then communicates with the hardware and returns the result to the application.  
 
 ### Linux Architecture
 
@@ -137,9 +136,9 @@ Create      RAM Mgmt  Drivers   Storage
 
 ### Why is it considered the core of the operating system?
 
-→ The Linux kernel is called the **core** of the operating system because it connects software with hardware and manages all important system resources.   
-→ Every program depends on the kernel to access the CPU, memory, storage, and other hardware devices.   
-→ Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.  
+- The Linux kernel is called the **core** of the operating system because it connects software with hardware and manages all important system resources.   
+- Every program depends on the kernel to access the CPU, memory, storage, and other hardware devices.   
+- Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.  
 
 ### Real Example
 
@@ -250,7 +249,7 @@ DevOps
 
 > **Note:** If the `tree` command is not installed, install it first.
 
-→ Ubuntu/Debian:
+- Ubuntu/Debian:
 
 ```bash
 sudo apt install tree
@@ -294,7 +293,7 @@ Explain the purpose of the following commands with one example each:
 
 ### Purpose
 
-→ The `echo` command is used to **display text or the value of a variable** in the terminal.
+- The `echo` command is used to **display text or the value of a variable** in the terminal.
 
 ### Syntax
 
@@ -316,7 +315,7 @@ Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
 
 ### Real Example
 
-→ Display a welcome message or check the value of a variable while writing Bash scripts.
+- Display a welcome message or check the value of a variable while writing Bash scripts.
 
 <img width="1172" height="47" alt="image" src="https://github.com/user-attachments/assets/7fa6bae6-bdfb-42ee-8ef8-6a18d5843e17" />
 
@@ -327,8 +326,8 @@ Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
 
 ### Purpose
 
-→ The `man` (manual) command is used to **view the user manual** of a Linux command.   
-→ It provides information about the command, its options, and how to use it.
+- The `man` (manual) command is used to **view the user manual** of a Linux command.   
+- It provides information about the command, its options, and how to use it.
 
 ### Syntax
 
@@ -344,7 +343,7 @@ man ls
 
 ### Real Example
 
-→ If we forget how the `ls` command works, we can use `man ls` to read its manual.
+- If we forget how the `ls` command works, we can use `man ls` to read its manual.
 
 <img width="1512" height="1348" alt="image" src="https://github.com/user-attachments/assets/064b261d-13a4-414e-9995-e8c8ea3fee98" />
 
@@ -355,7 +354,7 @@ man ls
 
 ### Purpose
 
-→ The `uname` command displays **system information**, such as the operating system name and kernel version.
+- The `uname` command displays **system information**, such as the operating system name and kernel version.
 
 ### Syntax
 
@@ -394,7 +393,7 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1
 
 ### Real Example
 
-→ A system administrator can use `uname -a` to check the Linux kernel version before installing software.
+- A system administrator can use `uname -a` to check the Linux kernel version before installing software.
 
 #### Common Commands
 
@@ -420,7 +419,7 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1
 
 ### Purpose
 
-→ The `hostname` command displays the **name of the current computer (host)** on the network.
+- The `hostname` command displays the **name of the current computer (host)** on the network.
 
 ### Syntax
 
@@ -446,7 +445,7 @@ ubuntu / Deepak
 
 ### Real Example
 
-→ When connecting to another computer over a network, we can use the hostname to identify the system.
+- When connecting to another computer over a network, we can use the hostname to identify the system.
 
 #### Common Commands
 
@@ -468,7 +467,7 @@ ubuntu / Deepak
 
 ### Purpose
 
-→ The `who` command displays **the users who are currently logged in** to the Linux system.
+- The `who` command displays **the users who are currently logged in** to the Linux system.
 
 ### Syntax
 
@@ -493,7 +492,7 @@ malathi  pts/1        2026-07-07 05:32
 
 ### Real Example
 
-→ On a shared Linux server, an administrator can use `who` to see which users are currently logged in.
+- On a shared Linux server, an administrator can use `who` to see which users are currently logged in.
 
 
 #### Common Commands
@@ -537,8 +536,238 @@ Write Linux commands to perform the following:
 - Create a file named `practice.txt`
 - Copy the file into another directory
 
+---
+
+## 1. Display the current Linux version
+
+### Command
+
+```bash
+uname -a
+```
+
+### Explanation
+
+* `uname` displays system information.
+* `-a` displays all available system information, including the kernel version.
+
+### Example Output
+
+```text
+Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec 1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+---
+
+## 2. Display the system hostname
+
+### Command
+
+```bash
+hostname
+```
+
+### Explanation
+
+* `hostname` displays the name of the current computer.
+
+### Example Output
+
+```text
+Deepak
+```
+
+---
+
+## 3. View command history
+
+### Command
+
+```bash
+history
+```
+
+### Explanation
+
+* `history` displays the list of previously executed commands in the terminal.
+
+### Example Output
+
+```text
+1  pwd
+2  ls
+3  mkdir DevOps
+4  cd DevOps
+5  history
+```
+
+---
+
+## 4. Create a file named `practice.txt`
+
+### Command
+
+```bash
+touch practice.txt
+```
+
+### Explanation
+
+* `touch` creates a new empty file.
+* Here, it creates a file named `practice.txt`.
+
+---
+
+## 5. Copy the file into another directory
+
+### Command
+
+```bash
+cp practice.txt DevOps/
+```
+
+### Explanation
+
+* `cp` means **copy**.
+* This command copies `practice.txt` into the `DevOps` directory.
+
+---
+
+## Complete Commands
+
+```bash
+uname -a
+hostname
+history
+touch practice.txt
+cp practice.txt DevOps/
+```
+
+---
+
+## Summary Table
+
+| Task                                 | Command                   |
+| ------------------------------------ | ------------------------- |
+| Display the current Linux version    | `uname -a`                |
+| Display the system hostname          | `hostname`                |
+| View command history                 | `history`                 |
+| Create `practice.txt`                | `touch practice.txt`      |
+| Copy the file into another directory | `cp practice.txt DevOps/` |
+
+
+
+
+
+
+---
+
 ### Q6.
 Research any **three Linux commands** that help you obtain system information. Explain their purpose with examples.
+
+---
+
+## 1. `lscpu`
+
+### Purpose
+
+* The `lscpu` command displays information about the system's CPU (processor).
+
+### Syntax
+
+```bash
+lscpu
+```
+
+### Example Output
+
+```text
+Architecture:        x86_64
+CPU(s):              4
+Model name:          Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+```
+
+### Real Example
+
+* A system administrator can use `lscpu` to check the processor architecture and the number of CPUs before installing software.
+
+---
+
+## 2. `free`
+
+### Purpose
+
+* The `free` command displays information about the system's memory (RAM) and swap space.
+
+### Syntax
+
+```bash
+free -h
+```
+
+### Example Output
+
+```text
+               total        used        free
+Mem:            5.8Gi       1.6Gi       3.9Gi
+Swap:           10Gi          0B        10Gi
+```
+
+### Real Example
+
+* A user can use `free -h` to check the available memory before running large applications.
+
+---
+
+## 3. `df`
+
+### Purpose
+
+* The `df` (Disk Free) command displays information about disk space usage on mounted file systems.
+
+### Syntax
+
+```bash
+df -h
+```
+
+### Example Output
+
+```text
+Filesystem      Size  Used Avail Use%  Mounted on
+/dev/sdd       1007G   43G  913G   5%  /
+```
+
+### Real Example
+
+* A system administrator can use `df -h` to check the available disk space before saving large files or installing software.
+
+---
+
+## Summary Table
+
+| Command   | Purpose                                                          | Example   |
+| --------- | ---------------------------------------------------------------- | --------- |
+| `lscpu`   | Displays CPU (processor) information.                            | `lscpu`   |
+| `free -h` | Displays memory (RAM) and swap usage in a human-readable format. | `free -h` |
+| `df -h`   | Displays disk space usage in a human-readable format.            | `df -h`   |
+
+
+
+---
+
+
+Think of it as checking the **three main hardware resources** of a Linux system:
+
+* **CPU** → `lscpu`
+* **Memory (RAM)** → `free -h`
+* **Disk Storage** → `df -h`
+
+These are three of the most commonly used system information commands in Linux.
+
+
+
+---
 
 ### Q7.
 Explain the purpose of the following Linux directories:
@@ -547,6 +776,404 @@ Explain the purpose of the following Linux directories:
 - `/sbin`
 - `/dev`
 - `/proc`
+
+---
+
+## Linux Directory Structure
+
+```text
+                 /
+          (Root Directory)
+                 │
+ ┌──────┬──────┬──────┬──────┬
+ │      │      │      │      │
+root   bin    sbin   dev    proc
+```
+
+The `/` (root directory) is the top-level directory in Linux. All other directories are inside it.
+
+---
+
+## 1. `/root`
+
+### Purpose
+
+→ `/root` is the **home directory of the root user (also called the superuser or system administrator)**.
+Unlike normal users, the root user has permission to access and modify almost every file in the operating system.
+
+The /root directory stores:
+→ It stores the root user's personal files.
+→ Bash configuration files
+→ Administrative scripts
+→ System configuration backups
+
+### Important Note
+
+Do **not** confuse:
+
+```bash
+/
+```
+with 
+```bash
+/root
+```
+They are different.
+
+| Directory | Meaning                                             |
+| --------- | --------------------------------------------------- |
+| `/`       | Root directory (top of the entire Linux filesystem) |
+| `/root`   | Home directory of the root user                     |
+
+
+
+### Example
+
+View the directory:
+
+```bash
+ls /root
+```
+If permission is denied:
+```bash
+sudo ls /root
+```
+
+```bash
+sudo -i
+cd /root
+sudo ls /root
+pwd
+```
+
+> Note: Only the root user or a user with `sudo` permission can access this directory.
+
+### Real Example
+
+The system administrator stores important scripts (Backup scripts, Maintenance scripts) and configuration files inside `/root`.
+
+---
+
+## 2. `/bin`
+
+### Purpose
+
+→ `/bin` stands for Binary.
+→ `/bin` contains **essential executable programs (user commands)** that are needed for basic system operation.
+
+These commands are available to all users.
+
+### Why are they called binaries?
+
+Programs are stored in machine-executable format called **binary executables**.
+
+When you type:
+```bash
+ls
+```
+Linux searches for executable programs in directories listed in the PATH environment variable. Traditionally, many essential commands were stored in /bin, but on modern Linux distributions, /bin is often a symbolic link to /usr/bin.
+
+### Common Commands
+
+* `ls`
+* `cp`
+* `mv`
+* `rm`
+* `cat`
+* `echo`
+* `pwd`
+* `mkdir`
+
+### Example
+
+```bash
+ls /bin
+```
+
+### Real Example
+
+When we run:
+
+```bash
+ls
+```
+
+Linux executes the cp command from the system's executable directory (/bin or /usr/bin, depending on the distribution).
+
+or
+
+When we type:
+
+```bash
+cp file1.txt file2.txt
+```
+
+Linux executes the `cp` program located in `/bin`.
+
+
+However, on Ubuntu 24.04 (and many modern Linux distributions),
+
+```bash
+/bin
+```
+
+is actually a symbolic link to
+```bash
+/usr/bin
+```
+So the command really comes from
+```bash
+/usr/bin/ls
+```
+
+
+---
+
+## 3. `/sbin`
+
+### Purpose
+
+→ `/sbin` stands for **System Binary**.
+→ `/sbin` contains **essential system administration commands**.
+
+These commands are mainly used by the **root user, system administrators** to manage the system.
+
+Some of these commands require administrator privileges (`sudo`).
+
+### Common Commands
+
+* `reboot`
+* `shutdown`
+* `fsck`
+* `mkfs`
+* `iptables`
+
+### Example
+
+```bash
+ls /sbin
+```
+or
+
+```bash
+which fsck
+```
+```bash
+which mkfs.ext4
+```
+This proves the commands exist without using them.
+
+### Real Example
+
+A system administrator can restart the system using:
+
+```bash
+sudo reboot
+```
+
+Checking a disk:
+```bash
+sudo fsck /dev/sda
+```
+- fsck repairs disks.
+- Running it on the wrong disk can corrupt data.
+- Never run it on your working system just for practice.
+
+
+
+Creating a filesystem:
+```bash
+sudo mkfs.ext4 /dev/sdb1
+```
+- mkfs means: Make File System
+- It formats a partition.
+- Running it on a real drive erases data.
+
+---
+
+### Difference between /bin and /sbin
+
+| `/bin`                            | `/sbin`                            |
+| --------------------------------- | ---------------------------------- |
+| Commands for all users            | Commands mainly for administrators |
+| Used in daily work                | Used for system maintenance        |
+| Usually no root permission needed | Often requires `sudo`              |
+
+
+
+
+---
+
+## 4. `/dev`
+
+### Purpose
+
+→ `/dev` stands for **Devices**.
+→ `/dev` contains **device files** that represent hardware devices.
+
+- Linux treats **hardware devices like files**.
+- Every hardware component is represented by a device file inside `/dev`.
+- This allows programs to communicate with hardware using standard file operations.
+
+### Common Device Files
+
+| Device File   | Purpose                         |
+| ------------- | ------------------------------- |
+| `/dev/sda`    | Hard disk                       |
+| `/dev/null`   | Discards all data written to it |
+| `/dev/tty`    | Terminal device                 |
+| `/dev/random` | Random number generator         |
+| `/dev/zero`   | Produces unlimited zeros        |
+
+
+### Example
+
+```bash
+ls /dev
+```
+
+### Real Example
+
+```bash
+echo "Hello" > file.txt
+```
+
+> When we save a file using echo "Hello" > file.txt, the Linux kernel communicates with the storage device through the device layer represented in /dev.
+
+---
+
+## 5. `/proc`
+
+### Purpose
+
+- `/proc` stands for **Processes**.  
+- `/proc` is a **virtual directory** created by the Linux kernel.
+
+- Unlike normal directories, /proc is a virtual filesystem.
+
+- It is created by the Linux kernel while the system is running.
+
+- The files do not exist permanently on the disk.
+
+Instead, Linux generates them dynamically to provide information about:
+
+* Running processes
+* CPU
+* Memory
+* Kernel
+* System status
+* Hardware
+
+The files inside `/proc` are generated dynamically by the Linux kernel when they are accessed.
+
+### Common Files
+
+| File            | Purpose            |
+| --------------- | ------------------ |
+| `/proc/cpuinfo` | CPU information    |
+| `/proc/meminfo` | Memory information |
+| `/proc/version` | Kernel version     |
+| `/proc/uptime`  | System uptime      |
+| `/proc/loadavg` | CPU load average   |
+
+
+### Example
+
+```bash
+ls /proc
+```
+Those numbers are **PIDs (Process IDs)**.
+
+> Numeric directories inside /proc represent running processes, where each directory name is the Process ID (PID).
+
+```bash
+ls /bin | head
+ls /sbin | head
+ls /dev | head
+ls /proc | head
+```
+
+
+
+
+### Real Example
+
+A DevOps engineer checks available memory before deploying an application:
+
+To check CPU information:
+
+```bash
+cat /proc/cpuinfo
+```
+
+To check memory information:
+
+```bash
+cat /proc/meminfo
+```
+
+To check Kernel version:
+
+```bash
+cat /proc/version
+```
+
+
+Uptime
+```bash
+cat /proc/uptime
+```
+Load Average
+```bash
+cat /proc/loadavg
+```
+> Most files in /proc are read-only and provide live system information.
+
+---
+
+| Directory | Full Meaning        | Purpose                                                      | Example Command     |
+| --------- | ------------------- | ------------------------------------------------------------ | ------------------- |
+| `/root`   | Root User Home      | Stores files of the root (administrator) user                | `ls /root`          |
+| `/bin`    | Binary              | Essential commands for all users                             | `ls /bin`           |
+| `/sbin`   | System Binary       | Essential system administration commands                     | `ls /sbin`          |
+| `/dev`    | Devices             | Contains device files representing hardware                  | `ls /dev`           |
+| `/proc`   | Process Information | Virtual filesystem containing process and system information | `cat /proc/cpuinfo` |
+
+
+---
+
+* **`/root` → Root User** → Home directory of the root (administrator) user.
+* **`/bin` → Basic Commands** → Basic Essential commands for everyone.
+* **`/sbin` → System Commands** → System Commands mainly for the system administrator.
+* **`/dev` → Devices** → Represents hardware devices as files.
+* **`/proc` → Processes** → Shows information about running processes and the system.
+
+---
+
+| Directory | Command                                                | What it shows                               |
+| --------- | ------------------------------------------------------ | ------------------------------------------- |
+| `/root`   | `ls /root` *(or `sudo ls /root` if permission denied)* | Files inside the root user's home directory |
+| `/bin`    | `ls /bin`                                              | Essential user commands                     |
+| `/sbin`   | `ls /sbin`                                             | System administration commands              |
+| `/dev`    | `ls /dev`                                              | Device files                                |
+| `/proc`   | `ls /proc`                                             | Process and system information              |
+
+
+> "The root user's home directory is /root, everyone uses /bin, admins use /sbin, hardware is in /dev, and live system information is in /proc."
+
+
+### Commands to Avoid
+
+| Command                      | Reason                                                  |
+| ---------------------------- | ------------------------------------------------------- |
+| `sudo mkfs.ext4 /dev/sdb1`   | Formats a disk and destroys data.                       |
+| `sudo fsck /dev/sdX`         | Can repair filesystem errors and should not be run on mounted filesystems unless specifically required.; unsafe on a mounted system. |
+| `rm -rf /`                   | Deletes the entire filesystem. Never run.               |
+| `dd if=... of=/dev/sda`      | Can overwrite a disk completely.                        |
+| `mkfs` on any real partition | Erases data.                                            |
+
+
+---
 
 ### Q8.
 Differentiate between a **File** and a **Directory** in Linux. Explain with suitable examples.
