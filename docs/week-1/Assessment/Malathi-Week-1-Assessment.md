@@ -557,6 +557,9 @@ uname -a
 Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec 1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
+<img width="1200" height="42" alt="image" src="https://github.com/user-attachments/assets/df99ed93-c1e3-4ff3-81cf-2f2bd1570b4b" />
+
+
 ---
 
 ## 2. Display the system hostname
@@ -577,6 +580,9 @@ hostname
 Deepak
 ```
 
+<img width="791" height="41" alt="image" src="https://github.com/user-attachments/assets/2b04711c-282a-49c1-b8e4-80e3e6d45c56" />
+
+
 ---
 
 ## 3. View command history
@@ -591,6 +597,9 @@ history
 
 * `history` displays the list of previously executed commands in the terminal.
 
+
+
+
 ### Example Output
 
 ```text
@@ -600,6 +609,8 @@ history
 4  cd DevOps
 5  history
 ```
+
+<img width="916" height="905" alt="image" src="https://github.com/user-attachments/assets/a438c5bb-ed99-4836-8550-8972e7ce41dc" />
 
 ---
 
@@ -616,6 +627,9 @@ touch practice.txt
 * `touch` creates a new empty file.
 * Here, it creates a file named `practice.txt`.
 
+<img width="892" height="26" alt="image" src="https://github.com/user-attachments/assets/bacd4d7a-3db2-4c83-8002-684dfde9342b" />
+
+
 ---
 
 ## 5. Copy the file into another directory
@@ -631,6 +645,11 @@ cp practice.txt DevOps/
 * `cp` means **copy**.
 * This command copies `practice.txt` into the `DevOps` directory.
 
+> Note: This command copies practice.txt into the existing DevOps directory. The destination directory must already exist.
+
+<img width="937" height="242" alt="image" src="https://github.com/user-attachments/assets/e37652ee-aafe-4a70-aaaf-55504292f93c" />
+
+
 ---
 
 ## Complete Commands
@@ -642,6 +661,9 @@ history
 touch practice.txt
 cp practice.txt DevOps/
 ```
+
+<img width="1297" height="1642" alt="image" src="https://github.com/user-attachments/assets/6606fb99-06b8-4959-8add-7441e28cf8d2" />
+
 
 ---
 
@@ -671,7 +693,7 @@ Research any **three Linux commands** that help you obtain system information. E
 
 ### Purpose
 
-* The `lscpu` command displays information about the system's CPU (processor).
+* The `lscpu` command displays detailed information about the CPU architecture, cores, threads, cache, and processor model.
 
 ### Syntax
 
@@ -691,13 +713,16 @@ Model name:          Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
 
 * A system administrator can use `lscpu` to check the processor architecture and the number of CPUs before installing software.
 
+<img width="797" height="1047" alt="image" src="https://github.com/user-attachments/assets/a630f34f-3099-4237-895a-8383816de0ae" />
+
+
 ---
 
 ## 2. `free`
 
 ### Purpose
 
-* The `free` command displays information about the system's memory (RAM) and swap space.
+* The `free` command displays the amount of used, free, and available RAM, along with swap memory usage.
 
 ### Syntax
 
@@ -717,13 +742,18 @@ Swap:           10Gi          0B        10Gi
 
 * A user can use `free -h` to check the available memory before running large applications.
 
+<img width="870" height="90" alt="image" src="https://github.com/user-attachments/assets/38ae2df7-239c-461d-bf54-8e7aed02e7de" />
+
+
 ---
 
 ## 3. `df`
 
 ### Purpose
 
-* The `df` (Disk Free) command displays information about disk space usage on mounted file systems.
+* The `df` (**Disk Free**) command displays the amount of **used** and **available disk space** on mounted file systems.
+* It reports **filesystem usage**, not the physical storage devices.
+* Unlike `lsblk`, `df` does **not** show disks or partitions. Instead, it shows how much space is used and available on mounted file systems.
 
 ### Syntax
 
@@ -738,9 +768,12 @@ Filesystem      Size  Used Avail Use%  Mounted on
 /dev/sdd       1007G   43G  913G   5%  /
 ```
 
+<img width="822" height="576" alt="image" src="https://github.com/user-attachments/assets/87d629a4-3bf2-4102-a452-601869c4bbe9" />
+
+
 ### Real Example
 
-* A system administrator can use `df -h` to check the available disk space before saving large files or installing software.
+* A system administrator can use df -h to check the available disk space before installing software, storing large files, or troubleshooting low disk space issues.
 
 ---
 
@@ -757,14 +790,23 @@ Filesystem      Size  Used Avail Use%  Mounted on
 ---
 
 
-Think of it as checking the **three main hardware resources** of a Linux system:
+Think of it as checking the **three main system resources** of a Linux system:
 
 * **CPU** → `lscpu`
 * **Memory (RAM)** → `free -h`
-* **Disk Storage** → `df -h`
+* **Disk Space** → `df -h`
 
 These are three of the most commonly used system information commands in Linux.
 
+<img width="892" height="1282" alt="image" src="https://github.com/user-attachments/assets/cf486323-f7a6-4a15-8b59-a5f95ccda3df" />
+
+
+### Difference between df and lsblk
+
+| Command | Shows                                                  |
+| ------- | ------------------------------------------------------ |
+| `df -h` | Disk space usage of **mounted file systems**           |
+| `lsblk` | Physical storage devices, partitions, and mount points |
 
 
 ---
@@ -841,6 +883,9 @@ If permission is denied:
 sudo ls /root
 ```
 
+<img width="922" height="112" alt="image" src="https://github.com/user-attachments/assets/c38f03fe-09e4-4703-bb51-f568f5c4a85d" />
+
+
 ```bash
 sudo -i
 cd /root
@@ -849,6 +894,10 @@ pwd
 ```
 
 > Note: Only the root user or a user with `sudo` permission can access this directory.
+
+
+<img width="802" height="641" alt="image" src="https://github.com/user-attachments/assets/8948e82a-0139-45ad-a08f-0e4025488f07" />
+
 
 ### Real Example
 
@@ -891,6 +940,9 @@ Linux searches for executable programs in directories listed in the PATH environ
 ```bash
 ls /bin
 ```
+
+<img width="2081" height="1277" alt="image" src="https://github.com/user-attachments/assets/79e1d758-f5cc-48a0-945e-177f2ee6d2bc" />
+
 
 ### Real Example
 
@@ -965,6 +1017,9 @@ which mkfs.ext4
 ```
 This proves the commands exist without using them.
 
+<img width="1007" height="1238" alt="image" src="https://github.com/user-attachments/assets/d6f6c6c9-03f7-4f7f-84e1-0fc0cfff3ec0" />
+
+
 ### Real Example
 
 A system administrator can restart the system using:
@@ -972,6 +1027,9 @@ A system administrator can restart the system using:
 ```bash
 sudo reboot
 ```
+
+<img width="1915" height="1022" alt="image" src="https://github.com/user-attachments/assets/52e9cba6-71e0-48ef-930c-d38c0f49b14a" />
+
 
 Checking a disk:
 ```bash
@@ -1038,6 +1096,9 @@ On many modern Linux distributions, /sbin is a symbolic link to /usr/sbin.
 ls /dev
 ```
 
+<img width="2002" height="200" alt="image" src="https://github.com/user-attachments/assets/9ed65408-c92f-4a74-85b4-5b15fb9f106f" />
+
+
 ### Real Example
 
 
@@ -1050,6 +1111,8 @@ echo "Hello" > /dev/null
 
 
 > The text "Hello" is sent to the special device file /dev/null, where it is immediately discarded. This demonstrates how Linux treats devices as files and allows programs to interact with them using standard file operations. No output is expected because the data is discarded.
+
+<img width="945" height="65" alt="image" src="https://github.com/user-attachments/assets/ba0841c2-b3fc-4e53-bfdd-908998d7c8f8" />
 
 
 ### Showing storage devices
@@ -1074,6 +1137,7 @@ sdd      8:48   0     1T  0 disk /
 > The disks shown by lsblk are represented by device files inside the /dev directory, such as /dev/sda, /dev/sdb, /dev/sdc, and /dev/sdd. Programs access storage devices through these device files.
 
 
+<img width="797" height="227" alt="image" src="https://github.com/user-attachments/assets/07c438a4-a0ab-4a1f-894c-8a4e1acc3f8d" />
 
 
 
@@ -1137,18 +1201,27 @@ ls /dev | head
 ls /proc | head
 ```
 
+<img width="970" height="1042" alt="image" src="https://github.com/user-attachments/assets/68fcc151-d138-4a38-8142-4a8d322d73f1" />
+
+
 ```bash
 ls /proc/1
 ```
 
 > Note: Some files and symbolic links inside /proc/<PID> require root privileges. Therefore, seeing "Permission denied" for some entries is normal.
-or
+
+<img width="902" height="507" alt="image" src="https://github.com/user-attachments/assets/a550d2c4-fb5e-408f-9db2-c0cb3b923a65" />
+
+
+## or
 
 ```bash
 cat /proc/1/status
 ```
 
 > Here, 1 is the PID of the first process started by the Linux kernel (typically systemd on modern Linux systems). Viewing /proc/1/status displays information such as the process name, state, PID, memory usage, and capabilities.
+
+<img width="2441" height="1067" alt="image" src="https://github.com/user-attachments/assets/71245cfe-8eee-4d93-99c0-d26b9d8fa875" />
 
 
 
@@ -1185,35 +1258,28 @@ cat /proc/loadavg
 ```
 > Most files in /proc are read-only and provide live system information.
 
----
+<img width="2221" height="1457" alt="image" src="https://github.com/user-attachments/assets/ae69e278-89f3-4ebd-9b55-b4dfeee25f99" />
 
-| Directory | Full Meaning        | Purpose                                                      | Example Command     |
-| --------- | ------------------- | ------------------------------------------------------------ | ------------------- |
-| `/root`   | Root User Home      | Stores the personal files of the root user (administrator) user                | `ls /root`          |
-| `/bin`    | Binary              | Essential commands for all users                             | `ls /bin`           |
-| `/sbin`   | System Binary       | Essential system administration commands                     | `ls /sbin`          |
-| `/dev`    | Devices             | Contains device files representing hardware                  | `ls /dev`           |
-| `/proc`   | Process Information | Virtual filesystem containing process and system information | `cat /proc/cpuinfo` |
-
+<img width="982" height="1190" alt="image" src="https://github.com/user-attachments/assets/8643aceb-7fda-4ae6-b0f1-556b138a50a4" />
 
 ---
 
-* **`/root` → Root User** → Home directory of the root (administrator) user.
-* **`/bin` → Basic Commands** → Basic Essential user commands available to all users.
-* **`/sbin` → System Commands** → System Commands mainly for the system administrator.
-* **`/dev` → Devices** → Represents hardware devices as files.
-* **`/proc` → Processes** → Provides live information about running processes, the kernel, memory, CPU, and other system resources.
+## Summary
 
----
+| Directory | Meaning | Purpose | Example Command |
+|-----------|---------|---------|-----------------|
+| `/root` | Root User Home | Stores the personal files of the root (administrator) user. | `ls /root` *(or `sudo ls /root` if permission is denied)* |
+| `/bin` | Binary | Contains essential executable commands available to all users. | `ls /bin` |
+| `/sbin` | System Binary | Contains essential system administration commands, mainly used by administrators. | `ls /sbin` |
+| `/dev` | Devices | Contains device files that represent hardware and virtual devices. | `ls /dev` |
+| `/proc` | Process Information | Virtual filesystem that provides live information about running processes and the Linux kernel. | `cat /proc/cpuinfo` |
 
-| Directory | Command                                                | What it shows                               |
-| --------- | ------------------------------------------------------ | ------------------------------------------- |
-| `/root`   | `ls /root` *(or `sudo ls /root` if permission denied)* | Files inside the root user's home directory |
-| `/bin`    | `ls /bin`                                              | Essential user commands                     |
-| `/sbin`   | `ls /sbin`                                             | System administration commands              |
-| `/dev`    | `ls /dev`                                              | Device files                                |
-| `/proc`   | `ls /proc`                                             | Process and system information              |
-
+> Quick Memory Tip:
+> /root → Root user's home directory
+> /bin → Essential user commands
+> /sbin → System administration commands
+> /dev → Device files representing hardware
+> /proc → Live process and system information
 
 > "The root user's home directory is /root, everyone uses /bin, admins use /sbin, hardware is in /dev, and live system information is in /proc."
 
