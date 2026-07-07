@@ -136,7 +136,7 @@ touch notes.txt
 
 This example shows how the Linux kernel manages communication between software and hardware.
 
-
+![alt text](image-2.png)
 
 ---
 
@@ -255,7 +255,7 @@ touch Git/git.txt
 tree
 ```
 
-
+![alt text](image-3.png)
 
 ---
 
@@ -296,6 +296,8 @@ Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
 
 You can display a welcome message or check the value of a variable while writing Bash scripts.
 
+![alt text](image-4.png)
+
 ---
 
 ## 2. `man`
@@ -319,6 +321,8 @@ man ls
 ### Real Example
 
 If you forget how the `ls` command works, you can use `man ls` to read its manual.
+
+![alt text](image-5.png)
 
 ---
 
@@ -345,6 +349,8 @@ uname -a
 ```text
 Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
 ```
+
+![alt text](image-6.png)
 
 | Part                                                 | Meaning                            | Equivalent Command    |
 | ---------------------------------------------------- | ---------------------------------- | --------------------- |
@@ -378,6 +384,8 @@ A system administrator can use `uname -a` to check the Linux kernel version befo
 | `uname -o` | **Operating System**        | Displays the operating system (e.g., `GNU/Linux`).           |
 
 
+https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-shetty/interns/Malathi-Shetty/images/Q4%20Explain%20the%20purpose%20of%20the%20following%20commands%20with%20one%20example%20each/3.%20uname-common_commands.png?raw=true
+
 ---
 
 ## 4. `hostname`
@@ -401,8 +409,10 @@ hostname
 ### Example Output
 
 ```text
-ubuntu 
+ubuntu / Deepak
 ```
+
+https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-shetty/interns/Malathi-Shetty/images/Q4%20Explain%20the%20purpose%20of%20the%20following%20commands%20with%20one%20example%20each/4.%20hostname.png?raw=true
 
 ### Real Example
 
@@ -418,7 +428,7 @@ When connecting to another computer over a network, you can use the hostname to 
 | `hostname -f` | Displays the Fully Qualified Domain Name (FQDN), if configured.                   | `server.example.com`                     |
 | `hostname -A` | Displays all configured hostnames (if available).                                 | Depends on the system                    |
 
-
+https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-shetty/interns/Malathi-Shetty/images/Q4%20Explain%20the%20purpose%20of%20the%20following%20commands%20with%20one%20example%20each/4.%20hostname-common_commands.png?raw=true
 
 
 ---
@@ -447,6 +457,8 @@ who
 malathi  pts/1        2026-07-07 05:32
 ```
 
+![alt text](image-7.png)
+
 ### Real Example
 
 On a shared Linux server, an administrator can use `who` to see which users are currently logged in.
@@ -464,6 +476,7 @@ On a shared Linux server, an administrator can use `who` to see which users are 
 
 > Note: On WSL2, who am i may not display any output because WSL does not create a traditional Linux login session. This is expected behavior.
 
+https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-shetty/interns/Malathi-Shetty/images/Q4%20Explain%20the%20purpose%20of%20the%20following%20commands%20with%20one%20example%20each/5.%20who-common_commands.png?raw=true
 
 ---
 
