@@ -56,10 +56,10 @@ Explain the role of the Linux Kernel. Why is it considered the core of the opera
 
 ### Answer
 
-→ The **Linux Kernel** is the **core part** of the Linux operating system. 
-→ It manages communication between the software and the hardware. 
-→ When a user runs a program or enters a command, the request goes through the shell to the Linux kernel. 
-→ The kernel then communicates with the hardware and returns the result to the application.
+→ The **Linux Kernel** is the **core part** of the Linux operating system.   
+→ It manages communication between the software and the hardware.   
+→ When a user runs a program or enters a command, the request goes through the shell to the Linux kernel.   
+→ The kernel then communicates with the hardware and returns the result to the application.  
 
 ### Linux Architecture
 
@@ -96,11 +96,11 @@ The Linux kernel performs several important tasks:
 * **Memory Management:**
     * Allocates and manages memory for running programs.
 * **Device Management:**
-    * Controls hardware devices such as the
-        → keyboard,
-        → mouse,
-        → printer, and
-        → storage devices using device drivers.
+    * Controls hardware devices such as the  
+        * keyboard,  
+        * mouse,  
+        * printer, and  
+        * storage devices using device drivers.  
 * **File System Management:**
     * Reads,
     * writes, and
@@ -137,9 +137,9 @@ Create      RAM Mgmt  Drivers   Storage
 
 ### Why is it considered the core of the operating system?
 
-→ The Linux kernel is called the **core** of the operating system because it connects software with hardware and manages all important system resources. 
-→ Every program depends on the kernel to access the CPU, memory, storage, and other hardware devices. 
-→ Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.
+→ The Linux kernel is called the **core** of the operating system because it connects software with hardware and manages all important system resources.   
+→ Every program depends on the kernel to access the CPU, memory, storage, and other hardware devices.   
+→ Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.  
 
 ### Real Example
 
@@ -327,7 +327,7 @@ Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
 
 ### Purpose
 
-→ The `man` (manual) command is used to **view the user manual** of a Linux command. 
+→ The `man` (manual) command is used to **view the user manual** of a Linux command.   
 → It provides information about the command, its options, and how to use it.
 
 ### Syntax
