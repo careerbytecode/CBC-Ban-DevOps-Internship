@@ -30,10 +30,10 @@ What is the difference between a Linux Operating System and a Windows Operating 
 Linux is a free and secure operating system that is widely used by developers and companies for servers and cloud computing. 
 Windows is user-friendly and is commonly used for personal computers, office work, and gaming.
 
+---
 
 ### Q2.
 Explain the role of the Linux Kernel. Why is it considered the core of the operating system?
-
 
 ### Answer
 
@@ -91,6 +91,9 @@ touch notes.txt
 
 This example shows how the Linux kernel manages communication between software and hardware.
 
+![touch notes.txt](touch_notes_txt.png)
+
+---
 
 ### Q3.
 Write the Linux commands to perform the following tasks:
@@ -98,6 +101,118 @@ Write the Linux commands to perform the following tasks:
 - Create two subdirectories named `Linux` and `Git`
 - Create one file inside each directory
 - Display the complete directory structure
+
+### Task 1: Create a directory named `DevOps`
+
+```bash
+mkdir DevOps
+```
+
+**Explanation:**
+
+* `mkdir` means **make directory**.
+* This command creates a new directory named **DevOps**.
+
+---
+
+### Task 2: Go inside the `DevOps` directory
+
+```bash
+cd DevOps
+```
+
+**Explanation:**
+
+* `cd` means **change directory**.
+* It moves you inside the `DevOps` directory.
+
+---
+
+### Task 3: Create two subdirectories named `Linux` and `Git`
+
+```bash
+mkdir Linux Git
+```
+
+**Explanation:**
+
+* This command creates two directories:
+
+  * `Linux`
+  * `Git`
+
+---
+
+### Task 4: Create one file inside each directory
+
+Create a file inside the **Linux** directory:
+
+```bash
+touch Linux/linux.txt
+```
+
+Create a file inside the **Git** directory:
+
+```bash
+touch Git/git.txt
+```
+
+**Explanation:**
+
+* `touch` creates a new empty file.
+* `Linux/linux.txt` means create **linux.txt** inside the **Linux** directory.
+* `Git/git.txt` means create **git.txt** inside the **Git** directory.
+
+---
+
+### Task 5: Display the complete directory structure
+
+```bash
+tree
+```
+
+**Example Output**
+
+```text
+DevOps
+├── Git
+│   └── git.txt
+└── Linux
+    └── linux.txt
+
+2 directories, 2 files
+```
+
+> **Note:** If the `tree` command is not installed, install it first.
+
+Ubuntu/Debian:
+
+```bash
+sudo apt install tree
+```
+
+Or use:
+
+```bash
+ls -R
+```
+
+---
+
+## Complete Commands
+
+```bash
+mkdir DevOps
+cd DevOps
+mkdir Linux Git
+touch Linux/linux.txt
+touch Git/git.txt
+tree
+```
+
+
+
+---
 
 ### Q4.
 Explain the purpose of the following commands with one example each:
