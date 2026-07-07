@@ -34,7 +34,6 @@ Windows is user-friendly and is commonly used for personal computers, office wor
 ### Q2.
 Explain the role of the Linux Kernel. Why is it considered the core of the operating system?
 
-## Q2. Explain the role of the Linux Kernel. Why is it considered the core of the operating system?
 
 ### Answer
 
