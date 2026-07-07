@@ -27,8 +27,9 @@ What is the difference between a Linux Operating System and a Windows Operating 
 | Linux is widely used for servers, cloud computing, and software development. | Windows is mainly used on personal computers, offices, and gaming systems. |
 | Linux supports both the Command Line Interface (CLI) and Graphical User Interface (GUI).        | Windows is mainly operated through a graphical user interface (GUI).       |
 
-Linux is a free and secure operating system that is widely used by developers and companies for servers and cloud computing. 
-Windows is user-friendly and is commonly used for personal computers, office work, and gaming.
+🔹Linux is a free and secure operating system that is widely used by developers and companies for servers and cloud computing.
+
+🔹Windows is user-friendly and is commonly used for personal computers, office work, and gaming.
 
 ```text
                 Operating Systems
@@ -37,11 +38,11 @@ Windows is user-friendly and is commonly used for personal computers, office wor
           │                         │
       Linux                     Windows
           │                         │
-   Open Source              Closed Source
-   Free                     Paid Licensed
-   CLI + GUI                Mainly GUI Focused
-   Cloud & Servers          Personal PCs & Gaming
-   More Secure              More Malware Targeted
+  🔹 Open Source             🔹 Closed Source
+  🔹 Free                    🔹 Paid Licensed
+  🔹 CLI + GUI               🔹 Mainly GUI Focused
+  🔹 Cloud & Servers         🔹 Personal PCs & Gaming
+  🔹 More Secure             🔹 More Malware Targeted
 
 ```
 
@@ -55,7 +56,10 @@ Explain the role of the Linux Kernel. Why is it considered the core of the opera
 
 ### Answer
 
-The **Linux Kernel** is the **core part** of the Linux operating system. It manages communication between the software and the hardware. When a user runs a program or enters a command, the request goes through the shell to the Linux kernel. The kernel then communicates with the hardware and returns the result to the application.
+→ The **Linux Kernel** is the **core part** of the Linux operating system. 
+→ It manages communication between the software and the hardware. 
+→ When a user runs a program or enters a command, the request goes through the shell to the Linux kernel. 
+→ The kernel then communicates with the hardware and returns the result to the application.
 
 ### Linux Architecture
 
@@ -84,11 +88,25 @@ The **Linux Kernel** is the **core part** of the Linux operating system. It mana
 
 The Linux kernel performs several important tasks:
 
-* **Process Management:** Creates, runs, schedules, and stops programs.
-* **Memory Management:** Allocates and manages memory for running programs.
-* **Device Management:** Controls hardware devices such as the keyboard, mouse, printer, and storage devices using device drivers.
-* **File System Management:** Reads, writes, and manages files stored on disks.
-* **Security and Permissions:** Controls user access and protects system resources.
+* **Process Management:**
+    * Creates,
+    * runs,
+    * schedules, and
+    * stops programs.
+* **Memory Management:**
+    * Allocates and manages memory for running programs.
+* **Device Management:**
+    * Controls hardware devices such as the
+        → keyboard,
+        → mouse,
+        → printer, and
+        → storage devices using device drivers.
+* **File System Management:**
+    * Reads,
+    * writes, and
+    * manages files stored on disks.
+* **Security and Permissions:**
+    * Controls user access and protects system resources.
 
 ```text
                APPLICATIONS
@@ -119,11 +137,13 @@ Create      RAM Mgmt  Drivers   Storage
 
 ### Why is it considered the core of the operating system?
 
-The Linux kernel is called the **core** of the operating system because it connects software with hardware and manages all important system resources. Every program depends on the kernel to access the CPU, memory, storage, and other hardware devices. Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.
+→ The Linux kernel is called the **core** of the operating system because it connects software with hardware and manages all important system resources. 
+→ Every program depends on the kernel to access the CPU, memory, storage, and other hardware devices. 
+→ Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.
 
 ### Real Example
 
-Suppose you create a file using the command:
+Suppose we create a file using the command:
 
 ```bash
 touch notes.txt
@@ -155,7 +175,6 @@ mkdir DevOps
 ```
 
 **Explanation:**
-
 * `mkdir` means **make directory**.
 * This command creates a new directory named **DevOps**.
 
@@ -231,7 +250,7 @@ DevOps
 
 > **Note:** If the `tree` command is not installed, install it first.
 
-Ubuntu/Debian:
+→ Ubuntu/Debian:
 
 ```bash
 sudo apt install tree
@@ -275,7 +294,7 @@ Explain the purpose of the following commands with one example each:
 
 ### Purpose
 
-The `echo` command is used to **display text or the value of a variable** in the terminal.
+→ The `echo` command is used to **display text or the value of a variable** in the terminal.
 
 ### Syntax
 
@@ -297,7 +316,7 @@ Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
 
 ### Real Example
 
-You can display a welcome message or check the value of a variable while writing Bash scripts.
+→ Display a welcome message or check the value of a variable while writing Bash scripts.
 
 <img width="1172" height="47" alt="image" src="https://github.com/user-attachments/assets/7fa6bae6-bdfb-42ee-8ef8-6a18d5843e17" />
 
@@ -308,7 +327,8 @@ You can display a welcome message or check the value of a variable while writing
 
 ### Purpose
 
-The `man` (manual) command is used to **view the user manual** of a Linux command. It provides information about the command, its options, and how to use it.
+→ The `man` (manual) command is used to **view the user manual** of a Linux command. 
+→ It provides information about the command, its options, and how to use it.
 
 ### Syntax
 
@@ -324,7 +344,7 @@ man ls
 
 ### Real Example
 
-If you forget how the `ls` command works, you can use `man ls` to read its manual.
+→ If we forget how the `ls` command works, we can use `man ls` to read its manual.
 
 <img width="1512" height="1348" alt="image" src="https://github.com/user-attachments/assets/064b261d-13a4-414e-9995-e8c8ea3fee98" />
 
@@ -335,7 +355,7 @@ If you forget how the `ls` command works, you can use `man ls` to read its manua
 
 ### Purpose
 
-The `uname` command displays **system information**, such as the operating system name and kernel version.
+→ The `uname` command displays **system information**, such as the operating system name and kernel version.
 
 ### Syntax
 
@@ -374,7 +394,7 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1
 
 ### Real Example
 
-A system administrator can use `uname -a` to check the Linux kernel version before installing software.
+→ A system administrator can use `uname -a` to check the Linux kernel version before installing software.
 
 #### Common Commands
 
@@ -400,7 +420,7 @@ A system administrator can use `uname -a` to check the Linux kernel version befo
 
 ### Purpose
 
-The `hostname` command displays the **name of the current computer (host)** on the network.
+→ The `hostname` command displays the **name of the current computer (host)** on the network.
 
 ### Syntax
 
@@ -426,7 +446,7 @@ ubuntu / Deepak
 
 ### Real Example
 
-When connecting to another computer over a network, you can use the hostname to identify the system.
+→ When connecting to another computer over a network, we can use the hostname to identify the system.
 
 #### Common Commands
 
@@ -448,7 +468,7 @@ When connecting to another computer over a network, you can use the hostname to 
 
 ### Purpose
 
-The `who` command displays **the users who are currently logged in** to the Linux system.
+→ The `who` command displays **the users who are currently logged in** to the Linux system.
 
 ### Syntax
 
@@ -473,7 +493,7 @@ malathi  pts/1        2026-07-07 05:32
 
 ### Real Example
 
-On a shared Linux server, an administrator can use `who` to see which users are currently logged in.
+→ On a shared Linux server, an administrator can use `who` to see which users are currently logged in.
 
 
 #### Common Commands
