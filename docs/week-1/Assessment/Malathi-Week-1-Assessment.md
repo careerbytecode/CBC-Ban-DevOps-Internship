@@ -34,6 +34,65 @@ Windows is user-friendly and is commonly used for personal computers, office wor
 ### Q2.
 Explain the role of the Linux Kernel. Why is it considered the core of the operating system?
 
+## Q2. Explain the role of the Linux Kernel. Why is it considered the core of the operating system?
+
+### Answer
+
+The **Linux Kernel** is the **core part** of the Linux operating system. It manages communication between the software and the hardware. When a user runs a program or enters a command, the request goes through the shell to the Linux kernel. The kernel then communicates with the hardware and returns the result to the application.
+
+### Linux Architecture
+
+```text
++----------------------+
+|     Applications     |
++----------------------+
+           |
+           v
++----------------------+
+|        Shell         |
++----------------------+
+           |
+           v
++----------------------+
+|     Linux Kernel     |
++----------------------+
+           |
+           v
++----------------------+
+|      Hardware        |
++----------------------+
+```
+
+### Role of the Linux Kernel
+
+The Linux kernel performs several important tasks:
+
+* **Process Management:** Creates, runs, schedules, and stops programs.
+* **Memory Management:** Allocates and manages memory for running programs.
+* **Device Management:** Controls hardware devices such as the keyboard, mouse, printer, and storage devices using device drivers.
+* **File System Management:** Reads, writes, and manages files stored on disks.
+* **Security and Permissions:** Controls user access and protects system resources.
+
+### Why is it considered the core of the operating system?
+
+The Linux kernel is called the **core** of the operating system because it connects software with hardware and manages all important system resources. Every program depends on the kernel to access the CPU, memory, storage, and other hardware devices. Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.
+
+### Real Example
+
+Suppose you create a file using the command:
+
+```bash
+touch notes.txt
+```
+
+* The **Shell** receives the `touch notes.txt` command.
+* The **Shell** sends the request to the **Linux Kernel**.
+* The **Kernel** communicates with the storage device (hardware).
+* The file **`notes.txt`** is created successfully.
+
+This example shows how the Linux kernel manages communication between software and hardware.
+
+
 ### Q3.
 Write the Linux commands to perform the following tasks:
 - Create a directory named `DevOps`
