@@ -25,10 +25,28 @@ What is the difference between a Linux Operating System and a Windows Operating 
 | Linux is usually free to download and use.                                   | Windows usually requires a paid license.                                   |
 | Linux is more secure and gets fewer viruses and malware.                     | Windows is more commonly targeted by viruses and malware.                  |
 | Linux is widely used for servers, cloud computing, and software development. | Windows is mainly used on personal computers, offices, and gaming systems. |
-| Linux uses commands in the terminal along with a graphical interface.        | Windows is mainly operated through a graphical user interface (GUI).       |
+| Linux supports both the Command Line Interface (CLI) and Graphical User Interface (GUI).        | Windows is mainly operated through a graphical user interface (GUI).       |
 
 Linux is a free and secure operating system that is widely used by developers and companies for servers and cloud computing. 
 Windows is user-friendly and is commonly used for personal computers, office work, and gaming.
+
+```text
+                Operating Systems
+                       │
+          ┌────────────┴────────────┐
+          │                         │
+      Linux                     Windows
+          │                         │
+   Open Source              Closed Source
+   Free                     Paid Licensed
+   CLI + GUI                Mainly GUI Focused
+   Cloud & Servers          Personal PCs & Gaming
+   More Secure              More Malware Targeted
+
+```
+
+
+
 
 ---
 
@@ -72,6 +90,33 @@ The Linux kernel performs several important tasks:
 * **File System Management:** Reads, writes, and manages files stored on disks.
 * **Security and Permissions:** Controls user access and protects system resources.
 
+```text
+               APPLICATIONS
+                    │
+                    ▼
+                 SHELL
+                    │
+                    ▼
+
+         ┌────────────────────┐
+         │      KERNEL        │
+         └────────────────────┘
+
+     ╱         │        │         ╲
+Process     Memory    Device     File
+  │            │         │         │
+Create      RAM Mgmt  Drivers   Storage
+
+             ╲        │        ╱
+               SECURITY
+      Users • Permissions • Access
+
+                    │
+                    ▼
+                HARDWARE
+```
+
+
 ### Why is it considered the core of the operating system?
 
 The Linux kernel is called the **core** of the operating system because it connects software with hardware and manages all important system resources. Every program depends on the kernel to access the CPU, memory, storage, and other hardware devices. Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.
@@ -91,7 +136,7 @@ touch notes.txt
 
 This example shows how the Linux kernel manages communication between software and hardware.
 
-![touch notes.txt](touch_notes_txt.png)
+
 
 ---
 
@@ -221,6 +266,221 @@ Explain the purpose of the following commands with one example each:
 - `uname`
 - `hostname`
 - `who`
+
+
+## 1. `echo`
+
+### Purpose
+
+The `echo` command is used to **display text or the value of a variable** in the terminal.
+
+### Syntax
+
+```bash
+echo [text]
+```
+
+### Example
+
+```bash
+echo "Welcome to Week 1 Assignment of CareerByteCode DevOps Internship"
+```
+
+### Output
+
+```text
+Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
+```
+
+### Real Example
+
+You can display a welcome message or check the value of a variable while writing Bash scripts.
+
+---
+
+## 2. `man`
+
+### Purpose
+
+The `man` (manual) command is used to **view the user manual** of a Linux command. It provides information about the command, its options, and how to use it.
+
+### Syntax
+
+```bash
+man [command]
+```
+
+### Example
+
+```bash
+man ls
+```
+
+### Real Example
+
+If you forget how the `ls` command works, you can use `man ls` to read its manual.
+
+---
+
+## 3. `uname`
+
+### Purpose
+
+The `uname` command displays **system information**, such as the operating system name and kernel version.
+
+### Syntax
+
+```bash
+uname [option]
+```
+
+### Example
+
+```bash
+uname -a
+```
+
+### Example Output
+
+```text
+Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+| Part                                                 | Meaning                            | Equivalent Command    |
+| ---------------------------------------------------- | ---------------------------------- | --------------------- |
+| `Linux`                                              | Kernel Name (Operating System)     | `uname` or `uname -s` |
+| `Deepak`                                             | Hostname (Computer name)           | `uname -n`            |
+| `6.6.114.1-microsoft-standard-WSL2`                  | Kernel Release                     | `uname -r`            |
+| `#1 SMP PREEMPT_DYNAMIC Mon Dec 1 20:46:23 UTC 2025` | Kernel Version (build information) | `uname -v`            |
+| `x86_64`                                             | Machine Hardware Name              | `uname -m`            |
+| `x86_64`                                             | Processor Type                     | `uname -p`            |
+| `x86_64`                                             | Hardware Platform                  | `uname -i`            |
+| `GNU/Linux`                                          | Operating System                   | `uname -o`            |
+
+
+### Real Example
+
+A system administrator can use `uname -a` to check the Linux kernel version before installing software.
+
+#### Common Commands
+
+| Command    | Stands for                  | Purpose                                                      |
+| ---------- | --------------------------- | ------------------------------------------------------------ |
+| `uname`    | *(same as `-s` by default)* | Displays the **kernel name** (e.g., `Linux`).                |
+| `uname -s` | **System**                  | Displays the **kernel name** (e.g., `Linux`).                |
+| `uname -a` | **All**                     | Displays all available system information.                   |
+| `uname -r` | **Release**                 | Displays the Linux **kernel release** (version number).      |
+| `uname -m` | **Machine**                 | Displays the machine hardware architecture (e.g., `x86_64`). |
+| `uname -n` | **Node**                    | Displays the system hostname (computer name).                |
+| `uname -v` | **Version**                 | Displays the Linux kernel build version and build date.      |
+| `uname -p` | **Processor**               | Displays the processor type.                                 |
+| `uname -i` | **Hardware Platform**       | Displays the hardware platform.                              |
+| `uname -o` | **Operating System**        | Displays the operating system (e.g., `GNU/Linux`).           |
+
+
+---
+
+## 4. `hostname`
+
+### Purpose
+
+The `hostname` command displays the **name of the current computer (host)** on the network.
+
+### Syntax
+
+```bash
+hostname
+```
+
+### Example
+
+```bash
+hostname
+```
+
+### Example Output
+
+```text
+ubuntu 
+```
+
+### Real Example
+
+When connecting to another computer over a network, you can use the hostname to identify the system.
+
+#### Common Commands
+
+| Command       | Purpose                                                                           | Example Output                           |
+| ------------- | --------------------------------------------------------------------------------- | ---------------------------------------- |
+| `hostname`    | Displays the current hostname (computer name).                                    | `Deepak`                                 |
+| `hostname -I` | Displays the IP address(es) assigned to the system.                               | `192.168.x.x 192.168.x.x`                |
+| `hostnamectl` | Displays detailed hostname and system information **(on systems using systemd)**. | Hostname, OS, Kernel, Architecture, etc. |
+| `hostname -f` | Displays the Fully Qualified Domain Name (FQDN), if configured.                   | `server.example.com`                     |
+| `hostname -A` | Displays all configured hostnames (if available).                                 | Depends on the system                    |
+
+
+
+
+---
+
+## 5. `who`
+
+### Purpose
+
+The `who` command displays **the users who are currently logged in** to the Linux system.
+
+### Syntax
+
+```bash
+who
+```
+
+### Example
+
+```bash
+who
+```
+
+### Example Output
+
+```text
+malathi  pts/1        2026-07-07 05:32
+```
+
+### Real Example
+
+On a shared Linux server, an administrator can use `who` to see which users are currently logged in.
+
+
+#### Common Commands
+
+| Command    | Purpose                                                                  | Example Output                                                 |
+| ---------- | ------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| `who`      | Displays the users currently logged in to the system.                    | `malathi pts/1 2026-07-07 05:32`                               |
+| `who am i` | Displays information about the current login session.                    | `malathi pts/1 2026-07-07 05:32` *(may show no output in WSL)* |
+| `who -b`   | Displays the last system boot time.                                      | `system boot 2026-07-07 05:32`                                 |
+| `who -q`   | Displays the usernames of logged-in users and the total number of users. | `malathi`<br>`# users=1`                                       |
+| `who -H`   | Displays the output with column headings.                                | `NAME LINE TIME COMMENT`                                               |
+
+> Note: On WSL2, who am i may not display any output because WSL does not create a traditional Linux login session. This is expected behavior.
+
+
+---
+
+## Summary Table
+
+| Command    | Purpose                              | Example                   |
+| ---------- | ------------------------------------ | ------------------------- |
+| `echo`     | Displays text or variable values.    | `echo "Welcome to Linux"` |
+| `man`      | Opens the manual page for a command. | `man ls`                  |
+| `uname`    | Displays system information.         | `uname -a`                |
+| `hostname` | Displays the computer's hostname.    | `hostname`                |
+| `who`      | Shows the users currently logged in. | `who`                     |
+
+
+
+
+---
 
 ### Q5.
 Write Linux commands to perform the following:
