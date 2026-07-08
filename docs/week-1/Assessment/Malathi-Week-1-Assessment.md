@@ -3274,6 +3274,109 @@ Create a GitHub repository named **week1-practice-set3** and upload:
 - Minimum **5 Git commits**
 - Screenshots of your terminal output
 
+### Answer
+
+For your assessment, keep the answers concise and include your repository link.
+
+### Q19. Research any two popular Linux distributions used in cloud environments. Explain their features and where they are commonly used.
+
+**Answer:**
+
+### 1. Ubuntu Server
+
+**Features:**
+
+* Open-source and user-friendly.
+* Long Term Support (LTS) versions provide updates for 5 years.
+* Large software repository and community support.
+* Supports Docker, Kubernetes, and cloud platforms.
+
+**Common Uses:**
+
+* Web servers
+* Application servers
+* Cloud Virtual Machines (AWS, Azure, Google Cloud)
+* DevOps and CI/CD environments
+
+---
+
+### 2. Red Hat Enterprise Linux (RHEL)
+
+**Features:**
+
+* Enterprise-grade Linux distribution.
+* High security and stability.
+* Long-term support with regular security updates.
+* Certified for enterprise applications.
+
+**Common Uses:**
+
+* Enterprise servers
+* Banking and financial systems
+* Government organizations
+* Production cloud environments
+
+---
+
+### Summary Table
+
+| Linux Distribution              | Key Features                          | Common Uses                                     |
+| ------------------------------- | ------------------------------------- | ----------------------------------------------- |
+| Ubuntu Server                   | Open-source, LTS support, easy to use | Cloud VMs, Web Servers, DevOps                  |
+| Red Hat Enterprise Linux (RHEL) | Enterprise support, secure, stable    | Enterprise servers, Banking, Production systems |
+
+---
+
+## Q20. Create a GitHub repository named `week1-practice-set3` and upload the required files.
+
+**Answer:**
+
+GitHub Repository:
+
+**[https://github.com/shettymalathib/week1-practice-set3](https://github.com/shettymalathib/week1-practice-set3)**
+
+The repository contains:
+
+* Linux command practice documentation
+* Bash shell scripts
+* A well-formatted `README.md`
+* More than 5 meaningful Git commits
+* Screenshots of terminal output demonstrating Linux commands and Bash scripts
+
+### Repository Structure
+
+```text
+week1-practice-set3/
+│.
+├── Practice from file-management scripts
+│   ├── file1.txt
+│   └── file2.txt
+├── README.md
+├── linux
+│   ├── linux-cheatsheet.md
+│   └── linux-commands.md
+├── screenshots
+│   ├── Linux-commands-1.png
+│   ├── Linux-commands-2.png
+│   ├── Linux-commands-3.png
+│   ├── Linux-commands-4.png
+│   ├── Linux-commands-5.png
+│   ├── back-up.png
+│   ├── create files.png
+│   ├── file-management.png
+│   ├── git-commit.png
+│   └── system-health-script.png
+└── scripts
+    ├── backup.sh
+    ├── file-management.sh
+    └── system-health.sh
+
+5 directories, 18 files
+```
+
+
+
+
 ---
 
 ## 🎥 Q21. Self-Speech Video (Mandatory)
