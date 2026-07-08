@@ -109,29 +109,58 @@ The Linux kernel performs several important tasks:
     * Controls user access and protects system resources.
 
 ```text
-               APPLICATIONS
-                    │
-                    ▼
-                 SHELL
-                    │
-                    ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         LINUX ARCHITECTURE                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   ┌─────────────────────────────────────────────────────────────────────┐   │
+│   │                        APPLICATIONS                                 │   │
+│   │                 User Programs & Tools                               │   │
+│   │                                                                     │   │
+│   │   ┌─────────────────────────────────────────────────────────────┐   │   │
+│   │   │                         SHELL                               │   │   │
+│   │   │                  User Interface (CLI / GUI)                 │   │   │
+│   │   │                                                             │   │   │
+│   │   │   ┌─────────────────────────────────────────────────────┐   │   │   │
+│   │   │   │                     KERNEL                          │   │   │   │
+│   │   │   │            Core of the Operating System             │   │   │   │
+│   │   │   │                                                     │   │   │   │
+│   │   │   │   ┌─────────────────────────────────────────────┐   │   │   │   │
+│   │   │   │   │                  HARDWARE                   │   │   │   │   │
+│   │   │   │   │      CPU • RAM • Disk • NIC • Devices       │   │   │   │   │
+│   │   │   │   │         Physical Components                 │   │   │   │   │
+│   │   │   │   └─────────────────────────────────────────────┘   │   │   │   │
+│   │   │   └─────────────────────────────────────────────────────┘   │   │   │
+│   │   └─────────────────────────────────────────────────────────────┘   │   │
+│   └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│   User Space → Interface → Operating System → Physical Hardware             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+###  5 CORE RESPONSIBILITIES OF THE KERNEL  
 
-         ┌────────────────────┐
-         │      KERNEL        │
-         └────────────────────┘
-
-     ╱         │        │         ╲
-Process     Memory    Device     File
-  │            │         │         │
-Create      RAM Mgmt  Drivers   Storage
-
-             ╲        │        ╱
-               SECURITY
-      Users • Permissions • Access
-
-                    │
-                    ▼
-                HARDWARE
+```text
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        WHAT DOES THE KERNEL DO?                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│                              ○ Process                                      │
+│                       Create • Schedule • Terminate                         │
+│                                   │                                         │
+│                                   │                                         │
+│  ○ Memory ──────────────── ◎ KERNEL ─────────────── ○ Device Drivers        │
+│  Allocate RAM             Resource Manager          Hardware Communication   │
+│                                   │                                         │
+│                                   │                                         │
+│                              ○ File System                                  │
+│                       Read • Write • Storage Access                         │
+│                                   │                                         │
+│                                   │                                         │
+│                              ○ Security                                     │
+│                  Users • Permissions • Access Control                       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 
