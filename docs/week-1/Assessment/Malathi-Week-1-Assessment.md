@@ -1345,6 +1345,11 @@ In the above example:
 * `Documents`, `Pictures`, `DevOps`, `Linux`, and `Git` are **directories**.
 * `report.pdf`, `notes.txt`, `image.png`, `linux.txt`, and `git.txt` are **files**.
 
+<img width="1126" height="311" alt="image" src="https://github.com/user-attachments/assets/d39dd029-7dc0-40a1-b199-5f367709e07c" />
+
+<img width="307" height="327" alt="image" src="https://github.com/user-attachments/assets/bc2c36a2-9f9b-4e35-8ab6-136f74ba0a77" />
+
+
 ---
 
 ## Practical Example
@@ -1360,6 +1365,9 @@ mkdir FileDirectoryDemo
 ```bash
 cd FileDirectoryDemo
 ```
+
+<img width="1022" height="140" alt="image" src="https://github.com/user-attachments/assets/5a78692b-d716-48e8-953e-f7a6729a66a9" />
+
 
 ### Step 3: Create a file
 
@@ -1380,6 +1388,9 @@ ls
 docs.txt: empty
 ```
 It demonstrates that Linux recognizes it as a file.
+
+<img width="871" height="72" alt="image" src="https://github.com/user-attachments/assets/1bfbabaf-fad2-4806-aa65-fa536799de72" />
+
 
 ---
 
@@ -1402,6 +1413,9 @@ Projects
 1 directory, 1 file
 ```
 
+<img width="337" height="411" alt="image" src="https://github.com/user-attachments/assets/3946f6c1-d55a-483d-82c9-67d2caf4590f" />
+
+
 ---
 
 ## Real Example
@@ -1416,6 +1430,9 @@ Suppose we are working on a DevOps project:
   * `docker-compose.yml`
 
 Here, **OnlineBankingApp** is the **directory**, while `README.md`, `script.sh`, and `docker-compose.yml` are **files**.
+
+<img width="2700" height="1220" alt="image" src="https://github.com/user-attachments/assets/fa9c7af6-7cea-4077-b037-17dfaf835231" />
+
 
 ---
 
@@ -1471,6 +1488,9 @@ Search for a file named `practice.txt` from the current directory:
 find . -name "practice.txt"
 ```
 
+<img width="990" height="52" alt="image" src="https://github.com/user-attachments/assets/5dcea84d-9b91-4a9c-b2bc-1db24f19de50" />
+
+
 Search the entire system (may require `sudo`):
 
 ```bash
@@ -1488,6 +1508,9 @@ find: ‘/mnt/d/app/malat/admin/orcl/dpdump’: Permission denied
 ...
 ```
 
+<img width="1032" height="230" alt="image" src="https://github.com/user-attachments/assets/e4369ce4-8772-4a43-a356-13c964c35d63" />
+
+
 ### Real Example
 
 If you accidentally moved `README.md` to another folder and cannot remember where it is, use:
@@ -1497,6 +1520,9 @@ find . -name "README.md"
 ```
 
 This command searches all subdirectories of the current directory and displays the file's location.
+
+<img width="947" height="112" alt="image" src="https://github.com/user-attachments/assets/d1f01ad0-008e-47cf-84d2-729a7ce24175" />
+
 
 ---
 
@@ -1511,6 +1537,9 @@ This command searches all subdirectories of the current directory and displays t
 ```bash
 sudo apt install plocate
 ```
+
+<img width="1185" height="735" alt="image" src="https://github.com/user-attachments/assets/ed59a89a-6c2c-44f5-8653-1b9546bf7b9b" />
+
 
 ### Important Note
 
@@ -1534,6 +1563,9 @@ locate filename
 locate deploy.sh
 ```
 
+<img width="1002" height="112" alt="image" src="https://github.com/user-attachments/assets/cc59fd59-a4ea-4e47-b75e-685f1a1b84b3" />
+
+
 ### Example Output
 
 ```text
@@ -1550,8 +1582,11 @@ locate deploy.sh
 | ------------------------------------- | ------------------------------------------------------------------- |
 | Searches the filesystem in real time. | Searches a pre-built database.                                      |
 | Slower, but always up to date. especially on large systems.        | Much Faster, but results may be outdated if the database is not updated. |
-| Does not require a database. since it finds newly created files immediately.            | Requires the `updatedb` database to find newly created files.                                   |
-| Can search by name, size, permissions, type, date, etc. | Mainly searches by filename/path.                |
+| Does not require a database. since it finds newly created files immediately. | Requires the `updatedb` database to find newly created files.  |
+| Can search by name, size, permissions, type, date, etc. | Mainly searches by filename/path.  |
+
+<img width="2101" height="156" alt="image" src="https://github.com/user-attachments/assets/93e7a7cd-e43f-4cc9-9af7-f0df772a231f" />
+
 
 ---
 
