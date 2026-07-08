@@ -2090,6 +2090,8 @@ git branch feature-branch
 
 A developer creates a separate branch to work on a new feature without affecting the `main` branch.
 
+<img width="1020" height="120" alt="image" src="https://github.com/user-attachments/assets/abe8c8af-e157-4d91-99d0-93aced18e004" />
+
 ---
 
 ## 2. Switch to the New Branch
@@ -2114,6 +2116,11 @@ git checkout feature-branch
 
 After creating the branch, the developer switches to it and starts implementing the feature.
 
+<img width="1035" height="132" alt="image" src="https://github.com/user-attachments/assets/fb0978ec-80ae-4343-827b-0337fa00ac54" />
+<img width="1072" height="622" alt="image" src="https://github.com/user-attachments/assets/1d1ae3d8-926a-43fe-960e-35df519bd7cd" />
+<img width="2535" height="886" alt="image" src="https://github.com/user-attachments/assets/25213a46-32dc-48b8-b74a-7b5c2e8616fe" />
+
+
 ---
 
 ## 3. Check Available Branches
@@ -2123,6 +2130,8 @@ After creating the branch, the developer switches to it and starts implementing 
 ```bash
 git branch
 ```
+<img width="2277" height="877" alt="image" src="https://github.com/user-attachments/assets/05b73973-df83-4b44-9793-c2afc563e3b2" />
+<img width="2317" height="980" alt="image" src="https://github.com/user-attachments/assets/58de1333-747e-4ec5-a334-9b158be5391b" />
 
 
 ### Explanation
@@ -2157,6 +2166,9 @@ git switch main
 git merge feature-branch
 ```
 
+<img width="1146" height="1265" alt="image" src="https://github.com/user-attachments/assets/17b5fbd2-b6d6-47b2-a764-4a54401ed0aa" />
+
+
 ### Explanation
 
 * First switch to the `main` branch.
@@ -2177,6 +2189,9 @@ After testing the feature, the developer merges it into the main branch.
 ```bash
 git push origin main
 ```
+
+<img width="921" height="97" alt="image" src="https://github.com/user-attachments/assets/ef0ab8a3-f93d-422b-b25a-3b9fb23a1d8a" />
+
 
 ### Explanation
 
@@ -2289,24 +2304,7 @@ git push origin main
 ### Q13.
 Research any **three commonly used Git commands** that were not covered during the training and explain their purpose.
 
-
-Since your training already covered commands like `git branch`, `git checkout/switch`, `git merge`, `git push`, etc., choose commands that are genuinely different. A good set is:
-
-* `git status`
-* `git log`
-* `git diff`
-
-These are among the most commonly used Git commands in daily development.
-
----
-
-# Q13.
-
-Research any **three commonly used Git commands** that were not covered during the training and explain their purpose.
-
----
-
-# Answer
+### Answer
 
 ## 1. `git status`
 
@@ -2343,6 +2341,9 @@ Untracked files:
 
 Before committing changes, a developer uses `git status` to verify which files have been modified or staged.
 
+<img width="952" height="222" alt="image" src="https://github.com/user-attachments/assets/618a49f0-17ed-4133-a87c-44f22a0c619b" />
+
+
 ---
 
 ## 2. `git log`
@@ -2378,6 +2379,9 @@ Date: Tue Jul 8 2026
 
 A developer uses `git log` to review previous commits or find the commit where a bug was introduced.
 
+<img width="1807" height="1242" alt="image" src="https://github.com/user-attachments/assets/b7aaa7f2-fb78-42cd-8ca9-4c439e1b8f17" />
+
+
 ---
 
 ## 3. `git diff`
@@ -2400,6 +2404,8 @@ git diff
 - Hello World
 + Hello Git
 ```
+<img width="1201" height="1267" alt="image" src="https://github.com/user-attachments/assets/1959cdd2-5aff-4805-ac33-2ac9bfd64866" />
+
 
 ### Real Example
 
@@ -2553,6 +2559,7 @@ Without a README, new users may find it difficult to understand the project's pu
 > **In simple terms:** A **GitHub repository** is like a **project folder stored online**, while the **README.md** file is the **user guide** that explains everything about that project.
 
 
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/66975dea-71ec-41e3-bb0d-b43a02894062" />
 
 
 ---
@@ -2591,6 +2598,8 @@ It helps users:
 
 I starred my **CBC-Ban-DevOps-Internship** repository so it appears in my **Starred Repositories** list, making it easy to find later.
 
+<img width="2422" height="1315" alt="image" src="https://github.com/user-attachments/assets/d07b3081-8e5c-4c82-b1bc-00b5dbc3d41e" />
+
 
 ---
 
@@ -2614,6 +2623,7 @@ Depending on the notification settings, GitHub can notify users about:
 
 I used the **Watch** option to choose how I want to receive notifications whenever activity happens in the repository.
 
+<img width="2296" height="767" alt="image" src="https://github.com/user-attachments/assets/ee9f9c73-0835-42ca-bb49-e3ce20c4f6d7" />
 
 
 ---
@@ -2634,6 +2644,7 @@ A fork allows you to:
 
 During this internship, I forked the **CBC-Ban-DevOps-Internship** repository from the original repository into my own GitHub account before starting the assignments.
 
+<img width="2385" height="916" alt="image" src="https://github.com/user-attachments/assets/f07c58ef-949d-45d3-bb84-70e9ea511927" />
 
 
 ---
@@ -2656,6 +2667,9 @@ Issues help teams organize and discuss work before implementing changes.
 
 The repository currently has no open issues, but this page is where developers can create and track bugs, feature requests, and project tasks.
 
+<img width="2387" height="702" alt="image" src="https://github.com/user-attachments/assets/604ccd8a-0e04-4f17-89f1-844a01d7b29b" />
+
+
 ---
 
 ## 5.  Pull Requests (PR)
@@ -2676,6 +2690,9 @@ It allows team members to:
 > After completing a new feature in the `feature-branch`, a developer creates a Pull Request to request that the changes be merged into the `main` branch.
 
 After completing my internship work in my forked repository, I created a **Pull Request** to request that my changes be reviewed and merged into the original repository.
+
+<img width="2416" height="1262" alt="image" src="https://github.com/user-attachments/assets/14b35aff-ecaf-403c-a4ca-39ee194c5b2f" />
+
 
 ---
 
@@ -2730,6 +2747,9 @@ After completing my internship work in my forked repository, I created a **Pull 
 * **Pull Request** → Submit changes for review before merging into the main project.
 
 > **In simple terms:** **Star** helps you save projects, **Watch** keeps you updated, **Fork** lets you create your own copy, **Issues** help track bugs and tasks, and **Pull Requests** enable code review and collaboration before changes are merged.
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/1cc5dd25-77c5-49f2-9c09-937d5589a623" />
+
 
 ---
 
@@ -2840,6 +2860,9 @@ Multiplication Table of 7
 7 x 10 = 70
 ```
 
+<img width="881" height="667" alt="image" src="https://github.com/user-attachments/assets/6c758e18-51cd-42c1-b381-a754af2179bb" />
+
+
 ---
 
 ## Flow of the Script
@@ -2876,6 +2899,8 @@ Multiplication Table of 7
 | 2 | `for i in {1..10}` | Loops from 1 to 10. |
 | 3 | `$((num * i))` | Calculates the multiplication. |
 | 4 | `echo` | Displays each line of the multiplication table. |
+
+<img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/1aa815e0-bfbe-4e00-a20e-dfa1879a7ea9" />
 
 
 ---
@@ -2988,6 +3013,9 @@ chmod +x leapyear.sh
 ./leapyear.sh
 ```
 
+<img width="1876" height="716" alt="image" src="https://github.com/user-attachments/assets/33f08504-4fb8-4cb0-86eb-72592603f501" />
+
+
 ---
 
 ## Flow of the Script
@@ -3031,6 +3059,8 @@ A developer can use this script to determine whether a given year has **365** or
 | 1 | `read year` | Reads the year entered by the user. |
 | 2 | `if` condition | Checks the leap year rules. |
 | 3 | `echo` | Displays whether the year is a Leap Year or Not a Leap Year. |
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/1d8a67d4-9f4c-4634-a241-7568e6fd4ad3" />
 
 
 ---
@@ -3082,6 +3112,8 @@ Malathi
 4. Welcome to CareerByteCode DevOps Internship, Malathi
 5. Welcome to CareerByteCode DevOps Internship, Malathi
 ```
+<img width="991" height="377" alt="image" src="https://github.com/user-attachments/assets/826fc46a-951f-4547-968c-34b5f9139fe0" />
+
 
 ---
 
@@ -3136,6 +3168,8 @@ DevOps Internship, <Name>"
 | `for i in {1..5}` | Repeats the loop five times.                               |
 | `echo`            | Displays the welcome message.                              |
 | `$name`           | Prints the name entered by the user.                       |
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/0fce86d9-31a5-490a-91c4-7e1274ce997d" />
 
 
 ---
@@ -3260,7 +3294,9 @@ VERSION="24.04 LTS"
 ID=ubuntu
 ```
 
+<img width="952" height="315" alt="image" src="https://github.com/user-attachments/assets/07dc6dfa-0c87-4d83-8a0b-b7fb80505d7d" />
 
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/9ad6d774-6cf8-496c-9926-bc7932a5faee" />
 
 
 
@@ -3276,60 +3312,6 @@ Create a GitHub repository named **week1-practice-set3** and upload:
 
 ### Answer
 
-For your assessment, keep the answers concise and include your repository link.
-
-### Q19. Research any two popular Linux distributions used in cloud environments. Explain their features and where they are commonly used.
-
-**Answer:**
-
-### 1. Ubuntu Server
-
-**Features:**
-
-* Open-source and user-friendly.
-* Long Term Support (LTS) versions provide updates for 5 years.
-* Large software repository and community support.
-* Supports Docker, Kubernetes, and cloud platforms.
-
-**Common Uses:**
-
-* Web servers
-* Application servers
-* Cloud Virtual Machines (AWS, Azure, Google Cloud)
-* DevOps and CI/CD environments
-
----
-
-### 2. Red Hat Enterprise Linux (RHEL)
-
-**Features:**
-
-* Enterprise-grade Linux distribution.
-* High security and stability.
-* Long-term support with regular security updates.
-* Certified for enterprise applications.
-
-**Common Uses:**
-
-* Enterprise servers
-* Banking and financial systems
-* Government organizations
-* Production cloud environments
-
----
-
-### Summary Table
-
-| Linux Distribution              | Key Features                          | Common Uses                                     |
-| ------------------------------- | ------------------------------------- | ----------------------------------------------- |
-| Ubuntu Server                   | Open-source, LTS support, easy to use | Cloud VMs, Web Servers, DevOps                  |
-| Red Hat Enterprise Linux (RHEL) | Enterprise support, secure, stable    | Enterprise servers, Banking, Production systems |
-
----
-
-## Q20. Create a GitHub repository named `week1-practice-set3` and upload the required files.
-
-**Answer:**
 
 GitHub Repository:
 
@@ -3374,8 +3356,26 @@ week1-practice-set3/
 5 directories, 18 files
 ```
 
+### Linux command practice
+<img width="841" height="975" alt="image" src="https://github.com/user-attachments/assets/3503b81f-d74b-4876-ab57-8bb9727a2511" />
+<img width="1235" height="1166" alt="image" src="https://github.com/user-attachments/assets/6c16c049-571b-42a7-91ec-3fe6cb43074c" />
+<img width="1201" height="1240" alt="image" src="https://github.com/user-attachments/assets/07a2b7d9-9d3f-4a09-9cf4-59a000a69333" />
+<img width="922" height="597" alt="image" src="https://github.com/user-attachments/assets/4a49c811-a3e2-4dd1-92d5-f1c8d487b812" />
+<img width="820" height="1237" alt="image" src="https://github.com/user-attachments/assets/943916d0-c64d-4fca-9c73-3bfde09290e8" />
 
+## Two Bash shell scripts
+<img width="987" height="682" alt="image" src="https://github.com/user-attachments/assets/02632ee6-7ab4-4d69-9a6f-b687c5786ee7" />
+<img width="1842" height="911" alt="image" src="https://github.com/user-attachments/assets/3996a3c2-2d5d-4463-8fce-dd094ea045f5" />
+<img width="837" height="1017" alt="image" src="https://github.com/user-attachments/assets/d20c189f-ed26-4b80-957d-85107c339e33" />
 
+## A well-formatted README.md
+<img width="2560" height="10871" alt="image" src="https://github.com/user-attachments/assets/1ac1a892-71ed-4b06-a561-ae6c5d089ec5" />
+
+## Minimum **5 Git commits**
+<img width="757" height="857" alt="image" src="https://github.com/user-attachments/assets/3a651300-d692-43b7-831b-80e67cb6af00" />
+
+## Screenshots of your terminal output
+<img width="781" height="202" alt="image" src="https://github.com/user-attachments/assets/9e07a20f-4b1f-46eb-a8d4-ce62d7174f04" />
 
 ---
 
