@@ -1733,7 +1733,115 @@ You can make `rm` ask for confirmation every time by creating an alias.
 alias rm='rm -i'
 ```
 
+<<<<<<< HEAD
 <img width="1547" height="243" alt="image" src="https://github.com/user-attachments/assets/b5e98be7-bf13-4009-9e5e-1f6e39b280bf" />
+=======
+
+### What does this command do?
+
+```bash
+alias rm='rm -i'
+```
+
+It creates an **alias** (a shortcut) so that every time you type:
+
+```bash
+rm filename
+```
+
+Linux actually runs:
+
+```bash
+rm -i filename
+```
+
+The `-i` option stands for **interactive**, which asks for confirmation before deleting a file.
+
+---
+
+### Without the alias
+
+If you run:
+
+```bash
+rm notes.txt
+```
+
+The file is deleted **immediately** without any warning.
+
+---
+
+### With the alias
+
+First create the alias:
+
+```bash
+alias rm='rm -i'
+```
+
+Now when you run:
+
+```bash
+rm notes.txt
+```
+
+Linux behaves as if you typed:
+
+```bash
+rm -i notes.txt
+```
+
+It asks:
+
+```text
+rm: remove regular empty file 'notes.txt'?
+```
+
+You must type:
+
+```text
+y
+```
+
+to delete the file, or
+
+```text
+n
+```
+
+to keep it.
+
+---
+
+### Why is it useful?
+
+It helps prevent accidental deletion of important files because you get a confirmation prompt before each deletion.
+
+This is especially useful for beginners and when working on important projects.
+
+---
+
+### Is it permanent?
+
+No. The alias only works in the **current terminal session**.
+
+If you close the terminal, it disappears.
+
+To make it permanent, add it to your `~/.bashrc` file:
+
+```bash
+echo "alias rm='rm -i'" >> ~/.bashrc
+source ~/.bashrc
+```
+
+Then every new terminal will automatically use `rm -i` whenever you type `rm`.
+
+---
+
+
+> The command `alias rm='rm -i'` creates a shortcut so that every `rm` command runs in interactive mode (`rm -i`), asking for confirmation before deleting files. This helps prevent accidental file deletion.
+
+>>>>>>> d8c9fe8 (docs: update Week 1 assessment (Q10 and improvements))
 
 
 ---
