@@ -15,7 +15,7 @@
 
 ## Questions
 
-### Q1.
+## Q1.
 What is the difference between a Linux Operating System and a Windows Operating System? Mention at least **five differences**.
 
 ### Answer
@@ -52,7 +52,7 @@ What is the difference between a Linux Operating System and a Windows Operating 
 
 ---
 
-### Q2.
+## Q2.
 Explain the role of the Linux Kernel. Why is it considered the core of the operating system?
 
 ### Answer
@@ -173,7 +173,7 @@ The Linux kernel performs several important tasks:
 
 <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/22eed0a4-a62a-41e9-b3a2-143224759aaf" />
 
-### Real Example
+#### Real Example
 
 Suppose we create a file using the command:
 
@@ -197,7 +197,7 @@ This example shows how the Linux kernel manages communication between software a
 
 ---
 
-### Q3.
+## Q3.
 Write the Linux commands to perform the following tasks:
 - Create a directory named `DevOps`
 - Create two subdirectories named `Linux` and `Git`
@@ -206,7 +206,7 @@ Write the Linux commands to perform the following tasks:
 
 ### Answer
 
-### Task 1: Create a directory named `DevOps`
+#### Task 1: Create a directory named `DevOps`
 
 ```bash
 mkdir DevOps
@@ -218,7 +218,7 @@ mkdir DevOps
 
 ---
 
-### Task 2: Go inside the `DevOps` directory
+#### Task 2: Go inside the `DevOps` directory
 
 ```bash
 cd DevOps
@@ -231,7 +231,7 @@ cd DevOps
 
 ---
 
-### Task 3: Create two subdirectories named `Linux` and `Git`
+#### Task 3: Create two subdirectories named `Linux` and `Git`
 
 ```bash
 mkdir Linux Git
@@ -246,7 +246,7 @@ mkdir Linux Git
 
 ---
 
-### Task 4: Create one file inside each directory
+#### Task 4: Create one file inside each directory
 
 Create a file inside the **Linux** directory:
 
@@ -268,7 +268,7 @@ touch Git/git.txt
 
 ---
 
-### Task 5: Display the complete directory structure
+#### Task 5: Display the complete directory structure
 
 ```bash
 tree
@@ -319,7 +319,7 @@ tree
 
 ---
 
-### Q4.
+## Q4.
 Explain the purpose of the following commands with one example each:
 - `echo`
 - `man`
@@ -341,7 +341,7 @@ Explain the purpose of the following commands with one example each:
 echo [text]
 ```
 
-### Example
+#### Example Output
 
 ```bash
 echo "Welcome to Week 1 Assignment of CareerByteCode DevOps Internship"
@@ -353,7 +353,7 @@ echo "Welcome to Week 1 Assignment of CareerByteCode DevOps Internship"
 Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
 ```
 
-### Real Example
+#### Real Example
 
 - Display a welcome message or check the value of a variable while writing Bash scripts.
 
@@ -375,13 +375,13 @@ Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
 man [command]
 ```
 
-### Example
+#### Example Output
 
 ```bash
 man ls
 ```
 
-### Real Example
+#### Real Example
 
 - If we forget how the `ls` command works, we can use `man ls` to read its manual.
 
@@ -402,13 +402,13 @@ man ls
 uname [option]
 ```
 
-### Example
+#### Example Output
 
 ```bash
 uname -a
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
@@ -431,7 +431,7 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1
 <img width="1200" height="222" alt="image" src="https://github.com/user-attachments/assets/06d391ff-6a8b-433d-a005-d69ffe81dd98" />
 
 
-### Real Example
+#### Real Example
 
 - A system administrator can use `uname -a` to check the Linux kernel version before installing software.
 
@@ -467,13 +467,13 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1
 hostname
 ```
 
-### Example
+#### Example Output
 
 ```bash
 hostname
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 ubuntu / Deepak
@@ -483,7 +483,7 @@ ubuntu / Deepak
 
 
 
-### Real Example
+#### Real Example
 
 - When connecting to another computer over a network, we can use the hostname to identify the system.
 
@@ -515,13 +515,13 @@ ubuntu / Deepak
 who
 ```
 
-### Example
+#### Example Output
 
 ```bash
 who
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 malathi  pts/1        2026-07-07 05:32
@@ -530,7 +530,7 @@ malathi  pts/1        2026-07-07 05:32
 <img width="547" height="47" alt="image" src="https://github.com/user-attachments/assets/a384ffac-4662-4a7e-8dd4-fef9792c932e" />
 
 
-### Real Example
+#### Real Example
 
 - On a shared Linux server, an administrator can use `who` to see which users are currently logged in.
 
@@ -552,7 +552,7 @@ malathi  pts/1        2026-07-07 05:32
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Command    | Purpose                              | Example                   |
 | ---------- | ------------------------------------ | ------------------------- |
@@ -568,7 +568,7 @@ malathi  pts/1        2026-07-07 05:32
 
 ---
 
-### Q5.
+## Q5.
 Write Linux commands to perform the following:
 - Display the current Linux version
 - Display the system hostname
@@ -586,12 +586,12 @@ Write Linux commands to perform the following:
 uname -a
 ```
 
-### Explanation
+#### Explanation
 
 * `uname` displays system information.
 * `-a` displays all available system information, including the kernel version.
 
-### Example Output
+#### Example Output
 
 ```text
 Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec 1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
@@ -610,11 +610,11 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec 1 
 hostname
 ```
 
-### Explanation
+#### Explanation
 
 * `hostname` displays the name of the current computer.
 
-### Example Output
+#### Example Output
 
 ```text
 Deepak
@@ -633,14 +633,14 @@ Deepak
 history
 ```
 
-### Explanation
+#### Explanation
 
 * `history` displays the list of previously executed commands in the terminal.
 
 
 
 
-### Example Output
+#### Example Output
 
 ```text
 1  pwd
@@ -662,7 +662,7 @@ history
 touch practice.txt
 ```
 
-### Explanation
+#### Explanation
 
 * `touch` creates a new empty file.
 * Here, it creates a file named `practice.txt`.
@@ -680,7 +680,7 @@ touch practice.txt
 cp practice.txt DevOps/
 ```
 
-### Explanation
+#### Explanation
 
 * `cp` means **copy**.
 * This command copies `practice.txt` into the `DevOps` directory.
@@ -707,7 +707,7 @@ cp practice.txt DevOps/
 
 
 
-## Summary Table
+#### Summary Table
 
 | Task                                 | Command                   |
 | ------------------------------------ | ------------------------- |
@@ -724,7 +724,7 @@ cp practice.txt DevOps/
 
 ---
 
-### Q6.
+## Q6.
 Research any **three Linux commands** that help you obtain system information. Explain their purpose with examples.
 
 ### Answer
@@ -741,7 +741,7 @@ Research any **three Linux commands** that help you obtain system information. E
 lscpu
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 Architecture:        x86_64
@@ -749,7 +749,7 @@ CPU(s):              4
 Model name:          Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
 ```
 
-### Real Example
+#### Real Example
 
 * A system administrator can use `lscpu` to check the processor architecture and the number of CPUs before installing software.
 
@@ -770,7 +770,7 @@ Model name:          Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
 free -h
 ```
 
-### Example Output
+#### Example Output
 
 ```text
                total        used        free
@@ -778,7 +778,7 @@ Mem:            5.8Gi       1.6Gi       3.9Gi
 Swap:           10Gi          0B        10Gi
 ```
 
-### Real Example
+#### Real Example
 
 * A user can use `free -h` to check the available memory before running large applications.
 
@@ -801,7 +801,7 @@ Swap:           10Gi          0B        10Gi
 df -h
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 Filesystem      Size  Used Avail Use%  Mounted on
@@ -811,13 +811,13 @@ Filesystem      Size  Used Avail Use%  Mounted on
 <img width="822" height="576" alt="image" src="https://github.com/user-attachments/assets/87d629a4-3bf2-4102-a452-601869c4bbe9" />
 
 
-### Real Example
+#### Real Example
 
 * A system administrator can use df -h to check the available disk space before installing software, storing large files, or troubleshooting low disk space issues.
 
 
 
-## Summary Table
+#### Summary Table
 
 | Command   | Purpose                                                          | Example   |
 | --------- | ---------------------------------------------------------------- | --------- |
@@ -850,7 +850,7 @@ These are three of the most commonly used system information commands in Linux.
 
 ---
 
-### Q7.
+## Q7.
 Explain the purpose of the following Linux directories:
 - `/root`
 - `/bin`
@@ -910,7 +910,7 @@ They are different.
 
 
 
-### Example
+#### Example Output
 
 View the directory:
 
@@ -938,7 +938,7 @@ pwd
 <img width="802" height="641" alt="image" src="https://github.com/user-attachments/assets/8948e82a-0139-45ad-a08f-0e4025488f07" />
 
 
-### Real Example
+#### Real Example
 
 The system administrator stores important scripts (Backup scripts, Maintenance scripts) and configuration files inside `/root`.
 
@@ -974,7 +974,7 @@ Linux searches for executable programs in directories listed in the PATH environ
 * `pwd`
 * `mkdir`
 
-### Example
+#### Example Output
 
 ```bash
 ls /bin
@@ -983,7 +983,7 @@ ls /bin
 <img width="2081" height="1277" alt="image" src="https://github.com/user-attachments/assets/79e1d758-f5cc-48a0-945e-177f2ee6d2bc" />
 
 
-### Real Example
+#### Real Example
 
 When we run:
 
@@ -1041,7 +1041,7 @@ Some of these commands require administrator privileges (`sudo`).
 * `mkfs`
 * `iptables`
 
-### Example
+#### Example Output
 
 ```bash
 ls /sbin
@@ -1059,7 +1059,7 @@ This proves the commands exist without using them.
 <img width="1007" height="1238" alt="image" src="https://github.com/user-attachments/assets/d6f6c6c9-03f7-4f7f-84e1-0fc0cfff3ec0" />
 
 
-### Real Example
+#### Real Example
 
 A system administrator can restart the system using:
 
@@ -1127,7 +1127,7 @@ On many modern Linux distributions, /sbin is a symbolic link to /usr/sbin.
 | `/dev/zero`   | Produces unlimited zeros        |
 
 
-### Example
+#### Example Output
 
 ```bash
 ls /dev
@@ -1136,7 +1136,7 @@ ls /dev
 <img width="2002" height="200" alt="image" src="https://github.com/user-attachments/assets/9ed65408-c92f-4a74-85b4-5b15fb9f106f" />
 
 
-### Real Example
+#### Real Example
 
 
 ```bash
@@ -1213,7 +1213,7 @@ The files inside `/proc` are generated dynamically by the Linux kernel when they
 | `/proc/loadavg` | CPU load average   |
 
 
-### Example
+#### Example Output
 
 ```bash
 ls /proc
@@ -1261,7 +1261,7 @@ cat /proc/1/status
 
 
 
-### Real Example
+#### Real Example
 
 A DevOps engineer checks available memory before deploying an application:
 
@@ -1300,7 +1300,7 @@ cat /proc/loadavg
 
 
 
-## Summary
+#### Summary Table
 
 | Directory | Meaning | Purpose | Example Command |
 |-----------|---------|---------|-----------------|
@@ -1333,7 +1333,7 @@ cat /proc/loadavg
 
 ---
 
-### Q8.
+## Q8.
 Differentiate between a **File** and a **Directory** in Linux. Explain with suitable examples.
 
 ### Answer
@@ -1390,13 +1390,13 @@ In the above example:
 
 ## Practical Example
 
-### Step 1: Create a directory
+#### Step 1: Create a directory
 
 ```bash
 mkdir FileDirectoryDemo
 ```
 
-### Step 2: Move into the directory
+#### Step 2: Move into the directory
 
 ```bash
 cd FileDirectoryDemo
@@ -1405,20 +1405,20 @@ cd FileDirectoryDemo
 <img width="1022" height="140" alt="image" src="https://github.com/user-attachments/assets/5a78692b-d716-48e8-953e-f7a6729a66a9" />
 
 
-### Step 3: Create a file
+#### Step 3: Create a file
 
 ```bash
 touch docs.txt
 file docs.txt
 ```
 
-### Step 4: View the contents
+#### Step 4: View the contents
 
 ```bash
 ls
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 docs.txt: empty
@@ -1440,7 +1440,7 @@ touch Projects/project1.txt
 tree
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 Projects
@@ -1454,7 +1454,7 @@ Projects
 
 ---
 
-## Real Example
+#### Real Example
 
 Suppose we are working on a DevOps project:
 
@@ -1472,7 +1472,7 @@ Here, **OnlineBankingApp** is the **directory**, while `README.md`, `script.sh`,
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Feature                 | File                     | Directory                                     |
 | ----------------------- | ------------------------ | --------------------------------------------- |
@@ -1484,7 +1484,7 @@ Here, **OnlineBankingApp** is the **directory**, while `README.md`, `script.sh`,
 
 ---
 
-### Quick Memory Tip
+
 
 *  **File** → Stores **data** (text, images, programs, etc.).
 *  **Directory** → Stores **files and folders** to keep everything organized.
@@ -1495,7 +1495,7 @@ Here, **OnlineBankingApp** is the **directory**, while `README.md`, `script.sh`,
 
 ---
 
-### Q9.
+## Q9.
 A file was accidentally moved to another directory, and you don't know its location. Which Linux command(s) would you use to find it?
 
 ### Answer
@@ -1516,7 +1516,7 @@ If a file has been accidentally moved and its location is unknown, Linux provide
 find [starting_directory] -name "filename"
 ```
 
-### Example
+#### Example Output
 
 Search for a file named `practice.txt` from the current directory:
 
@@ -1534,7 +1534,7 @@ sudo find / -name "practice.txt"
 ```
 > **Note:** Searching the entire system using `sudo find /` may take some time and can display "Permission denied" messages for directories you cannot access. 
 
-### Example Output
+#### Example Output
 
 ```text
 /home/malathi/projects/CBC-Ban-DevOps-Internship/interns/Malathi-Shetty/Home/DevOps/practice.txt
@@ -1547,7 +1547,7 @@ find: ‘/mnt/d/app/malat/admin/orcl/dpdump’: Permission denied
 <img width="1032" height="230" alt="image" src="https://github.com/user-attachments/assets/e4369ce4-8772-4a43-a356-13c964c35d63" />
 
 
-### Real Example
+#### Real Example
 
 If you accidentally moved `README.md` to another folder and cannot remember where it is, use:
 
@@ -1593,7 +1593,7 @@ sudo updatedb
 locate filename
 ```
 
-### Example
+#### Example Output
 
 ```bash
 locate deploy.sh
@@ -1602,7 +1602,7 @@ locate deploy.sh
 <img width="1002" height="112" alt="image" src="https://github.com/user-attachments/assets/cc59fd59-a4ea-4e47-b75e-685f1a1b84b3" />
 
 
-### Example Output
+#### Example Output
 
 ```text
 /home/malathi/projects/CBC-Ban-DevOps-Internship/interns/Malathi-Shetty/CloudMonitor/scripts/deploy.sh
@@ -1626,7 +1626,7 @@ locate deploy.sh
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Command  | Purpose                                          | Example                       |
 | -------- | ------------------------------------------------ | ----------------------------- |
@@ -1647,7 +1647,7 @@ locate deploy.sh
 
 ---
 
-### Q10.
+## Q10.
 Suppose you accidentally deleted a file using the `rm` command. What precautions should you follow in the future to avoid deleting important files?
 
 ### Answer
@@ -1662,7 +1662,7 @@ The `rm` command permanently deletes files and directories from the system. Unli
 
 Use the `-i` (interactive) option to ask for confirmation before deleting each file.
 
-#### Example
+#### Example Output
 
 ```bash
 rm -i important.txt
@@ -1680,7 +1680,7 @@ rm: remove regular file 'important.txt'?
 
 Verify that the file exists and that it is the correct file.
 
-#### Example
+#### Example Output
 
 ```bash
 ls
@@ -1700,7 +1700,7 @@ This helps prevent deleting the wrong file.
 
 Before running `rm`, check that you are in the correct directory.
 
-#### Example
+#### Example Output
 
 ```bash
 pwd
@@ -1712,7 +1712,7 @@ pwd
 
 Keep copies of important files before deleting or modifying them.
 
-#### Example
+#### Example Output
 
 ```bash
 cp important.txt important_backup.txt
@@ -1884,7 +1884,7 @@ Then every new terminal will automatically use `rm -i` whenever you type `rm`.
 
 ---
 
-## Real Example
+#### Real Example
 
 Suppose you want to delete `notes.txt`.
 
@@ -1910,7 +1910,7 @@ This allows you to verify the file and confirm before deleting it.
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Precaution                           | Example Command                         |
 | ------------------------------------ | --------------------------------------- |
@@ -1937,7 +1937,7 @@ This allows you to verify the file and confirm before deleting it.
 
 ---
 
-### Q11.
+## Q11.
 Explain the difference between a **Local Repository** and a **Remote Repository** in Git.
 
 ### Answer
@@ -1982,7 +1982,7 @@ A **Git repository** is a storage location where Git tracks files, folders, and 
 
 A **Local Repository** is the Git repository stored on your own computer. It allows you to develop, edit files, commit changes, and view version history without an internet connection.
 
-### Example
+#### Example Output
 
 Create a local repository:
 
@@ -1994,7 +1994,7 @@ git init
 
 This creates a new Git repository in the current directory.
 
-### Real Example
+#### Real Example
 
 A developer writes code and commits changes locally:
 
@@ -2016,7 +2016,7 @@ The changes are saved only in the local repository until they are pushed.
 
 A **Remote Repository** is hosted on a remote server, allowing multiple developers to share, back up, and collaborate on the same project.
 
-### Example
+#### Example Output
 
 Connect a local repository to GitHub:
 
@@ -2033,13 +2033,13 @@ git push -u origin main
 <img width="1002" height="487" alt="image" src="https://github.com/user-attachments/assets/cd914208-9485-4072-bf2f-ef848ec38655" />
 
 
-### Real Example
+#### Real Example
 
 After completing a feature locally, a developer pushes the commits to GitHub so that other team members can access the updated code.
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Feature           | Local Repository                | Remote Repository                 |
 | ----------------- | ------------------------------- | --------------------------------- |
@@ -2063,7 +2063,7 @@ After completing a feature locally, a developer pushes the commits to GitHub so 
 
 ---
 
-### Q12.
+## Q12.
 Write the Git commands to perform the following:
 - Create a new branch
 - Switch to the new branch
@@ -2081,12 +2081,12 @@ Write the Git commands to perform the following:
 git branch feature-branch
 ```
 
-### Explanation
+#### Explanation
 
 * `git branch` creates a new branch.
 * Here, a branch named `feature-branch` is created.
 
-### Real Example
+#### Real Example
 
 A developer creates a separate branch to work on a new feature without affecting the `main` branch.
 
@@ -2108,11 +2108,11 @@ git switch feature-branch
 git checkout feature-branch
 ```
 
-### Explanation
+#### Explanation
 
 * `git switch` changes the current working branch to `feature-branch`.
 
-### Real Example
+#### Real Example
 
 After creating the branch, the developer switches to it and starts implementing the feature.
 
@@ -2134,19 +2134,19 @@ git branch
 <img width="2317" height="980" alt="image" src="https://github.com/user-attachments/assets/58de1333-747e-4ec5-a334-9b158be5391b" />
 
 
-### Explanation
+#### Explanation
 
 * Displays all local branches.
 * The current branch is marked with an asterisk (`*`).
 
-### Example Output
+#### Example Output
 
 ```text
 * feature-branch
   main
 ```
 
-### Real Example
+#### Real Example
 
 A developer checks the list of branches before switching or merging.
 
@@ -2154,13 +2154,13 @@ A developer checks the list of branches before switching or merging.
 
 ## 4. Merge the Branch into the Main Branch
 
-### Step 1
+#### Step 1
 
 ```bash
 git switch main
 ```
 
-### Step 2
+#### Step 2
 
 ```bash
 git merge feature-branch
@@ -2169,12 +2169,12 @@ git merge feature-branch
 <img width="1146" height="1265" alt="image" src="https://github.com/user-attachments/assets/17b5fbd2-b6d6-47b2-a764-4a54401ed0aa" />
 
 
-### Explanation
+#### Explanation
 
 * First switch to the `main` branch.
 * Then merge the changes from `feature-branch` into `main`.
 
-### Real Example
+#### Real Example
 
 After testing the feature, the developer merges it into the main branch.
 
@@ -2193,12 +2193,12 @@ git push origin main
 <img width="921" height="97" alt="image" src="https://github.com/user-attachments/assets/ef0ab8a3-f93d-422b-b25a-3b9fb23a1d8a" />
 
 
-### Explanation
+#### Explanation
 
 * `origin` is the remote repository.
 * `main` is the branch being pushed to GitHub.
 
-### Real Example
+#### Real Example
 
 After merging locally, the updated `main` branch is pushed to GitHub so everyone can access the latest changes.
 
@@ -2223,12 +2223,12 @@ git branch -d feature-branch
 git push origin --delete feature-branch
 ```
 
-### Explanation
+#### Explanation
 
 * `git branch -d` deletes the local branch after it has been merged.
 * `git push origin --delete` removes the branch from the remote GitHub repository.
 
-### Real Example
+#### Real Example
 
 Once a feature has been successfully merged into the `main` branch, the development branch is deleted to keep the repository clean and organized.
 
@@ -2279,7 +2279,7 @@ git push origin main
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Task                     | Command                                         |
 | ------------------------ | ----------------------------------------------- |
@@ -2301,7 +2301,7 @@ git push origin main
 
 ---
 
-### Q13.
+## Q13.
 Research any **three commonly used Git commands** that were not covered during the training and explain their purpose.
 
 ### Answer
@@ -2325,7 +2325,7 @@ It shows:
 git status
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 On branch main
@@ -2337,7 +2337,7 @@ Untracked files:
   demo.txt
 ```
 
-### Real Example
+#### Real Example
 
 Before committing changes, a developer uses `git status` to verify which files have been modified or staged.
 
@@ -2365,7 +2365,7 @@ It shows information such as:
 git log
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 commit 20d6ade...
@@ -2375,7 +2375,7 @@ Date: Tue Jul 8 2026
     Add demo file
 ```
 
-### Real Example
+#### Real Example
 
 A developer uses `git log` to review previous commits or find the commit where a bug was introduced.
 
@@ -2398,7 +2398,7 @@ It helps developers review changes before committing them.
 git diff
 ```
 
-### Example Output
+#### Example Output
 
 ```text
 - Hello World
@@ -2407,13 +2407,13 @@ git diff
 <img width="1201" height="1267" alt="image" src="https://github.com/user-attachments/assets/1959cdd2-5aff-4805-ac33-2ac9bfd64866" />
 
 
-### Real Example
+#### Real Example
 
 Before creating a commit, a developer runs `git diff` to review all modifications made to the project files.
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Command      | Purpose                                        | Example      |
 | ------------ | ---------------------------------------------- | ------------ |
@@ -2458,13 +2458,13 @@ These three commands are commonly used by developers and DevOps engineers and co
 
 ---
 
-### Q14.
+## Q14.
 What is a GitHub Repository? Explain why a README file is important in every GitHub project.
 
 
 ### Answer
 
-## What is a GitHub Repository?
+### What is a GitHub Repository?
 
 A **GitHub Repository (Repository or Repo)** is an online storage space on GitHub that contains a project's files, folders, source code, and complete version history managed using Git.
 
@@ -2480,13 +2480,13 @@ A repository can contain source code, documentation, images, configuration files
 
 ---
 
-## Real Example
+#### Real Example
 
 For this internship, the repository **`CBC-Ban-DevOps-Internship`** is hosted on GitHub. It contains the project structure, weekly assignments, documentation, and other files that interns work on collaboratively.
 
 ---
 
-# Why is a README File Important?
+### Why is a README File Important?
 
 A **README** file is the first document users see when they open a GitHub repository. It provides essential information about the project and helps others understand how to use or contribute to it.
 
@@ -2507,7 +2507,7 @@ A well-written README makes a project easier to understand and improves collabor
 
 ---
 
-## Real Example
+#### Real Example
 
 When someone visits a GitHub repository, they can read the **README.md** file to understand:
 
@@ -2520,7 +2520,7 @@ Without a README, new users may find it difficult to understand the project's pu
 
 ---
 
-## Advantages of a README File
+### Advantages of a README File
 
 * Explains the purpose of the project.
 * Helps users install and use the project correctly.
@@ -2531,7 +2531,7 @@ Without a README, new users may find it difficult to understand the project's pu
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Topic                 | Description                                                                                                                        |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -2540,7 +2540,7 @@ Without a README, new users may find it difficult to understand the project's pu
 
 ---
 
-## Quick Comparison
+### Quick Comparison
 
 | GitHub Repository                                        | README File                                      |
 | -------------------------------------------------------- | ------------------------------------------------ |
@@ -2564,7 +2564,7 @@ Without a README, new users may find it difficult to understand the project's pu
 
 ---
 
-### Q15.
+## Q15.
 Explain the purpose of the following GitHub features:
 - Star
 - Watch
@@ -2592,7 +2592,7 @@ It helps users:
 * Show that they like or support a project.
 * Discover popular repositories based on the number of stars.
 
-### Real Example
+#### Real Example
 
 > If you find a useful DevOps project on GitHub, you can **Star** it so that it appears in your starred repositories for easy access later.
 
@@ -2617,7 +2617,7 @@ Depending on the notification settings, GitHub can notify users about:
 * Discussions
 * Releases
 
-### Real Example
+#### Real Example
 
 > A developer watches an open-source project to stay updated whenever new changes or releases are made.
 
@@ -2640,7 +2640,7 @@ A fork allows you to:
 * Develop new features independently.
 * Contribute to open-source projects without affecting the original repository.
 
-### Real Example
+#### Real Example
 
 During this internship, I forked the **CBC-Ban-DevOps-Internship** repository from the original repository into my own GitHub account before starting the assignments.
 
@@ -2661,7 +2661,7 @@ The **Issues** feature is used to:
 
 Issues help teams organize and discuss work before implementing changes.
 
-### Real Example
+#### Real Example
 
 > If a user discovers a bug in a project, they can create an Issue describing the problem so that the developers can investigate and fix it.
 
@@ -2685,7 +2685,7 @@ It allows team members to:
 * Suggest improvements.
 * Approve or reject contributions before merging.
 
-### Real Example
+#### Real Example
 
 > After completing a new feature in the `feature-branch`, a developer creates a Pull Request to request that the changes be merged into the `main` branch.
 
@@ -2696,7 +2696,7 @@ After completing my internship work in my forked repository, I created a **Pull 
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Feature             | Purpose                                           | Real Example                                       |
 | ------------------- | ------------------------------------------------- | -------------------------------------------------- |
@@ -2754,12 +2754,12 @@ After completing my internship work in my forked repository, I created a **Pull 
 ---
 
 
-### Q16.
+## Q16.
 Write a Bash shell script to display the multiplication table of a number entered by the user.
 
 ### Answer
 
-## Bash Shell Script
+#### Bash Shell Script
 
 ```bash
 #!/bin/bash
@@ -2778,7 +2778,7 @@ done
 
 ---
 
-## Explanation
+#### Explanation
 
 - `#!/bin/bash` specifies that the script should be executed using the Bash shell.
 - `echo` displays text on the terminal.
@@ -2789,7 +2789,7 @@ done
 
 ---
 
-## Example Execution
+### Example Execution
 
 ```text
 Enter a number:
@@ -2813,7 +2813,7 @@ Multiplication Table of 5
 
 ## How to Run the Script
 
-### Step 1: Create the script file
+#### Step 1: Create the script file
 
 ```bash
 nano table.sh
@@ -2823,7 +2823,7 @@ Paste the script and save it.
 
 ---
 
-### Step 2: Give execute permission
+#### Step 2: Give execute permission
 
 ```bash
 chmod +x table.sh
@@ -2831,7 +2831,7 @@ chmod +x table.sh
 
 ---
 
-### Step 3: Run the script
+#### Step 3: Run the script
 
 ```bash
 ./table.sh
@@ -2839,7 +2839,7 @@ chmod +x table.sh
 
 ---
 
-## Real Example
+#### Real Example
 
 Suppose the user enters **7**.
 
@@ -2865,7 +2865,7 @@ Multiplication Table of 7
 
 ---
 
-## Flow of the Script
+#### Flow of the Script
 
 ```text
         Start
@@ -2891,7 +2891,7 @@ Multiplication Table of 7
 
 ---
 
-## Summary
+#### Summary Table
 
 | Step | Command / Statement | Purpose |
 |------|----------------------|---------|
@@ -2905,13 +2905,13 @@ Multiplication Table of 7
 
 ---
 
-### Q17.
+## Q17.
 Write a Bash shell script to check whether a given year is a **Leap Year** or **Not a Leap Year**.
 
 
 ### Answer
 
-## Bash Shell Script
+#### Bash Shell Script
 
 ```bash
 #!/bin/bash
@@ -2935,7 +2935,7 @@ fi
 
 ---
 
-## Explanation
+#### Explanation
 
 - `#!/bin/bash` specifies that the script should be executed using the Bash shell.
 - `echo` displays a message to the user.
@@ -2947,7 +2947,7 @@ fi
 
 ---
 
-## Leap Year Rules
+#### Leap Year Rules
 
 A year is a **Leap Year** if:
 
@@ -2965,9 +2965,9 @@ Examples:
 
 ---
 
-## Example Execution
+### Example Execution
 
-### Example 1
+#### Example Output 1
 
 ```text
 Enter a year:
@@ -2976,7 +2976,7 @@ Enter a year:
 2024 is a Leap Year.
 ```
 
-### Example 2
+#### Example Output 2
 
 ```text
 Enter a year:
@@ -2989,7 +2989,7 @@ Enter a year:
 
 ## How to Run the Script
 
-### Step 1: Create the script file
+#### Step 1: Create the script file
 
 ```bash
 nano leapyear.sh
@@ -2999,7 +2999,7 @@ Paste the script and save it.
 
 ---
 
-### Step 2: Give execute permission
+#### Step 2: Give execute permission
 
 ```bash
 chmod +x leapyear.sh
@@ -3007,7 +3007,7 @@ chmod +x leapyear.sh
 
 ---
 
-### Step 3: Run the script
+#### Step 3: Run the script
 
 ```bash
 ./leapyear.sh
@@ -3018,7 +3018,7 @@ chmod +x leapyear.sh
 
 ---
 
-## Flow of the Script
+#### Flow of the Script
 
 ```text
           Start
@@ -3046,13 +3046,13 @@ chmod +x leapyear.sh
 
 ---
 
-## Real Example
+#### Real Example
 
 A developer can use this script to determine whether a given year has **365** or **366** days before processing date-related calculations or generating yearly reports.
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Step | Command / Statement | Purpose |
 |------|----------------------|---------|
@@ -3065,14 +3065,14 @@ A developer can use this script to determine whether a given year has **365** or
 
 ---
 
-### Q18.
+## Q18.
 Write a Bash shell script that accepts a user's **Name** and displays the following message five times using a **for loop**:
 
 **Welcome to CareerByteCode DevOps Internship, <Name>**
 
 ### Answer
 
-## Bash Script
+#### Bash Script
 
 ```bash
 #!/bin/bash
@@ -3090,7 +3090,7 @@ done
 
 ---
 
-## Explanation
+#### Explanation
 
 * `#!/bin/bash` tells the system to execute the script using the Bash shell.
 * `read name` accepts the user's name from the keyboard and stores it in the variable `name`.
@@ -3100,7 +3100,7 @@ done
 
 ---
 
-## Sample Output
+#### Sample Output
 
 ```text
 Enter your name:
@@ -3117,20 +3117,20 @@ Malathi
 
 ---
 
-## Real Example
+#### Real Example
 
 A company can use a `for` loop in a Bash script to repeatedly display a welcome message, send reminders, or perform the same task multiple times for new employees during onboarding or to repeatedly display notifications while testing automation scripts.
 
 ---
 
-## Commands to Run
+#### Commands to Run
 
 ```bash
 chmod +x welcome.sh
 ./welcome.sh
 ```
 
-## Flow of the Script
+#### Flow of the Script
 
 ```text
         Start
@@ -3159,7 +3159,7 @@ DevOps Internship, <Name>"
 ---
 
 
-## Summary Table
+#### Summary Table
 
 | Component         | Purpose                                                    |
 | ----------------- | ---------------------------------------------------------- |
@@ -3174,7 +3174,7 @@ DevOps Internship, <Name>"
 
 ---
 
-### Q19.
+## Q19.
 Research any **two popular Linux distributions** used in cloud environments. Explain their features and where they are commonly used.
 
 ### Answer
@@ -3202,7 +3202,7 @@ Research any **two popular Linux distributions** used in cloud environments. Exp
 * Docker and Kubernetes
 * DevOps and CI/CD pipelines
 
-### Real Example
+#### Real Example
 
 A company can deploy an **Ubuntu Server** virtual machine on **AWS**, **Microsoft Azure**, or **Google Cloud Platform (GCP)** to host a web application or run containerized applications using Docker.
 
@@ -3231,7 +3231,7 @@ A company can deploy an **Ubuntu Server** virtual machine on **AWS**, **Microsof
 * Large corporate data centers
 * Mission-critical cloud applications
 
-### Real Example
+#### Real Example
 
 Many banks and large organizations run their production servers on **RHEL** because it provides long-term support, enhanced security, and professional technical support.
 
@@ -3268,7 +3268,7 @@ Many banks and large organizations run their production servers on **RHEL** beca
 
 ---
 
-## Summary Table
+#### Summary Table
 
 | Distribution  | Package Manager | Main Features                                                               | Common Uses                                              |
 | ------------- | --------------- | --------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -3302,7 +3302,7 @@ ID=ubuntu
 
 ---
 
-### Q20.
+## Q20.
 Create a GitHub repository named **week1-practice-set3** and upload:
 - Linux command practice
 - Two Bash shell scripts
@@ -3356,25 +3356,25 @@ week1-practice-set3/
 5 directories, 18 files
 ```
 
-### Linux command practice
+#### Linux command practice
 <img width="841" height="975" alt="image" src="https://github.com/user-attachments/assets/3503b81f-d74b-4876-ab57-8bb9727a2511" />
 <img width="1235" height="1166" alt="image" src="https://github.com/user-attachments/assets/6c16c049-571b-42a7-91ec-3fe6cb43074c" />
 <img width="1201" height="1240" alt="image" src="https://github.com/user-attachments/assets/07a2b7d9-9d3f-4a09-9cf4-59a000a69333" />
 <img width="922" height="597" alt="image" src="https://github.com/user-attachments/assets/4a49c811-a3e2-4dd1-92d5-f1c8d487b812" />
 <img width="820" height="1237" alt="image" src="https://github.com/user-attachments/assets/943916d0-c64d-4fca-9c73-3bfde09290e8" />
 
-## Two Bash shell scripts
+#### Two Bash shell scripts
 <img width="987" height="682" alt="image" src="https://github.com/user-attachments/assets/02632ee6-7ab4-4d69-9a6f-b687c5786ee7" />
 <img width="1842" height="911" alt="image" src="https://github.com/user-attachments/assets/3996a3c2-2d5d-4463-8fce-dd094ea045f5" />
 <img width="837" height="1017" alt="image" src="https://github.com/user-attachments/assets/d20c189f-ed26-4b80-957d-85107c339e33" />
 
-## A well-formatted README.md
+#### A well-formatted README.md
 <img width="2560" height="10871" alt="image" src="https://github.com/user-attachments/assets/1ac1a892-71ed-4b06-a561-ae6c5d089ec5" />
 
-## Minimum **5 Git commits**
+#### Minimum **5 Git commits**
 <img width="757" height="857" alt="image" src="https://github.com/user-attachments/assets/3a651300-d692-43b7-831b-80e67cb6af00" />
 
-## Screenshots of your terminal output
+#### Screenshots of your terminal output
 <img width="781" height="202" alt="image" src="https://github.com/user-attachments/assets/9e07a20f-4b1f-46eb-a8d4-ce62d7174f04" />
 
 ---
