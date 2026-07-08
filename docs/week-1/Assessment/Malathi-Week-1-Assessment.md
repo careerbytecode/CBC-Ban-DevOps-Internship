@@ -2073,11 +2073,489 @@ Write the Git commands to perform the following:
 
 ### Answer
 
+## 1. Create a New Branch
+
+### Command
+
+```bash
+git branch feature-branch
+```
+
+### Explanation
+
+* `git branch` creates a new branch.
+* Here, a branch named `feature-branch` is created.
+
+### Real Example
+
+A developer creates a separate branch to work on a new feature without affecting the `main` branch.
+
+---
+
+## 2. Switch to the New Branch
+
+### Command
+
+```bash
+git switch feature-branch
+```
+
+> Older Git versions also support:
+
+```bash
+git checkout feature-branch
+```
+
+### Explanation
+
+* `git switch` changes the current working branch to `feature-branch`.
+
+### Real Example
+
+After creating the branch, the developer switches to it and starts implementing the feature.
+
+---
+
+## 3. Check Available Branches
+
+### Command
+
+```bash
+git branch
+```
+
+
+### Explanation
+
+* Displays all local branches.
+* The current branch is marked with an asterisk (`*`).
+
+### Example Output
+
+```text
+* feature-branch
+  main
+```
+
+### Real Example
+
+A developer checks the list of branches before switching or merging.
+
+---
+
+## 4. Merge the Branch into the Main Branch
+
+### Step 1
+
+```bash
+git switch main
+```
+
+### Step 2
+
+```bash
+git merge feature-branch
+```
+
+### Explanation
+
+* First switch to the `main` branch.
+* Then merge the changes from `feature-branch` into `main`.
+
+### Real Example
+
+After testing the feature, the developer merges it into the main branch.
+
+> **Note:** For this assignment, these commands are shown as the standard Git workflow. They were **not executed** to avoid modifying the shared internship repository.
+
+---
+
+## 5. Push the Changes to GitHub
+
+### Command
+
+```bash
+git push origin main
+```
+
+### Explanation
+
+* `origin` is the remote repository.
+* `main` is the branch being pushed to GitHub.
+
+### Real Example
+
+After merging locally, the updated `main` branch is pushed to GitHub so everyone can access the latest changes.
+
+> **Note:** This command is shown for learning purposes and was **not executed** to avoid changing the shared repository.
+
+
+---
+
+## 6. Delete the Feature Branch (Optional)
+
+After the feature has been merged into `main`, the feature branch is usually no longer needed and can be deleted.
+
+### Delete the Local Branch
+
+```bash
+git branch -d feature-branch
+```
+
+### Delete the Remote Branch
+
+```bash
+git push origin --delete feature-branch
+```
+
+### Explanation
+
+* `git branch -d` deletes the local branch after it has been merged.
+* `git push origin --delete` removes the branch from the remote GitHub repository.
+
+### Real Example
+
+Once a feature has been successfully merged into the `main` branch, the development branch is deleted to keep the repository clean and organized.
+
+> **Note:** These commands should only be used **after** the branch has been merged. Since the merge was not performed for this assignment, these commands were **not executed**.
+
+
+
+---
+
+# Practical Demonstration Performed
+
+The following commands were actually executed as part of the hands-on practice:
+
+```bash
+git branch feature-branch
+git branch
+git switch feature-branch
+touch demo.txt
+git add .
+git commit -m "Add demo file"
+git push -u origin feature-branch
+git switch main
+```
+
+These commands successfully:
+
+* Created a new branch.
+* Switched to the new branch.
+* Added a sample file.
+* Committed the changes.
+* Pushed the new branch to GitHub.
+* Switched back to the `main` branch.
+
+> The merge and push to `main` were intentionally **not performed** to avoid modifying the internship repository.
+
+---
+
+## Complete Git Workflow
+
+```bash
+git branch feature-branch
+git switch feature-branch
+git branch
+git switch main
+git merge feature-branch
+git push origin main
+```
+
+---
+
+## Summary Table
+
+| Task                     | Command                                         |
+| ------------------------ | ----------------------------------------------- |
+| Create a new branch      | `git branch feature-branch`                     |
+| Switch to the new branch | `git switch feature-branch`                     |
+| Check available branches | `git branch`                                    |
+| Merge into `main`        | `git switch main`<br>`git merge feature-branch` |
+| Push changes to GitHub   | `git push origin main`                          |
+
+
+
+
+
+
+
+
+
+
+
+---
+
 ### Q13.
 Research any **three commonly used Git commands** that were not covered during the training and explain their purpose.
 
+
+Since your training already covered commands like `git branch`, `git checkout/switch`, `git merge`, `git push`, etc., choose commands that are genuinely different. A good set is:
+
+* `git status`
+* `git log`
+* `git diff`
+
+These are among the most commonly used Git commands in daily development.
+
+---
+
+# Q13.
+
+Research any **three commonly used Git commands** that were not covered during the training and explain their purpose.
+
+---
+
+# Answer
+
+## 1. `git status`
+
+### Purpose
+
+The `git status` command displays the current state of the Git repository.
+
+It shows:
+
+* The current branch.
+* Modified files.
+* Untracked files.
+* Staged files that are ready to be committed.
+
+### Syntax
+
+```bash
+git status
+```
+
+### Example Output
+
+```text
+On branch main
+
+Changes not staged for commit:
+  modified: README.md
+
+Untracked files:
+  demo.txt
+```
+
+### Real Example
+
+Before committing changes, a developer uses `git status` to verify which files have been modified or staged.
+
+---
+
+## 2. `git log`
+
+### Purpose
+
+The `git log` command displays the commit history of a Git repository.
+
+It shows information such as:
+
+* Commit ID (SHA)
+* Author
+* Date
+* Commit message
+
+### Syntax
+
+```bash
+git log
+```
+
+### Example Output
+
+```text
+commit 20d6ade...
+Author: Malathi
+Date: Tue Jul 8 2026
+
+    Add demo file
+```
+
+### Real Example
+
+A developer uses `git log` to review previous commits or find the commit where a bug was introduced.
+
+---
+
+## 3. `git diff`
+
+### Purpose
+
+The `git diff` command displays the differences between files or commits.
+
+It helps developers review changes before committing them.
+
+### Syntax
+
+```bash
+git diff
+```
+
+### Example Output
+
+```text
+- Hello World
++ Hello Git
+```
+
+### Real Example
+
+Before creating a commit, a developer runs `git diff` to review all modifications made to the project files.
+
+---
+
+## Summary Table
+
+| Command      | Purpose                                        | Example      |
+| ------------ | ---------------------------------------------- | ------------ |
+| `git status` | Displays the current status of the repository. | `git status` |
+| `git log`    | Displays the commit history.                   | `git log`    |
+| `git diff`   | Displays differences between files or commits. | `git diff`   |
+
+---
+
+### Commands Used for Hands-on Practice
+
+You can run the following commands safely to capture screenshots:
+
+```bash
+git status
+git log --oneline
+git diff
+```
+
+> **Note:** If `git diff` shows no output, it means there are no uncommitted changes. To see a difference, make a small change to a file without committing it, then run `git diff` again.
+
+If git diff shows nothing
+
+Make a small temporary change.
+
+For example,
+```bash
+echo "Practice line" >> sample.txt
+```
+Now run
+```bash
+git diff
+```
+You'll see the changes.
+
+After taking the screenshot, remove the temporary file:
+```bash
+rm sample.txt
+```
+These three commands are commonly used by developers and DevOps engineers and complement the basic Git commands covered during training.
+
+
+---
+
 ### Q14.
 What is a GitHub Repository? Explain why a README file is important in every GitHub project.
+
+
+### Answer
+
+## What is a GitHub Repository?
+
+A **GitHub Repository (Repository or Repo)** is an online storage space on GitHub that contains a project's files, folders, source code, and complete version history managed using Git.
+
+It allows developers to:
+
+* Store project files securely.
+* Track changes made to the project.
+* Collaborate with other developers.
+* Manage different versions of the project.
+* Share projects publicly or privately.
+
+A repository can contain source code, documentation, images, configuration files, and other resources related to a project.
+
+---
+
+## Real Example
+
+For this internship, the repository **`CBC-Ban-DevOps-Internship`** is hosted on GitHub. It contains the project structure, weekly assignments, documentation, and other files that interns work on collaboratively.
+
+---
+
+# Why is a README File Important?
+
+A **README** file is the first document users see when they open a GitHub repository. It provides essential information about the project and helps others understand how to use or contribute to it.
+
+A README file typically includes:
+
+* Project title and description.
+* Purpose of the project.
+* Installation instructions.
+* Usage instructions.
+* Features.
+* Folder structure.
+* Technologies used.
+* Contribution guidelines.
+* License information.
+* Contact information.
+
+A well-written README makes a project easier to understand and improves collaboration among developers.
+
+---
+
+## Real Example
+
+When someone visits a GitHub repository, they can read the **README.md** file to understand:
+
+* What the project does.
+* How to install and run it.
+* Which technologies are used.
+* How to contribute to the project.
+
+Without a README, new users may find it difficult to understand the project's purpose or how to use it.
+
+---
+
+## Advantages of a README File
+
+* Explains the purpose of the project.
+* Helps users install and use the project correctly.
+* Provides documentation for developers.
+* Makes collaboration easier.
+* Improves the professionalism of the repository.
+* Serves as the project's homepage on GitHub.
+
+---
+
+## Summary Table
+
+| Topic                 | Description                                                                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **GitHub Repository** | An online storage location on GitHub that contains a project's files, folders, source code, and version history managed using Git. |
+| **README File**       | A documentation file that explains the project, its purpose, installation steps, usage, and other important information.           |
+
+---
+
+## Quick Comparison
+
+| GitHub Repository                                        | README File                                      |
+| -------------------------------------------------------- | ------------------------------------------------ |
+| Stores the complete project and its version history.     | Explains the project and how to use it.          |
+| Contains source code, files, folders, and documentation. | Contains project documentation and instructions. |
+| Used for version control and collaboration.              | Used for understanding and onboarding users.     |
+| Can contain multiple files and folders.                  | Usually a single file named `README.md`.         |
+
+---
+
+### Key Points to Remember
+
+* **GitHub Repository** → Stores and manages the complete project with version control.
+* **README.md** → Explains what the project is, how to use it, and how others can contribute.
+
+> **In simple terms:** A **GitHub repository** is like a **project folder stored online**, while the **README.md** file is the **user guide** that explains everything about that project.
+
+
+
+
+---
 
 ### Q15.
 Explain the purpose of the following GitHub features:
@@ -2087,19 +2565,706 @@ Explain the purpose of the following GitHub features:
 - Issues
 - Pull Requests
 
+### Answer
+
+## GitHub Features Overview
+
+GitHub provides several features that make it easier for developers to collaborate, manage projects, and contribute to open-source software.
+
+---
+
+## 1.  Star
+
+### Purpose
+
+The **Star** feature allows users to bookmark or show appreciation for a GitHub repository.
+
+It helps users:
+
+* Save repositories for future reference.
+* Show that they like or support a project.
+* Discover popular repositories based on the number of stars.
+
+### Real Example
+
+> If you find a useful DevOps project on GitHub, you can **Star** it so that it appears in your starred repositories for easy access later.
+
+I starred my **CBC-Ban-DevOps-Internship** repository so it appears in my **Starred Repositories** list, making it easy to find later.
+
+
+---
+
+## 2.  Watch
+
+### Purpose
+
+The **Watch** feature allows users to receive notifications about activity in a repository.
+
+Depending on the notification settings, GitHub can notify users about:
+
+* New commits
+* New issues
+* Pull requests
+* Discussions
+* Releases
+
+### Real Example
+
+> A developer watches an open-source project to stay updated whenever new changes or releases are made.
+
+I used the **Watch** option to choose how I want to receive notifications whenever activity happens in the repository.
+
+
+
+---
+
+## 3.  Fork
+
+### Purpose
+
+The **Fork** feature creates a personal copy of another user's repository under your own GitHub account.
+
+A fork allows you to:
+
+* Experiment with changes safely.
+* Develop new features independently.
+* Contribute to open-source projects without affecting the original repository.
+
+### Real Example
+
+During this internship, I forked the **CBC-Ban-DevOps-Internship** repository from the original repository into my own GitHub account before starting the assignments.
+
+
+
+---
+
+## 4.  Issues
+
+### Purpose
+
+The **Issues** feature is used to: 
+ - report bugs, 
+ - request new features, 
+ - ask questions, or 
+ - track tasks within a project.
+
+Issues help teams organize and discuss work before implementing changes.
+
+### Real Example
+
+> If a user discovers a bug in a project, they can create an Issue describing the problem so that the developers can investigate and fix it.
+
+The repository currently has no open issues, but this page is where developers can create and track bugs, feature requests, and project tasks.
+
+---
+
+## 5.  Pull Requests (PR)
+
+### Purpose
+
+A **Pull Request (PR)** is used to propose changes from one branch or fork to another repository or branch.
+
+It allows team members to:
+
+* Review code.
+* Discuss changes.
+* Suggest improvements.
+* Approve or reject contributions before merging.
+
+### Real Example
+
+> After completing a new feature in the `feature-branch`, a developer creates a Pull Request to request that the changes be merged into the `main` branch.
+
+After completing my internship work in my forked repository, I created a **Pull Request** to request that my changes be reviewed and merged into the original repository.
+
+---
+
+## Summary Table
+
+| Feature             | Purpose                                           | Real Example                                       |
+| ------------------- | ------------------------------------------------- | -------------------------------------------------- |
+|  **Star**          | Bookmark or show appreciation for a repository.   | Starred the internship repository for quick access. |
+|  **Watch**        | Receive notifications about repository activity.  | Get notified when a project is updated.            |
+|  **Fork**         | Create your own copy of a repository.             | Fork an open-source project before contributing.   |
+|  **Issues**       | Report bugs, request features, or track tasks.    | Report a bug found in a project.                   |
+|  **Pull Request** | Request that code changes be reviewed and merged. | Submit completed work for review before merging.   |
+
+---
+
+## GitHub Collaboration Workflow
+
+```text
+                GitHub Repository
+                        │
+        ┌───────────────┼───────────────┐
+        │               │               │
+       Star           Watch           Fork
+        │               │               │
+ Save Repository   Get Notifications   Create Your Copy
+                                            │
+                                            ▼
+                                     Make Changes
+                                            │
+                                            ▼
+                                      Create Pull Request
+                                            │
+                                            ▼
+                                      Code Review
+                                            │
+                                            ▼
+                                       Merge to Main
+
+                 Issues
+                     │
+     Report Bugs • Request Features • Track Tasks
+```
+
+---
+
+### Key Points to Remember
+
+* **Star** → Save or appreciate a repository.
+* **Watch** → Receive notifications about repository updates.
+* **Fork** → Create your own copy of a repository.
+* **Issues** → Report bugs, request features, or track project tasks.
+* **Pull Request** → Submit changes for review before merging into the main project.
+
+> **In simple terms:** **Star** helps you save projects, **Watch** keeps you updated, **Fork** lets you create your own copy, **Issues** help track bugs and tasks, and **Pull Requests** enable code review and collaboration before changes are merged.
+
+---
+
+
 ### Q16.
 Write a Bash shell script to display the multiplication table of a number entered by the user.
 
+### Answer
+
+## Bash Shell Script
+
+```bash
+#!/bin/bash
+
+# Read a number from the user
+echo "Enter a number:"
+read num
+
+echo "Multiplication Table of $num"
+
+for i in {1..10}
+do
+    echo "$num x $i = $((num * i))"
+done
+```
+
+---
+
+## Explanation
+
+- `#!/bin/bash` specifies that the script should be executed using the Bash shell.
+- `echo` displays text on the terminal.
+- `read num` accepts a number entered by the user and stores it in the variable `num`.
+- `for i in {1..10}` runs the loop from **1 to 10**.
+- `$((num * i))` performs arithmetic multiplication.
+- `echo` prints each line of the multiplication table.
+
+---
+
+## Example Execution
+
+```text
+Enter a number:
+5
+
+Multiplication Table of 5
+
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+```
+
+---
+
+## How to Run the Script
+
+### Step 1: Create the script file
+
+```bash
+nano table.sh
+```
+
+Paste the script and save it.
+
+---
+
+### Step 2: Give execute permission
+
+```bash
+chmod +x table.sh
+```
+
+---
+
+### Step 3: Run the script
+
+```bash
+./table.sh
+```
+
+---
+
+## Real Example
+
+Suppose the user enters **7**.
+
+The script displays:
+
+```text
+Multiplication Table of 7
+
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42
+7 x 7 = 49
+7 x 8 = 56
+7 x 9 = 63
+7 x 10 = 70
+```
+
+---
+
+## Flow of the Script
+
+```text
+        Start
+          │
+          ▼
+  Read Number (num)
+          │
+          ▼
+ Print Heading
+          │
+          ▼
+   Loop from 1 to 10
+          │
+          ▼
+ Calculate num × i
+          │
+          ▼
+ Display Result
+          │
+          ▼
+        End
+```
+
+---
+
+## Summary
+
+| Step | Command / Statement | Purpose |
+|------|----------------------|---------|
+| 1 | `read num` | Reads a number from the user. |
+| 2 | `for i in {1..10}` | Loops from 1 to 10. |
+| 3 | `$((num * i))` | Calculates the multiplication. |
+| 4 | `echo` | Displays each line of the multiplication table. |
+
+
+---
+
 ### Q17.
 Write a Bash shell script to check whether a given year is a **Leap Year** or **Not a Leap Year**.
+
+
+### Answer
+
+## Bash Shell Script
+
+```bash
+#!/bin/bash
+
+# Read the year from the user
+echo "Enter a year:"
+read year
+
+# Check if it is a leap year
+if (( (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0) ))
+then
+    echo "$year is a Leap Year."
+    echo "February has 29 days."
+    echo "The year has 366 days."
+else
+    echo "$year is Not a Leap Year."
+    echo "February has 28 days."
+    echo "The year has 365 days."
+fi
+```
+
+---
+
+## Explanation
+
+- `#!/bin/bash` specifies that the script should be executed using the Bash shell.
+- `echo` displays a message to the user.
+- `read year` accepts the year entered by the user and stores it in the variable `year`.
+- The `if` statement checks the leap year conditions:
+  - If the year is divisible by **400**, it is a leap year.
+  - OR if the year is divisible by **4** but **not divisible by 100**, it is a leap year.
+  - Otherwise, it is **not** a leap year.
+
+---
+
+## Leap Year Rules
+
+A year is a **Leap Year** if:
+
+- It is divisible by **400**, **or**
+- It is divisible by **4** but **not divisible by 100**.
+
+Examples:
+
+| Year | Result |
+|------|--------|
+| 2024 | Leap Year |
+| 2025 | Not a Leap Year |
+| 1900 | Not a Leap Year |
+| 2000 | Leap Year |
+
+---
+
+## Example Execution
+
+### Example 1
+
+```text
+Enter a year:
+2024
+
+2024 is a Leap Year.
+```
+
+### Example 2
+
+```text
+Enter a year:
+2025
+
+2025 is Not a Leap Year.
+```
+
+---
+
+## How to Run the Script
+
+### Step 1: Create the script file
+
+```bash
+nano leapyear.sh
+```
+
+Paste the script and save it.
+
+---
+
+### Step 2: Give execute permission
+
+```bash
+chmod +x leapyear.sh
+```
+
+---
+
+### Step 3: Run the script
+
+```bash
+./leapyear.sh
+```
+
+---
+
+## Flow of the Script
+
+```text
+          Start
+            │
+            ▼
+     Read Year Input
+            │
+            ▼
+   Is year divisible by 400?
+        │            │
+      Yes            No
+       │              │
+       ▼              ▼
+ Leap Year     Divisible by 4
+               and not by 100?
+                  │        │
+                Yes        No
+                 │          │
+                 ▼          ▼
+          Leap Year   Not a Leap Year
+                 │
+                 ▼
+                End
+```
+
+---
+
+## Real Example
+
+A developer can use this script to determine whether a given year has **365** or **366** days before processing date-related calculations or generating yearly reports.
+
+---
+
+## Summary Table
+
+| Step | Command / Statement | Purpose |
+|------|----------------------|---------|
+| 1 | `read year` | Reads the year entered by the user. |
+| 2 | `if` condition | Checks the leap year rules. |
+| 3 | `echo` | Displays whether the year is a Leap Year or Not a Leap Year. |
+
+
+---
 
 ### Q18.
 Write a Bash shell script that accepts a user's **Name** and displays the following message five times using a **for loop**:
 
 **Welcome to CareerByteCode DevOps Internship, <Name>**
 
+### Answer
+
+## Bash Script
+
+```bash
+#!/bin/bash
+
+# Read the user's name
+echo "Enter your name:"
+read name
+
+# Display the welcome message five times
+for i in {1..5}
+do
+    echo "$i. Welcome to CareerByteCode DevOps Internship, $name"
+done
+```
+
+---
+
+## Explanation
+
+* `#!/bin/bash` tells the system to execute the script using the Bash shell.
+* `read name` accepts the user's name from the keyboard and stores it in the variable `name`.
+* `for i in {1..5}` creates a loop that runs **five times**.
+* `echo` displays the welcome message during each iteration of the loop.
+* `$name` prints the value entered by the user.
+
+---
+
+## Sample Output
+
+```text
+Enter your name:
+Malathi
+
+1. Welcome to CareerByteCode DevOps Internship, Malathi
+2. Welcome to CareerByteCode DevOps Internship, Malathi
+3. Welcome to CareerByteCode DevOps Internship, Malathi
+4. Welcome to CareerByteCode DevOps Internship, Malathi
+5. Welcome to CareerByteCode DevOps Internship, Malathi
+```
+
+---
+
+## Real Example
+
+A company can use a `for` loop in a Bash script to repeatedly display a welcome message, send reminders, or perform the same task multiple times for new employees during onboarding or to repeatedly display notifications while testing automation scripts.
+
+---
+
+## Commands to Run
+
+```bash
+chmod +x welcome.sh
+./welcome.sh
+```
+
+## Flow of the Script
+
+```text
+        Start
+          │
+          ▼
+ Ask the user to enter a name
+          │
+          ▼
+     Read the name
+          │
+          ▼
+   Start for loop (1 to 5)
+          │
+          ▼
+Display:
+"Welcome to CareerByteCode
+DevOps Internship, <Name>"
+          │
+          ▼
+ Repeat until 5 iterations
+          │
+          ▼
+         End
+```
+
+---
+
+
+## Summary Table
+
+| Component         | Purpose                                                    |
+| ----------------- | ---------------------------------------------------------- |
+| `#!/bin/bash`     | Specifies that the script should run using the Bash shell. |
+| `read name`       | Accepts the user's name as input.                          |
+| `for i in {1..5}` | Repeats the loop five times.                               |
+| `echo`            | Displays the welcome message.                              |
+| `$name`           | Prints the name entered by the user.                       |
+
+
+---
+
 ### Q19.
 Research any **two popular Linux distributions** used in cloud environments. Explain their features and where they are commonly used.
+
+### Answer
+
+# 1. Ubuntu Server
+
+## Purpose
+
+**Ubuntu Server** is one of the most popular Linux distributions used for cloud computing, web hosting, virtualization, and DevOps. It is developed by **Canonical Ltd.** and is known for its ease of use, stability, and long-term support (LTS) releases.
+
+### Features
+
+* Free and open-source.
+* Long Term Support (LTS) versions receive security updates for **5 years**.
+* Large software repository with thousands of packages.
+* Easy package management using `apt`.
+* Excellent support for Docker, Kubernetes, and cloud platforms.
+* Beginner-friendly and widely used in DevOps environments.
+
+### Common Uses
+
+* Cloud servers
+* Web hosting
+* Virtual machines
+* Docker and Kubernetes
+* DevOps and CI/CD pipelines
+
+### Real Example
+
+A company can deploy an **Ubuntu Server** virtual machine on **AWS**, **Microsoft Azure**, or **Google Cloud Platform (GCP)** to host a web application or run containerized applications using Docker.
+
+---
+
+# 2. Red Hat Enterprise Linux (RHEL)
+
+## Purpose
+
+**Red Hat Enterprise Linux (RHEL)** is a commercial Linux distribution developed by **Red Hat**. It is widely used in enterprise environments because of its reliability, security, and professional support.
+
+### Features
+
+* Enterprise-grade stability and security.
+* Commercial support from Red Hat.
+* Regular security updates and patches.
+* Uses the `dnf` package manager.
+* Certified for many enterprise applications and hardware.
+* Excellent support for virtualization and cloud computing.
+
+### Common Uses
+
+* Enterprise servers
+* Banking and financial systems
+* Government organizations
+* Large corporate data centers
+* Mission-critical cloud applications
+
+### Real Example
+
+Many banks and large organizations run their production servers on **RHEL** because it provides long-term support, enhanced security, and professional technical support.
+
+---
+
+## Difference Between Ubuntu Server and RHEL
+
+| Feature           | Ubuntu Server              | Red Hat Enterprise Linux (RHEL)          |
+| ----------------- | -------------------------- | ---------------------------------------- |
+| Developer         | Canonical Ltd.             | Red Hat                                  |
+| License           | Free and Open Source       | Commercial (Subscription-based)          |
+| Package Manager   | `apt`                      | `dnf`                                    |
+| Best For          | Cloud, DevOps, Web Hosting | Enterprise Servers                       |
+| Support           | Community + Paid Support   | Professional Enterprise Support          |
+| Popular Cloud Use | AWS, Azure, GCP            | AWS, Azure, GCP, Enterprise Data Centers |
+
+---
+
+## Cloud Environment Overview
+
+```text
+                    Cloud Platforms
+                           │
+      ┌────────────────────┴────────────────────┐
+      │                                         │
+ Ubuntu Server                           RHEL
+      │                                         │
+ ├─ Web Hosting                        ├─ Enterprise Servers
+ ├─ Docker & Kubernetes                ├─ Banking Systems
+ ├─ DevOps & CI/CD                     ├─ Government Systems
+ ├─ Virtual Machines                   ├─ Data Centers
+ └─ Cloud Applications                 └─ Mission-Critical Applications
+```
+
+---
+
+## Summary Table
+
+| Distribution  | Package Manager | Main Features                                                               | Common Uses                                              |
+| ------------- | --------------- | --------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Ubuntu Server | `apt`           | Free, beginner-friendly, LTS support, excellent cloud and container support | Cloud computing, web servers, DevOps, Docker, Kubernetes |
+| RHEL          | `dnf`           | Enterprise security, stability, commercial support                          | Enterprise servers, banking, government, data centers    |
+
+---
+
+### Commands
+
+Although you may not have both distributions installed, you can identify your current Linux distribution using:
+
+```bash
+cat /etc/os-release
+```
+
+Example Output (Ubuntu):
+
+```text
+PRETTY_NAME="Ubuntu 24.04 LTS"
+NAME="Ubuntu"
+VERSION="24.04 LTS"
+ID=ubuntu
+```
+
+
+
+
+
+---
 
 ### Q20.
 Create a GitHub repository named **week1-practice-set3** and upload:
