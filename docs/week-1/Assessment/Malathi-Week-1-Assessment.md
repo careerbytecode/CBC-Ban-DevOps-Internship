@@ -46,6 +46,7 @@ What is the difference between a Linux Operating System and a Windows Operating 
 
 ```
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/caa64886-1fdd-4a33-9403-10d052f89170" />
 
 
 
@@ -168,7 +169,9 @@ The Linux kernel performs several important tasks:
 
 - The Linux kernel is called the **core** of the operating system because it connects software with hardware and manages all important system resources.   
 - Every program depends on the kernel to access the CPU, memory, storage, and other hardware devices.   
-- Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.  
+- Without the Linux kernel, the operating system cannot run applications or communicate with the hardware.
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/22eed0a4-a62a-41e9-b3a2-143224759aaf" />
 
 ### Real Example
 
@@ -178,6 +181,8 @@ Suppose we create a file using the command:
 touch notes.txt
 ```
 
+<img width="1692" height="357" alt="image" src="https://github.com/user-attachments/assets/ebae09e5-4059-4223-bafd-a4d1fce27a70" />
+
 * The **Shell** receives the `touch notes.txt` command.
 * The **Shell** sends the request to the **Linux Kernel**.
 * The **Kernel** communicates with the storage device (hardware).
@@ -185,7 +190,9 @@ touch notes.txt
 
 This example shows how the Linux kernel manages communication between software and hardware.
 
-<img width="1692" height="357" alt="image" src="https://github.com/user-attachments/assets/ebae09e5-4059-4223-bafd-a4d1fce27a70" />
+
+
+
 
 
 ---
@@ -2044,6 +2051,8 @@ After completing a feature locally, a developer pushes the commits to GitHub so 
 *  **Remote Repository** → The **shared online repository** where the project is stored and collaborators can contribute.
 
 > **Think of it this way:** The **Local Repository** is like working on a document saved on your laptop, while the **Remote Repository** is like saving that document to GitHub so your team can access and collaborate on it.
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/0f38527d-3e5c-4f45-a854-19bb5ed58007" />
 
 
 ---
