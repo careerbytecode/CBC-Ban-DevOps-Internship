@@ -302,7 +302,7 @@ ls -R
 
 ---
 
-## Complete Commands
+### Complete Commands
 
 ```bash
 mkdir DevOps
@@ -329,7 +329,7 @@ Explain the purpose of the following commands with one example each:
 
 ### Answer
 
-## 1. `echo`
+### 1. `echo`
 
 ### Purpose
 
@@ -362,7 +362,7 @@ Welcome to Week 1 Assignment of CareerByteCode DevOps Internship
 
 ---
 
-## 2. `man`
+### 2. `man`
 
 ### Purpose
 
@@ -390,7 +390,7 @@ man ls
 
 ---
 
-## 3. `uname`
+### 3. `uname`
 
 ### Purpose
 
@@ -455,7 +455,7 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1
 
 ---
 
-## 4. `hostname`
+### 4. `hostname`
 
 ### Purpose
 
@@ -503,7 +503,7 @@ ubuntu / Deepak
 
 ---
 
-## 5. `who`
+### 5. `who`
 
 ### Purpose
 
@@ -578,7 +578,7 @@ Write Linux commands to perform the following:
 
 ### Answer
 
-## 1. Display the current Linux version
+### 1. Display the current Linux version
 
 ### Command
 
@@ -602,7 +602,7 @@ Linux Deepak 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec 1 
 
 
 
-## 2. Display the system hostname
+### 2. Display the system hostname
 
 ### Command
 
@@ -625,7 +625,7 @@ Deepak
 
 
 
-## 3. View command history
+### 3. View command history
 
 ### Command
 
@@ -654,7 +654,7 @@ history
 
 
 
-## 4. Create a file named `practice.txt`
+### 4. Create a file named `practice.txt`
 
 ### Command
 
@@ -672,7 +672,7 @@ touch practice.txt
 
 
 
-## 5. Copy the file into another directory
+### 5. Copy the file into another directory
 
 ### Command
 
@@ -692,7 +692,7 @@ cp practice.txt DevOps/
 
 
 
-## Complete Commands
+### Complete Commands
 
 ```bash
 uname -a
@@ -729,7 +729,7 @@ Research any **three Linux commands** that help you obtain system information. E
 
 ### Answer
 
-## 1. `lscpu`
+### 1. `lscpu`
 
 ### Purpose
 
@@ -758,7 +758,7 @@ Model name:          Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
 
 
 
-## 2. `free`
+### 2. `free`
 
 ### Purpose
 
@@ -787,7 +787,7 @@ Swap:           10Gi          0B        10Gi
 
 
 
-## 3. `df`
+### 3. `df`
 
 ### Purpose
 
@@ -877,7 +877,7 @@ The `/` (root directory) is the top-level directory in Linux. All other director
 
 
 
-## 1. `/root`
+### 1. `/root`
 
 ### Purpose
 
@@ -944,7 +944,7 @@ The system administrator stores important scripts (Backup scripts, Maintenance s
 
 
 
-## 2. `/bin`
+### 2. `/bin`
 
 ### Purpose
 
@@ -1022,7 +1022,7 @@ So the command really comes from
 
 
 
-## 3. `/sbin`
+### 3. `/sbin`
 
 ### Purpose
 
@@ -1105,7 +1105,7 @@ On many modern Linux distributions, /sbin is a symbolic link to /usr/sbin.
 
 
 
-## 4. `/dev`
+### 4. `/dev`
 
 ### Purpose
 
@@ -1179,7 +1179,7 @@ sdd      8:48   0     1T  0 disk /
 
 
 
-## 5. `/proc`
+### 5. `/proc`
 
 ### Purpose
 
@@ -1504,7 +1504,7 @@ If a file has been accidentally moved and its location is unknown, Linux provide
 
 ---
 
-## 1. `find` Command
+### 1. `find` Command
 
 ### Purpose
 
@@ -1562,7 +1562,7 @@ This command searches all subdirectories of the current directory and displays t
 
 ---
 
-## 2. `locate` Command
+### 2. `locate` Command
 
 ### Purpose
 
@@ -2073,7 +2073,7 @@ Write the Git commands to perform the following:
 
 ### Answer
 
-## 1. Create a New Branch
+### 1. Create a New Branch
 
 ### Command
 
@@ -2094,7 +2094,7 @@ A developer creates a separate branch to work on a new feature without affecting
 
 ---
 
-## 2. Switch to the New Branch
+### 2. Switch to the New Branch
 
 ### Command
 
@@ -2123,7 +2123,7 @@ After creating the branch, the developer switches to it and starts implementing 
 
 ---
 
-## 3. Check Available Branches
+### 3. Check Available Branches
 
 ### Command
 
@@ -2152,7 +2152,7 @@ A developer checks the list of branches before switching or merging.
 
 ---
 
-## 4. Merge the Branch into the Main Branch
+### 4. Merge the Branch into the Main Branch
 
 #### Step 1
 
@@ -2182,7 +2182,7 @@ After testing the feature, the developer merges it into the main branch.
 
 ---
 
-## 5. Push the Changes to GitHub
+### 5. Push the Changes to GitHub
 
 ### Command
 
@@ -2207,7 +2207,7 @@ After merging locally, the updated `main` branch is pushed to GitHub so everyone
 
 ---
 
-## 6. Delete the Feature Branch (Optional)
+### 6. Delete the Feature Branch (Optional)
 
 After the feature has been merged into `main`, the feature branch is usually no longer needed and can be deleted.
 
@@ -2306,7 +2306,7 @@ Research any **three commonly used Git commands** that were not covered during t
 
 ### Answer
 
-## 1. `git status`
+### 1. `git status`
 
 ### Purpose
 
@@ -2346,7 +2346,7 @@ Before committing changes, a developer uses `git status` to verify which files h
 
 ---
 
-## 2. `git log`
+### 2. `git log`
 
 ### Purpose
 
@@ -2384,7 +2384,7 @@ A developer uses `git log` to review previous commits or find the commit where a
 
 ---
 
-## 3. `git diff`
+### 3. `git diff`
 
 ### Purpose
 
@@ -2580,7 +2580,7 @@ GitHub provides several features that make it easier for developers to collabora
 
 ---
 
-## 1.  Star
+### 1.  Star
 
 ### Purpose
 
@@ -2603,7 +2603,7 @@ I starred my **CBC-Ban-DevOps-Internship** repository so it appears in my **Star
 
 ---
 
-## 2.  Watch
+### 2.  Watch
 
 ### Purpose
 
@@ -2628,7 +2628,7 @@ I used the **Watch** option to choose how I want to receive notifications whenev
 
 ---
 
-## 3.  Fork
+### 3.  Fork
 
 ### Purpose
 
@@ -2649,7 +2649,7 @@ During this internship, I forked the **CBC-Ban-DevOps-Internship** repository fr
 
 ---
 
-## 4.  Issues
+### 4.  Issues
 
 ### Purpose
 
@@ -2672,7 +2672,7 @@ The repository currently has no open issues, but this page is where developers c
 
 ---
 
-## 5.  Pull Requests (PR)
+### 5.  Pull Requests (PR)
 
 ### Purpose
 
