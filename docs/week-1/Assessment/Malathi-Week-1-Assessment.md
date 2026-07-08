@@ -1225,9 +1225,9 @@ Those numbers are **PIDs (Process IDs)**.
 ### Useful files
 Each process directory contains files that provide detailed information about that process. Some commonly used files are:
 
-• /proc/<PID>/status   – Displays the process status, memory usage, and other details.
-• /proc/<PID>/cmdline  – Shows the command-line arguments used to start the process.
-• /proc/<PID>/environ  – Contains the environment variables of the process.
+• `/proc/<PID>/status`   – Displays the process status, memory usage, and other details.  
+• `/proc/<PID>/cmdline`  – Shows the command-line arguments used to start the process.  
+• `/proc/<PID>/environ`  – Contains the environment variables of the process.  
 
 
 ```bash
@@ -1244,12 +1244,12 @@ ls /proc | head
 ls /proc/1
 ```
 
-> Note: Some files and symbolic links inside /proc/<PID> require root privileges. Therefore, seeing "Permission denied" for some entries is normal.
+> Note: Some files and symbolic links inside `/proc/<PID>` require root privileges. Therefore, seeing "Permission denied" for some entries is normal.
 
 <img width="902" height="507" alt="image" src="https://github.com/user-attachments/assets/a550d2c4-fb5e-408f-9db2-c0cb3b923a65" />
 
 
-## or
+**or**
 
 ```bash
 cat /proc/1/status
