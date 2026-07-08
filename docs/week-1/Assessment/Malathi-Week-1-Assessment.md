@@ -2005,6 +2005,7 @@ git commit -m "Added login feature"
 
 The changes are saved only in the local repository until they are pushed.
 
+<img width="1137" height="731" alt="image" src="https://github.com/user-attachments/assets/dd6dfcdc-b820-40b9-bd46-143fe9654a01" />
 
 
 ---
@@ -2028,6 +2029,9 @@ Push changes to GitHub:
 ```bash
 git push -u origin main
 ```
+
+<img width="1002" height="487" alt="image" src="https://github.com/user-attachments/assets/cd914208-9485-4072-bf2f-ef848ec38655" />
+
 
 ### Real Example
 
