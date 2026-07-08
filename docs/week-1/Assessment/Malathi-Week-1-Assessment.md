@@ -1838,7 +1838,7 @@ source ~/.bashrc
 
 Then every new terminal will automatically use `rm -i` whenever you type `rm`.
 
----
+
 
 
 > The command `alias rm='rm -i'` creates a shortcut so that every `rm` command runs in interactive mode (`rm -i`), asking for confirmation before deleting files. This helps prevent accidental file deletion.
@@ -1867,7 +1867,8 @@ rm -i notes.txt
 
 
 
-https://github.com/shettymalathib/CBC-Ban-DevOps-Internship/blob/intern/malathi-shetty/interns/Malathi-Shetty/images/Q10%20Suppose%20you%20accidentally%20deleted%20a%20file%20using%20the%20%60rm%60%20command.%20What%20precautions%20should%20you%20follow%20in%20the%20future%20to%20avoid%20deleting%20important%20files/rm%20-i.png?raw=true
+<img width="707" height="162" alt="image" src="https://github.com/user-attachments/assets/e6b4392e-4434-48fc-96b3-ac3538a56efc" />
+
 
 This allows you to verify the file and confirm before deleting it.
 
