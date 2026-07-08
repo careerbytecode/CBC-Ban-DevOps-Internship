@@ -1924,7 +1924,7 @@ This allows you to verify the file and confirm before deleting it.
 
 ---
 
-### Quick Memory Tip
+
 
 *  **Check first** → `pwd`, `ls`
 *  **Backup important files** → `cp`
@@ -2005,6 +2005,8 @@ git commit -m "Added login feature"
 
 The changes are saved only in the local repository until they are pushed.
 
+
+
 ---
 
 ## Remote Repository
@@ -2045,7 +2047,7 @@ After completing a feature locally, a developer pushes the commits to GitHub so 
 
 ---
 
-### Quick Memory Tip
+
 
 *  **Local Repository** → Your **personal workspace** on your computer.
 *  **Remote Repository** → The **shared online repository** where the project is stored and collaborators can contribute.
