@@ -1389,7 +1389,7 @@ docs.txt: empty
 ```
 It demonstrates that Linux recognizes it as a file.
 
-<img width="871" height="72" alt="image" src="https://github.com/user-attachments/assets/1bfbabaf-fad2-4806-aa65-fa536799de72" />
+<img width="871" height="72" alt="image" src="https://github.com/user-attachments/assets/41d4edbc-94bc-4f4f-8c60-1f74e56f69c9" />
 
 
 ---
@@ -1684,6 +1684,9 @@ cp important.txt important_backup.txt
 
 If the original file is deleted accidentally, the backup can be restored.
 
+<img width="1147" height="378" alt="image" src="https://github.com/user-attachments/assets/f42f486c-5220-423b-8fab-500e1c55b641" />
+
+
 ---
 
 ### 5. Avoid Using `rm -rf` Unless Necessary
@@ -1693,6 +1696,9 @@ The `-r` option removes directories recursively, and `-f` forces deletion withou
 ```bash
 rm -rf directory_name
 ```
+
+<img width="1007" height="157" alt="image" src="https://github.com/user-attachments/assets/0dcbc3a4-bd1f-4e37-8c6c-ba27cb6db7c2" />
+
 
 Use this command only when you are absolutely sure, as it can permanently delete large amounts of data.
 
@@ -1714,6 +1720,9 @@ First verify the files:
 ls *.txt
 ```
 
+<img width="1112" height="457" alt="image" src="https://github.com/user-attachments/assets/f4c8bb15-00bd-4939-a6bd-a179fdfc64d3" />
+
+
 ---
 
 ### 7. Use Interactive Mode by Default (Optional)
@@ -1723,6 +1732,9 @@ You can make `rm` ask for confirmation every time by creating an alias.
 ```bash
 alias rm='rm -i'
 ```
+
+<img width="1547" height="243" alt="image" src="https://github.com/user-attachments/assets/b5e98be7-bf13-4009-9e5e-1f6e39b280bf" />
+
 
 ---
 
