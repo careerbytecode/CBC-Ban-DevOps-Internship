@@ -3384,11 +3384,17 @@ week1-practice-set3/
 Record a **3-minute self-speech video** covering the following:
 
 - Introduce yourself.
+> Hello everyone. My name is Malathi Shetty. I am currently participating in the CareerByteCode DevOps Internship. I am excited to learn DevOps tools and technologies through practical assignments and hands-on exercises. This is my first week of the internship, and I have learned many new concepts related to Linux, Git, GitHub, and Bash scripting.
 - Share what you learned during the first week.
+> During the first week, I learned the Linux file system, commonly used Linux commands, file and directory management, permissions, and navigation using the terminal. I also learned how to write simple Bash shell scripts, such as a multiplication table script, a leap year checker, a backup script, and a system health script.
 - Which Linux command did you use the most?
+> The Linux commands I used the most were ls, cd, pwd, mkdir, touch, cp, mv, rm, and git commands while working on my assignments. I especially used ls and pwd very frequently to check my current directory and files.
 - Which Git concept did you understand well?
+> The Git concept I understood well was branching. I learned how to create a new branch, switch between branches, commit changes, and push a branch to GitHub. I also understood the difference between a local repository and a remote repository.
 - What additional concept did you learn by exploring on your own?
+> Apart from the training material, I explored additional Linux commands. I also learned how to create backup scripts, monitor system information, and organize project files using a proper folder structure and a README file.
 - What are your goals for the upcoming weeks?
+> In the upcoming weeks, my goal is to improve my Linux skills, become more confident with Git and GitHub, learn Docker, Kubernetes, and CI/CD pipelines, and gain practical knowledge that will help me become a DevOps Engineer. Thank you. I am looking forward to learning more during this internship.
 
 ---
 
