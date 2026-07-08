@@ -862,7 +862,7 @@ Explain the purpose of the following Linux directories:
 
 Linux follows the Filesystem Hierarchy Standard (FHS), which defines the purpose of standard directories such as /bin, /sbin, /dev, and /proc. Although modern distributions may implement some directories as symbolic links (for example, /bin → /usr/bin), their logical purpose remains the same.
 
-## Linux Directory Structure
+### Linux Directory Structure
 
 ```text
                  /
