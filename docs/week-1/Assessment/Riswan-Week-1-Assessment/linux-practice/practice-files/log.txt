@@ -1,0 +1,2 @@
+error: application failed
+success: application started
