@@ -473,6 +473,178 @@ Docker stores the Ubuntu layer only once, reducing storage usage.
 - **R** = Reuses existing layers
 - **E** = Efficient image building
 
+
+
+## Hands-on Demonstration
+
+### Step 1: Create a Dockerfile
+
+```dockerfile
+FROM ubuntu:22.04
+
+RUN apt-get update
+
+RUN apt-get install -y nginx
+
+COPY index.html /var/www/html/index.html
+
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+Build the image:
+
+```bash
+docker build -t docker-layer-demo:v1 .
+```
+
+Docker executes the instructions one by one:
+
+```text
+[1/4] FROM ubuntu:22.04
+[2/4] RUN apt-get update
+[3/4] RUN apt-get install -y nginx
+[4/4] COPY index.html /var/www/html/index.html
+```
+
+This creates the image **docker-layer-demo:v1**.
+
+---
+
+### Step 2: Verify the Image
+
+List the available images.
+
+```bash
+docker images
+```
+
+Example:
+
+```text
+REPOSITORY            TAG
+docker-layer-demo     v1
+```
+
+---
+
+### Step 3: Inspect Image Layers
+
+Use the following command to inspect the layers:
+
+```bash
+docker history docker-layer-demo:v1
+```
+
+Example output:
+
+```text
+IMAGE          CREATED BY                                SIZE
+CMD ["nginx"...]                             0B
+COPY index.html /var/www/html/index.html     20.5kB
+RUN apt-get install -y nginx                 58.6MB
+RUN apt-get update                           78MB
+Ubuntu Base Layer                            87.7MB
+```
+
+**Observation:**
+
+* `FROM` creates the Ubuntu base layer.
+* `RUN apt-get update` creates a package update layer.
+* `RUN apt-get install -y nginx` creates the Nginx installation layer.
+* `COPY` creates a layer containing the HTML file.
+* `CMD` stores image metadata and does not create a filesystem layer.
+
+> **Note:** In Docker BuildKit, some entries may appear as `<missing>`. This is normal because BuildKit hides intermediate image IDs. The layers still exist.
+
+---
+
+### Step 4: Demonstrate Layer Caching
+
+Modify only the `index.html` file.
+
+For example, change:
+
+```html
+<h1>Hello Docker Layers!</h1>
+```
+
+to
+
+```html
+<h1>Hello Docker Layer Caching!</h1>
+```
+
+Rebuild the image:
+
+```bash
+docker build -t docker-layer-demo:v2 .
+```
+
+Output:
+
+```text
+CACHED [2/4] RUN apt-get update
+CACHED [3/4] RUN apt-get install -y nginx
+[4/4] COPY index.html /var/www/html/index.html
+```
+
+### Observation
+
+Docker reused the cached layers for:
+
+* `FROM ubuntu:22.04`
+* `RUN apt-get update`
+* `RUN apt-get install -y nginx`
+
+Only the `COPY` instruction was rebuilt because `index.html` changed.
+
+This significantly reduced the build time.
+
+---
+
+### Step 5: Optimize the Dockerfile
+
+Instead of writing multiple `RUN` instructions:
+
+```dockerfile
+RUN apt-get update
+
+RUN apt-get install -y nginx
+```
+
+Combine them into a single instruction:
+
+```dockerfile
+RUN apt-get update && \
+    apt-get install -y nginx && \
+    rm -rf /var/lib/apt/lists/*
+```
+
+Build the optimized image:
+
+```bash
+docker build -t docker-layer-demo:v3 .
+```
+
+Build output:
+
+```text
+[1/3] FROM ubuntu:22.04
+[2/3] RUN apt-get update && apt-get install -y nginx ...
+[3/3] COPY index.html
+```
+
+### Observation
+
+Combining multiple `RUN` commands:
+
+* Reduces the number of image layers.
+* Removes unnecessary package cache files.
+* Produces a smaller and more efficient Docker image.
+
+
+
+
 ---
 
 ### Q4.
@@ -493,7 +665,16 @@ docker search httpd
 
 **Purpose:** Searches Docker Hub for images related to `httpd`.
 
-**Screenshot to attach:** Output of `docker search httpd`
+**Output of `docker search httpd`**
+```bash
+NAME                     DESCRIPTION                                     STARS     OFFICIAL
+httpd                    The Apache HTTP Server Project                  4933      [OK]
+```
+
+- Docker searched Docker Hub (Docker's online image repository).
+- It displayed all images related to httpd.
+- The image marked [OK] is the official image maintained by the Apache HTTP Server Project and Docker.
+- [OK] indicates that the image is an **Official Docker Image**. Official images are maintained by Docker or the software maintainers, are trusted, well-documented, and regularly updated.
 
 ---
 
@@ -505,7 +686,7 @@ docker pull httpd
 
 **Purpose:** Downloads the latest `httpd` image from Docker Hub to your local system.
 
-**Screenshot to attach:** Output of `docker pull httpd`
+**Output of `docker pull httpd`**
 
 ---
 
@@ -522,7 +703,7 @@ docker run -d --name web1 httpd
 - `--name web1` → Assigns the name `web1` to the container.
 - `httpd` → Specifies the image to use.
 
-**Screenshot to attach:** Output of `docker ps`
+**Output of `docker ps`**
 
 ---
 
@@ -546,7 +727,7 @@ docker exec -it web1 /bin/bash
 docker exec -it web1 /bin/sh
 ```
 
-**Screenshot to attach:** Terminal showing you are inside the container.
+**Terminal showing you are inside the container.**
 
 ---
 
@@ -576,7 +757,7 @@ docker rm -f web1
 - `docker rm` → Removes the stopped container.
 - `docker rm -f` → Forcefully stops and removes the container in one command.
 
-**Screenshot to attach:** Output of `docker ps -a` showing the container has been removed.
+**Output of `docker ps -a` showing the container has been removed.**
 
 ### Summary of Commands
 
@@ -598,15 +779,9 @@ docker rm -f web1
 - `docker rm` removes a container after it is stopped.
 - `docker rm -f` forcefully stops and removes a container.
 
-### Mnemonic
 
-**SPRER**
+> Note: docker run creates and starts a container. If the container already exists but is stopped, use docker start web1 instead of docker run.
 
-- **S** = **Search** (`docker search`)
-- **P** = **Pull** (`docker pull`)
-- **R** = **Run** (`docker run`)
-- **E** = **Exec** (`docker exec`)
-- **R** = **Remove** (`docker rm`)
 
 
 
