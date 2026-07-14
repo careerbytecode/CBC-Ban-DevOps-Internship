@@ -85,7 +85,14 @@ Missed a live session or want to revise? Every week's **recordings** live in **[
 | 3 | Git & GitHub — Session 3 | [▶ Watch](https://drive.google.com/file/d/1k-VuEhTjZoRgimHu0womar8UATN2He29/view?usp=drive_link) | [Git & GitHub Complete Guide](docs/week-1/git-and-github.md) |
 | 4 | Ubuntu Install — Session 4 | [▶ Watch](https://drive.google.com/file/d/1ifRipeUS-9r0tsk6_vw00DZ8c-qcs0Y2/view?usp=drive_link) | — |
 
-> 🔒 Recordings are for enrolled interns only — please don't re-share. Weeks 2–4 recordings and notes will be added to [`CLASS-RECORDINGS.md`](CLASS-RECORDINGS.md) and [`docs/`](docs/) as each week completes.
+**✅ Week 2 — Docker · Kubernetes:**
+
+| # | Session | 🎥 Recording | 📝 Notes |
+|---|---------|-------------|----------|
+| 1 | Docker — Session 1 | [▶ Watch](https://drive.google.com/file/d/1XXl3egTI2mVSoNY4ohwjQHHtAdNKLlPE/view) | [Docker Master Guide](docs/week-2/session-1/docker.md) |
+| 2 | Kubernetes — Session 2 | [▶ Watch](https://drive.google.com/file/d/15pd52MlMZ6FfDUTPFfGFAgK3WOjby1JQ/view) | [Kubernetes notes (11 topics)](docs/week-2/session-2/) |
+
+> 🔒 Recordings are for enrolled interns only — please don't re-share. Weeks 3–4 recordings and notes will be added to [`CLASS-RECORDINGS.md`](CLASS-RECORDINGS.md) and [`docs/`](docs/) as each week completes.
 
 ---
 
@@ -178,7 +185,7 @@ CBC-Ban-DevOps-Internship/
 ├── COHORT-SCHEDULE.md             ← week-by-week plan + attendance + weekly tasks
 ├── SOCIAL-MEDIA-AND-VIDEO.md      ← weekly post + video rules & tagging
 ├── WEEKLY-SCRIPTS.md              ← ⭐ copy-paste posts + video scripts (per week)
-├── CLASS-RECORDINGS.md            ← 🎥 weekly live-session recordings (Week 1 added)
+├── CLASS-RECORDINGS.md            ← 🎥 weekly live-session recordings (Weeks 1–2 added)
 ├── CONTRIBUTING.md                ← fork → build your DevOps capstone → submit (start here)
 ├── SUBMISSION-GUIDE.md            ← short printable fork + PR cheat-sheet
 ├── PROJECTS-CATALOG.md            ← the 10 DevOps projects + cohort registry
@@ -189,10 +196,15 @@ CBC-Ban-DevOps-Internship/
 ├── MENTOR-SETUP.md                ← (mentors) GitHub settings for the fork/PR workflow
 │
 ├── docs/                          ← 📝 class notes & cheat-sheets, by week
-│   └── week-1/                    ← Linux · Bash scripting · Git & GitHub
-│       ├── linux.md
-│       ├── shell-scripting.md
-│       └── git-and-github.md
+│   ├── week-1/                    ← Linux · Bash scripting · Git & GitHub
+│   │   ├── linux.md
+│   │   ├── shell-scripting.md
+│   │   ├── git-and-github.md
+│   │   └── Assessment/            ← per-student Week 1 assignments
+│   └── week-2/                    ← Docker · Kubernetes
+│       ├── session-1/docker.md
+│       ├── session-2/            ← pods, deployments, services, ingress, HPA, …
+│       └── Assessment/            ← per-student Week 2 assignments
 │
 ├── .github/                       ← (mentors) PR template + CODEOWNERS
 │   ├── CODEOWNERS

@@ -21,13 +21,15 @@ All live-session recordings for the cohort, week by week. Missed a class or want
 
 ---
 
-## ⏳ Week 2 — Docker · Kubernetes · Monitoring
+## ✅ Week 2 — Docker · Kubernetes
 
-_Recordings will be added here after Week 2 sessions._
+**Topics:** Docker (images, containers, Dockerfile, volumes, networking, Compose, registry) and Kubernetes (architecture, Minikube, Pods, Deployments, Services, ConfigMaps, Secrets, Ingress, HPA, StatefulSets, Grafana).
+📝 **Class notes for this week:** [`docs/week-2/session-1/`](docs/week-2/session-1/) · [`docs/week-2/session-2/`](docs/week-2/session-2/)
 
-| # | Session | Recording |
-|---|---------|-----------|
-| 1 | — | _coming soon_ |
+| # | Session | 🎥 Recording | 📝 Notes |
+|---|---------|-------------|----------|
+| 1 | Docker — Session 1 | [▶ Watch](https://drive.google.com/file/d/1XXl3egTI2mVSoNY4ohwjQHHtAdNKLlPE/view) | [Docker Master Guide](docs/week-2/session-1/docker.md) |
+| 2 | Kubernetes — Session 2 | [▶ Watch](https://drive.google.com/file/d/15pd52MlMZ6FfDUTPFfGFAgK3WOjby1JQ/view) | [Kubernetes notes (11 topics)](docs/week-2/session-2/) |
 
 ---
 
