@@ -649,6 +649,7 @@ Combining multiple `RUN` commands:
 
 ### Q4.
 Write the Docker commands to perform the following tasks:
+
 - Search for the `httpd` image
 - Download the image
 - Run it as a container named `web1`
@@ -657,7 +658,7 @@ Write the Docker commands to perform the following tasks:
 
 ### Answer
 
-#### 1. Search for the `httpd` image
+### 1. Search for the `httpd` image
 
 ```bash
 docker search httpd
@@ -665,20 +666,23 @@ docker search httpd
 
 **Purpose:** Searches Docker Hub for images related to `httpd`.
 
-**Output of `docker search httpd`**
-```bash
-NAME                     DESCRIPTION                                     STARS     OFFICIAL
-httpd                    The Apache HTTP Server Project                  4933      [OK]
+**Sample Output**
+
+```text
+NAME      DESCRIPTION                          STARS   OFFICIAL
+httpd     The Apache HTTP Server Project       4933    [OK]
 ```
 
-- Docker searched Docker Hub (Docker's online image repository).
-- It displayed all images related to httpd.
-- The image marked [OK] is the official image maintained by the Apache HTTP Server Project and Docker.
-- [OK] indicates that the image is an **Official Docker Image**. Official images are maintained by Docker or the software maintainers, are trusted, well-documented, and regularly updated.
+**Explanation:**
 
----
+- Docker searches **Docker Hub** (Docker's online image repository).
+- It displays images related to `httpd`.
+- The image marked **[OK]** is the **Official Docker Image** maintained by the Apache HTTP Server Project and Docker.
+- Official images are trusted, well-documented, and regularly updated.
 
-#### 2. Download the `httpd` image
+
+
+### 2. Download the `httpd` image
 
 ```bash
 docker pull httpd
@@ -686,11 +690,48 @@ docker pull httpd
 
 **Purpose:** Downloads the latest `httpd` image from Docker Hub to your local system.
 
-**Output of `docker pull httpd`**
+**Output**
 
----
+```text
+Using default tag: latest
+latest: Pulling from library/httpd
+4f4fb700ef54: Pull complete
+69b5b831a361: Pull complete
+062e450697fa: Pull complete
+010f7d7e175f: Pull complete
+ebd81352b960: Pull complete
+39d55e966aeb: Pull complete
+507729664175: Download complete
+c72742279dc1: Download complete
+Digest: sha256:305fd8326a27a137fedb8900f26375699ab233cc37793f35cf5d7c65671fb252
+Status: Downloaded newer image for httpd:latest
+docker.io/library/httpd:latest
+```
 
-#### 3. Run the image as a container named `web1`
+**Explanation:**
+
+- Docker downloads the image layers from Docker Hub.
+- Since no tag is specified, Docker automatically downloads the **latest** version (`httpd:latest`).
+- The **Digest** is a SHA-256 checksum that uniquely identifies the downloaded image.
+
+**Verify the downloaded image**
+
+```bash
+docker images
+```
+
+**Output**
+
+```text
+IMAGE                  ID             DISK USAGE   CONTENT SIZE
+httpd:latest           305fd8326a27   177MB        47.6MB
+```
+
+This confirms that the image has been successfully downloaded to the local machine.
+
+
+
+### 3. Run the image as a container named `web1`
 
 ```bash
 docker run -d --name web1 httpd
@@ -700,14 +741,39 @@ docker run -d --name web1 httpd
 
 - `docker run` → Creates and starts a new container.
 - `-d` → Runs the container in detached (background) mode.
-- `--name web1` → Assigns the name `web1` to the container.
-- `httpd` → Specifies the image to use.
+- `--name web1` → Assigns the container the name `web1`.
+- `httpd` → Uses the `httpd:latest` image.
 
-**Output of `docker ps`**
+**Output**
 
----
+```text
+8c1e46e89ba1ec9c1d3c62da5523328072d6b92c85a89bed8f154612140c2eeb
+```
 
-#### 4. Enter the running container's shell
+The output is the **Container ID**.
+
+**Verify the running container**
+
+```bash
+docker ps
+```
+
+**Output**
+
+```text
+CONTAINER ID   IMAGE    COMMAND              STATUS         PORTS   NAMES
+8c1e46e89ba1   httpd    "httpd-foreground"   Up 14 seconds  80/tcp  web1
+```
+
+**Explanation:**
+
+- The container is running successfully.
+- Apache HTTP Server is running using the `httpd-foreground` command.
+- The container exposes **port 80**, but it is **not accessible from the host** because no port mapping (`-p`) was specified.
+
+
+
+### 4. Enter the running container's shell
 
 ```bash
 docker exec -it web1 /bin/bash
@@ -715,23 +781,78 @@ docker exec -it web1 /bin/bash
 
 **Purpose:**
 
-- `docker exec` → Runs a command inside a running container.
+- `docker exec` → Executes a command inside a running container.
 - `-i` → Keeps standard input open.
-- `-t` → Allocates a terminal.
+- `-t` → Allocates an interactive terminal.
 - `web1` → Name of the running container.
 - `/bin/bash` → Opens the Bash shell inside the container.
 
-> **Note:** If Bash is not available, use:
+> **Note:** If Bash is unavailable, use:
 
 ```bash
 docker exec -it web1 /bin/sh
 ```
 
-**Terminal showing you are inside the container.**
+**Inside the container**
 
----
+```bash
+root@8c1e46e89ba1:/usr/local/apache2# pwd
+/usr/local/apache2
 
-#### 5. Delete the container
+root@8c1e46e89ba1:/usr/local/apache2# ls
+bin  build  cgi-bin  conf  error  htdocs  icons  include  logs  modules
+
+root@8c1e46e89ba1:/usr/local/apache2# whoami
+root
+```
+
+**Explanation:**
+
+- `pwd` shows the current working directory.
+- `ls` lists the Apache installation directories.
+- `whoami` confirms that the current user is `root`.
+
+> **Note:** Running `ps -ef` may display:
+
+```text
+bash: ps: command not found
+```
+
+This is normal because the official `httpd` image is a minimal image and does not include the `procps` package that provides the `ps` command.
+
+
+
+### 5. Inspect the container
+
+```bash
+docker inspect web1
+```
+
+**Purpose:** Displays detailed information about the container in JSON format.
+
+The output includes:
+
+- Container ID
+- Current status
+- Image used
+- Environment variables
+- Working directory
+- Network configuration
+- Container IP address
+- Mounted volumes
+- Port information
+
+For example:
+
+```json
+"Status": "running",
+"IPAddress": "172.17.0.2",
+"WorkingDir": "/usr/local/apache2"
+```
+
+
+
+### 6. Delete the container
 
 First, stop the container:
 
@@ -739,50 +860,103 @@ First, stop the container:
 docker stop web1
 ```
 
-Then, delete it:
+**Output**
+
+```text
+web1
+```
+
+Verify that it has stopped:
+
+```bash
+docker ps
+```
+
+`web1` will no longer appear because `docker ps` shows only running containers.
+
+To see all containers:
+
+```bash
+docker ps -a
+```
+
+**Output**
+
+```text
+CONTAINER ID   IMAGE    STATUS                 NAMES
+8c1e46e89ba1   httpd    Exited (0)             web1
+```
+
+Remove the stopped container:
 
 ```bash
 docker rm web1
 ```
 
-Or stop and delete it in one command:
+**Output**
+
+```text
+web1
+```
+
+Verify that it has been removed:
+
+```bash
+docker ps -a
+```
+
+**Output**
+
+```text
+CONTAINER ID   IMAGE                  STATUS
+66078872c80f   kindest/node:v1.32.0   Exited (128)
+154a0c7221a4   nginx:alpine           Restarting (1)
+```
+
+The `web1` container is no longer listed, confirming it has been deleted.
+
+> Alternatively, stop and remove the container in a single command:
 
 ```bash
 docker rm -f web1
 ```
 
-**Purpose:**
 
-- `docker stop` → Stops the running container.
-- `docker rm` → Removes the stopped container.
-- `docker rm -f` → Forcefully stops and removes the container in one command.
 
-**Output of `docker ps -a` showing the container has been removed.**
-
-### Summary of Commands
+## Summary of Commands
 
 | Task | Command |
 |------|---------|
 | Search image | `docker search httpd` |
 | Download image | `docker pull httpd` |
+| Verify downloaded image | `docker images` |
 | Run container | `docker run -d --name web1 httpd` |
+| View running containers | `docker ps` |
+| Inspect container | `docker inspect web1` |
 | Enter container | `docker exec -it web1 /bin/bash` *(or `/bin/sh` if Bash is unavailable)* |
 | Stop container | `docker stop web1` |
+| View all containers | `docker ps -a` |
 | Delete container | `docker rm web1` *(or `docker rm -f web1`)* |
 
-### Key Points
+---
 
-- `docker search` searches images on Docker Hub.
-- `docker pull` downloads an image.
-- `docker run` creates and starts a container.
+## Key Points
+
+- `docker search` searches Docker Hub for available images.
+- `docker pull` downloads an image to the local machine.
+- `docker images` lists all locally stored Docker images.
+- `docker run` creates and starts a new container from an image.
+- `docker ps` displays only running containers.
+- `docker ps -a` displays both running and stopped containers.
+- `docker inspect` provides detailed information about a Docker container.
 - `docker exec` runs commands inside a running container.
-- `docker rm` removes a container after it is stopped.
-- `docker rm -f` forcefully stops and removes a container.
+- `docker stop` stops a running container.
+- `docker rm` removes a stopped container.
+- `docker rm -f` forcefully stops and removes a container in a single command.
 
+> **Note:** `docker run` creates a new container every time it is executed. If the container already exists but is stopped, use `docker start web1` instead of `docker run`.
 
-> Note: docker run creates and starts a container. If the container already exists but is stopped, use docker start web1 instead of docker run.
-
-
+> **Note:** Removing a container with `docker rm` does **not** remove the Docker image. To remove the image, use `docker rmi httpd`.
 
 
 ---
@@ -798,6 +972,279 @@ Explain the purpose of the following Docker commands with one example each:
 ### Answer
 
 
+Docker provides several commands to manage images and containers. The following commands are commonly used to view, access, troubleshoot, and remove Docker resources.
+
+---
+
+## 1. `docker ps`
+
+### Purpose
+
+The `docker ps` command displays a list of **currently running containers**.
+
+### Syntax
+
+```bash
+docker ps
+```
+
+### Example
+
+```bash
+docker ps
+```
+
+### Output
+
+```text
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS     NAMES
+bf16c2669ee0   httpd          "httpd-foreground"       50 seconds ago   Up 50 seconds   80/tcp    web1
+154a0c7221a4   nginx:alpine   "/docker-entrypoint.…"   8 days ago       Restarting (1)  broken-app
+```
+
+### Explanation
+
+- **CONTAINER ID** → Unique ID of the running container.
+- **IMAGE** → Image used to create the container.
+- **COMMAND** → Command executed when the container starts.
+- **STATUS** → Current state of the container.
+- **PORTS** → Exposed ports of the container.
+- **NAMES** → Name assigned to the container.
+
+---
+
+## 2. `docker images`
+
+### Purpose
+
+The `docker images` command lists all Docker images available on the local machine.
+
+### Syntax
+
+```bash
+docker images
+```
+
+### Example
+
+```bash
+docker images
+```
+
+### Output
+
+```text
+IMAGE                  ID             DISK USAGE   CONTENT SIZE
+docker-layer-demo:v1   28258becdac8   330MB        106MB
+docker-layer-demo:v2   ccad89b5b1f4   330MB        106MB
+docker-layer-demo:v3   92dfa1c709a4   199MB        52.9MB
+httpd:latest           305fd8326a27   177MB        47.6MB
+kindest/node           c48c62eac5da   1.51GB       440MB
+nginx:alpine           54f2a904c251   93.3MB       26.9MB
+```
+
+### Explanation
+
+- **IMAGE** → Repository name and tag.
+- **ID** → Unique identifier of the image.
+- **DISK USAGE** → Space occupied by the image.
+- **CONTENT SIZE** → Actual size of the image content.
+
+---
+
+## 3. `docker exec`
+
+### Purpose
+
+The `docker exec` command executes a command inside a **running container**.
+
+### Syntax
+
+```bash
+docker exec [OPTIONS] CONTAINER COMMAND
+```
+
+### Example
+
+```bash
+docker exec -it web1 /bin/bash
+```
+
+If Bash is unavailable:
+
+```bash
+docker exec -it web1 /bin/sh
+```
+
+### Explanation
+
+- `-i` → Keeps standard input open.
+- `-t` → Opens an interactive terminal.
+- `web1` → Name of the running container.
+- `/bin/bash` → Opens the Bash shell inside the container.
+
+### Commands Executed Inside the Container
+
+```bash
+pwd
+ls
+whoami
+```
+
+### Output
+
+```text
+/usr/local/apache2
+
+bin  build  cgi-bin  conf  error  htdocs  icons  include  logs  modules
+
+root
+```
+
+### Explanation
+
+- `pwd` displays the current working directory.
+- `ls` lists the files and directories inside the Apache installation.
+- `whoami` displays the current user (`root`).
+
+> **Note:** Some minimal Docker images may not contain commands like `ps` because the required package (`procps`) is not installed.
+
+---
+
+## 4. `docker logs`
+
+### Purpose
+
+The `docker logs` command displays the logs generated by a container.
+
+It is mainly used for monitoring and troubleshooting applications.
+
+### Syntax
+
+```bash
+docker logs CONTAINER_NAME
+```
+
+### Example
+
+```bash
+docker logs web1
+```
+
+### Output
+
+```text
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.2. Set the 'ServerName' directive globally to suppress this message
+
+[Wed Jul 15 05:52:06.132262 2026] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.68 (Unix) configured -- resuming normal operations
+
+[Wed Jul 15 05:52:06.143796 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+```
+
+### Explanation
+
+The logs show:
+
+- Apache HTTP Server has started successfully.
+- The warning about the server name is normal for a default container.
+- The server is running in foreground mode (`httpd -D FOREGROUND`).
+
+To continuously monitor logs:
+
+```bash
+docker logs -f web1
+```
+
+Press **Ctrl + C** to stop following the logs.
+
+---
+
+## 5. `docker rmi`
+
+### Purpose
+
+The `docker rmi` command removes a Docker image from the local system.
+
+### Syntax
+
+```bash
+docker rmi IMAGE_NAME
+```
+
+### Example
+
+First stop and remove the container:
+
+```bash
+docker stop web1
+docker rm web1
+```
+
+Then remove the image:
+
+```bash
+docker rmi httpd
+```
+
+### Output
+
+```text
+Untagged: httpd:latest
+Deleted: sha256:305fd8326a27a137fedb8900f26375699ab233cc37793f35cf5d7c65671fb252
+```
+
+### Verify
+
+```bash
+docker images
+```
+
+### Output
+
+```text
+IMAGE                  ID             DISK USAGE
+docker-layer-demo:v1   28258becdac8   330MB
+docker-layer-demo:v2   ccad89b5b1f4   330MB
+docker-layer-demo:v3   92dfa1c709a4   199MB
+kindest/node           c48c62eac5da   1.51GB
+nginx:alpine           54f2a904c251   93.3MB
+```
+
+The `httpd` image no longer appears, confirming it has been successfully removed.
+
+---
+
+## Common Errors
+
+| Error | Reason | Solution |
+|--------|--------|----------|
+| `docker exec: executable file not found` | Bash is not installed | Use `/bin/sh` instead of `/bin/bash` |
+| `No such container` | Container name is incorrect or removed | Check with `docker ps -a` |
+| `docker rmi` fails | Image is in use by a container | Stop and remove the container before deleting the image |
+| `docker logs` shows no output | Application has not generated logs yet | Wait for the application to start or generate activity |
+
+---
+
+## Summary
+
+| Command | Purpose | Example |
+|---------|---------|---------|
+| `docker ps` | Lists running containers | `docker ps` |
+| `docker images` | Lists local Docker images | `docker images` |
+| `docker exec` | Executes commands inside a running container | `docker exec -it web1 /bin/bash` |
+| `docker logs` | Displays container logs | `docker logs web1` |
+| `docker rmi` | Removes a Docker image | `docker rmi httpd` |
+
+---
+
+## Key Points
+
+- `docker ps` displays only running containers.
+- `docker images` lists all images stored locally.
+- `docker exec` executes commands inside a running container.
+- `docker logs` helps monitor and troubleshoot applications by displaying their output.
+- `docker rmi` removes a Docker image only after no container is using it.
+
 
 ---
 
@@ -805,6 +1252,419 @@ Explain the purpose of the following Docker commands with one example each:
 Write a Dockerfile for a simple static website served by nginx and explain each instruction.
 
 ### Answer
+
+A **Dockerfile** is a text file that contains a set of instructions used by Docker to automatically build a Docker image.
+
+In this example, a simple static website is created and served using the **Nginx** web server.
+
+### Project Structure
+
+```text
+Static-Website/
+├── Dockerfile
+└── index.html
+```
+
+---
+
+## Step 1: Create `index.html`
+
+Create a file named **index.html**.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Docker Website</title>
+</head>
+<body>
+    <h1>Welcome to My Docker Website!</h1>
+    <p>This website is served using Nginx inside a Docker container.</p>
+</body>
+</html>
+```
+
+Verify the file:
+
+```bash
+cat index.html
+```
+
+**Output**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Docker Website</title>
+</head>
+<body>
+    <h1>Welcome to My Docker Website!</h1>
+    <p>This website is served using Nginx inside a Docker container.</p>
+</body>
+</html>
+```
+
+---
+
+## Step 2: Create the Dockerfile
+
+Create a file named **Dockerfile** (without any extension).
+
+```dockerfile
+FROM nginx:latest
+
+COPY index.html /usr/share/nginx/html/index.html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+Verify the Dockerfile:
+
+```bash
+cat Dockerfile
+```
+
+**Output**
+
+```dockerfile
+FROM nginx:latest
+
+COPY index.html /usr/share/nginx/html/index.html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+---
+
+## Explanation of Each Instruction
+
+### 1. `FROM nginx:latest`
+
+```dockerfile
+FROM nginx:latest
+```
+
+**Purpose:**
+
+- Uses the official **Nginx** image as the base image.
+- If it is not available locally, Docker downloads it from Docker Hub.
+
+---
+
+### 2. `COPY index.html /usr/share/nginx/html/index.html`
+
+```dockerfile
+COPY index.html /usr/share/nginx/html/index.html
+```
+
+**Purpose:**
+
+- Copies the local `index.html` file into the Nginx web root.
+- Nginx serves web pages from `/usr/share/nginx/html/` by default.
+
+---
+
+### 3. `EXPOSE 80`
+
+```dockerfile
+EXPOSE 80
+```
+
+**Purpose:**
+
+- Documents that the container listens on **port 80**.
+- It does **not** publish the port to the host machine.
+- Port publishing is done using the `-p` option with `docker run`.
+
+---
+
+### 4. `CMD ["nginx", "-g", "daemon off;"]`
+
+```dockerfile
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+**Purpose:**
+
+- Starts the Nginx web server when the container starts.
+- `daemon off;` keeps Nginx running in the foreground so the container remains running.
+
+> **Note:** `CMD` specifies the default command that runs when a container starts.
+
+---
+
+## How the Docker Image is Built
+
+```text
+Dockerfile
+      │
+      ▼
+FROM nginx:latest
+      │
+      ▼
+COPY index.html
+      │
+      ▼
+EXPOSE 80
+      │
+      ▼
+CMD starts Nginx
+      │
+      ▼
+Docker Image
+```
+
+---
+
+# Hands-on Practice
+
+## Step 1: Create a project folder
+
+```bash
+mkdir Static-Website
+cd Static-Website
+```
+
+Verify:
+
+```bash
+pwd
+```
+
+**Output**
+
+```text
+/home/malathi/projects/CBC-Ban-DevOps-Internship/interns/Malathi-Shetty/week-2/PracticeProjects/Dockerfiles/Static-Website
+```
+
+**Screenshot to attach:** Output of `pwd`
+
+---
+
+## Step 2: Verify the project files
+
+```bash
+ls
+```
+
+**Output**
+
+```text
+Dockerfile
+index.html
+```
+
+**Screenshot to attach:** Output of `ls`
+
+---
+
+## Step 3: Build the Docker image
+
+```bash
+docker build -t my-nginx-site .
+```
+
+### Purpose
+
+- `docker build` builds a Docker image.
+- `-t my-nginx-site` assigns the image name.
+- `.` uses the current directory as the build context.
+
+**Output (last few lines)**
+
+```text
+...
+=> naming to docker.io/library/my-nginx-site:latest
+=> unpacking to docker.io/library/my-nginx-site:latest
+```
+
+Verify:
+
+```bash
+docker images
+```
+
+**Output**
+
+```text
+IMAGE                  ID             SIZE
+my-nginx-site:latest   086d399669c2   238MB
+```
+
+**Screenshot to attach:**
+
+- Output of `docker build`
+- Output of `docker images`
+
+---
+
+## Step 4: Run the Docker container
+
+```bash
+docker run -d --name website -p 8080:80 my-nginx-site
+```
+
+### Purpose
+
+- `-d` runs the container in detached mode.
+- `--name website` names the container.
+- `-p 8080:80` maps host port **8080** to container port **80**.
+- `my-nginx-site` is the image name.
+
+Verify:
+
+```bash
+docker ps
+```
+
+**Output**
+
+```text
+CONTAINER ID   IMAGE           STATUS         PORTS                                     NAMES
+b3b6f698dc0e   my-nginx-site   Up 10 seconds  0.0.0.0:8080->80/tcp                      website
+```
+
+**Screenshot to attach:** Output of `docker ps`
+
+---
+
+## Step 5: Open the website
+
+Open a web browser and visit:
+
+```text
+http://localhost:8080
+```
+
+**Output**
+
+```text
+Welcome to My Docker Website!
+
+This website is served using Nginx inside a Docker container.
+```
+
+**Screenshot to attach:** Browser displaying the webpage.
+
+---
+
+## Step 6: View container logs
+
+```bash
+docker logs -f website
+```
+
+**Sample Output**
+
+```text
+Configuration complete; ready for start up
+nginx/1.31.2
+start worker processes
+GET / HTTP/1.1" 200
+GET /favicon.ico HTTP/1.1" 404
+```
+
+Press **Ctrl + C** to stop following the logs.
+
+**Screenshot to attach:** Output of `docker logs -f website`
+
+---
+
+## Step 7: Stop and remove the container
+
+Stop the container:
+
+```bash
+docker stop website
+```
+
+Output:
+
+```text
+website
+```
+
+Remove the container:
+
+```bash
+docker rm website
+```
+
+Output:
+
+```text
+website
+```
+
+Verify:
+
+```bash
+docker ps -a
+```
+
+The `website` container should no longer appear.
+
+**Screenshot to attach:** Output of `docker ps -a`
+
+---
+
+## Common Errors
+
+| Error | Reason | Solution |
+|--------|--------|----------|
+| `COPY failed: file not found` | `index.html` is missing | Place `index.html` in the same folder as the Dockerfile |
+| `docker build` fails | Wrong directory | Run `pwd` and verify you are inside the project folder |
+| Website not opening | Port not mapped | Run the container with `-p 8080:80` |
+| `docker: Error response from daemon. Conflict...` | Container name already exists | Remove the existing container or use a different name |
+
+---
+
+## Summary
+
+| Task | Command |
+|------|---------|
+| Create project folder | `mkdir Static-Website && cd Static-Website` |
+| Build image | `docker build -t my-nginx-site .` |
+| List images | `docker images` |
+| Run container | `docker run -d --name website -p 8080:80 my-nginx-site` |
+| View running containers | `docker ps` |
+| View logs | `docker logs -f website` |
+| Stop container | `docker stop website` |
+| Remove container | `docker rm website` |
+
+---
+
+## Key Points
+
+- A **Dockerfile** contains instructions to build a Docker image.
+- `FROM` specifies the base image.
+- `COPY` copies files into the image.
+- `EXPOSE` documents the port the application listens on.
+- `CMD` defines the default command that runs when the container starts.
+- `docker build` creates the Docker image.
+- `docker run` creates and starts a container from the image.
+- `docker logs` displays the application's log output for monitoring and troubleshooting.
+
+---
+
+### Note
+
+**Question:** Why do we use `EXPOSE 80` if we still have to use `-p 8080:80`?
+
+**Answer:**
+
+- `EXPOSE 80` tells users and Docker that the application listens on **port 80** inside the container.
+- It does **not** make the application accessible from the host.
+- `-p 8080:80` publishes the container's port **80** to the host's port **8080**, allowing you to access the website at:
+
+```text
+http://localhost:8080
+```
 
 
 
