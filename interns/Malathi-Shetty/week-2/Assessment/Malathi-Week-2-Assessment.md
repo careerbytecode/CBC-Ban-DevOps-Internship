@@ -144,23 +144,8 @@ Use Virtual Machines when:
 * Virtual Machines are heavier because each includes its own OS.
 * Docker is mainly used for application deployment, while VMs are often used for running complete operating systems.
 
----
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/e16b8130-23ed-4124-9e39-966977b610b9" />
 
-Remember:
-
-**Docker = CARS**
-
-* **C** = Containers
-* **A** = Application packaging
-* **R** = Resource efficient
-* **S** = Shares host kernel
-
-**Virtual Machine = GOOS**
-
-* **G** = Guest OS
-* **O** = Own operating system
-* **O** = More Overhead
-* **S** = Strong isolation
 
 ---
 
@@ -284,21 +269,8 @@ Both **web1** and **web2** are separate containers created from the same **nginx
 - Images store application files and dependencies.
 - Containers run applications in isolated environments.
 
-### Mnemonic
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/014fca1d-230d-4f3c-abdf-7ca99c05c6be" />
 
-**IMAGE = BUILD**
-
-- **B** = Blueprint (template)
-- **U** = Used to create containers
-- **I** = Includes application and dependencies
-- **L** = Loaded from Docker Hub
-- **D** = Does not run by itself
-
-**CONTAINER = RUN**
-
-- **R** = Running instance
-- **U** = Uses an image
-- **N** = New isolated environment
 
 ---
 
@@ -463,19 +435,12 @@ Docker stores the Ubuntu layer only once, reducing storage usage.
 - Layering saves storage, speeds up builds, and reduces download time.
 - CMD sets image metadata (the default command) and usually does not create a new filesystem layer, unlike RUN, COPY, or ADD.
 
-### Mnemonic
-
-**LAYER = SHARE**
-
-- **S** = Saves storage
-- **H** = Helps caching
-- **A** = Adds only changed layers
-- **R** = Reuses existing layers
-- **E** = Efficient image building
-
-
-
 ## Hands-on Demonstration
+
+<img width="997" height="1127" alt="image" src="https://github.com/user-attachments/assets/52cfa51b-c75c-4ad8-b8f3-5e5392430edb" />
+<img width="1147" height="96" alt="image" src="https://github.com/user-attachments/assets/855328ef-3d89-4bab-bdc6-ab3b39aeca74" />
+<img width="1257" height="381" alt="image" src="https://github.com/user-attachments/assets/e704d0ad-76bb-40bc-8a11-9bee8111573c" />
+
 
 ### Step 1: Create a Dockerfile
 
@@ -491,11 +456,17 @@ COPY index.html /var/www/html/index.html
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
+<img width="1692" height="1262" alt="image" src="https://github.com/user-attachments/assets/8a7d2d26-300c-4836-8a94-e7d9389dfd93" />
+
+
 Build the image:
 
 ```bash
 docker build -t docker-layer-demo:v1 .
 ```
+
+<img width="2187" height="1242" alt="image" src="https://github.com/user-attachments/assets/3781e79e-89d4-4507-84ab-297761f6b3cb" />
+
 
 Docker executes the instructions one by one:
 
@@ -507,6 +478,9 @@ Docker executes the instructions one by one:
 ```
 
 This creates the image **docker-layer-demo:v1**.
+
+<img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/ce4d1de6-8b35-47f5-a5f4-c343774bfb20" />
+
 
 ---
 
@@ -524,6 +498,9 @@ Example:
 REPOSITORY            TAG
 docker-layer-demo     v1
 ```
+
+<img width="1535" height="387" alt="image" src="https://github.com/user-attachments/assets/6d2321cd-0398-483f-82ff-9e555fd5cd47" />
+
 
 ---
 
@@ -545,6 +522,9 @@ RUN apt-get install -y nginx                 58.6MB
 RUN apt-get update                           78MB
 Ubuntu Base Layer                            87.7MB
 ```
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/4a27bbc6-6c7e-4831-82b8-a1a1f5a880b4" />
+
 
 **Observation:**
 
@@ -600,6 +580,9 @@ Only the `COPY` instruction was rebuilt because `index.html` changed.
 
 This significantly reduced the build time.
 
+<img width="2185" height="762" alt="image" src="https://github.com/user-attachments/assets/277c5e4b-58d6-4d39-a5e8-63b2e04de54f" />
+
+
 ---
 
 ### Step 5: Optimize the Dockerfile
@@ -634,6 +617,9 @@ Build output:
 [3/3] COPY index.html
 ```
 
+<img width="2211" height="586" alt="image" src="https://github.com/user-attachments/assets/545708b5-5c31-4d34-bf4d-28dd45bdee5d" />
+
+
 ### Observation
 
 Combining multiple `RUN` commands:
@@ -643,6 +629,7 @@ Combining multiple `RUN` commands:
 * Produces a smaller and more efficient Docker image.
 
 
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/4cad66e9-721d-4936-94d6-9d180a9e5e8a" />
 
 
 ---
@@ -672,6 +659,9 @@ docker search httpd
 NAME      DESCRIPTION                          STARS   OFFICIAL
 httpd     The Apache HTTP Server Project       4933    [OK]
 ```
+
+<img width="1422" height="735" alt="image" src="https://github.com/user-attachments/assets/adbfdb01-429f-4758-ac82-efd9ee46fa4d" />
+
 
 **Explanation:**
 
@@ -707,6 +697,9 @@ Digest: sha256:305fd8326a27a137fedb8900f26375699ab233cc37793f35cf5d7c65671fb252
 Status: Downloaded newer image for httpd:latest
 docker.io/library/httpd:latest
 ```
+
+<img width="1447" height="510" alt="image" src="https://github.com/user-attachments/assets/3a7d396d-176d-4f23-9ad7-dca988276415" />
+
 
 **Explanation:**
 
@@ -765,6 +758,9 @@ CONTAINER ID   IMAGE    COMMAND              STATUS         PORTS   NAMES
 8c1e46e89ba1   httpd    "httpd-foreground"   Up 14 seconds  80/tcp  web1
 ```
 
+<img width="1514" height="141" alt="image" src="https://github.com/user-attachments/assets/3852e4b3-9631-4401-8a79-e77e73ef1d2a" />
+
+
 **Explanation:**
 
 - The container is running successfully.
@@ -820,6 +816,7 @@ bash: ps: command not found
 
 This is normal because the official `httpd` image is a minimal image and does not include the `procps` package that provides the `ps` command.
 
+<img width="1527" height="602" alt="image" src="https://github.com/user-attachments/assets/b5bf8a18-78ae-42f9-94bb-7965e660a90f" />
 
 
 ### 5. Inspect the container
@@ -921,6 +918,7 @@ The `web1` container is no longer listed, confirming it has been deleted.
 docker rm -f web1
 ```
 
+<img width="1613" height="1246" alt="image" src="https://github.com/user-attachments/assets/3a08d21d-8e4a-4069-929b-dd00f3adee75" />
 
 
 ## Summary of Commands
@@ -1002,6 +1000,9 @@ bf16c2669ee0   httpd          "httpd-foreground"       50 seconds ago   Up 50 se
 154a0c7221a4   nginx:alpine   "/docker-entrypoint.…"   8 days ago       Restarting (1)  broken-app
 ```
 
+<img width="1532" height="112" alt="image" src="https://github.com/user-attachments/assets/9a2b5b87-bfb9-447c-9634-2e302c1d407f" />
+
+
 ### Explanation
 
 - **CONTAINER ID** → Unique ID of the running container.
@@ -1049,6 +1050,9 @@ nginx:alpine           54f2a904c251   93.3MB       26.9MB
 - **ID** → Unique identifier of the image.
 - **DISK USAGE** → Space occupied by the image.
 - **CONTENT SIZE** → Actual size of the image content.
+
+<img width="1406" height="197" alt="image" src="https://github.com/user-attachments/assets/26336411-0840-467c-8e0c-89a73542b18c" />
+
 
 ---
 
@@ -1109,6 +1113,9 @@ root
 
 > **Note:** Some minimal Docker images may not contain commands like `ps` because the required package (`procps`) is not installed.
 
+<img width="1515" height="197" alt="image" src="https://github.com/user-attachments/assets/d4a2d365-757b-4333-8436-a883208013a6" />
+
+
 ---
 
 ## 4. `docker logs`
@@ -1130,6 +1137,9 @@ docker logs CONTAINER_NAME
 ```bash
 docker logs web1
 ```
+
+<img width="1565" height="112" alt="image" src="https://github.com/user-attachments/assets/f507ce0b-3f95-44b5-85ee-36c4a67d145e" />
+
 
 ### Output
 
@@ -1185,6 +1195,9 @@ Then remove the image:
 ```bash
 docker rmi httpd
 ```
+
+<img width="1430" height="289" alt="image" src="https://github.com/user-attachments/assets/394b03ee-7615-4e3a-8055-9e8355fee8c6" />
+
 
 ### Output
 
@@ -1305,6 +1318,9 @@ cat index.html
 </html>
 ```
 
+<img width="1326" height="406" alt="image" src="https://github.com/user-attachments/assets/1a420962-3fdd-46a1-81f9-06f5a3972155" />
+
+
 ---
 
 ## Step 2: Create the Dockerfile
@@ -1338,6 +1354,9 @@ EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
 ```
+
+<img width="1310" height="250" alt="image" src="https://github.com/user-attachments/assets/3c922839-f7dd-4519-a2b4-9d6ce80efb1e" />
+
 
 ---
 
@@ -1419,6 +1438,9 @@ CMD starts Nginx
 Docker Image
 ```
 
+<img width="1717" height="977" alt="image" src="https://github.com/user-attachments/assets/0f42e574-7d40-4928-ac39-a93959fa7dee" />
+
+
 ---
 
 # Hands-on Practice
@@ -1442,7 +1464,8 @@ pwd
 /home/malathi/projects/CBC-Ban-DevOps-Internship/interns/Malathi-Shetty/week-2/PracticeProjects/Dockerfiles/Static-Website
 ```
 
-**Screenshot to attach:** Output of `pwd`
+<img width="1326" height="406" alt="image" src="https://github.com/user-attachments/assets/ff748b0e-3ad2-4325-a7bd-9fe08b0584b1" />
+
 
 ---
 
@@ -1459,7 +1482,8 @@ Dockerfile
 index.html
 ```
 
-**Screenshot to attach:** Output of `ls`
+<img width="1310" height="250" alt="image" src="https://github.com/user-attachments/assets/14ead9e3-7713-46bd-9430-9dc9b15c38e6" />
+
 
 ---
 
@@ -1496,10 +1520,8 @@ IMAGE                  ID             SIZE
 my-nginx-site:latest   086d399669c2   238MB
 ```
 
-**Screenshot to attach:**
+<img width="1717" height="977" alt="image" src="https://github.com/user-attachments/assets/87f920de-cd2e-4b62-90be-afb294a34a81" />
 
-- Output of `docker build`
-- Output of `docker images`
 
 ---
 
@@ -1529,7 +1551,8 @@ CONTAINER ID   IMAGE           STATUS         PORTS                             
 b3b6f698dc0e   my-nginx-site   Up 10 seconds  0.0.0.0:8080->80/tcp                      website
 ```
 
-**Screenshot to attach:** Output of `docker ps`
+<img width="1667" height="437" alt="image" src="https://github.com/user-attachments/assets/2a737489-ffba-428c-962c-5cebf484c6f9" />
+
 
 ---
 
@@ -1609,7 +1632,8 @@ docker ps -a
 
 The `website` container should no longer appear.
 
-**Screenshot to attach:** Output of `docker ps -a`
+<img width="2187" height="1102" alt="image" src="https://github.com/user-attachments/assets/f4c46ecc-5554-42e9-a8ef-196dbdd94686" />
+
 
 ---
 
