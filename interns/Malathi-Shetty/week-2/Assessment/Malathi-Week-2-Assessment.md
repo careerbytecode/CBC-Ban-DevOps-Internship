@@ -8059,6 +8059,292 @@ Research any **two monitoring tools** (such as Prometheus and Grafana) and expla
 
 ### Answer
 
+Absolutely! Since you **actually explored Prometheus and Grafana**, here's a better answer that includes both the **theory** and your **hands-on experience**. This is interview-friendly and assignment-ready.
+
+---
+
+# Q19. Research any **two monitoring tools** (such as Prometheus and Grafana) and explain how they help in observing a Kubernetes cluster.
+
+## Answer
+
+Monitoring is the process of continuously checking the **health, performance, and resource usage** of a Kubernetes cluster. It helps administrators identify problems, monitor CPU and memory usage, and ensure applications are running correctly.
+
+Two of the most popular Kubernetes monitoring tools are:
+
+1. **Prometheus**
+2. **Grafana**
+
+---
+
+# How Monitoring Works in Kubernetes
+
+```text
+          Kubernetes Cluster
+                  │
+        +---------+---------+
+        |                   |
+     Worker Node        Worker Node
+        │                   │
+      Pods                Pods
+        │                   │
+        +---------+---------+
+                  │
+          Metrics Exporters
+ (Node Exporter, kube-state-metrics)
+                  │
+                  ▼
+            Prometheus Server
+          (Collects Metrics)
+                  │
+                  ▼
+             Grafana
+      (Displays Dashboards)
+                  │
+                  ▼
+          Administrator/User
+```
+
+---
+
+# 1. Prometheus
+
+## What is Prometheus?
+
+Prometheus is an open-source monitoring tool that collects and stores metrics from Kubernetes components in a **time-series database**.
+
+It regularly collects (scrapes) data from different targets such as Nodes, Pods, and Kubernetes services.
+
+### Prometheus collects metrics like:
+
+* CPU usage
+* Memory usage
+* Disk usage
+* Network traffic
+* Pod status
+* Node status
+* Container performance
+
+---
+
+## How Prometheus Works
+
+```text
+Pods / Nodes
+      │
+      ▼
+Node Exporter
+kube-state-metrics
+      │
+      ▼
+ Prometheus
+      │
+Stores Metrics
+```
+
+Prometheus continuously collects metrics every few seconds and stores them for analysis.
+
+---
+
+## Advantages
+
+* Automatically collects metrics
+* Stores historical data
+* Supports alerting
+* Integrates well with Kubernetes
+
+---
+
+# 2. Grafana
+
+## What is Grafana?
+
+Grafana is an open-source visualization tool used to display metrics collected by Prometheus.
+
+Grafana does not collect data itself. Instead, it connects to Prometheus and displays the data as interactive dashboards.
+
+---
+
+## How Grafana Works
+
+```text
+Prometheus
+      │
+      ▼
+ Grafana
+      │
+      ▼
+ Dashboards
+```
+
+Example dashboard:
+
+```text
++--------------------------------------+
+| CPU Usage        ███████ 65%          |
+| Memory Usage     █████ 45%            |
+| Running Pods     5                    |
+| Node Status      Healthy              |
++--------------------------------------+
+```
+
+Grafana makes it easy to monitor the Kubernetes cluster using graphs and charts.
+
+---
+
+# Prometheus and Grafana Together
+
+```text
+Kubernetes Cluster
+        │
+        ▼
+Node Exporter & kube-state-metrics
+        │
+        ▼
+   Prometheus
+(Collects & Stores Metrics)
+        │
+        ▼
+    Grafana
+(Visualizes Metrics)
+        │
+        ▼
+ Administrator
+```
+
+* **Prometheus** collects and stores metrics.
+* **Grafana** displays those metrics using dashboards.
+
+---
+
+# Difference Between Prometheus and Grafana
+
+| Feature     | Prometheus                  | Grafana                   |
+| ----------- | --------------------------- | ------------------------- |
+| Purpose     | Collects and stores metrics | Displays metrics visually |
+| Stores Data | Yes                         | No                        |
+| Dashboards  | Basic interface             | Advanced dashboards       |
+| Alerting    | Yes                         | Yes                       |
+| Main Role   | Monitoring                  | Visualization             |
+
+---
+
+# Hands-on Practice Performed
+
+I installed a Kubernetes monitoring stack containing **Prometheus** and **Grafana**.
+
+### I explored the monitoring components using:
+
+```bash
+kubectl get pods
+```
+
+Output included components such as:
+
+* monitoring-grafana
+* monitoring-kube-prometheus-operator
+* monitoring-kube-state-metrics
+* monitoring-prometheus-node-exporter
+* Prometheus
+* Alertmanager
+
+---
+
+I viewed the monitoring services:
+
+```bash
+kubectl get svc
+```
+
+This showed services like:
+
+* monitoring-grafana
+* monitoring-kube-prometheus-prometheus
+* monitoring-kube-state-metrics
+* monitoring-prometheus-node-exporter
+* monitoring-kube-prometheus-alertmanager
+
+---
+
+I created sample applications for monitoring:
+
+```bash
+kubectl create deployment nginx --image=nginx
+kubectl create deployment redis --image=redis
+kubectl create deployment httpd --image=httpd
+```
+
+I exposed the Nginx deployment:
+
+```bash
+kubectl expose deployment nginx --port=80 --target-port=80
+```
+
+Then I generated continuous traffic using a BusyBox container:
+
+```bash
+kubectl run load-generator --image=busybox --restart=Never -it -- sh
+```
+
+Inside the container:
+
+```sh
+while true
+do
+  wget -q -O- http://nginx
+done
+```
+
+This continuously sent requests to the Nginx application.
+
+I also monitored resource usage using:
+
+```bash
+kubectl top pods
+```
+
+As the traffic increased, CPU usage for the Nginx pod increased.
+
+Finally, I opened Grafana using port forwarding:
+
+```bash
+kubectl port-forward -n monitoring svc/monitoring-grafana 3000:80
+```
+
+and accessed it in the browser:
+
+```text
+http://localhost:3000
+```
+
+From Grafana dashboards, I observed CPU, memory, and other metrics collected by Prometheus.
+
+---
+
+# Summary
+
+| Tool       | Purpose                           | Example Use                                         |
+| ---------- | --------------------------------- | --------------------------------------------------- |
+| Prometheus | Collects and stores metrics       | Monitor CPU, memory, Pods, Nodes, and network usage |
+| Grafana    | Displays metrics using dashboards | Visualize cluster health and performance            |
+
+---
+
+# Key Points
+
+* Monitoring helps keep Kubernetes clusters healthy and reliable.
+* Prometheus collects and stores metrics from Kubernetes.
+* Grafana displays those metrics using interactive dashboards.
+* Prometheus and Grafana are commonly used together for monitoring Kubernetes clusters.
+* Monitoring helps detect performance issues before they affect users.
+
+---
+
+
+
+**PrometheusGrafana= Protect & Graph**
+
+* **Prometheus** → Pulls and stores **Performance metrics**
+* **Grafana** → Displays **Graphs and Dashboards**
 
 
 
@@ -8076,7 +8362,442 @@ Create a GitHub repository named **docker-k8s-week2** and upload:
 
 
 
+In this task, I created a GitHub repository named **docker-k8s-week2** and uploaded all the required Docker and Kubernetes files. I also maintained multiple Git commits and practiced some additional Git commands that are commonly used in real-world software development.
+
+Github Repo: https://github.com/shettymalathib/docker-k8s-week2.git
+
 ---
+
+# Project Structure
+
+```text
+docker-k8s-week2/
+│
+├── Dockerfile
+├── index.html
+├── pod.yaml
+├── deployment.yaml
+├── README.md
+├── .gitignore
+└── screenshots/
+    ├── docker-build.png
+    ├── docker-run.png
+    ├── kubectl-apply-pod.png
+    ├── kubectl-apply-deployment.png
+    ├── kubectl-get-pods.png
+    ├── kubectl-get-deployments.png
+    ├── git-log.png
+    └── github-repository.png
+```
+
+---
+
+# Step 1: Create a GitHub Repository
+
+I created a new GitHub repository named:
+
+```text
+docker-k8s-week2
+```
+
+I did **not** initialize it with a README because I planned to upload my local project.
+
+**Screenshot:** GitHub repository creation page.
+
+---
+
+# Step 2: Clone the Empty Repository
+
+```bash
+git clone https://github.com/shettymalathib/docker-k8s-week2.git
+cd docker-k8s-week2
+```
+
+Verify the current directory:
+
+```bash
+pwd
+```
+
+Example:
+
+```text
+/home/malathi/projects/CBC-Ban-DevOps-Internship/interns/Malathi-Shetty/week-2/PracticeProjects/docker-k8s-week2
+```
+
+---
+
+# Step 3: Create the Project Structure
+
+Create the required files and folders.
+
+```bash
+mkdir screenshots
+
+touch Dockerfile
+touch pod.yaml
+touch deployment.yaml
+touch README.md
+touch index.html
+```
+
+Verify:
+
+```bash
+ls
+```
+
+Expected Output
+
+```text
+Dockerfile
+README.md
+deployment.yaml
+index.html
+pod.yaml
+screenshots
+```
+
+---
+
+# Step 4: Copy Existing Files
+
+Since these files were already created in previous exercises, I copied them into the new repository.
+
+```bash
+cp ../Dockerfiles/Static-Website/Dockerfile .
+cp ../Minikube/nginx-deployment.yaml deployment.yaml
+cp ../YAML/redis-pod.yaml pod.yaml
+```
+
+Verify:
+
+```bash
+ls -l
+```
+
+---
+
+# Step 5: Add Website Files
+
+Copy or create the required `index.html` file.
+
+Verify:
+
+```bash
+cat Dockerfile
+cat pod.yaml
+cat deployment.yaml
+```
+
+---
+
+# Step 6: Create README.md
+
+The README explains:
+
+* Dockerfile
+* Pod Manifest
+* Deployment Manifest
+* Difference between Pod and Deployment
+* Prerequisites
+* Project Overview
+
+---
+
+# Step 7: Create Multiple Git Commits
+
+Instead of making one large commit, I created several meaningful commits.
+
+Example commit history:
+
+```text
+Add Dockerfile
+Add Redis Pod manifest
+Add Nginx Deployment manifest
+Add project documentation
+Add website files and screenshots folder
+Add .gitignore
+```
+
+View commit history:
+
+```bash
+git log --oneline
+```
+
+Example Output
+
+```text
+1a74448 Add .gitignore
+75d7c65 Add website files and screenshots folder
+0ef8195 Add project documentation
+e7a21d1 Add Nginx Deployment manifest
+6f1d7cb Add Redis Pod manifest
+a438beb Add Dockerfile
+```
+
+This satisfies the assignment requirement of **at least five Git commits**.
+
+---
+
+# Step 8: Push the Repository
+
+Rename the branch (if required):
+
+```bash
+git branch -M main
+```
+
+Push the project:
+
+```bash
+git push -u origin main
+```
+
+---
+
+# Step 9: Execute Kubernetes Manifests
+
+Create the Redis Pod:
+
+```bash
+kubectl apply -f pod.yaml
+```
+
+Output
+
+```text
+pod/redis-pod created
+```
+
+Create the Deployment:
+
+```bash
+kubectl apply -f deployment.yaml
+```
+
+Output
+
+```text
+deployment.apps/nginx-app unchanged
+```
+
+Verify Pods:
+
+```bash
+kubectl get pods
+```
+
+Verify Deployments:
+
+```bash
+kubectl get deployments
+```
+
+Take screenshots of these commands and place them inside the `screenshots` folder.
+
+---
+
+# Step 10: Verify on GitHub
+
+Open the repository on GitHub.
+
+The repository should contain:
+
+```text
+Dockerfile
+README.md
+deployment.yaml
+index.html
+pod.yaml
+.gitignore
+screenshots/
+```
+
+---
+
+# Sample README.md
+
+```md
+# Docker & Kubernetes Week 2
+
+## Dockerfile
+
+The Dockerfile builds a custom Nginx image that serves a static website.
+
+## Pod Manifest
+
+The Pod manifest creates a single Redis Pod.
+
+## Deployment Manifest
+
+The Deployment manages multiple Pod replicas and supports updates, scaling, and self-healing.
+
+## Difference
+
+- Dockerfile creates a Docker image.
+- Pod YAML creates one Pod.
+- Deployment YAML manages multiple Pods automatically.
+```
+
+---
+
+# Bonus Learning (Beyond the Assignment)
+
+These commands are not mandatory for the assignment but are commonly used in internships and real-world software development.
+
+---
+
+## 1. Create a `.gitignore` File
+
+Create the file:
+
+```bash
+touch .gitignore
+```
+
+Example:
+
+```text
+*.log
+*.tmp
+node_modules/
+.vscode/
+```
+
+### Why?
+
+A `.gitignore` file prevents temporary files, log files, editor settings, and other unnecessary files from being tracked by Git.
+
+---
+
+## 2. Check Changes Before Committing
+
+```bash
+git diff
+```
+
+Purpose:
+
+Displays all modifications made since the last commit.
+
+Example:
+
+```diff
+- Hello World
++ Hello Docker
+```
+
+This helps review changes before creating a commit.
+
+---
+
+## 3. View Commit History as a Graph
+
+```bash
+git log --oneline --graph --all
+```
+
+Example Output
+
+```text
+* 1a74448 Add .gitignore
+* 75d7c65 Add website files and screenshots folder
+* 0ef8195 Add project documentation
+* e7a21d1 Add Nginx Deployment manifest
+* 6f1d7cb Add Redis Pod manifest
+* a438beb Add Dockerfile
+```
+
+The graph provides a visual representation of the project's commit history.
+
+---
+
+## 4. Create a Git Tag
+
+Create a version tag:
+
+```bash
+git tag v1.0
+```
+
+View tags:
+
+```bash
+git tag
+```
+
+Output
+
+```text
+v1.0
+```
+
+Push the tag to GitHub:
+
+```bash
+git push origin v1.0
+```
+
+Tags are commonly used to mark software releases such as:
+
+```text
+v1.0
+v1.1
+v2.0
+```
+
+---
+
+## 5. Verify the Remote Repository
+
+```bash
+git remote -v
+```
+
+Output
+
+```text
+origin  https://github.com/shettymalathib/docker-k8s-week2.git (fetch)
+origin  https://github.com/shettymalathib/docker-k8s-week2.git (push)
+```
+
+This confirms that the local repository is correctly connected to the GitHub repository.
+
+---
+
+# Summary
+
+| Task             | Command                           |
+| ---------------- | --------------------------------- |
+| Clone Repository | `git clone <repository-url>`      |
+| Check Status     | `git status`                      |
+| Add Files        | `git add .`                       |
+| Create Commit    | `git commit -m "message"`         |
+| View History     | `git log --oneline`               |
+| View Graph       | `git log --oneline --graph --all` |
+| Check Changes    | `git diff`                        |
+| Create Tag       | `git tag v1.0`                    |
+| Push Tag         | `git push origin v1.0`            |
+| Verify Remote    | `git remote -v`                   |
+| Push to GitHub   | `git push -u origin main`         |
+
+---
+
+# Key Learning
+
+* Git tracks changes made to project files.
+* GitHub stores repositories online for collaboration and backup.
+* Meaningful commit messages make project history easier to understand.
+* A `README.md` explains the project and how to use it.
+* A `.gitignore` file prevents unnecessary files from being committed.
+* `git diff` helps review changes before committing.
+* `git log --graph` provides a visual history of commits.
+* Git tags help identify important project versions such as releases.
+
+
+
 
 ---
 
