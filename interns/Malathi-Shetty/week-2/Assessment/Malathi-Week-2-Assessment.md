@@ -1,4 +1,4 @@
-# 🚀 CareerByteCode DevOps Internship
+<img width="1620" height="971" alt="image" src="https://github.com/user-attachments/assets/e5de951a-16cf-42d0-9bfc-f8eae9aca5e7" /># 🚀 CareerByteCode DevOps Internship
 
 # Week 2 Assignment
 
@@ -1811,7 +1811,8 @@ DRIVER    VOLUME NAME
 local     mydata
 ```
 
-**Screenshot to attach:** Output of `docker volume ls`
+<img width="1311" height="387" alt="image" src="https://github.com/user-attachments/assets/6a495735-0ef3-4d2d-a013-00e1a96bd48b" />
+
 
 ---
 
@@ -1825,6 +1826,9 @@ docker run -d --name web1 -v mydata:/usr/share/nginx/html nginx
 
 - `mydata` → Docker-managed volume.
 - `/usr/share/nginx/html` → Directory inside the container where the volume is mounted.
+
+<img width="1610" height="143" alt="image" src="https://github.com/user-attachments/assets/f91573ee-6883-4f6f-b171-1d644e3b9c7f" />
+
 
 ---
 
@@ -1849,7 +1853,8 @@ Look for the **Mounts** section:
 
 This confirms that Docker has mounted the **mydata** volume inside the container.
 
-**Screenshot to attach:** Mounts section from `docker inspect web1`
+<img width="1281" height="846" alt="image" src="https://github.com/user-attachments/assets/6807758a-81ce-47e7-8c2b-f44fdd4536ee" />
+
 
 ---
 
@@ -1873,7 +1878,8 @@ Expected Output
 
 This shows where Docker stores the volume on the host machine.
 
-**Screenshot to attach:** Output of `docker volume inspect mydata`
+<img width="1291" height="274" alt="image" src="https://github.com/user-attachments/assets/e6c834ec-a5c5-44bb-b86a-86534b6c32d3" />
+
 
 ---
 
@@ -1910,6 +1916,9 @@ Example:
 ```html
 <h1>Hello from Bind Mount!</h1>
 ```
+
+
+
 
 ---
 
@@ -1953,10 +1962,7 @@ Edit the `index.html` file on your host machine and refresh the browser.
 
 The updated content appears immediately without rebuilding the Docker image.
 
-**Screenshots to attach:**
-
-- Browser showing the initial page.
-- Browser after editing `index.html`.
+<img width="1342" height="547" alt="image" src="https://github.com/user-attachments/assets/52a2f9cf-3c49-4a97-9432-062dfea1f76c" />
 
 ---
 
@@ -1980,7 +1986,8 @@ Look for the **Mounts** section:
 
 This confirms that Docker is using a **bind mount** instead of a Docker volume.
 
-**Screenshot to attach:** Mounts section from `docker inspect web2`
+<img width="1422" height="320" alt="image" src="https://github.com/user-attachments/assets/f17989a8-9e60-4cc0-b419-a1970211f31e" />
+
 
 ---
 
@@ -1992,6 +1999,9 @@ docker rm web2
 ```
 
 The files remain on the host machine because they are stored outside the container.
+
+<img width="1345" height="87" alt="image" src="https://github.com/user-attachments/assets/fac91e38-4568-4301-abb4-57e0e2a89f3c" />
+
 
 ---
 
@@ -2241,6 +2251,9 @@ CONTAINER ID   IMAGE   STATUS   PORTS                  NAMES
 xxxxxxxxxxxx   nginx   Up       0.0.0.0:8080->80/tcp   bridge-nginx
 ```
 
+<img width="1552" height="141" alt="image" src="https://github.com/user-attachments/assets/32f62d69-e59b-4489-8bf1-3eab52b6022c" />
+
+
 ### Step 3: Inspect the container
 
 ```bash
@@ -2254,6 +2267,9 @@ NetworkMode: bridge
 IPAddress: 172.17.x.x
 ```
 
+<img width="1376" height="1195" alt="image" src="https://github.com/user-attachments/assets/45e892f5-1291-41ec-8660-d01815d6270a" />
+
+
 ### Step 4: Inspect the Bridge network
 
 ```bash
@@ -2266,6 +2282,9 @@ Verify:
 - Container appears in the `Containers` section
 - Assigned private IP (for example `172.17.0.2`)
 
+<img width="1342" height="1257" alt="image" src="https://github.com/user-attachments/assets/fc5b81e1-452e-4170-ad68-8fad62d03fd0" />
+
+
 ### Step 5: Open the website
 
 Visit:
@@ -2276,12 +2295,8 @@ http://localhost:8080
 
 You should see the **Nginx Welcome Page**.
 
-### Screenshots to attach
+<img width="1227" height="131" alt="image" src="https://github.com/user-attachments/assets/268c609d-55e3-45d0-8094-cc8a9bf1b602" />
 
-- `docker ps`
-- `docker inspect bridge-nginx` (show `NetworkMode: bridge` and `IPAddress`)
-- `docker network inspect bridge`
-- Browser showing `http://localhost:8080`
 
 ---
 
@@ -2348,10 +2363,12 @@ You should see the **Nginx Welcome Page**.
 
 ### Screenshots to attach
 
-- `docker ps`
-- `docker inspect host-nginx` (show `NetworkMode: host`)
-- `docker network inspect host`
-- Browser showing `http://localhost`
+<img width="1510" height="161" alt="image" src="https://github.com/user-attachments/assets/c411a5ba-a575-48ca-95ed-b271d94c2376" />
+<img width="1962" height="510" alt="image" src="https://github.com/user-attachments/assets/32e91f27-0845-40eb-b5b1-f04132922e7a" />
+<img width="1421" height="592" alt="image" src="https://github.com/user-attachments/assets/9842de83-a2aa-4c30-b4cc-9a5d30c56015" />
+<img width="1327" height="392" alt="image" src="https://github.com/user-attachments/assets/7b95f828-a0ea-4f76-ae2b-2b207181d1b1" />
+<img width="1317" height="836" alt="image" src="https://github.com/user-attachments/assets/12f283d8-fd4a-4ecd-92d5-8a88b38f6f1f" />
+
 
 > **Note:** If you receive `bind() to 0.0.0.0:80 failed (98: Address already in use)`, another application is already using port **80**. Stop that application before running the Host Network container.
 
@@ -2397,6 +2414,11 @@ You should see the **Nginx Welcome Page**.
 
 > **Note:**
 > Use a **Bridge Network** for most applications because it provides network isolation and flexibility. Use a **Host Network** when you need maximum network performance and can safely share the host's network, such as in Linux-based production environments.
+
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/060062cf-9f1a-4f92-8263-4fa1d6315373" />
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/8b2868d5-bb37-4756-8f6d-23c2abf80a9f" />
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/1886d82d-43ed-4328-802f-6c59aa7a7b44" />
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/1e0ee9a2-a058-407f-9c4e-31a48591de1e" />
 
 
 ---
@@ -2450,6 +2472,9 @@ CONTAINER ID   NAME           CPU %     MEM USAGE / LIMIT     MEM %     NET I/O 
 3bbe80016643   bridge-nginx   0.00%     7.996MiB / 5.788GiB   0.13%     3.06kB / 126B   13.3MB / 12.3kB   5
 ```
 
+<img width="1707" height="308" alt="image" src="https://github.com/user-attachments/assets/1cf5cc57-11be-4802-92c9-9a90875a2c8b" />
+
+
 ---
 
 ## Explanation
@@ -2488,6 +2513,9 @@ Copy from container to host
 docker cp CONTAINER:SOURCE DESTINATION
 ```
 
+
+
+
 ---
 
 ## Example
@@ -2497,6 +2525,9 @@ Copy an HTML file into the Nginx container.
 ```bash
 docker cp index.html bridge-nginx:/usr/share/nginx/html/
 ```
+
+<img width="1797" height="321" alt="image" src="https://github.com/user-attachments/assets/6cda69b5-8ce0-4fd8-9c22-84028016f29c" />
+
 
 ---
 
@@ -2567,6 +2598,9 @@ docker system prune -f
 docker system prune
 ```
 
+<img width="1815" height="1244" alt="image" src="https://github.com/user-attachments/assets/d8141741-aea6-44d9-aa9b-b7af35cb7e55" />
+
+
 ---
 
 ## Expected Output
@@ -2624,6 +2658,9 @@ docker top CONTAINER
 ```bash
 docker top bridge-nginx
 ```
+
+<img width="1691" height="157" alt="image" src="https://github.com/user-attachments/assets/172bd3e4-ea1b-4628-92a3-7be0065580e9" />
+
 
 ---
 
@@ -2688,6 +2725,9 @@ Rename it back:
 docker rename web-server bridge-nginx
 ```
 
+<img width="1772" height="386" alt="image" src="https://github.com/user-attachments/assets/8ce58fa0-c728-4ed5-a992-dfd8ad173683" />
+
+
 ---
 
 ## Explanation
@@ -2747,6 +2787,9 @@ STATUS
 Up 38 minutes (Paused)
 ```
 
+<img width="1752" height="272" alt="image" src="https://github.com/user-attachments/assets/fa083061-e44c-4923-b157-eb343c63c321" />
+
+
 ---
 
 ## Explanation
@@ -2804,6 +2847,9 @@ STATUS
 Up 55 minutes
 ```
 
+<img width="1751" height="272" alt="image" src="https://github.com/user-attachments/assets/fe8fa074-bc71-4250-a04f-abbded0721f8" />
+
+
 ---
 
 ## Explanation
@@ -2858,6 +2904,9 @@ C /usr/share/nginx/html/index.html
 C /etc/nginx/conf.d/default.conf
 A /run/nginx.pid
 ```
+
+<img width="1677" height="947" alt="image" src="https://github.com/user-attachments/assets/f0db7b26-205d-42b9-9c1f-4b23f1742da1" />
+
 
 ---
 
@@ -2915,6 +2964,9 @@ ls -lh bridge-nginx.tar
 -rw-r--r-- 1 malathi malathi 156M Jul 16 06:30 bridge-nginx.tar
 ```
 
+<img width="1717" height="112" alt="image" src="https://github.com/user-attachments/assets/43816e96-9eed-4b67-8b57-0022770ed029" />
+
+
 ---
 
 ## Explanation
@@ -2968,6 +3020,9 @@ REPOSITORY    TAG    IMAGE ID        SIZE
 my-nginx      1.0    48fc28e5831b    236MB
 ```
 
+<img width="1847" height="512" alt="image" src="https://github.com/user-attachments/assets/6faa1d9f-c60f-4dcb-9950-d92dd6049d55" />
+
+
 ---
 
 ## Explanation
@@ -3008,14 +3063,6 @@ Explain the difference between **Docker** and **Kubernetes**. Why do we need Kub
 
 ### Answer
 
-Yes. I'd merge the two versions into one **without repetition** while preserving all the important points. Here's a cleaner version you can directly copy into your notes.
-
----
-
-# ## Q10. Explain the difference between **Docker** and **Kubernetes**. Why do we need Kubernetes if we already have Docker?
-
-## Answer
-
 Docker and Kubernetes are both used in container-based applications, but they solve different problems.
 
 * **Docker** is used to **build, package, and run containers**.
@@ -3049,6 +3096,9 @@ docker run -d --name web1 nginx
 ```
 
 This command creates and starts a single Nginx container.
+
+
+
 
 ---
 
@@ -3097,6 +3147,9 @@ This command deploys an application described in a Kubernetes YAML file.
 
 Docker focuses on creating and running containers.
 
+<img width="1620" height="971" alt="image" src="https://github.com/user-attachments/assets/4ad4795c-3870-4604-83d5-c742d766e629" />
+
+
 ---
 
 ## Kubernetes Architecture
@@ -3115,7 +3168,10 @@ Docker focuses on creating and running containers.
    +------+   +------+   +------+
 ```
 
+
 Kubernetes manages multiple copies of an application across one or more servers.
+
+<img width="1647" height="936" alt="image" src="https://github.com/user-attachments/assets/001c64bf-6e14-4cfc-9b6d-33b89bbbf459" />
 
 ---
 
@@ -3130,6 +3186,10 @@ Kubernetes manages multiple copies of an application across one or more servers.
 | Simple networking                          | Advanced service networking               |
 | Focuses on container runtime               | Focuses on container orchestration        |
 | Good for development and small deployments | Good for production and large deployments |
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/2ae943e6-7e16-463a-a8e3-803a6ef9b0ae" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/fb6400d4-4d5e-4f13-a417-b300d1aa0807" />
+
 
 ---
 
@@ -3214,6 +3274,9 @@ After Self-Healing
 
 This feature is called **Self-Healing**.
 
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/dcaefb34-4055-4f7e-9704-4dc7785760d8" />
+
+
 ---
 
 # Other Features Provided by Kubernetes
@@ -3258,6 +3321,9 @@ Distributes incoming requests evenly across Pods.
        +------+ +------+ +------+
 ```
 
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/d5e95073-e56f-4556-bc66-96559615624e" />
+
+
 ---
 
 ## 3. Rolling Updates
@@ -3276,6 +3342,10 @@ Pod1(v2) Pod2(v2) Pod3(v2)
 ```
 
 Users continue accessing the application while the update happens.
+
+<img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/dd07af13-4a28-44d8-bebf-39c0a362b7c2" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/30a8abe2-676a-48a7-a196-3709b0e223d0" />
+
 
 ---
 
@@ -3414,6 +3484,9 @@ NAME        READY   STATUS    RESTARTS   AGE
 nginx-pod   1/1     Running   0          15s
 ```
 
+<img width="1391" height="187" alt="image" src="https://github.com/user-attachments/assets/6d1d846c-3dae-4d39-ac55-c85e69da0b5a" />
+
+
 ### Step 3: Describe the Pod
 
 ```bash
@@ -3426,6 +3499,10 @@ Observe:
 * Node
 * IP Address
 * Events
+
+<img width="1596" height="1107" alt="image" src="https://github.com/user-attachments/assets/9e5f0f93-115c-4460-9fcd-0fb9b3745644" />
+<img width="1160" height="380" alt="image" src="https://github.com/user-attachments/assets/21ef3df5-12fa-4771-8101-b39604b979eb" />
+
 
 ---
 
@@ -3460,6 +3537,9 @@ NAME            READY
 nginx-deploy    1/1
 ```
 
+<img width="1497" height="246" alt="image" src="https://github.com/user-attachments/assets/6527a772-c763-47c6-89ba-914d6f0680c2" />
+
+
 ---
 
 # Hands-on 3: Scale the Application
@@ -3487,6 +3567,10 @@ nginx-deploy-zzzzz
 
 This demonstrates **automatic scaling**.
 
+<img width="1497" height="246" alt="image" src="https://github.com/user-attachments/assets/5772636c-de1d-40d9-9836-5c9acc509644" />
+<img width="1190" height="1322" alt="image" src="https://github.com/user-attachments/assets/8df3c8df-f788-4278-b24f-0c77799fe595" />
+
+
 ---
 
 # Hands-on 4: Self-Healing
@@ -3513,6 +3597,9 @@ New Pod → Created Automatically
 
 This demonstrates **Self-Healing**.
 
+<img width="1521" height="442" alt="image" src="https://github.com/user-attachments/assets/1c98db8a-3ae2-41be-9001-93bd9b27fd35" />
+
+
 ---
 
 # Hands-on 5: Expose the Deployment
@@ -3536,6 +3623,10 @@ Observe:
 * Service Name
 * Cluster IP
 * NodePort
+
+<img width="1406" height="247" alt="image" src="https://github.com/user-attachments/assets/39898283-5df7-46e6-ae17-de1288a0170d" />
+
+
 
 ---
 
@@ -3561,6 +3652,9 @@ kubectl get pods
 
 Notice that Pods are updated **one at a time**, so there is no downtime.
 
+<img width="1570" height="666" alt="image" src="https://github.com/user-attachments/assets/6eb0a367-0e6e-4263-b3f5-7e7e74b63db1" />
+
+
 ---
 
 # Hands-on 7: Roll Back
@@ -3583,6 +3677,9 @@ Verify
 kubectl get pods
 ```
 
+<img width="1440" height="797" alt="image" src="https://github.com/user-attachments/assets/9f58bbd1-20a2-48af-9c90-1fd04e7b8603" />
+
+
 ---
 
 # Hands-on 8: View Cluster Resources
@@ -3604,6 +3701,9 @@ kubectl get services
 ```
 
 This helps you understand the cluster's current state.
+
+<img width="1422" height="451" alt="image" src="https://github.com/user-attachments/assets/53ee0507-1c13-48fc-84f0-57930aa8be91" />
+
 
 ---
 
@@ -3643,6 +3743,8 @@ kubectl get all
 | Get Resources     | Cluster inspection                 |
 | Delete Resources  | Resource cleanup                   |
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ac5170bb-6a66-4dcf-b8ea-fbb3f1d81e72" />
+<img width="1402" height="1122" alt="image" src="https://github.com/user-attachments/assets/745a9dba-299e-4a34-aecf-e209b484bbf2" />
 
 
 ---
@@ -3666,49 +3768,8 @@ A Kubernetes cluster has two main parts:
 
 ## Kubernetes Architecture
 
-```text
-                               KUBERNETES CLUSTER
-+--------------------------------------------------------------------------------------+
-|                                                                                      |
-|                        +---------------- CONTROL PLANE ----------------+              |
-|                        |                                               |              |
-|                        |  +-------------------------+                  |              |
-|                        |  | Cloud Controller        |------------------+-----------> Cloud
-|                        |  | Manager                 |                  |        (AWS/Azure/GCP)
-|                        |  +-------------------------+                  |              |
-|                        |               |                              |              |
-|                        |               v                              |              |
-|                        |  +-------------------------+                 |              |
-|                        |  | API Server              |<-------------- kubectl         |
-|                        |  +-------------------------+                 |              |
-|                        |     ▲        ▲        ▲                     |              |
-|                        |     |        |        |                     |              |
-|                        | +-------+ +---------+ |                     |              |
-|                        | | etcd | |Scheduler| |                     |              |
-|                        | +-------+ +---------+ |                     |              |
-|                        |             ▲         |                     |              |
-|                        |             |         |                     |              |
-|                        |   +---------------------------+             |              |
-|                        |   | Controller Manager        |-------------+              |
-|                        |   +---------------------------+                            |
-|                        +------------------------------------------------------------+
-|                                                                                      |
-|                                 WORKER NODES                                         |
-|                                                                                      |
-|      +-----------------------------+        +-----------------------------+          |
-|      |         Worker Node 1        |        |         Worker Node 2       |          |
-|      |------------------------------|        |-----------------------------|          |
-|      | Kubelet                      |        | Kubelet                     |          |
-|      | kube-proxy                   |        | kube-proxy                  |          |
-|      | Container Runtime (CRI)      |        | Container Runtime (CRI)     |          |
-|      |                              |        |                             |          |
-|      | +------------------------+   |        | +------------------------+  |          |
-|      | | Pod | Pod | Pod        |   |        | | Pod | Pod             |  |          |
-|      | +------------------------+   |        | +------------------------+  |          |
-|      +------------------------------+        +-----------------------------+          |
-|                                                                                      |
-+--------------------------------------------------------------------------------------+
-```
+<img width="1647" height="936" alt="image" src="https://github.com/user-attachments/assets/ac00b4ff-a260-4179-8cb1-ab9a38cb4927" />
+
 
 ---
 
@@ -3742,6 +3803,11 @@ Pod becomes Running
      ▼
 kube-proxy routes traffic to the Pod
 ```
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/547e759a-e196-43c0-b5cb-5f616692f684" />
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/7d3f8bba-106d-4ecd-b932-ba5f14f62d40" />
+<img width="887" height="1774" alt="image" src="https://github.com/user-attachments/assets/aee01930-16c8-4cae-b27a-f01392406ac9" />
+
 
 ---
 
@@ -4034,7 +4100,10 @@ minikube version
 minikube start
 ```
 
-**Screenshot to attach:** Output showing the cluster has started successfully.
+Output showing the cluster has started successfully.
+
+<img width="1821" height="577" alt="image" src="https://github.com/user-attachments/assets/0007a0f4-a8c6-4745-884e-d312b51123a1" />
+
 
 ---
 
@@ -4051,7 +4120,8 @@ NAME       STATUS   ROLES           AGE   VERSION
 minikube   Ready    control-plane   5m    v1.xx.x
 ```
 
-**Screenshot to attach:** Output of `kubectl get nodes`.
+<img width="1202" height="67" alt="image" src="https://github.com/user-attachments/assets/a697e203-25ba-40d0-992f-bf24549c6808" />
+
 
 ---
 
@@ -4074,7 +4144,8 @@ coredns-xxxxxxxx                       1/1     Running
 
 These Pods represent important Kubernetes system components.
 
-**Screenshot to attach:** Output of `kubectl get pods -n kube-system`.
+<img width="1300" height="201" alt="image" src="https://github.com/user-attachments/assets/ade71c5c-05ec-4efc-93e9-f6acb3885409" />
+
 
 ---
 
@@ -4091,6 +4162,7 @@ These Pods represent important Kubernetes system components.
 - **kube-proxy** handles networking between Services and Pods.
 - **Pods** are the smallest deployable units where applications run.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/6962d91a-1481-44ca-8187-280068a1c745" />
 
 
 ---
@@ -4126,6 +4198,9 @@ ReplicaSet
  Containers    Containers    Containers
 ```
 
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/2d5f0694-da7d-4dc7-ae01-2cce1d77a9ba" />
+
+
 ---
 
 ## How They Work Together
@@ -4150,6 +4225,9 @@ Run
      ▼
 Containers
 ```
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/feee3127-c73a-4821-8141-9a9a225739ba" />
+
 
 ---
 
@@ -4352,6 +4430,9 @@ ReplicaSet
 
 The ReplicaSet creates a replacement Pod automatically.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/d69726c8-f1b8-4fa8-8940-ce49564ffbb2" />
+
+
 ---
 
 ### Deployment
@@ -4435,7 +4516,8 @@ kubectl create deployment nginx-app --image=nginx
 deployment.apps/nginx-app created
 ```
 
-**Screenshot to attach:** Deployment creation.
+<img width="1490" height="52" alt="image" src="https://github.com/user-attachments/assets/012c4743-ba40-4b51-8252-d12e8ce725bd" />
+
 
 ---
 
@@ -4464,7 +4546,8 @@ nginx-app   1/1     1            1           103s
 - Kubernetes first creates the Pod.
 - Once the Pod becomes **Running**, the Deployment shows **READY = 1/1**.
 
-**Screenshot to attach:** Final output showing `1/1 READY`.
+<img width="1232" height="75" alt="image" src="https://github.com/user-attachments/assets/2164fc05-7006-41c7-9503-37d5f74f2cc0" />
+
 
 ---
 
@@ -4485,7 +4568,8 @@ nginx-app-574b8c4d9c   1         1         1       2m49s
 
 The Deployment automatically created a ReplicaSet, which created one Pod.
 
-**Screenshot to attach:** ReplicaSet output.
+<img width="1155" height="67" alt="image" src="https://github.com/user-attachments/assets/54ab264e-8834-4e2f-97f6-5a55db943eff" />
+
 
 ---
 
@@ -4506,7 +4590,8 @@ nginx-app-574b8c4d9c-mx2xj   1/1     Running   0          3m39s
 
 The Pod is now running the Nginx container.
 
-**Screenshot to attach:** Pod output.
+<img width="1171" height="71" alt="image" src="https://github.com/user-attachments/assets/e47a9550-383d-4f54-a006-c16b3b0caf9c" />
+
 
 ---
 
@@ -4543,7 +4628,8 @@ nginx-app-574b8c4d9c-mx2xj   1/1     Running   0          3m39s
 
 The ReplicaSet created two additional Pods to satisfy the desired replica count.
 
-**Screenshot to attach:** Three running Pods.
+<img width="1542" height="266" alt="image" src="https://github.com/user-attachments/assets/66049b0a-d2f8-4015-a19a-408febcbb828" />
+
 
 ---
 
@@ -4591,7 +4677,8 @@ The ReplicaSet detected that only **2 Pods** were running and automatically crea
 
 This feature is called **Self-Healing**.
 
-**Screenshot to attach:** New Pod being created.
+<img width="1397" height="45" alt="image" src="https://github.com/user-attachments/assets/211f3290-ad10-4f51-9764-54014696b443" />
+
 
 ---
 
@@ -4641,7 +4728,7 @@ nginx-app-5d665df68-pvbhr   1/1     Running   0          45s
 
 A new ReplicaSet was created, and the Pods were replaced one by one without downtime.
 
-**Screenshot to attach:** New Pods after rolling update.
+<img width="1602" height="442" alt="image" src="https://github.com/user-attachments/assets/8647202d-2f0a-4952-8c69-5dbdda6d72cb" />
 
 ---
 
@@ -4665,7 +4752,8 @@ REVISION  CHANGE-CAUSE
 
 Kubernetes keeps a history of Deployment revisions.
 
-**Screenshot to attach:** Rollout history.
+<img width="1436" height="132" alt="image" src="https://github.com/user-attachments/assets/142b1ff7-c281-467f-a82b-32f06cc85e8b" />
+
 
 ---
 
@@ -4700,7 +4788,8 @@ nginx-app-574b8c4d9c-z7ll2   1/1     Running
 
 Kubernetes restored the previous ReplicaSet and recreated the earlier version of the Pods.
 
-**Screenshot to attach:** Pods after rollback.
+<img width="1417" height="292" alt="image" src="https://github.com/user-attachments/assets/8d9a462a-6f15-4f1a-9076-6bd932f322cb" />
+
 
 ---
 
@@ -4728,7 +4817,9 @@ kubectl get all
 
 No resources related to `nginx-app` should remain.
 
-**Screenshot to attach:** Deployment deletion.
+<img width="1397" height="45" alt="image" src="https://github.com/user-attachments/assets/c50f59ed-ef23-4199-8597-c9cf4ea1b214" />
+
+
 
 ---
 
@@ -4803,6 +4894,9 @@ Step 6
 Delete the Pod
 ```
 
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/d3986dd8-00bc-48fa-aca2-0cb098145514" />
+
+
 ---
 
 # Kubernetes Workflow
@@ -4834,6 +4928,9 @@ Creates Container
 Redis Pod Running
 ```
 
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/84ec0778-5c7b-4b8f-8c2d-b897b2ba8b08" />
+
+
 ---
 
 # Pod Manifest
@@ -4856,6 +4953,8 @@ spec:
       ports:
         - containerPort: 6379
 ```
+<img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/ad68caaa-cb2e-4e05-99ca-a1c3a990f2e6" />
+
 
 ---
 
@@ -5013,6 +5112,9 @@ This tells Kubernetes:
 
 > **Note:** It does **not** expose Redis outside the cluster.
 
+<img width="1402" height="1122" alt="image" src="https://github.com/user-attachments/assets/7be1c9e5-4ccc-4b04-aa6d-06aa9387a7f0" />
+
+
 ---
 
 # Complete Architecture
@@ -5042,7 +5144,7 @@ nano redis-pod.yaml
 
 Paste the YAML content and save it.
 
-**Screenshot to attach:** YAML file in the editor.
+
 
 ---
 
@@ -5060,7 +5162,8 @@ pod/redis-pod created
 
 This means Kubernetes successfully created the Pod.
 
-**Screenshot to attach:** Output of `kubectl apply -f redis-pod.yaml`.
+<img width="1295" height="75" alt="image" src="https://github.com/user-attachments/assets/68d47062-e44d-47a1-b0fd-1b59651f028b" />
+
 
 ---
 
@@ -5102,7 +5205,8 @@ AGE
 └── Pod was created 86 seconds ago.
 ```
 
-**Screenshot to attach:** Output of `kubectl get pods`.
+<img width="1262" height="65" alt="image" src="https://github.com/user-attachments/assets/c299b826-34e2-4d28-826c-95c8924340fe" />
+
 
 ---
 
@@ -5212,7 +5316,8 @@ Start Container
 Running
 ```
 
-**Screenshot to attach:** Output of `kubectl describe pod redis-pod`.
+<img width="1690" height="1167" alt="image" src="https://github.com/user-attachments/assets/bc5588c2-49d9-4678-b2d5-50df59cca34f" />
+
 
 ---
 
@@ -5244,7 +5349,8 @@ Ready to accept connections
 
 It means Redis started successfully and is ready to receive client requests.
 
-**Screenshot to attach:** Output of `kubectl logs redis-pod`.
+<img width="2185" height="1261" alt="image" src="https://github.com/user-attachments/assets/935c69c9-e26d-46b9-8cb6-58b62b00feee" />
+
 
 ---
 
@@ -5262,7 +5368,8 @@ pod "redis-pod" deleted from default namespace
 
 Kubernetes removed the Pod from the cluster.
 
-**Screenshot to attach:** Output of `kubectl delete pod redis-pod`.
+<img width="1227" height="46" alt="image" src="https://github.com/user-attachments/assets/08562241-56a9-43e3-a486-725eaceb6be6" />
+
 
 ---
 
@@ -5294,6 +5401,9 @@ Delete Pod
  ▼
 Pod Removed
 ```
+
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/4c5f7954-cebd-4e63-a198-5910a1a09f3f" />
+
 
 ---
 
