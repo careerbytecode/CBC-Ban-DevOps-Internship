@@ -66,11 +66,11 @@ In a Virtual Machine, **each VM has its own complete operating system**.
 | ----------------------------------------------- | ---------------------------------------------------------------- |
 | Uses **container virtualization**               | Uses **hardware virtualization**                                 |
 | Shares the host operating system kernel         | Each VM has its own guest operating system                       |
-| Starts in a few seconds                         | Takes longer to boot because it loads a full operating system    |
+| Typically starts within a few seconds           | Takes longer to boot because it loads a full operating system    |
 | Uses less CPU, RAM, and disk space              | Uses more CPU, RAM, and disk space                               |
 | Image size is usually smaller (MBs)             | VM image size is usually larger (GBs)                            |
-| High performance because there is less overhead | Slightly slower because each VM runs a complete operating system |
-| Best for packaging and deploying applications   | Best for running different operating systems on one machine      |
+| Generally offers higher performance because there is less virtualization overhead. | Slightly slower because each VM runs a complete operating system |
+| Well suited for packaging, testing, and deploying applications.   | Best for running different operating systems on one machine      |
 
 ---
 
@@ -120,7 +120,7 @@ Use Docker when:
 * Testing software
 * Running microservices
 * Creating portable applications
-* Fast deployment
+* Faster deployment
 
 ---
 
@@ -280,7 +280,8 @@ What is a Docker **image layer**? Explain how layering makes Docker images effic
 
 A **Docker image layer** is a **read-only layer** that stores a specific change made while building a Docker image.
 
-Each instruction in a **Dockerfile** (such as `FROM`, `RUN`, `COPY`, or `ADD`) creates a new image layer. Docker stacks these layers on top of each other to build the final image.
+Most Dockerfile instructions such as `RUN`, `COPY`, and `ADD` create filesystem layers. Some instructions like `CMD`, `ENTRYPOINT`, `ENV`, `LABEL`, `WORKDIR`, and `EXPOSE` mainly add image metadata instead of creating filesystem layers.
+Docker stacks these layers on top of each other to build the final image.
 
 When a container is created, Docker adds one **writable layer** on top of all the read-only image layers. Any changes made while the container is running are stored only in this writable layer.
 
@@ -531,7 +532,7 @@ Ubuntu Base Layer                            87.7MB
 * `RUN apt-get update` creates a package update layer.
 * `RUN apt-get install -y nginx` creates the Nginx installation layer.
 * `COPY` creates a layer containing the HTML file.
-* `CMD` stores image metadata and does not create a filesystem layer.
+* `CMD` stores image configuration (metadata) and defines the default command that runs when a container starts. It does not add files to the image filesystem.
 
 > **Note:** In Docker BuildKit, some entries may appear as `<missing>`. This is normal because BuildKit hides intermediate image IDs. The layers still exist.
 
@@ -666,7 +667,7 @@ httpd     The Apache HTTP Server Project       4933    [OK]
 
 - Docker searches **Docker Hub** (Docker's online image repository).
 - It displays images related to `httpd`.
-- The image marked **[OK]** is the **Official Docker Image** maintained by the Apache HTTP Server Project and Docker.
+- The image marked **[OK]** is the **Official Image** published through Docker Hub and maintained in collaboration with the Docker Official Images program.
 - Official images are trusted, well-documented, and regularly updated.
 
 
@@ -729,6 +730,14 @@ This confirms that the image has been successfully downloaded to the local machi
 docker run -d --name web1 httpd
 ```
 
+OR
+
+```bash
+docker run -d --name web1 -p 8080:80 httpd
+```
+
+
+
 **Purpose:**
 
 - `docker run` → Creates and starts a new container.
@@ -765,7 +774,8 @@ CONTAINER ID   IMAGE    COMMAND              STATUS         PORTS   NAMES
 - The container is running successfully.
 - Apache HTTP Server is running using the `httpd-foreground` command.
 - The container exposes **port 80**, but it is **not accessible from the host** because no port mapping (`-p`) was specified.
-
+OR
+- The container's port 80 is published to host port 8080, allowing the Apache web server to be accessed at http://localhost:8080.
 
 
 ### 4. Enter the running container's shell
@@ -1369,7 +1379,7 @@ FROM nginx:latest
 
 **Purpose:**
 
-- Uses the official **Nginx** image as the base image.
+- Uses the official **Nginx** image as the base image. Using a version tag instead of latest makes builds reproducible and avoids unexpected changes when newer images are released.
 - If it is not available locally, Docker downloads it from Docker Hub.
 
 ---
@@ -1413,6 +1423,8 @@ CMD ["nginx", "-g", "daemon off;"]
 - `daemon off;` keeps Nginx running in the foreground so the container remains running.
 
 > **Note:** `CMD` specifies the default command that runs when a container starts.
+
+> **Best Practice:** Create a `.dockerignore` file to exclude unnecessary files such as `.git`, logs, and temporary files from the build context. This reduces build time and image size.
 
 ---
 
@@ -1571,7 +1583,7 @@ Welcome to My Docker Website!
 This website is served using Nginx inside a Docker container.
 ```
 
-**Screenshot to attach:** Browser displaying the webpage.
+
 
 ---
 
@@ -1593,7 +1605,7 @@ GET /favicon.ico HTTP/1.1" 404
 
 Press **Ctrl + C** to stop following the logs.
 
-**Screenshot to attach:** Output of `docker logs -f website`
+
 
 ---
 
@@ -1707,7 +1719,7 @@ Docker provides two common ways to store data outside a container: **Docker Volu
 
 # Docker Volume
 
-A **Docker Volume** is a storage area that Docker creates and manages automatically. It is stored in Docker's default storage location and is independent of the container's lifecycle.
+A **Docker Volume** is a storage area that Docker creates and manages automatically. It is stored in Docker's managed storage location (for example /var/lib/docker/volumes on Linux) and is independent of the container's lifecycle.
 
 Even if the container is deleted, the data stored in the volume remains available.
 
@@ -2148,7 +2160,7 @@ The container does **not** receive a separate IP address and uses the host's net
 - Shares the host machine's network.
 - No separate IP address.
 - Port mapping (`-p`) is **not required**.
-- Better network performance because there is no network translation.
+- Host networking avoids Docker's bridge networking and NAT overhead, which can provide slightly lower latency and better networking performance for some workloads.
 - Provides less network isolation.
 
 ### Example
@@ -2165,7 +2177,7 @@ http://localhost
 
 The container directly uses the host's port **80**.
 
-> **Note:** Host Network mode works on **Linux**. Docker Desktop on Windows and macOS does not support it in the same way because Docker runs inside a virtual machine.
+> **Note:** Host networking works natively on **Linux**. Docker Desktop on Windows and macOS runs containers inside a virtual machine, so host networking behaves differently and has limitations.. Docker Desktop on Windows and macOS does not support it in the same way because Docker runs inside a virtual machine.
 
 ---
 
@@ -2428,7 +2440,8 @@ Research any **three Docker commands** not covered during the training and expla
 ### Answer
 
 
-### Docker Commands (Not Covered During Training)
+### Docker Commands (Not Covered During Training) 
+The following additional Docker commands were researched. Although only three were required, several useful commands are included for reference.
 
 ---
 
@@ -3053,7 +3066,9 @@ Create a Docker image from a previously exported container.
 | `docker export`       | Export a container's filesystem to a tar archive                   |
 | `docker import`       | Create a Docker image from a tar archive                           |
 
+## Conclusion
 
+During this assignment, I explored Docker fundamentals including images, containers, image layers, Dockerfiles, networking, storage, and commonly used Docker commands. I also performed hands-on exercises to build, run, inspect, and manage containers. These practical activities helped strengthen my understanding of containerization and Docker's workflow for application deployment.
 
 ---
 
