@@ -1,4 +1,3 @@
-<img width="1620" height="971" alt="image" src="https://github.com/user-attachments/assets/e5de951a-16cf-42d0-9bfc-f8eae9aca5e7" /># 🚀 CareerByteCode DevOps Internship
 
 # Week 2 Assignment
 
