@@ -5566,6 +5566,9 @@ ClusterIP Service
 Pods
 ```
 
+<img width="1142" height="1377" alt="image" src="https://github.com/user-attachments/assets/aaa47b1e-9b59-4fe5-9389-f5f17d0b899d" />
+
+
 ---
 
 ## Example Use Cases
@@ -5592,6 +5595,10 @@ spec:
       targetPort: 6379
   type: ClusterIP
 ```
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/d91cb2b3-70bf-43ef-be72-559fd3f0002b" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/58073714-02fb-4601-97a0-cf4b1514f378" />
+
 
 ---
 
@@ -5668,6 +5675,9 @@ Example URL
 http://192.168.49.2:30080
 ```
 
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/a34480ec-8c4a-4997-ac1e-95f56bcdf786" />
+
+
 ---
 
 # 3. LoadBalancer
@@ -5730,6 +5740,10 @@ spec:
 
 > **Note:** LoadBalancer works on cloud providers such as AWS, Azure, and GCP. In Minikube, we use `minikube tunnel` to simulate a cloud LoadBalancer.
 
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/2afc7885-af1a-4e17-90c1-d5fd60cf1730" />
+
+
 ---
 
 # Difference Between ClusterIP, NodePort, and LoadBalancer
@@ -5742,6 +5756,10 @@ spec:
 | Used outside cluster     | ❌ No                   | ✅ Yes                 | ✅ Yes                   |
 | Access Method            | Cluster IP             | Node IP + NodePort    | External IP             |
 | Best Use Case            | Internal communication | Development & Testing | Production Applications |
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/b6ae857b-0595-4e6b-9694-bf0d010b31d4" />
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/70adda29-5393-4341-8fec-735ce7ab577b" />
+
 
 ---
 
@@ -5801,6 +5819,12 @@ Nginx Pods
 
 The Load Balancer distributes traffic to the Pods.
 
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/916da2ed-c85a-44d0-958b-665589152bfb" />
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/b44268cf-cbba-4cab-a06e-d54b3a191d43" />
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/48268d34-dbf5-461a-a544-132c019341d9" />
+
+
 ---
 
 # Hands-on Practice (Minikube)
@@ -5817,7 +5841,8 @@ Expected Output
 deployment.apps/nginx created
 ```
 
-**Screenshot to attach:** Deployment created.
+<img width="1436" height="187" alt="image" src="https://github.com/user-attachments/assets/b154fda6-9c8c-4b06-9a33-c0f7305f3269" />
+
 
 ---
 
@@ -5851,7 +5876,9 @@ EXTERNAL-IP = <none>
 
 This means the Service is accessible **only inside the cluster**.
 
-**Screenshot to attach:** Output of `kubectl get services`.
+<img width="1405" height="266" alt="image" src="https://github.com/user-attachments/assets/0eaab9b6-6034-403f-aa72-589518155fb0" />
+<img width="1496" height="1270" alt="image" src="https://github.com/user-attachments/assets/d25015c1-519f-4c93-8e84-834cc6cd4276" />
+
 
 ---
 
@@ -5904,7 +5931,9 @@ Welcome to nginx!
 
 This confirms that the NodePort Service is working correctly.
 
-**Screenshot to attach:** Browser showing the Nginx welcome page.
+<img width="1466" height="247" alt="image" src="https://github.com/user-attachments/assets/c5e63166-3b6f-4e2d-aef9-61fe43dab2e5" />
+<img width="1716" height="1010" alt="image" src="https://github.com/user-attachments/assets/427cbd14-ac8f-4c93-9ba2-ccbf8564f23d" />
+
 
 ---
 
@@ -5932,6 +5961,9 @@ EXTERNAL-IP
 ```
 
 This is normal in Minikube.
+
+
+
 
 ---
 
@@ -5972,7 +6004,8 @@ Welcome to nginx!
 
 This confirms that the LoadBalancer Service is working.
 
-**Screenshot to attach:** Browser showing the Nginx welcome page.
+<img width="1502" height="1192" alt="image" src="https://github.com/user-attachments/assets/a3bfdb07-2c77-4f10-8102-8b5cef8182b0" />
+
 
 ---
 
@@ -6017,6 +6050,9 @@ service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP
 
 Only the default Kubernetes Service should remain.
 
+<img width="1357" height="251" alt="image" src="https://github.com/user-attachments/assets/35654693-b9bf-4e7c-bd19-22358362f12c" />
+
+
 ---
 
 # Key Points
@@ -6054,10 +6090,6 @@ Pods
 
 ### Q15.
 What is the difference between a **ConfigMap** and a **Secret**? Explain when you would use each.
-
-### Answer
-
-## Q15. What is the difference between a **ConfigMap** and a **Secret**? Explain when you would use each.
 
 ### Answer
 
@@ -6179,6 +6211,10 @@ stringData:
 | Security    | Public configuration        | Private credentials            |
 | Used For    | Application settings        | Authentication and credentials |
 
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/d32dd799-39ed-40fe-8824-6ae7b2c43121" />
+
+
 ---
 
 # How Pods Use Them
@@ -6201,6 +6237,10 @@ Applications can access these values as:
 
 * Environment variables
 * Mounted files inside the container
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/07bc68cf-b53c-4355-9f3c-a2de6cb9e9e1" />
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/d4785c16-dc9c-4ba2-af4b-334d6d6c769c" />
+
 
 ---
 
@@ -6248,7 +6288,8 @@ configmap/app-config created
 
 **Purpose:** Creates a ConfigMap named **app-config** containing two configuration values.
 
-**Screenshot to attach:** Output of the create command.
+<img width="1386" height="92" alt="image" src="https://github.com/user-attachments/assets/67ed0796-84ce-4a97-8441-0ffd959dc605" />
+
 
 ---
 
@@ -6267,6 +6308,9 @@ NAME               DATA   AGE
 app-config         2      9s
 kube-root-ca.crt   1      13h
 ```
+
+<img width="1292" height="87" alt="image" src="https://github.com/user-attachments/assets/aae9f416-3210-4792-a940-6870bf0a1a61" />
+
 
 View complete details:
 
@@ -6293,7 +6337,7 @@ APP_PORT:
 
 **Purpose:** Displays the values stored in the ConfigMap.
 
-**Screenshot to attach:** Output of `kubectl describe configmap app-config`.
+<img width="1422" height="467" alt="image" src="https://github.com/user-attachments/assets/7a10f824-c9ea-4726-9952-bba5ed785894" />
 
 ---
 
@@ -6315,7 +6359,8 @@ secret/db-secret created
 
 **Purpose:** Creates a Secret containing the database username and password.
 
-**Screenshot to attach:** Output of the create command.
+<img width="1401" height="86" alt="image" src="https://github.com/user-attachments/assets/d36522ff-1b0b-49d8-8782-aabe73c3987f" />
+
 
 ---
 
@@ -6333,6 +6378,9 @@ kubectl get secrets
 NAME        TYPE     DATA   AGE
 db-secret   Opaque   2      31s
 ```
+
+<img width="1200" height="72" alt="image" src="https://github.com/user-attachments/assets/c746e945-f750-492c-983e-584023899505" />
+
 
 View Secret details:
 
@@ -6356,7 +6404,8 @@ username:  5 bytes
 
 Notice that Kubernetes shows **only the size of the data**, not the actual values.
 
-**Screenshot to attach:** Output of `kubectl describe secret db-secret`.
+<img width="1366" height="266" alt="image" src="https://github.com/user-attachments/assets/beb5f29c-191a-439a-bd9d-0294e762f55b" />
+
 
 ---
 
@@ -6383,7 +6432,8 @@ type: Opaque
 
 The username and password are stored as **Base64-encoded** values.
 
-**Screenshot to attach:** Output of the YAML.
+<img width="1342" height="290" alt="image" src="https://github.com/user-attachments/assets/327b64f2-219c-47fa-a425-870c029a91fd" />
+
 
 ---
 
@@ -6415,7 +6465,9 @@ MyPassword123
 
 **Purpose:** Demonstrates that Base64 encoding can be decoded back to the original value.
 
-**Screenshot to attach:** Output of both decode commands.
+<img width="1327" height="42" alt="image" src="https://github.com/user-attachments/assets/ca639bde-96fe-4c68-8f6e-78e48d45d028" />
+<img width="1450" height="52" alt="image" src="https://github.com/user-attachments/assets/b405fbe4-707a-4a65-87d8-d5c8a826f13d" />
+
 
 ---
 
@@ -6468,7 +6520,8 @@ kubectl get secrets
 No resources found in default namespace.
 ```
 
-**Screenshot to attach:** Output after deleting the ConfigMap and Secret.
+<img width="1417" height="197" alt="image" src="https://github.com/user-attachments/assets/0c19bb7f-98b9-4d55-837f-26d38c6a20f0" />
+
 
 ---
 
@@ -6578,7 +6631,7 @@ Every Pod is identical.
 
 ---
 
-## StatefulSet = Roll Number 📝
+## StatefulSet = Roll Number 
 
 Now imagine an exam hall.
 
@@ -6923,7 +6976,8 @@ kubectl create deployment nginx-app --image=nginx
 deployment.apps/nginx-app created
 ```
 
-📸 **Screenshot to attach:** Output showing the Deployment was created.
+<img width="1512" height="51" alt="image" src="https://github.com/user-attachments/assets/8a6a53d9-5723-414a-b22b-95722f6bd9ba" />
+
 
 ---
 
@@ -6955,7 +7009,9 @@ NAME                         READY   STATUS    RESTARTS   AGE
 nginx-app-574b8c4d9c-m8jm2   1/1     Running   0          100s
 ```
 
-📸 **Screenshot to attach:** `kubectl get deployments` and `kubectl get pods`.
+<img width="1262" height="66" alt="image" src="https://github.com/user-attachments/assets/ab207f1f-19fd-4b1a-a8eb-f3dc0fa0334e" />
+<img width="1201" height="71" alt="image" src="https://github.com/user-attachments/assets/15a58e25-0d2c-4f7b-a9ce-a3d6aa0cb14c" />
+
 
 ---
 
@@ -6996,7 +7052,7 @@ Notice:
 * Pod names are different.
 * All Pods run the same Nginx application.
 
-📸 **Screenshot to attach:** `kubectl get pods`
+
 
 ---
 
@@ -7019,7 +7075,8 @@ This shows:
 * Running Pods = 3
 * Available Pods = 3
 
-📸 **Screenshot to attach:** `kubectl get deployments`
+<img width="1457" height="332" alt="image" src="https://github.com/user-attachments/assets/3a8d757d-1014-4dcb-aa85-18d370aa40dd" />
+
 
 ---
 
@@ -7047,7 +7104,7 @@ This is expected because we have not created any StatefulSet yet.
 
 > **Note:** Creating a StatefulSet requires a **Headless Service** and **Persistent Volumes**, which is beyond the scope of this assignment.
 
-📸 **Screenshot to attach:** `kubectl get statefulsets`
+
 
 ---
 
@@ -7072,7 +7129,7 @@ NAME                                   DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-app-574b8c4d9c   3         3         3       3m5s
 ```
 
-📸 **Screenshot to attach:** `kubectl get all`
+
 
 ---
 
@@ -7105,7 +7162,8 @@ service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP    13h
 
 Only the default Kubernetes Service remains.
 
-📸 **Screenshot to attach:** `kubectl get all`
+<img width="1401" height="575" alt="image" src="https://github.com/user-attachments/assets/154638d9-087a-4c2d-89c1-4f3f525fc5c0" />
+
 
 ---
 
@@ -7129,7 +7187,7 @@ Only the default Kubernetes Service remains.
 
 ---
 
-Here's a clean comparison table you can copy into your assignment.
+
 
 ### Deployment vs StatefulSet
 
@@ -7147,6 +7205,9 @@ Here's a clean comparison table you can copy into your assignment.
 | Network Identity     | Pod IP and name may change                 | Stable Pod name and network identity           |
 | Best Suited For      | Web applications, APIs, microservices      | Databases, message queues, distributed systems |
 | Example Applications | Nginx, Apache, React, Node.js              | MySQL, PostgreSQL, MongoDB, Kafka              |
+
+<img width="1693" height="929" alt="image" src="https://github.com/user-attachments/assets/daa86e14-c01e-45a5-b1a0-061a0d34472c" />
+
 
 ---
 
@@ -7207,12 +7268,6 @@ Install **Minikube** and write the commands to start the cluster, list nodes, de
 
 ### Answer
 
-Yes! Since you performed all the commands successfully, here's a **clean assignment-ready answer** using **your actual outputs**. You can copy and paste it directly.
-
----
-
-# Q17. Install Minikube and Write the Commands to Start the Cluster, List Nodes, Deploy a Pod, and Delete the Cluster
-
 ## What is Minikube?
 
 Imagine you want to learn Kubernetes, but you don't have many computers.
@@ -7269,7 +7324,8 @@ minikube version: v1.38.1
 * kubectl communicates with Kubernetes.
 * Minikube creates a local Kubernetes cluster.
 
-📸 **Screenshot:** Output of the above commands.
+<img width="1261" height="180" alt="image" src="https://github.com/user-attachments/assets/188da044-fdec-4b23-b70c-918f79f11c83" />
+
 
 ---
 
@@ -7313,7 +7369,8 @@ Minikube starts:
 
 Now the Kubernetes cluster is ready.
 
-📸 **Screenshot:** `minikube start`
+<img width="1255" height="247" alt="image" src="https://github.com/user-attachments/assets/063d247f-c01c-4b1c-922d-c87deefd421b" />
+
 
 ---
 
@@ -7336,7 +7393,8 @@ kubeconfig: Configured
 
 This means everything is working correctly.
 
-📸 **Screenshot:** `minikube status`
+<img width="1162" height="177" alt="image" src="https://github.com/user-attachments/assets/525501d3-8532-46af-9fac-d040cb81278a" />
+
 
 ---
 
@@ -7370,7 +7428,8 @@ Cluster
 +-----------+
 ```
 
-📸 **Screenshot:** `kubectl get nodes`
+<img width="1275" height="67" alt="image" src="https://github.com/user-attachments/assets/3c2f99d5-583f-4796-a629-6e5ab4a961f1" />
+
 
 ---
 
@@ -7403,7 +7462,7 @@ Pod
 
 Kubernetes downloads the Nginx image and starts the container.
 
-📸 **Screenshot:** Pod creation message.
+<img width="1360" height="47" alt="image" src="https://github.com/user-attachments/assets/9d938823-32d9-4839-accf-f7ab160824d7" />
 
 ---
 
@@ -7437,7 +7496,8 @@ Node
       └── nginx Container
 ```
 
-📸 **Screenshot:** `kubectl get pods`
+<img width="1317" height="67" alt="image" src="https://github.com/user-attachments/assets/9cc866d5-de17-4ba7-93db-ed6f316588f4" />
+
 
 ---
 
@@ -7465,7 +7525,8 @@ It shows:
 
 This command is very useful for troubleshooting Pod issues.
 
-📸 **Screenshot:** `kubectl describe pod nginx-pod`
+<img width="1627" height="1175" alt="image" src="https://github.com/user-attachments/assets/23b91b1b-359d-4626-bd12-e0f3b4d16b0e" />
+
 
 ---
 
@@ -7513,7 +7574,8 @@ Node
 (No Pods)
 ```
 
-📸 **Screenshot:** `kubectl delete pod nginx-pod` and `kubectl get pods`
+<img width="1305" height="91" alt="image" src="https://github.com/user-attachments/assets/03f47e9e-826a-4bf1-9962-8a640a6d0ce8" />
+
 
 ---
 
@@ -7534,7 +7596,7 @@ The cluster is turned off, but its data is preserved.
 ```text
 Cluster
 
-Sleeping 😴
+Sleeping 
 ```
 
 The next time you run:
@@ -7545,7 +7607,8 @@ minikube start
 
 the same cluster starts again.
 
-📸 **Screenshot:** `minikube stop`
+<img width="1186" height="92" alt="image" src="https://github.com/user-attachments/assets/62c39382-2045-4f48-b00e-3d965034c4ce" />
+
 
 ---
 
@@ -7580,7 +7643,8 @@ To use Kubernetes again, you must create a new cluster using:
 minikube start
 ```
 
-📸 **Screenshot:** `minikube delete`
+<img width="1967" height="267" alt="image" src="https://github.com/user-attachments/assets/76a537a1-df0e-4710-97d4-3028f6a11e6d" />
+
 
 ---
 
@@ -7600,7 +7664,8 @@ The connection to the server localhost:8080 was refused.
 
 This happens because the Kubernetes cluster has been deleted, so `kubectl` can no longer connect to it.
 
-📸 **Screenshot:** `kubectl get nodes` after `minikube delete`
+<img width="1967" height="267" alt="image" src="https://github.com/user-attachments/assets/aa051015-f7b6-4cf1-b013-64021265b0e4" />
+
 
 ---
 
@@ -7657,6 +7722,9 @@ kubectl delete pod nginx-pod
                ▼
  Cluster Completely Deleted
 ```
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/ddb4ec36-3615-4510-a355-72a37ceff255" />
+
 
 ---
 
@@ -7766,6 +7834,9 @@ The **load is now shared** among all four Pods.
 
 ## Hands-on (Manual Scaling)
 
+<img width="1206" height="312" alt="image" src="https://github.com/user-attachments/assets/9e200531-4f88-44d5-bacf-aa954f5053f5" />
+
+
 Create a Deployment:
 
 ```bash
@@ -7777,6 +7848,9 @@ Check the Deployment:
 ```bash
 kubectl get deployments
 ```
+<img width="1490" height="179" alt="image" src="https://github.com/user-attachments/assets/afad28f9-980a-400c-ac64-5b53d3c95bdd" />
+
+
 
 Scale to 3 Pods:
 
@@ -7798,11 +7872,17 @@ nginx-app-def34   Running
 nginx-app-ghi56   Running
 ```
 
+<img width="1462" height="330" alt="image" src="https://github.com/user-attachments/assets/de1e85e0-e463-470b-952f-656d67c4cada" />
+
 Scale back to one Pod:
 
 ```bash
 kubectl scale deployment nginx-app --replicas=1
 ```
+
+
+<img width="1540" height="225" alt="image" src="https://github.com/user-attachments/assets/c1da383c-ba3b-4de1-a6f4-ee31eabfe0a3" />
+
 
 ---
 
@@ -7910,6 +7990,11 @@ Apply it.
 kubectl apply -f nginx-deployment.yaml
 ```
 
+<img width="1545" height="730" alt="image" src="https://github.com/user-attachments/assets/22ad7cb6-a093-4b48-b3de-74bd0e9b8f18" />
+
+<img width="1582" height="46" alt="image" src="https://github.com/user-attachments/assets/6727b69f-0576-48aa-8cfb-46d8453c7e21" />
+
+
 ---
 
 ### Step 2
@@ -7925,6 +8010,9 @@ Check:
 ```bash
 kubectl get hpa
 ```
+
+<img width="1435" height="201" alt="image" src="https://github.com/user-attachments/assets/0c419108-f981-465d-82a5-a3eeb55c8541" />
+
 
 ---
 
@@ -7986,6 +8074,20 @@ Replicas: 1
 ```
 
 HPA automatically removes the extra Pods.
+
+
+<img width="1637" height="201" alt="image" src="https://github.com/user-attachments/assets/aded0b58-9976-473b-b59a-19e698fd5a02" />
+<img width="1457" height="355" alt="image" src="https://github.com/user-attachments/assets/9e361e74-eb23-4c04-b3ae-3d17a54cc2aa" />
+
+<img width="1437" height="47" alt="image" src="https://github.com/user-attachments/assets/bb9ce596-e76d-4519-8f32-88dd50b881d1" />
+<img width="1482" height="377" alt="image" src="https://github.com/user-attachments/assets/33fcccf2-e22c-4938-991a-0e1b581f751e" />
+<img width="1332" height="312" alt="image" src="https://github.com/user-attachments/assets/cb364ea3-adf7-4be7-8637-8be58c3b948a" />
+<img width="1452" height="752" alt="image" src="https://github.com/user-attachments/assets/734c8c4e-f31a-4237-a382-85a5b2fa45c0" />
+<img width="817" height="1271" alt="image" src="https://github.com/user-attachments/assets/394b6fb9-935e-4e69-b569-8de7c3218a19" />
+<img width="1257" height="512" alt="image" src="https://github.com/user-attachments/assets/af40f80c-d62f-4e03-b314-042f3c5c9d94" />
+
+<img width="1757" height="860" alt="image" src="https://github.com/user-attachments/assets/f335d425-3558-43bb-990d-62931ae5b41f" />
+
 
 ---
 
@@ -8087,6 +8189,11 @@ Limits:
 
 The Deployment performs a rolling update by replacing the old Pod with a new Pod that has the updated resources.
 
+
+<img width="2135" height="1097" alt="image" src="https://github.com/user-attachments/assets/b0f43839-e23a-40ae-9a41-88a3f903ce8f" />
+<img width="2091" height="1186" alt="image" src="https://github.com/user-attachments/assets/d3374db8-8da1-45f8-8580-c68e72579ba7" />
+
+
 ---
 
 # Complete Comparison
@@ -8163,14 +8270,6 @@ Only the capability of the existing chef increases.
 Research any **two monitoring tools** (such as Prometheus and Grafana) and explain how they help in observing a Kubernetes cluster.
 
 ### Answer
-
-Absolutely! Since you **actually explored Prometheus and Grafana**, here's a better answer that includes both the **theory** and your **hands-on experience**. This is interview-friendly and assignment-ready.
-
----
-
-# Q19. Research any **two monitoring tools** (such as Prometheus and Grafana) and explain how they help in observing a Kubernetes cluster.
-
-## Answer
 
 Monitoring is the process of continuously checking the **health, performance, and resource usage** of a Kubernetes cluster. It helps administrators identify problems, monitor CPU and memory usage, and ensure applications are running correctly.
 
@@ -8335,6 +8434,18 @@ Node Exporter & kube-state-metrics
 
 # Hands-on Practice Performed
 
+<img width="1797" height="927" alt="image" src="https://github.com/user-attachments/assets/e4ff5987-b0ce-4f9d-b0ab-316df75e70f3" />
+<img width="1687" height="572" alt="image" src="https://github.com/user-attachments/assets/f186d5c8-2e3f-48ae-82c4-32ea46144498" />
+<img width="1597" height="691" alt="image" src="https://github.com/user-attachments/assets/3239bd00-71cd-4d71-99f9-ee5de80b48f3" />
+<img width="1845" height="1242" alt="image" src="https://github.com/user-attachments/assets/f616538e-6f6c-4354-9af2-8c04af6b2d3a" />
+<img width="1227" height="272" alt="image" src="https://github.com/user-attachments/assets/012eaefc-1489-428b-9ab4-22e5c4f34d22" />
+<img width="1551" height="237" alt="image" src="https://github.com/user-attachments/assets/1c9fe867-270b-4698-8cc0-f458e9bb74c2" />
+<img width="1540" height="717" alt="image" src="https://github.com/user-attachments/assets/1833381e-19a3-4d57-8672-d3d45293d61b" />
+<img width="1572" height="142" alt="image" src="https://github.com/user-attachments/assets/b3ef126c-7de2-4a2d-979e-335e19445520" />
+<img width="1730" height="512" alt="image" src="https://github.com/user-attachments/assets/2f8b2267-0112-483c-a4f6-aa851eca69bd" />
+
+
+
 I installed a Kubernetes monitoring stack containing **Prometheus** and **Grafana**.
 
 ### I explored the monitoring components using:
@@ -8422,6 +8533,17 @@ http://localhost:3000
 ```
 
 From Grafana dashboards, I observed CPU, memory, and other metrics collected by Prometheus.
+<img width="1842" height="1282" alt="image" src="https://github.com/user-attachments/assets/20407a74-4476-4bff-b569-69048f503bb2" />
+<img width="1842" height="1206" alt="image" src="https://github.com/user-attachments/assets/bc431b7f-ca9b-415b-a9c1-e5fe27ac1fc8" />
+<img width="2557" height="947" alt="image" src="https://github.com/user-attachments/assets/1df89e44-49b4-4519-bbc0-ab5cb6ec76e9" />
+<img width="2560" height="1406" alt="image" src="https://github.com/user-attachments/assets/49dcd8c1-71fc-4c4e-b2d2-fa8978bea2a6" />
+<img width="2555" height="1367" alt="image" src="https://github.com/user-attachments/assets/965e92a4-765f-4534-bbc1-b7ca6bba66f2" />
+
+
+<img width="2557" height="951" alt="image" src="https://github.com/user-attachments/assets/cab441af-a1d5-4c63-93a0-24fd659214f9" />
+
+<img width="2552" height="1382" alt="image" src="https://github.com/user-attachments/assets/8b6ef6b0-447c-4920-85ae-242c743c005f" />
+
 
 ---
 
@@ -8507,7 +8629,8 @@ docker-k8s-week2
 
 I did **not** initialize it with a README because I planned to upload my local project.
 
-**Screenshot:** GitHub repository creation page.
+<img width="1521" height="360" alt="image" src="https://github.com/user-attachments/assets/704c6b19-4a9c-478a-b451-41d67e0e5c10" />
+
 
 ---
 
@@ -8529,6 +8652,9 @@ Example:
 ```text
 /home/malathi/projects/CBC-Ban-DevOps-Internship/interns/Malathi-Shetty/week-2/PracticeProjects/docker-k8s-week2
 ```
+
+
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/6356ea63-dae9-4f20-8871-f0c5d75eb432" />
 
 ---
 
@@ -8563,6 +8689,9 @@ pod.yaml
 screenshots
 ```
 
+<img width="1317" height="185" alt="image" src="https://github.com/user-attachments/assets/aeae9636-5d86-447f-8b79-367032da009e" />
+
+
 ---
 
 # Step 4: Copy Existing Files
@@ -8595,6 +8724,10 @@ cat pod.yaml
 cat deployment.yaml
 ```
 
+<img width="1687" height="202" alt="image" src="https://github.com/user-attachments/assets/08e09ab9-8f2c-4079-87b7-2db8ab96b3c2" />
+<img width="1480" height="1062" alt="image" src="https://github.com/user-attachments/assets/d1dd67e6-463d-44b4-a5c4-0bbed6b4d659" />
+
+
 ---
 
 # Step 6: Create README.md
@@ -8607,6 +8740,9 @@ The README explains:
 * Difference between Pod and Deployment
 * Prerequisites
 * Project Overview
+
+<img width="1417" height="836" alt="image" src="https://github.com/user-attachments/assets/41dd386b-6a8d-4c84-8fd9-b3d9a1d6e6c6" />
+
 
 ---
 
@@ -8700,7 +8836,7 @@ Verify Deployments:
 kubectl get deployments
 ```
 
-Take screenshots of these commands and place them inside the `screenshots` folder.
+
 
 ---
 
@@ -8719,6 +8855,9 @@ pod.yaml
 .gitignore
 screenshots/
 ```
+
+<img width="1226" height="65" alt="image" src="https://github.com/user-attachments/assets/2ee8c8af-07fe-4b98-89ff-9d1d0ac07ac0" />
+
 
 ---
 
@@ -8746,13 +8885,26 @@ The Deployment manages multiple Pod replicas and supports updates, scaling, and 
 - Deployment YAML manages multiple Pods automatically.
 ```
 
+<img width="1390" height="47" alt="image" src="https://github.com/user-attachments/assets/f8c00dcb-c300-4f88-9476-2216aaf5a5fc" />
+<img width="1442" height="55" alt="image" src="https://github.com/user-attachments/assets/a7fdbfb5-71cf-427a-9109-b350458a5ee6" />
+<img width="1336" height="200" alt="image" src="https://github.com/user-attachments/assets/9e790cfb-6684-41c9-84ac-b00a5fbf5c63" />
+<img width="1432" height="312" alt="image" src="https://github.com/user-attachments/assets/29af93bd-4b6e-47f1-b5ee-cc2840f1c1aa" />
+
+<img width="1710" height="447" alt="image" src="https://github.com/user-attachments/assets/35cc532c-c073-44b0-85b1-14fa6f354233" />
+<img width="1455" height="51" alt="image" src="https://github.com/user-attachments/assets/dee56c49-0643-4926-b8b4-d3061aec1adb" />
+<img width="1497" height="227" alt="image" src="https://github.com/user-attachments/assets/3516df90-bc55-49a1-9085-6f80598c7f62" />
+
+<img width="1607" height="1275" alt="image" src="https://github.com/user-attachments/assets/a7d39343-570d-499e-b94d-1f80290908dc" />
+<img width="1310" height="156" alt="image" src="https://github.com/user-attachments/assets/e670216e-4893-4cbd-ae13-91f09b62bd58" />
+<img width="1607" height="1275" alt="image" src="https://github.com/user-attachments/assets/90b3495b-fe63-4f59-84f5-8f7605b27dda" />
+
+
 ---
 
-# Bonus Learning (Beyond the Assignment)
+#  Learning
 
-These commands are not mandatory for the assignment but are commonly used in internships and real-world software development.
 
----
+
 
 ## 1. Create a `.gitignore` File
 
@@ -8796,6 +8948,8 @@ Example:
 
 This helps review changes before creating a commit.
 
+<img width="1260" height="400" alt="image" src="https://github.com/user-attachments/assets/709c5b36-3247-439d-9283-4786d5bb3598" />
+
 ---
 
 ## 3. View Commit History as a Graph
@@ -8816,6 +8970,9 @@ Example Output
 ```
 
 The graph provides a visual representation of the project's commit history.
+
+<img width="1437" height="182" alt="image" src="https://github.com/user-attachments/assets/5fac145d-d0ee-432d-8d7b-3a8b82ea5fc6" />
+
 
 ---
 
@@ -8853,6 +9010,9 @@ v1.1
 v2.0
 ```
 
+<img width="1300" height="157" alt="image" src="https://github.com/user-attachments/assets/f62ab827-6c3f-41bb-99aa-31434fc4665b" />
+
+
 ---
 
 ## 5. Verify the Remote Repository
@@ -8869,6 +9029,9 @@ origin  https://github.com/shettymalathib/docker-k8s-week2.git (push)
 ```
 
 This confirms that the local repository is correctly connected to the GitHub repository.
+
+<img width="1226" height="65" alt="image" src="https://github.com/user-attachments/assets/66930363-169b-4065-9469-95dd2d457b12" />
+
 
 ---
 
