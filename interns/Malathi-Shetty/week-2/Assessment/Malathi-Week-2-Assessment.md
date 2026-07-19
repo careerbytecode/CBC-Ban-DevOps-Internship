@@ -3775,8 +3775,8 @@ A **Kubernetes Cluster** is a group of machines (**nodes**) that work together t
 
 A Kubernetes cluster has two main parts:
 
-1. **Control Plane** – Manages the entire cluster.
-2. **Worker Nodes** – Run the application Pods.
+1. **Control Plane** - Manages the entire cluster.
+2. **Worker Nodes** - Run the application Pods.
 
 ---
 
@@ -5632,7 +5632,7 @@ Users can access it using:
 The NodePort range is usually
 
 ```text
-30000 – 32767
+30000 - 32767
 ```
 
 Think of NodePort as the **main gate of the school**.
@@ -7344,7 +7344,7 @@ minikube version: v1.38.1
 
 ---
 
-# Step 1 – Start the Minikube Cluster
+# Step 1 - Start the Minikube Cluster
 
 Start the Kubernetes cluster.
 
@@ -7389,7 +7389,7 @@ Now the Kubernetes cluster is ready.
 
 ---
 
-# Step 2 – Check the Cluster Status
+# Step 2 - Check the Cluster Status
 
 Verify that the cluster is running.
 
@@ -7413,7 +7413,7 @@ This means everything is working correctly.
 
 ---
 
-# Step 3 – List the Nodes
+# Step 3 - List the Nodes
 
 Display the nodes in the cluster.
 
@@ -7448,7 +7448,7 @@ Cluster
 
 ---
 
-# Step 4 – Deploy a Pod
+# Step 4 - Deploy a Pod
 
 Create an Nginx Pod.
 
@@ -7481,7 +7481,7 @@ Kubernetes downloads the Nginx image and starts the container.
 
 ---
 
-# Step 5 – Verify the Pod
+# Step 5 - Verify the Pod
 
 Check whether the Pod is running.
 
@@ -7516,7 +7516,7 @@ Node
 
 ---
 
-# Step 6 – View Pod Details
+# Step 6 - View Pod Details
 
 Display detailed information about the Pod.
 
@@ -7545,7 +7545,7 @@ This command is very useful for troubleshooting Pod issues.
 
 ---
 
-# Step 7 – Delete the Pod
+# Step 7 - Delete the Pod
 
 Delete the Pod.
 
@@ -7594,7 +7594,7 @@ Node
 
 ---
 
-# Step 8 – Stop the Cluster (Optional)
+# Step 8 - Stop the Cluster (Optional)
 
 Stop the Minikube cluster.
 
@@ -7627,7 +7627,7 @@ the same cluster starts again.
 
 ---
 
-# Step 9 – Delete the Cluster
+# Step 9 - Delete the Cluster
 
 Delete the entire Minikube cluster.
 
