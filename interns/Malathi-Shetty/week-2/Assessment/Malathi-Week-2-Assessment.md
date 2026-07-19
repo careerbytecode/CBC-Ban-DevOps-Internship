@@ -5498,10 +5498,6 @@ Explain the difference between the three Service types — **ClusterIP**, **Node
 
 ### Answer
 
-# Q14. Explain the difference between the three Service types — ClusterIP, NodePort, and LoadBalancer.
-
-## Answer
-
 A **Service** in Kubernetes is like a **permanent address or reception desk** for Pods.
 
 Think of a Kubernetes cluster as a **school**.
