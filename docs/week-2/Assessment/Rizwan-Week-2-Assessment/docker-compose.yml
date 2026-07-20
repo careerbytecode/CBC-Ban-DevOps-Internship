@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: week2-web-app
+    ports:
+      - "3000:80"
+    depends_on:
+      - database
+
+  database:
+    image: mysql:8.0
+    container_name: week2-mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: week2db
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

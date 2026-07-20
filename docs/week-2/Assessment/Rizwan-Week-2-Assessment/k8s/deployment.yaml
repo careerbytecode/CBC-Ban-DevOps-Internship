@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: week2-web-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: week2-web
+  template:
+    metadata:
+      labels:
+        app: week2-web
+    spec:
+      containers:
+      - name: week2-web-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: APP_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: week2-config
+              key: APP_ENV
