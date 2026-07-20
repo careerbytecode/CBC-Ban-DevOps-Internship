@@ -42,7 +42,7 @@ docker-kubernetes-practice/
 ├── app.py
 ├── create-pod.yaml
 ├── README.md
-└── Assignment-week2.pdf
+└── Assessment-week2.pdf
 ```
 
 ## Dockerfile
