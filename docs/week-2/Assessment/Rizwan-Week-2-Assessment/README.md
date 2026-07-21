@@ -68,7 +68,7 @@ docker compose down
 minikube start --driver=docker  
 minikube status  
 kubectl get nodes  
-kubectl apply -f k8s/configmap.yaml  
+kubectl apply -f k8s/configmap.yaml  Docker Image Registry Link
 kubectl apply -f k8s/pod.yaml  
 kubectl describe pod nginx-pod  
 kubectl logs nginx-pod  
@@ -80,14 +80,7 @@ kubectl get svc
 kubectl scale deployment week2-web-deployment --replicas=5  
 minikube service week2-web-service  
 
-## Docker Image Registry Link
-
-<<<<<<< HEAD
-=======
-Docker Hub image link will be added after pushing the image to Docker Hub.
-
->>>>>>> 2aa5270 (Updated Docker Hub image link)
-https://hub.docker.com/r/rizwan268/week2-web-app
+## Docker Image Registry Link		
 
 ## Screenshots Included
 
