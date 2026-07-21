@@ -80,7 +80,10 @@ kubectl get svc
 kubectl scale deployment week2-web-deployment --replicas=5  
 minikube service week2-web-service  
 
-## Docker Image Registry Link		
+## Docker Image Registry Link
+
+Docker Hub Image:  
+https://hub.docker.com/r/rizwan268/week2-web-app		
 
 ## Screenshots Included
 
