@@ -1,0 +1,20 @@
+# Base image — start from official Node.js on Alpine Linux (small size)
+FROM node:20-alpine
+
+# Set working directory inside the container — all following commands run here
+WORKDIR /app
+
+# Copy dependency files first (better layer caching)
+COPY package*.json ./
+
+# Install dependencies — runs at BUILD time, creates a layer
+RUN npm install --production
+
+# Copy the rest of the application code
+COPY . .
+
+# Document which port the app listens on (doesn't publish it — that's -p at run time)
+EXPOSE 3000
+
+# Default command — runs at CONTAINER START time (only one CMD per Dockerfile)
+CMD ["node", "server.js"]
