@@ -4,7 +4,7 @@
 
 1. Open **https://portal.azure.com**
 2. Sign in with your Azure Administrator account.
-<img width="1354" height="603" alt="image" src="https://github.com/user-attachments/assets/a742d761-af69-42e8-bd07-a07dba22e46b" />
+<img width="1354" alt="Step 1: Sign in to Azure Portal" src="images/01-sign-in-to-azure-portal.png" />
 
 
 ---
@@ -13,7 +13,7 @@
 
 1. In the search bar, type **Microsoft Entra ID**.
 2. Click **Microsoft Entra ID** from the search results.
-<img width="1354" height="218" alt="image" src="https://github.com/user-attachments/assets/37249b1a-9f12-4a8a-89ac-ff0c279977b3" />
+<img width="1354" alt="Step 2: Open Microsoft Entra ID" src="images/02-open-microsoft-entra-id.png" />
 
 
 ---
@@ -26,7 +26,7 @@
 2. Select **All users**.
 3. Click **+ New user**.
 4. Select **Create new user**.
-<img width="1361" height="520" alt="image" src="https://github.com/user-attachments/assets/d58b6410-4b6d-43ca-90f5-eaf38b9ba34a" />
+<img width="1361" alt="Step 3: Navigate to Users" src="images/03-navigate-to-users.png" />
 
 
 ---
@@ -44,7 +44,7 @@ Fill in the required information.
 
 Click **Review + Create**.
 
-<img width="1361" height="605" alt="image" src="https://github.com/user-attachments/assets/e77653cd-f4c5-42e7-9fd5-49b1af7d6669" />
+<img width="1361" alt="Step 4: Enter User Details" src="images/04-enter-user-details.png" />
 
 
 ---
@@ -55,7 +55,7 @@ Click **Review + Create**.
 2. Click **Create**.
 3. Wait until the deployment completes.
 
-<img width="1361" height="607" alt="image" src="https://github.com/user-attachments/assets/e6de1d63-2a5f-4a49-a952-70707391d801" />
+<img width="1361" alt="Step 5: Create the User" src="images/05-create-the-user.png" />
 
 
 ---
@@ -66,7 +66,7 @@ Click **Review + Create**.
 2. Search for the newly created user.
 3. Verify that the user status is **Enabled**.
    
-<img width="1356" height="602" alt="image" src="https://github.com/user-attachments/assets/bf9c47ec-82e1-44f1-bfab-64bfe49c960e" />
+<img width="1356" alt="Step 6: Verify the User" src="images/06-verify-the-user.png" />
 
 
 ---
@@ -79,7 +79,7 @@ Click **Review + Create**.
 2. Click **All groups**.
 3. Click **+ New group**.
    
-<img width="1353" height="606" alt="image" src="https://github.com/user-attachments/assets/b97096d3-8eda-4049-b42d-34923c438cac" />
+<img width="1353" alt="Step 7: Navigate to Groups" src="images/07-navigate-to-groups.png" />
 
 
 ---
@@ -97,7 +97,7 @@ Provide the following details.
 
 Click **Create**.
 
-<img width="1352" height="596" alt="image" src="https://github.com/user-attachments/assets/95ef9725-fe21-48fd-979b-d7da94a0c99d" />
+<img width="1352" alt="Step 8: Configure the Group" src="images/08-configure-the-group.png" />
 
 
 ---
@@ -108,7 +108,7 @@ Click **Create**.
 2. Search for **DevOps-Team**.
 3. Open the group to verify it was created successfully.
 
-<img width="1353" height="560" alt="image" src="https://github.com/user-attachments/assets/ff0df46f-317b-4443-9804-8319e459e879" />
+<img width="1353" alt="Step 9: Verify the Group" src="images/09-verify-the-group.png" />
 
 
 ---
@@ -129,7 +129,7 @@ Click **Create**.
 3. Search for the user you created (e.g., **Dev User 01**).
 4. Select the user.
 5. Click **Select**.
-<img width="1352" height="603" alt="image" src="https://github.com/user-attachments/assets/e7c0c355-d888-4a30-add5-534f2e030da3" />
+<img width="1352" alt="Step 11: Add Members" src="images/10-add-members.png" />
 
 ---
 
@@ -138,7 +138,7 @@ Click **Create**.
 1. Stay on the **Members** page.
 2. Confirm that the user appears in the members list.
    
-<img width="1354" height="597" alt="image" src="https://github.com/user-attachments/assets/95324534-851f-4fb9-81a0-17f5f750bb62" />
+<img width="1354" alt="Step 12: Verify Group Membership" src="images/11-verify-group-membership.png" />
 
 
 ---
@@ -149,20 +149,20 @@ Click **Create**.
 
 - Microsoft Entra ID → Users → All users
 - Confirm the user is listed and enabled.
-<img width="1346" height="596" alt="image" src="https://github.com/user-attachments/assets/77e0b66b-2803-4498-add7-d2bdd3a86a90" />
+<img width="1346" alt="Verify the User" src="images/12-verify-the-user.png" />
 
 ## Verify the Group
 
 - Microsoft Entra ID → Groups → All groups
 - Confirm the group exists.
-<img width="1347" height="601" alt="image" src="https://github.com/user-attachments/assets/089d7126-d6e2-4c34-a839-bd8f3f9c10f8" />
+<img width="1347" alt="Verify the Group" src="images/13-verify-the-group.png" />
 
 ## Verify Membership
 
 - Open the group.
 - Go to **Members**.
 - Confirm the created user is a member of the group.
-<img width="1353" height="600" alt="image" src="https://github.com/user-attachments/assets/ce83a9be-1c24-4bff-83bc-41cdbb8677f1" />
+<img width="1353" alt="Verify Membership" src="images/14-verify-membership.png" />
 
 ---
 # Part 4: Create a Basic Azure Virtual Machine
@@ -177,7 +177,7 @@ In this section, you will create a basic Windows Virtual Machine that will later
 2. In the search bar, type **Virtual Machines**.
 3. Click **Virtual Machines**.
    
-<img width="1353" height="593" alt="image" src="https://github.com/user-attachments/assets/6e8a8ad6-5cfa-4007-a6eb-8a6948ebd122" />
+<img width="1353" alt="Step 13: Open Virtual Machines" src="images/15-open-virtual-machines.png" />
 
 ---
 
@@ -186,7 +186,7 @@ In this section, you will create a basic Windows Virtual Machine that will later
 1. Click **+ Create**.
 2. Select **Azure Virtual Machine**.
 
-<img width="1356" height="602" alt="image" src="https://github.com/user-attachments/assets/1d7f7a11-2b78-41fc-8414-92d38b12d72b" />
+<img width="1356" alt="Step 14: Create a New Virtual Machine" src="images/16-create-a-new-virtual-machine.png" />
 
 ---
 
@@ -214,10 +214,10 @@ Enter the following details.
 
 Click **Next: Disks**.
 
-<img width="892" height="561" alt="image" src="https://github.com/user-attachments/assets/bd4e1f26-510d-463b-bae7-edc80893000b" />
-<img width="827" height="456" alt="image" src="https://github.com/user-attachments/assets/20fca4e7-4a92-4f47-847c-b14e4e2d60cf" />
-<img width="870" height="448" alt="image" src="https://github.com/user-attachments/assets/fb25500c-540d-4142-a3c6-16b9b5599ad1" />
-<img width="954" height="443" alt="image" src="https://github.com/user-attachments/assets/9ccb7eea-e921-46a6-bf2f-ddd69189f31a" />
+<img width="892" alt="Step 15: Configure the Basics Tab" src="images/17-configure-the-basics-tab.png" />
+<img width="827" alt="Step 15: Configure the Basics Tab" src="images/18-configure-the-basics-tab.png" />
+<img width="870" alt="Step 15: Configure the Basics Tab" src="images/19-configure-the-basics-tab.png" />
+<img width="954" alt="Step 15: Configure the Basics Tab" src="images/20-configure-the-basics-tab.png" />
 
 
 ---
@@ -232,7 +232,7 @@ Leave the remaining settings as default.
 
 Click **Next: Networking**.
 
-<img width="883" height="455" alt="image" src="https://github.com/user-attachments/assets/2e8fb695-36fe-4a3e-927a-a89cf18656b0" />
+<img width="883" alt="Step 16: Configure the Disks Tab" src="images/21-configure-the-disks-tab.png" />
 
 ---
 
@@ -254,9 +254,9 @@ Leave all other settings as default.
 
 Click **Next** until you reach **Review + Create**.
 
-<img width="822" height="443" alt="image" src="https://github.com/user-attachments/assets/0cdf665e-d9d2-4f48-a5c2-57beed70e7dd" />
-<img width="795" height="444" alt="image" src="https://github.com/user-attachments/assets/9f708b47-2e02-4e28-8916-3d1798762fea" />
-<img width="924" height="548" alt="image" src="https://github.com/user-attachments/assets/db863005-0e73-4540-bc30-29ee831e49db" />
+<img width="822" alt="Step 17: Configure the Networking Tab" src="images/22-configure-the-networking-tab.png" />
+<img width="795" alt="Step 17: Configure the Networking Tab" src="images/23-configure-the-networking-tab.png" />
+<img width="924" alt="Step 17: Configure the Networking Tab" src="images/24-configure-the-networking-tab.png" />
 
 ---
 
@@ -265,7 +265,7 @@ Click **Next** until you reach **Review + Create**.
 1. Review all the configuration details.
 2. Click **Create**.
 3. Wait for the deployment to complete.
-<img width="1360" height="603" alt="image" src="https://github.com/user-attachments/assets/f90a9a74-adc0-4aac-ac58-ab4e5364d3a1" />
+<img width="1360" alt="Step 18: Review and Create the Virtual Machine" src="images/25-review-and-create-the-virtual-machine.png" />
 
 ---
 
@@ -283,7 +283,7 @@ Click **Next** until you reach **Review + Create**.
 
 1. Navigate to **Resourse Group**.
 2. Select **cbc-intrenship-program**.
-<img width="1354" height="426" alt="image" src="https://github.com/user-attachments/assets/438fd66c-c0ee-4e58-a07e-7a169bbfba09" />
+<img width="1354" alt="Step 20: Open the Resource Group" src="images/26-open-the-resource-group.png" />
 
 ---
 
@@ -293,7 +293,7 @@ Click **Next** until you reach **Review + Create**.
 2. Click **+ Add**.
 3. Select **Add role assignment**.
    
-<img width="1337" height="389" alt="image" src="https://github.com/user-attachments/assets/00eeda19-be21-47ab-9c4b-b11d94cfdbbc" />
+<img width="1337" alt="Step 21: Open Access Control (IAM)" src="images/27-open-access-control-iam.png" />
 
 ---
 
@@ -309,9 +309,9 @@ Choose the following role.
 
 Click **Next**.
 
-<img width="1345" height="494" alt="image" src="https://github.com/user-attachments/assets/b3fbb575-cb31-48e8-b7d6-86505db95817" />
+<img width="1345" alt="Step 22: Select the Virtual Machine Role" src="images/28-select-the-virtual-machine-role.png" />
 
-<img width="1287" height="432" alt="image" src="https://github.com/user-attachments/assets/aa3f46bc-2c55-42f0-aee1-02a26f6302a7" />
+<img width="1287" alt="Step 22: Select the Virtual Machine Role" src="images/29-select-the-virtual-machine-role.png" />
 
 
 ---
@@ -326,8 +326,8 @@ Click **Next**.
 6. Click **Review + Assign**.
 7. Click **Assign**.
 
-<img width="1360" height="600" alt="image" src="https://github.com/user-attachments/assets/89096f4f-70f2-4031-86e7-fd678c9745ed" />
-<img width="1353" height="585" alt="image" src="https://github.com/user-attachments/assets/32993a02-7fc2-46a6-8e9a-efc99c9c013f" />
+<img width="1360" alt="Step 23: Assign the Security Group" src="images/30-assign-the-security-group.png" />
+<img width="1353" alt="Step 23: Assign the Security Group" src="images/31-assign-the-security-group.png" />
 
 
 
@@ -343,7 +343,7 @@ Click **Next**.
 |------------|------|
 | DevOps-Team | Virtual Machine Administrator Login |
 
-<img width="1345" height="584" alt="image" src="https://github.com/user-attachments/assets/acf5f51b-c4ff-42fa-a0ee-32a0970012ce" />
+<img width="1345" alt="Step 24: Verify the Role Assignment" src="images/32-verify-the-role-assignment.png" />
 
 
 ---
@@ -355,7 +355,7 @@ Click **Next**.
 1. Click your profile icon.
 2. Click **Sign out**.
 
-<img width="535" height="390" alt="image" src="https://github.com/user-attachments/assets/489ffb45-442e-439d-a757-b293a21f8752" />
+<img width="535" alt="Step 25: Sign Out of the Administrator Account" src="images/33-sign-out-of-the-administrator-account.png" />
 
 
 ---
@@ -369,18 +369,18 @@ Click **Next**.
 |--------|---------|
 | Username | devuser01@yourtenant.onmicrosoft.com |
 | Password | User Password |
-<img width="459" height="370" alt="image" src="https://github.com/user-attachments/assets/89fc3438-0a23-4390-b3f7-ca5ada55ad4f" />
-<img width="464" height="362" alt="image" src="https://github.com/user-attachments/assets/ccb7380a-c91a-41ae-8484-7d53652fd18f" />
+<img width="459" alt="Step 26: Sign in Using the Created User" src="images/34-sign-in-using-the-created-user.png" />
+<img width="464" alt="Step 26: Sign in Using the Created User" src="images/35-sign-in-using-the-created-user.png" />
 
 If prompted, change the temporary password.
-<img width="458" height="496" alt="image" src="https://github.com/user-attachments/assets/e3df2d26-5d8a-4804-b39e-b52a66f41ccd" />
-<img width="466" height="419" alt="image" src="https://github.com/user-attachments/assets/97831f38-9203-40a7-96a7-8fb2d1e25e2c" />
-<img width="451" height="579" alt="image" src="https://github.com/user-attachments/assets/aede6036-ef3c-4aef-87ef-1009569f22e3" />
-<img width="468" height="502" alt="image" src="https://github.com/user-attachments/assets/12b94208-b7c8-47d3-b40e-5639e1cc3618" />
-<img width="454" height="543" alt="image" src="https://github.com/user-attachments/assets/d42235f1-8c5c-4f7e-bf25-3f7925ee9dc5" />
-<img width="456" height="511" alt="image" src="https://github.com/user-attachments/assets/195ef935-db5e-441a-942c-f7ff6bf25bf0" />
-<img width="450" height="506" alt="image" src="https://github.com/user-attachments/assets/7c6f88ae-dc03-4531-9340-73ab135113f8" />
-<img width="1347" height="345" alt="image" src="https://github.com/user-attachments/assets/6a702973-f34b-4302-a880-3ae8484fae55" />
+<img width="458" alt="Step 26: Sign in Using the Created User" src="images/36-sign-in-using-the-created-user.png" />
+<img width="466" alt="Step 26: Sign in Using the Created User" src="images/37-sign-in-using-the-created-user.png" />
+<img width="451" alt="Step 26: Sign in Using the Created User" src="images/38-sign-in-using-the-created-user.png" />
+<img width="468" alt="Step 26: Sign in Using the Created User" src="images/39-sign-in-using-the-created-user.png" />
+<img width="454" alt="Step 26: Sign in Using the Created User" src="images/40-sign-in-using-the-created-user.png" />
+<img width="456" alt="Step 26: Sign in Using the Created User" src="images/41-sign-in-using-the-created-user.png" />
+<img width="450" alt="Step 26: Sign in Using the Created User" src="images/42-sign-in-using-the-created-user.png" />
+<img width="1347" alt="Step 26: Sign in Using the Created User" src="images/43-sign-in-using-the-created-user.png" />
 
 ---
 
@@ -389,8 +389,8 @@ If prompted, change the temporary password.
 1. Search for **Virtual Machines**.
 2. Open **cbc-vm**.
    
-<img width="1342" height="183" alt="image" src="https://github.com/user-attachments/assets/8c397208-28b2-452c-9fa2-9da6dd1b55e1" />
-<img width="1350" height="401" alt="image" src="https://github.com/user-attachments/assets/6f6fc252-0a43-4bf6-95bd-fed37f581e62" />
+<img width="1342" alt="Step 27: Verify the Virtual Machine" src="images/44-verify-the-virtual-machine.png" />
+<img width="1350" alt="Step 27: Verify the Virtual Machine" src="images/45-verify-the-virtual-machine.png" />
 
 Since the user is a member of the **DevOps-Team** Security Group and the group has been assigned the **Virtual Machine Administrator Login** role, the VM will be visible to the user.
 
@@ -399,21 +399,21 @@ Since the user is a member of the **DevOps-Team** Security Group and the group h
 ## Step 28: Connect to the Virtual Machine
 
 1. Open **Mobaextrem or ubuntu wsl**
-<img width="1071" height="125" alt="image" src="https://github.com/user-attachments/assets/bd9dbb19-c48d-400d-b320-e179632c013c" />
+<img width="1071" alt="Step 28: Connect to the Virtual Machine" src="images/46-connect-to-the-virtual-machine.png" />
 2. Open the URL in browser.
-<img width="563" height="435" alt="image" src="https://github.com/user-attachments/assets/5d0bf0ed-a450-4d3b-a998-e9be07e7f2c9" />
+<img width="563" alt="Step 28: Connect to the Virtual Machine" src="images/47-connect-to-the-virtual-machine.png" />
 3. Enter the token given in mobaterm or ubuntu.
-<img width="363" height="22" alt="image" src="https://github.com/user-attachments/assets/428f67c1-89a2-4d3f-8e4d-7130a914c4ef" />
+<img width="363" alt="Step 28: Connect to the Virtual Machine" src="images/48-connect-to-the-virtual-machine.png" />
 4. Select the user, if it not present click on user another acount add your entra ID User.
-<img width="467" height="645" alt="image" src="https://github.com/user-attachments/assets/3592d7ed-a935-41a8-bf79-1740e22ae77d" />
+<img width="467" alt="Step 28: Connect to the Virtual Machine" src="images/49-connect-to-the-virtual-machine.png" />
 5. click on continue
-<img width="525" height="380" alt="image" src="https://github.com/user-attachments/assets/2fc724f5-5c58-4fa9-9ea2-2d754bdd0e98" />
+<img width="525" alt="Step 28: Connect to the Virtual Machine" src="images/50-connect-to-the-virtual-machine.png" />
 6. Chec in CLI your user is logedin.
-<img width="552" height="210" alt="image" src="https://github.com/user-attachments/assets/113fc730-c226-409f-b6ec-fe96241fc892" />
+<img width="552" alt="Step 28: Connect to the Virtual Machine" src="images/51-connect-to-the-virtual-machine.png" />
 7. Now run the az commad to connect the vm.
    az ssh vm --resource-group cbc-intrenship-program --name cbc-vm
 
-<img width="1071" height="125" alt="image" src="https://github.com/user-attachments/assets/dccb26ce-6b61-429a-8b28-dd6f7db9535b" />
+<img width="1071" alt="Step 28: Connect to the Virtual Machine" src="images/52-connect-to-the-virtual-machine.png" />
 
 
 ---
