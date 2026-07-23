@@ -21,7 +21,7 @@ This week we left the laptop behind and built everything **live in Azure**: a ne
 |---|---|
 | [Azure Bastion](session-2/bastion-host.md) | Private VM with **no public IP**, browser login, enabling copy/paste |
 | [Entra ID & RBAC — concepts](session-2/entra-id-rbac-concepts.md) | AuthN vs AuthZ, **why groups**, scope hierarchy, built-in roles |
-| [Entra ID — hands-on walkthrough](session-2/entra-id-user-group-rbac.md) | 📸 Full click-by-click portal steps with screenshots |
+| [Entra ID — hands-on walkthrough](session-2/entra-id-user-group-rbac.md) | 🗺️ Full click-by-click portal steps with in-repo schematic diagrams |
 
 ### ☸️ Session 3 — AKS, ACR & Azure DevOps *(Class 5)*
 

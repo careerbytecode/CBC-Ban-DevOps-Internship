@@ -1,40 +1,40 @@
-#!/usr/bin/env bash
-# ---------------------------------------------------------------------------
-# Download the 52 Entra ID screenshots from GitHub user-attachments.
-#
-# WHY YOU NEED THIS: these assets are auth-gated. An anonymous request gets 404.
-# You must supply a browser session cookie from an account that can see them.
-#
-# HOW TO GET THE COOKIE:
-#   1. Sign in to github.com in your browser.
-#   2. Open DevTools (F12) -> Application/Storage -> Cookies -> https://github.com
-#   3. Copy the VALUE of the "user_session" cookie.
-#   4. Run:   export GH_SESSION="<paste-value>"    then    bash download-images.sh
-#
-# If this still 404s, the assets belong to a repo/account your session cannot
-# reach -- ask whoever originally wrote the notes for the raw screenshot files.
-# ---------------------------------------------------------------------------
-set -u
-cd "$(dirname "$0")"
+# Week 3 · Session 2 — Identity, Access and Secure Connectivity
 
-if [ -z "${GH_SESSION:-}" ]; then
-  echo "ERROR: GH_SESSION is not set. See the instructions at the top of this script."
-  exit 1
-fi
+Three documents, meant to be read in this order.
 
-ok=0; fail=0
-while IFS=$'\t' read -r fname url; do
-  [ -z "$fname" ] && continue
-  code=$(curl -sS -L -w '%{http_code}' -o "$fname" \
-        --cookie "user_session=${GH_SESSION}" \
-        --max-time 60 "$url")
-  if [ "$code" = "200" ] && [ -s "$fname" ]; then
-    echo "  OK   $fname"; ok=$((ok+1))
-  else
-    echo "  FAIL $fname  (HTTP $code)"; rm -f "$fname"; fail=$((fail+1))
-  fi
-done < urls.tsv
+| # | Document | What it covers |
+|---|---|---|
+| 1 | [Entra ID & RBAC — concepts](entra-id-rbac-concepts.md) | Authentication vs authorization, why you assign roles to groups, the scope hierarchy, built-in roles |
+| 2 | [Entra ID — hands-on walkthrough](entra-id-user-group-rbac.md) | Click-by-click lab: create a user and security group, deploy a VM, assign a role, verify as the end user |
+| 3 | [Azure Bastion](bastion-host.md) | Reaching a VM with no public IP, browser-based login, enabling copy/paste |
 
-echo ""
-echo "Downloaded: $ok   Failed: $fail"
-[ "$fail" -gt 0 ] && echo "For failures, see SOURCE-URLS.md and save them manually."
+## Learning outcomes
+
+By the end of this session you should be able to:
+
+- Explain the difference between an identity that **authenticates** and a role assignment that **authorizes**.
+- Describe a role assignment as *principal + role definition + scope*, and predict what inheritance does.
+- Create users and security groups in Microsoft Entra ID, and justify why the group is the right RBAC principal.
+- Choose between **Virtual Machine User Login** and **Virtual Machine Administrator Login** on least-privilege grounds.
+- Connect to a Linux VM with an Entra ID identity instead of a shared key or password.
+
+## Lab assets
+
+Diagrams for the walkthrough live in [`images/`](images/) — 31 original SVG schematics stored
+inside the repo so they render in forks, clones, private repos and offline exports. See
+[`images/README.md`](images/README.md) for the palette and editing notes.
+
+## Before you start
+
+- An Azure subscription where you can create resources.
+- **User Administrator** or **Global Administrator** in the tenant.
+- **Owner** or **User Access Administrator** on the subscription or resource group.
+- Azure CLI with the `ssh` extension installed locally.
+
+> ⚠️ Everything you deploy in this session bills while it exists. Each document ends with a
+> cleanup command — run it.
+
+---
+
+**CareerByteCode** · *Learning Made Simple* ·
+[www.careerbytecode.com](https://www.careerbytecode.com)
