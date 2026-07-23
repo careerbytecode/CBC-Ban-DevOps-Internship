@@ -1,0 +1,26 @@
+# Ignore macOS files
+.DS_Store
+
+# Ignore Windows files
+Thumbs.db
+
+# Ignore VS Code workspace settings
+.vscode/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore backup files
+*~
+
+*.tar
+*.deb
+minikube-linux-amd64
