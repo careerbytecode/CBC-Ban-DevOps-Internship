@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" role="img" aria-label="Step 26 (continued) — First-run prompts" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1000" height="520" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 26 (continued) — First-run prompts</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">What the user sees between password change and the portal.</text>
+<rect x="28" y="76" width="944" height="400" fill="#F0F3F6" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="80" y="120" width="300" height="290" fill="#FFFFFF" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<text x="106" y="164" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Action required</text>
+<text x="106" y="194" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Your organization requires additional</text>
+<text x="106" y="210" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">security information. Follow the prompts</text>
+<text x="106" y="226" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">to set up multifactor authentication.</text>
+<rect x="106" y="246" width="248" height="56" fill="#F4F6F8" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="118" y="270" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Authenticator</text>
+<text x="118" y="288" font-size="9.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">or another method chosen by the tenant</text>
+<rect x="106" y="328" width="80" height="27" fill="#0F6CBD" rx="3"/>
+<text x="146.0" y="345.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Next</text>
+<text x="106" y="386" font-size="10" fill="#C8501E" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif" font-style="italic">May not appear if MFA is not enforced</text>
+<rect x="430" y="120" width="300" height="290" fill="#FFFFFF" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<text x="456" y="164" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Stay signed in?</text>
+<text x="456" y="194" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Do this to reduce the number of times</text>
+<text x="456" y="210" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">you are asked to sign in.</text>
+<rect x="456" y="236" width="13" height="13" fill="#FFFFFF" rx="2" stroke="#9AA7B2" stroke-width="1"/>
+<text x="477" y="247" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Don't show this again</text>
+<rect x="456" y="288" width="80" height="27" fill="#0F6CBD" rx="3"/>
+<text x="496.0" y="305.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Yes</text>
+<rect x="546" y="288" width="80" height="27" fill="#FFFFFF" rx="3" stroke="#9AA7B2" stroke-width="1"/>
+<text x="586.0" y="305.5" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">No</text>
+<text x="456" y="366" font-size="10" fill="#C8501E" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif" font-style="italic">Choose No on shared machines.</text>
+<rect x="750" y="150" width="200" height="80" fill="#EEF5FB" rx="4" stroke="#0F6CBD" stroke-width="1"/>
+<rect x="750" y="150" width="3.5" height="80" fill="#0F6CBD" rx="2"/>
+<text x="764" y="170" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Order varies</text>
+<text x="764" y="186" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">These prompts depend on</text>
+<text x="764" y="202" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">tenant policy, so treat the</text>
+<text x="764" y="218" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">sequence as indicative.</text>
+<text x="976" y="508" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

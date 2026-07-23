@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 720" width="1180" height="720" role="img" aria-label="Step 15a — Basics tab: project and instance details" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1180" height="720" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 15a — Basics tab: project and instance details</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Subscription, resource group, name, region, image and size.</text>
+<rect x="28" y="76" width="1124" height="40" fill="#1B2733" rx="0"/>
+<text x="44" y="101" font-size="16" fill="#FFFFFF" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">≡</text>
+<text x="66" y="101" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Azure</text>
+<rect x="218" y="84" width="724" height="24" fill="#2C3B49" rx="3" stroke="#41525F" stroke-width="1"/>
+<text x="228" y="100" font-size="12" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">⌕</text>
+<text x="244" y="100" font-size="11.5" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Search resources, services, and docs (G+/)</text>
+<circle cx="1122" cy="96" r="12" fill="#3A4B59"/>
+<text x="1122" y="100" font-size="11" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">A</text>
+<text x="1096" y="100" font-size="10.5" fill="#C6D2DB" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">admin@contoso</text>
+<rect x="28" y="116" width="1124" height="52" fill="#FFFFFF" rx="0"/>
+<rect x="44" y="129" width="24" height="24" fill="#0F6CBD" rx="4"/>
+<text x="56" y="146" font-size="13" fill="#FFFFFF" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">◈</text>
+<text x="78" y="142" font-size="15" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Create a virtual machine</text>
+<text x="78" y="158" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Azure</text>
+<line x1="28" y1="168" x2="1152" y2="168" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="28" y="168" width="1124" height="30" fill="#FFFFFF" rx="0"/>
+<line x1="28" y1="198" x2="1152" y2="198" stroke="#D3DAE0" stroke-width="1"/>
+<text x="77.6" y="188" font-size="11.5" fill="#0F6CBD" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Basics</text>
+<rect x="50" y="195" width="55.2" height="2.5" fill="#0F6CBD" rx="0"/>
+<text x="141.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Disks</text>
+<text x="219.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Networking</text>
+<text x="315.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Management</text>
+<text x="411.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Monitoring</text>
+<text x="500.0" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Advanced</text>
+<text x="567.1999999999999" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Tags</text>
+<text x="659.5999999999999" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Review + create</text>
+<rect x="28" y="198" width="1124" height="480" fill="#FFFFFF" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="70" y="240" font-size="13" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Project details</text>
+<text x="70" y="266" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Subscription *</text>
+<rect x="70" y="274" width="420" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="80" y="291" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Azure subscription 1</text>
+<text x="476" y="291" font-size="10" fill="#5B6773" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">▾</text>
+<text x="70" y="312" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Resource group *</text>
+<rect x="70" y="320" width="420" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="80" y="337" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">cbc-internship-program</text>
+<text x="476" y="337" font-size="10" fill="#5B6773" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">▾</text>
+<text x="70" y="366" font-size="10" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Create new if it does not exist — this becomes the RBAC scope.</text>
+<text x="70" y="378" font-size="13" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Instance details</text>
+<text x="70" y="404" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Virtual machine name *</text>
+<rect x="70" y="412" width="420" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="80" y="429" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">cbc-vm</text>
+<text x="70" y="450" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Region *</text>
+<rect x="70" y="458" width="420" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="80" y="475" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">(US) East US</text>
+<text x="476" y="475" font-size="10" fill="#5B6773" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">▾</text>
+<text x="70" y="496" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Availability options</text>
+<rect x="70" y="504" width="420" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="80" y="521" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">No infrastructure redundancy required</text>
+<text x="476" y="521" font-size="10" fill="#5B6773" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">▾</text>
+<text x="630" y="266" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Security type</text>
+<rect x="630" y="274" width="440" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="640" y="291" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Standard</text>
+<text x="1056" y="291" font-size="10" fill="#5B6773" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">▾</text>
+<text x="630" y="312" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Image *</text>
+<rect x="630" y="320" width="440" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="640" y="337" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Ubuntu Server 24.04 LTS – x64 Gen2</text>
+<text x="1056" y="337" font-size="10" fill="#5B6773" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">▾</text>
+<text x="630" y="358" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">VM architecture</text>
+<rect x="630" y="366" width="440" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="640" y="383" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">x64</text>
+<text x="1056" y="383" font-size="10" fill="#5B6773" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">▾</text>
+<text x="630" y="404" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Size *</text>
+<rect x="630" y="412" width="440" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="640" y="429" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Standard_B1s — 1 vcpu, 1 GiB memory</text>
+<text x="1056" y="429" font-size="10" fill="#5B6773" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">▾</text>
+<text x="630" y="458" font-size="10" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Burstable B-series is the cheapest size that runs this lab.</text>
+<rect x="630" y="474" width="440" height="80" fill="#EEF5FB" rx="4" stroke="#0F6CBD" stroke-width="1"/>
+<rect x="630" y="474" width="3.5" height="80" fill="#0F6CBD" rx="2"/>
+<text x="644" y="494" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">The resource group is the important choice</text>
+<text x="644" y="510" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Everything in Part 5 is scoped to this resource group.</text>
+<text x="644" y="526" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Pick it deliberately — a role assigned here is inherited by</text>
+<text x="644" y="542" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">every resource inside it, now and in the future.</text>
+<circle cx="48" cy="287" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="48" y="291" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<circle cx="48" cy="333" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="48" y="337" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">2</text>
+<circle cx="48" cy="425" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="48" y="429" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">3</text>
+<circle cx="48" cy="471" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="48" y="475" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">4</text>
+<circle cx="608" cy="333" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="608" y="337" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">5</text>
+<circle cx="608" cy="425" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="608" y="429" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">6</text>
+<circle cx="78" cy="694" r="8" fill="#C8501E"/>
+<text x="78" y="697.5" font-size="9" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<text x="92" y="698" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Numbered markers = click order</text>
+<text x="1156" y="708" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

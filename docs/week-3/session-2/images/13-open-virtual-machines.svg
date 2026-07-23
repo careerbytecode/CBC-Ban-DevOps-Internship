@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 560" width="1180" height="560" role="img" aria-label="Step 13 — Open Virtual machines" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1180" height="560" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 13 — Open Virtual machines</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Search the service name from the portal's global search bar.</text>
+<rect x="28" y="76" width="1124" height="40" fill="#1B2733" rx="0"/>
+<text x="44" y="101" font-size="16" fill="#FFFFFF" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">≡</text>
+<text x="66" y="101" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Azure</text>
+<rect x="218" y="84" width="724" height="24" fill="#2C3B49" rx="3" stroke="#41525F" stroke-width="1"/>
+<text x="228" y="100" font-size="12" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">⌕</text>
+<text x="244" y="100" font-size="11.5" fill="#FFFFFF" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Virtual machines</text>
+<circle cx="1122" cy="96" r="12" fill="#3A4B59"/>
+<text x="1122" y="100" font-size="11" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">A</text>
+<text x="1096" y="100" font-size="10.5" fill="#C6D2DB" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">admin@contoso</text>
+<rect x="28" y="116" width="1124" height="380" fill="#F4F6F8" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="218" y="116" width="500" height="180" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="232" y="140" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Services</text>
+<rect x="224" y="148" width="488" height="30" fill="#E5F0FA" rx="3"/>
+<rect x="232" y="155" width="16" height="16" fill="#0F6CBD" rx="3"/>
+<text x="256" y="168" font-size="12" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Virtual machines</text>
+<rect x="232" y="193" width="16" height="16" fill="#9AA7B2" rx="3"/>
+<text x="256" y="206" font-size="12" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Virtual machine scale sets</text>
+<rect x="232" y="223" width="16" height="16" fill="#9AA7B2" rx="3"/>
+<text x="256" y="236" font-size="12" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Virtual networks</text>
+<rect x="232" y="253" width="16" height="16" fill="#9AA7B2" rx="3"/>
+<text x="256" y="266" font-size="12" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Virtual machines (classic)</text>
+<circle cx="232" cy="96" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="232" y="100" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<circle cx="236" cy="163" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="236" y="167" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">2</text>
+<rect x="222" y="146" width="492" height="34" fill="none" rx="4" stroke="#C8501E" stroke-width="1.8" stroke-dasharray="5 3"/>
+<rect x="760" y="150" width="360" height="96" fill="#EEF5FB" rx="4" stroke="#0F6CBD" stroke-width="1"/>
+<rect x="760" y="150" width="3.5" height="96" fill="#0F6CBD" rx="2"/>
+<text x="774" y="170" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Where this VM fits</text>
+<text x="774" y="186" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">It is the target resource. The role you assign in</text>
+<text x="774" y="202" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Part 5 is scoped to the resource group that</text>
+<text x="774" y="218" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">contains it, so it applies to this VM and to</text>
+<text x="774" y="234" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">anything else created in that group.</text>
+<circle cx="768" cy="320" r="8" fill="#C8501E"/>
+<text x="768" y="323.5" font-size="9" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<text x="782" y="324" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Numbered markers = click order</text>
+<text x="1156" y="548" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

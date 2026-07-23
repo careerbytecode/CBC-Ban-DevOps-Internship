@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 600" width="1180" height="600" role="img" aria-label="Step 20 — Open the resource group" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1180" height="600" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 20 — Open the resource group</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Resource groups → cbc-internship-program. This is the RBAC scope.</text>
+<rect x="28" y="76" width="1124" height="40" fill="#1B2733" rx="0"/>
+<text x="44" y="101" font-size="16" fill="#FFFFFF" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">≡</text>
+<text x="66" y="101" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Azure</text>
+<rect x="218" y="84" width="724" height="24" fill="#2C3B49" rx="3" stroke="#41525F" stroke-width="1"/>
+<text x="228" y="100" font-size="12" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">⌕</text>
+<text x="244" y="100" font-size="11.5" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Search resources, services, and docs (G+/)</text>
+<circle cx="1122" cy="96" r="12" fill="#3A4B59"/>
+<text x="1122" y="100" font-size="11" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">A</text>
+<text x="1096" y="100" font-size="10.5" fill="#C6D2DB" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">admin@contoso</text>
+<rect x="28" y="116" width="1124" height="26" fill="#F4F6F8" rx="0"/>
+<line x1="28" y1="142" x2="1152" y2="142" stroke="#D3DAE0" stroke-width="1"/>
+<text x="44" y="133" font-size="11" fill="#0F6CBD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Home</text>
+<text x="80.8" y="133" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">|</text>
+<text x="90.8" y="133" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Resource groups</text>
+<rect x="28" y="142" width="1124" height="52" fill="#FFFFFF" rx="0"/>
+<rect x="44" y="155" width="24" height="24" fill="#0F6CBD" rx="4"/>
+<text x="56" y="172" font-size="13" fill="#FFFFFF" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">◈</text>
+<text x="78" y="168" font-size="15" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Resource groups</text>
+<text x="78" y="184" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Default Directory</text>
+<line x1="28" y1="194" x2="1152" y2="194" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="28" y="194" width="1124" height="34" fill="#FFFFFF" rx="0"/>
+<line x1="28" y1="228" x2="1152" y2="228" stroke="#D3DAE0" stroke-width="1"/>
+<text x="44" y="216" font-size="11.5" fill="#0F6CBD" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">+ Create</text>
+<text x="118.8" y="216" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">↻ Refresh</text>
+<text x="200.2" y="216" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">↓ Export to CSV</text>
+<rect x="52" y="252" width="1076" height="28" fill="#F7F8FA" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="64" y="270" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Name</text>
+<text x="484" y="270" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Subscription</text>
+<text x="884" y="270" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Location</text>
+<rect x="52" y="280" width="1076" height="26" fill="#E5F0FA" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="64" y="297.0" font-size="11" fill="#0F6CBD" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">cbc-internship-program</text>
+<text x="484" y="297.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Azure subscription 1</text>
+<text x="884" y="297.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">East US</text>
+<rect x="52" y="306" width="1076" height="26" fill="#FFFFFF" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="64" y="323.0" font-size="11" fill="#0F6CBD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">NetworkWatcherRG</text>
+<text x="484" y="323.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Azure subscription 1</text>
+<text x="884" y="323.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">East US</text>
+<circle cx="46" cy="293" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="46" y="297" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<rect x="46" y="278" width="1088" height="30" fill="none" rx="4" stroke="#C8501E" stroke-width="1.8" stroke-dasharray="5 3"/>
+<rect x="52" y="360" width="620" height="80" fill="#EEF5FB" rx="4" stroke="#0F6CBD" stroke-width="1"/>
+<rect x="52" y="360" width="3.5" height="80" fill="#0F6CBD" rx="2"/>
+<text x="66" y="380" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Scope determines blast radius</text>
+<text x="66" y="396" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Management group ▸ Subscription ▸ Resource group ▸ Resource.</text>
+<text x="66" y="412" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">A role assigned at resource-group level is inherited by every resource</text>
+<text x="66" y="428" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">inside it. Assign at the narrowest scope that still does the job.</text>
+<circle cx="708" cy="376" r="8" fill="#C8501E"/>
+<text x="708" y="379.5" font-size="9" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<text x="722" y="380" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Numbered markers = click order</text>
+<text x="1156" y="588" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>
