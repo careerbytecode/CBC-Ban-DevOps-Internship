@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: week2-config
+data:
+  APP_ENV: "development"
+  APP_NAME: "CareerByteCode Week 2 DevOps App"
