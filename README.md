@@ -92,7 +92,15 @@ Missed a live session or want to revise? Every week's **recordings** live in **[
 | 1 | Docker — Session 1 | [▶ Watch](https://drive.google.com/file/d/1XXl3egTI2mVSoNY4ohwjQHHtAdNKLlPE/view) | [Docker Master Guide](docs/week-2/session-1/docker.md) |
 | 2 | Kubernetes — Session 2 | [▶ Watch](https://drive.google.com/file/d/15pd52MlMZ6FfDUTPFfGFAgK3WOjby1JQ/view) | [Kubernetes notes (11 topics)](docs/week-2/session-2/) |
 
-> 🔒 Recordings are for enrolled interns only — please don't re-share. Weeks 3–4 recordings and notes will be added to [`CLASS-RECORDINGS.md`](CLASS-RECORDINGS.md) and [`docs/`](docs/) as each week completes.
+**✅ Week 3 — Azure · Entra ID · AKS · Azure DevOps CI/CD (18–19 July 2026):**
+
+| # | Session | 🎥 Recording | 📝 Notes |
+|---|---------|-------------|----------|
+| 1 | Azure Networking — Class 4, S1 | [▶ Watch](https://drive.google.com/file/d/1SrZmXZxaP6U4-4amqaafhS3-lafpiQh7/view?usp=drive_link) | [Networking](docs/week-3/session-1/azure-networking.md) · [Route Tables](docs/week-3/session-1/route-tables.md) |
+| 2 | Bastion & Entra ID — Class 4, S2 | [▶ Watch](https://drive.google.com/file/d/1H21BExawloWcAW9Y4Nnj64DvuuoHsDpB/view?usp=drive_link) | [Bastion](docs/week-3/session-2/bastion-host.md) · [Entra ID & RBAC](docs/week-3/session-2/entra-id-rbac-concepts.md) |
+| 3 | AKS, ACR & CI/CD — Class 5 | [▶ Watch](https://drive.google.com/file/d/19RocNYyRu7LbJGT-2rgzTrQ4YwP7H3aR/view?usp=drive_link) | [AKS](docs/week-3/session-3/aks-cluster.md) · [ACR](docs/week-3/session-3/acr.md) · [Pipelines](docs/week-3/session-3/pipelines-ci.md) |
+
+> 🔒 Recordings are for enrolled interns only — please don't re-share. Week 4 recordings and notes will be added to [`CLASS-RECORDINGS.md`](CLASS-RECORDINGS.md) and [`docs/`](docs/) as each week completes.
 
 ---
 
@@ -185,7 +193,7 @@ CBC-Ban-DevOps-Internship/
 ├── COHORT-SCHEDULE.md             ← week-by-week plan + attendance + weekly tasks
 ├── SOCIAL-MEDIA-AND-VIDEO.md      ← weekly post + video rules & tagging
 ├── WEEKLY-SCRIPTS.md              ← ⭐ copy-paste posts + video scripts (per week)
-├── CLASS-RECORDINGS.md            ← 🎥 weekly live-session recordings (Weeks 1–2 added)
+├── CLASS-RECORDINGS.md            ← 🎥 weekly live-session recordings (Weeks 1–3 added)
 ├── CONTRIBUTING.md                ← fork → build your DevOps capstone → submit (start here)
 ├── SUBMISSION-GUIDE.md            ← short printable fork + PR cheat-sheet
 ├── PROJECTS-CATALOG.md            ← the 10 DevOps projects + cohort registry
@@ -201,10 +209,15 @@ CBC-Ban-DevOps-Internship/
 │   │   ├── shell-scripting.md
 │   │   ├── git-and-github.md
 │   │   └── Assessment/            ← per-student Week 1 assignments
-│   └── week-2/                    ← Docker · Kubernetes
-│       ├── session-1/docker.md
-│       ├── session-2/            ← pods, deployments, services, ingress, HPA, …
-│       └── Assessment/            ← per-student Week 2 assignments
+│   ├── week-2/                    ← Docker · Kubernetes
+│   │   ├── session-1/docker.md
+│   │   ├── session-2/            ← pods, deployments, services, ingress, HPA, …
+│   │   └── Assessment/           ← per-student Week 2 assignments
+│   └── week-3/                    ← Azure · Entra ID · AKS · CI/CD
+│       ├── session-1/            ← VNet, subnets, NSG, route tables
+│       ├── session-2/            ← Bastion, Entra ID & RBAC
+│       ├── session-3/            ← AKS, ACR, Azure DevOps, pipelines, agents
+│       └── Assessment/           ← per-student Week 3 assignments
 │
 ├── .github/                       ← (mentors) PR template + CODEOWNERS
 │   ├── CODEOWNERS
