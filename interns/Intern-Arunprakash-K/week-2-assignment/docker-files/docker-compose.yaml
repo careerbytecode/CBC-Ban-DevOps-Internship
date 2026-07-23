@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  web:
+    build: .                    # build from Dockerfile in current dir
+    ports:
+      - "8080:3000"             # host:container
+    environment:
+      - DB_HOST=db              # service name works as hostname
+      - DB_USER=root
+      - DB_PASSWORD=root
+    depends_on:
+      - db                      # start db first
+
+  db:
+    image: postgres:16-alpine   # use prebuilt image
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
+    volumes:
+      - db_data:/var/lib/postgresql/data   # persist data
+
+volumes:
+  db_data:                      # named volume survives container removal
