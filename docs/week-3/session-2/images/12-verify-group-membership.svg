@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 560" width="1180" height="560" role="img" aria-label="Step 12 — Verify group membership" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1180" height="560" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 12 — Verify group membership</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">The user now appears on the group's Members blade.</text>
+<rect x="28" y="76" width="1124" height="40" fill="#1B2733" rx="0"/>
+<text x="44" y="101" font-size="16" fill="#FFFFFF" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">≡</text>
+<text x="66" y="101" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Azure</text>
+<rect x="218" y="84" width="724" height="24" fill="#2C3B49" rx="3" stroke="#41525F" stroke-width="1"/>
+<text x="228" y="100" font-size="12" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">⌕</text>
+<text x="244" y="100" font-size="11.5" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Search resources, services, and docs (G+/)</text>
+<circle cx="1122" cy="96" r="12" fill="#3A4B59"/>
+<text x="1122" y="100" font-size="11" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">A</text>
+<text x="1096" y="100" font-size="10.5" fill="#C6D2DB" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">admin@contoso</text>
+<rect x="28" y="116" width="1124" height="52" fill="#FFFFFF" rx="0"/>
+<rect x="44" y="129" width="24" height="24" fill="#0F6CBD" rx="4"/>
+<text x="56" y="146" font-size="13" fill="#FFFFFF" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">◈</text>
+<text x="78" y="142" font-size="15" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">DevOps-Team  |  Members</text>
+<text x="78" y="158" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Security group</text>
+<line x1="28" y1="168" x2="1152" y2="168" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="28" y="168" width="250" height="340" fill="#F4F6F8" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="38" y="182" width="230" height="22" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="46" y="197" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">⌕  Search</text>
+<text x="44" y="221" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Overview</text>
+<text x="44" y="247" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Diagnose and solve problems</text>
+<line x1="38" y1="270" x2="268" y2="270" stroke="#D3DAE0" stroke-width="1"/>
+<text x="44" y="285" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Manage</text>
+<text x="58" y="311" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Properties</text>
+<rect x="32" y="320" width="242" height="24" fill="#E5F0FA" rx="3"/>
+<rect x="32" y="320" width="3" height="24" fill="#0F6CBD" rx="0"/>
+<text x="58" y="337" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Members</text>
+<text x="58" y="363" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Owners</text>
+<text x="58" y="389" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Roles and administrators</text>
+<text x="58" y="415" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Group memberships</text>
+<text x="58" y="441" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Applications</text>
+<text x="58" y="467" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Licenses</text>
+<text x="58" y="493" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Azure role assignments</text>
+<rect x="278" y="168" width="874" height="34" fill="#FFFFFF" rx="0"/>
+<line x1="278" y1="202" x2="1152" y2="202" stroke="#D3DAE0" stroke-width="1"/>
+<text x="294" y="190" font-size="11.5" fill="#0F6CBD" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">+ Add members</text>
+<text x="401.8" y="190" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">✖ Remove</text>
+<text x="476.6" y="190" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">↻ Refresh</text>
+<rect x="302" y="226" width="826" height="28" fill="#F7F8FA" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="314" y="244" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Name</text>
+<text x="514" y="244" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">User principal name</text>
+<text x="850" y="244" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Type</text>
+<text x="980" y="244" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">User type</text>
+<rect x="302" y="254" width="826" height="26" fill="#E5F0FA" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="314" y="271.0" font-size="11" fill="#0F6CBD" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Dev User 01</text>
+<text x="514" y="271.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">devuser01@yourtenant.onmicrosoft.com</text>
+<text x="850" y="271.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">User</text>
+<text x="980" y="271.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Member</text>
+<circle cx="296" cy="267" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="296" y="271" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<rect x="296" y="252" width="838" height="30" fill="none" rx="4" stroke="#C8501E" stroke-width="1.8" stroke-dasharray="5 3"/>
+<rect x="302" y="320" width="540" height="64" fill="#EDF7F1" rx="4" stroke="#107C41" stroke-width="1"/>
+<rect x="302" y="320" width="3.5" height="64" fill="#107C41" rx="2"/>
+<text x="316" y="340" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Identity plane complete</text>
+<text x="316" y="356" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">User → Group is now wired. Nothing is authorized yet:</text>
+<text x="316" y="372" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">the Azure resource side of the chain is built in Parts 4 and 5.</text>
+<circle cx="310" cy="420" r="8" fill="#C8501E"/>
+<text x="310" y="423.5" font-size="9" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<text x="324" y="424" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Numbered markers = click order</text>
+<text x="1156" y="548" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

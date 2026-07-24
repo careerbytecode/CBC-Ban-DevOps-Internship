@@ -1,0 +1,68 @@
+# 🔗 Source URLs for the Entra ID screenshots
+
+These 52 screenshots were originally hosted on GitHub's **user-attachments** CDN
+(`https://github.com/user-attachments/assets/...`). Those URLs are **authentication-gated and
+scoped to the repository they were first uploaded into**, so they return **404** here — which is
+why the images appeared broken.
+
+This table maps every original URL to the local filename it should be saved as in this folder.
+
+> 💡 If you can open a URL below in a browser where you are signed in to GitHub, right-click →
+> **Save image as** → save it into this folder using the **Local file** name shown.
+
+| # | Local file | Original GitHub asset URL | Section |
+|---|------------|---------------------------|---------|
+| 1 | `01-sign-in-to-azure-portal.png` | https://github.com/user-attachments/assets/a742d761-af69-42e8-bd07-a07dba22e46b | Step 1: Sign in to Azure Portal |
+| 2 | `02-open-microsoft-entra-id.png` | https://github.com/user-attachments/assets/37249b1a-9f12-4a8a-89ac-ff0c279977b3 | Step 2: Open Microsoft Entra ID |
+| 3 | `03-navigate-to-users.png` | https://github.com/user-attachments/assets/d58b6410-4b6d-43ca-90f5-eaf38b9ba34a | Step 3: Navigate to Users |
+| 4 | `04-enter-user-details.png` | https://github.com/user-attachments/assets/e77653cd-f4c5-42e7-9fd5-49b1af7d6669 | Step 4: Enter User Details |
+| 5 | `05-create-the-user.png` | https://github.com/user-attachments/assets/e6de1d63-2a5f-4a49-a952-70707391d801 | Step 5: Create the User |
+| 6 | `06-verify-the-user.png` | https://github.com/user-attachments/assets/bf9c47ec-82e1-44f1-bfab-64bfe49c960e | Step 6: Verify the User |
+| 7 | `07-navigate-to-groups.png` | https://github.com/user-attachments/assets/b97096d3-8eda-4049-b42d-34923c438cac | Step 7: Navigate to Groups |
+| 8 | `08-configure-the-group.png` | https://github.com/user-attachments/assets/95ef9725-fe21-48fd-979b-d7da94a0c99d | Step 8: Configure the Group |
+| 9 | `09-verify-the-group.png` | https://github.com/user-attachments/assets/ff0df46f-317b-4443-9804-8319e459e879 | Step 9: Verify the Group |
+| 10 | `10-add-members.png` | https://github.com/user-attachments/assets/e7c0c355-d888-4a30-add5-534f2e030da3 | Step 11: Add Members |
+| 11 | `11-verify-group-membership.png` | https://github.com/user-attachments/assets/95324534-851f-4fb9-81a0-17f5f750bb62 | Step 12: Verify Group Membership |
+| 12 | `12-verify-the-user.png` | https://github.com/user-attachments/assets/77e0b66b-2803-4498-add7-d2bdd3a86a90 | Verify the User |
+| 13 | `13-verify-the-group.png` | https://github.com/user-attachments/assets/089d7126-d6e2-4c34-a839-bd8f3f9c10f8 | Verify the Group |
+| 14 | `14-verify-membership.png` | https://github.com/user-attachments/assets/ce83a9be-1c24-4bff-83bc-41cdbb8677f1 | Verify Membership |
+| 15 | `15-open-virtual-machines.png` | https://github.com/user-attachments/assets/6e8a8ad6-5cfa-4007-a6eb-8a6948ebd122 | Step 13: Open Virtual Machines |
+| 16 | `16-create-a-new-virtual-machine.png` | https://github.com/user-attachments/assets/1d7f7a11-2b78-41fc-8414-92d38b12d72b | Step 14: Create a New Virtual Machine |
+| 17 | `17-configure-the-basics-tab.png` | https://github.com/user-attachments/assets/bd4e1f26-510d-463b-bae7-edc80893000b | Step 15: Configure the Basics Tab |
+| 18 | `18-configure-the-basics-tab.png` | https://github.com/user-attachments/assets/20fca4e7-4a92-4f47-847c-b14e4e2d60cf | Step 15: Configure the Basics Tab |
+| 19 | `19-configure-the-basics-tab.png` | https://github.com/user-attachments/assets/fb25500c-540d-4142-a3c6-16b9b5599ad1 | Step 15: Configure the Basics Tab |
+| 20 | `20-configure-the-basics-tab.png` | https://github.com/user-attachments/assets/9ccb7eea-e921-46a6-bf2f-ddd69189f31a | Step 15: Configure the Basics Tab |
+| 21 | `21-configure-the-disks-tab.png` | https://github.com/user-attachments/assets/2e8fb695-36fe-4a3e-927a-a89cf18656b0 | Step 16: Configure the Disks Tab |
+| 22 | `22-configure-the-networking-tab.png` | https://github.com/user-attachments/assets/0cdf665e-d9d2-4f48-a5c2-57beed70e7dd | Step 17: Configure the Networking Tab |
+| 23 | `23-configure-the-networking-tab.png` | https://github.com/user-attachments/assets/9f708b47-2e02-4e28-8916-3d1798762fea | Step 17: Configure the Networking Tab |
+| 24 | `24-configure-the-networking-tab.png` | https://github.com/user-attachments/assets/db863005-0e73-4540-bc30-29ee831e49db | Step 17: Configure the Networking Tab |
+| 25 | `25-review-and-create-the-virtual-machine.png` | https://github.com/user-attachments/assets/f90a9a74-adc0-4aac-ac58-ab4e5364d3a1 | Step 18: Review and Create the Virtual Machine |
+| 26 | `26-open-the-resource-group.png` | https://github.com/user-attachments/assets/438fd66c-c0ee-4e58-a07e-7a169bbfba09 | Step 20: Open the Resource Group |
+| 27 | `27-open-access-control-iam.png` | https://github.com/user-attachments/assets/00eeda19-be21-47ab-9c4b-b11d94cfdbbc | Step 21: Open Access Control (IAM) |
+| 28 | `28-select-the-virtual-machine-role.png` | https://github.com/user-attachments/assets/b3fbb575-cb31-48e8-b7d6-86505db95817 | Step 22: Select the Virtual Machine Role |
+| 29 | `29-select-the-virtual-machine-role.png` | https://github.com/user-attachments/assets/aa3f46bc-2c55-42f0-aee1-02a26f6302a7 | Step 22: Select the Virtual Machine Role |
+| 30 | `30-assign-the-security-group.png` | https://github.com/user-attachments/assets/89096f4f-70f2-4031-86e7-fd678c9745ed | Step 23: Assign the Security Group |
+| 31 | `31-assign-the-security-group.png` | https://github.com/user-attachments/assets/32993a02-7fc2-46a6-8e9a-efc99c9c013f | Step 23: Assign the Security Group |
+| 32 | `32-verify-the-role-assignment.png` | https://github.com/user-attachments/assets/acf5f51b-c4ff-42fa-a0ee-32a0970012ce | Step 24: Verify the Role Assignment |
+| 33 | `33-sign-out-of-the-administrator-account.png` | https://github.com/user-attachments/assets/489ffb45-442e-439d-a757-b293a21f8752 | Step 25: Sign Out of the Administrator Account |
+| 34 | `34-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/89fc3438-0a23-4390-b3f7-ca5ada55ad4f | Step 26: Sign in Using the Created User |
+| 35 | `35-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/ccb7380a-c91a-41ae-8484-7d53652fd18f | Step 26: Sign in Using the Created User |
+| 36 | `36-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/e3df2d26-5d8a-4804-b39e-b52a66f41ccd | Step 26: Sign in Using the Created User |
+| 37 | `37-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/97831f38-9203-40a7-96a7-8fb2d1e25e2c | Step 26: Sign in Using the Created User |
+| 38 | `38-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/aede6036-ef3c-4aef-87ef-1009569f22e3 | Step 26: Sign in Using the Created User |
+| 39 | `39-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/12b94208-b7c8-47d3-b40e-5639e1cc3618 | Step 26: Sign in Using the Created User |
+| 40 | `40-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/d42235f1-8c5c-4f7e-bf25-3f7925ee9dc5 | Step 26: Sign in Using the Created User |
+| 41 | `41-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/195ef935-db5e-441a-942c-f7ff6bf25bf0 | Step 26: Sign in Using the Created User |
+| 42 | `42-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/7c6f88ae-dc03-4531-9340-73ab135113f8 | Step 26: Sign in Using the Created User |
+| 43 | `43-sign-in-using-the-created-user.png` | https://github.com/user-attachments/assets/6a702973-f34b-4302-a880-3ae8484fae55 | Step 26: Sign in Using the Created User |
+| 44 | `44-verify-the-virtual-machine.png` | https://github.com/user-attachments/assets/8c397208-28b2-452c-9fa2-9da6dd1b55e1 | Step 27: Verify the Virtual Machine |
+| 45 | `45-verify-the-virtual-machine.png` | https://github.com/user-attachments/assets/6f6fc252-0a43-4bf6-95bd-fed37f581e62 | Step 27: Verify the Virtual Machine |
+| 46 | `46-connect-to-the-virtual-machine.png` | https://github.com/user-attachments/assets/bd9dbb19-c48d-400d-b320-e179632c013c | Step 28: Connect to the Virtual Machine |
+| 47 | `47-connect-to-the-virtual-machine.png` | https://github.com/user-attachments/assets/5d0bf0ed-a450-4d3b-a998-e9be07e7f2c9 | Step 28: Connect to the Virtual Machine |
+| 48 | `48-connect-to-the-virtual-machine.png` | https://github.com/user-attachments/assets/428f67c1-89a2-4d3f-8e4d-7130a914c4ef | Step 28: Connect to the Virtual Machine |
+| 49 | `49-connect-to-the-virtual-machine.png` | https://github.com/user-attachments/assets/3592d7ed-a935-41a8-bf79-1740e22ae77d | Step 28: Connect to the Virtual Machine |
+| 50 | `50-connect-to-the-virtual-machine.png` | https://github.com/user-attachments/assets/2fc724f5-5c58-4fa9-9ea2-2d754bdd0e98 | Step 28: Connect to the Virtual Machine |
+| 51 | `51-connect-to-the-virtual-machine.png` | https://github.com/user-attachments/assets/113fc730-c226-409f-b6ec-fe96241fc892 | Step 28: Connect to the Virtual Machine |
+| 52 | `52-connect-to-the-virtual-machine.png` | https://github.com/user-attachments/assets/dccb26ce-6b61-429a-8b28-dd6f7db9535b | Step 28: Connect to the Virtual Machine |
+
+_Part of the CareerByteCode Bangalore — Cloud & DevOps Internship Program._

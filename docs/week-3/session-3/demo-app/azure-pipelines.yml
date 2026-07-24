@@ -1,0 +1,26 @@
+trigger:
+- master
+
+pool:
+  name: shgfkasdh
+
+variables:
+  imageRepository: cbcacr
+  containerRegistry: my-docker-registry
+  dockerfilePath: sampleapp/Dockerfile
+  tag: $(Build.BuildId)
+
+steps:
+
+- checkout: self
+
+- task: Docker@2
+  displayName: Build and Push Docker Image
+  inputs:
+    command: buildAndPush
+    repository: $(imageRepository)
+    dockerfile: $(dockerfilePath)
+    containerRegistry: $(containerRegistry)
+    tags: |
+      $(tag)
+      latest
