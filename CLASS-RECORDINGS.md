@@ -46,13 +46,14 @@ All live-session recordings for the cohort, week by week. Missed a class or want
 
 ---
 
-## ⏳ Week 4 — Capstone Support & Demo Day
+## ✅ Week 4 — Capstone Projects & Demo Day *(from 25 July 2026)*
 
-_Recordings will be added here after Week 4 sessions._
+**Topics:** Week-4 capstone kickoff — all 10 projects in [`PROJECTS-CATALOG.md`](PROJECTS-CATALOG.md) explained; each student picks one to build hands-on, learns the rest, and submits end-to-end step-by-step documentation with screenshots.
+📝 **Notes for this week:** [`docs/week-4/`](docs/week-4/)
 
-| # | Session | Recording |
-|---|---------|-----------|
-| 1 | — | _coming soon_ |
+| # | Session | 🎥 Recording | 📝 Notes |
+|---|---------|-------------|----------|
+| 1 | Capstone Projects — Class 6 *(Sat 25 July)* | [▶ Watch](https://drive.google.com/file/d/1_LbszcBt-nV2u7uwDLqKtkGEtyljSP8r/view?usp=sharing) | [Kickoff](docs/week-4/capstone-kickoff.md) · [Template](docs/week-4/IMPLEMENTATION-TEMPLATE.md) · [Standards](docs/week-4/DOCUMENTATION-STANDARDS.md) |
 
 ---
 
