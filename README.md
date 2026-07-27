@@ -100,7 +100,13 @@ Missed a live session or want to revise? Every week's **recordings** live in **[
 | 2 | Bastion & Entra ID — Class 4, S2 | [▶ Watch](https://drive.google.com/file/d/1H21BExawloWcAW9Y4Nnj64DvuuoHsDpB/view?usp=drive_link) | [Bastion](docs/week-3/session-2/bastion-host.md) · [Entra ID & RBAC](docs/week-3/session-2/entra-id-rbac-concepts.md) |
 | 3 | AKS, ACR & CI/CD — Class 5 | [▶ Watch](https://drive.google.com/file/d/19RocNYyRu7LbJGT-2rgzTrQ4YwP7H3aR/view?usp=drive_link) | [AKS](docs/week-3/session-3/aks-cluster.md) · [ACR](docs/week-3/session-3/acr.md) · [Pipelines](docs/week-3/session-3/pipelines-ci.md) |
 
-> 🔒 Recordings are for enrolled interns only — please don't re-share. Week 4 recordings and notes will be added to [`CLASS-RECORDINGS.md`](CLASS-RECORDINGS.md) and [`docs/`](docs/) as each week completes.
+**✅ Week 4 — Capstone Projects (from 25 July 2026):**
+
+| # | Session | 🎥 Recording | 📝 Notes |
+|---|---------|-------------|----------|
+| 1 | Capstone Projects — Class 6 | [▶ Watch](https://drive.google.com/file/d/1_LbszcBt-nV2u7uwDLqKtkGEtyljSP8r/view?usp=sharing) | [Kickoff](docs/week-4/capstone-kickoff.md) · [Template](docs/week-4/IMPLEMENTATION-TEMPLATE.md) · [Standards](docs/week-4/DOCUMENTATION-STANDARDS.md) |
+
+> 🔒 Recordings are for enrolled interns only — please don't re-share. All four weeks of recordings and notes are now available.
 
 ---
 
@@ -193,7 +199,7 @@ CBC-Ban-DevOps-Internship/
 ├── COHORT-SCHEDULE.md             ← week-by-week plan + attendance + weekly tasks
 ├── SOCIAL-MEDIA-AND-VIDEO.md      ← weekly post + video rules & tagging
 ├── WEEKLY-SCRIPTS.md              ← ⭐ copy-paste posts + video scripts (per week)
-├── CLASS-RECORDINGS.md            ← 🎥 weekly live-session recordings (Weeks 1–3 added)
+├── CLASS-RECORDINGS.md            ← 🎥 weekly live-session recordings (Weeks 1–4)
 ├── CONTRIBUTING.md                ← fork → build your DevOps capstone → submit (start here)
 ├── SUBMISSION-GUIDE.md            ← short printable fork + PR cheat-sheet
 ├── PROJECTS-CATALOG.md            ← the 10 DevOps projects + cohort registry
@@ -213,11 +219,16 @@ CBC-Ban-DevOps-Internship/
 │   │   ├── session-1/docker.md
 │   │   ├── session-2/            ← pods, deployments, services, ingress, HPA, …
 │   │   └── Assessment/           ← per-student Week 2 assignments
-│   └── week-3/                    ← Azure · Entra ID · AKS · CI/CD
-│       ├── session-1/            ← VNet, subnets, NSG, route tables
-│       ├── session-2/            ← Bastion, Entra ID & RBAC
-│       ├── session-3/            ← AKS, ACR, Azure DevOps, pipelines, agents
-│       └── Assessment/           ← per-student Week 3 assignments
+│   ├── week-3/                    ← Azure · Entra ID · AKS · CI/CD
+│   │   ├── session-1/            ← VNet, subnets, NSG, route tables
+│   │   ├── session-2/            ← Bastion, Entra ID & RBAC
+│   │   ├── session-3/            ← AKS, ACR, Azure DevOps, pipelines, agents
+│   │   └── Assessment/           ← per-student Week 3 assignments
+│   └── week-4/                    ← Capstone: kickoff, template, standards
+│       ├── README.md
+│       ├── capstone-kickoff.md    ← all 10 projects explained
+│       ├── IMPLEMENTATION-TEMPLATE.md
+│       └── DOCUMENTATION-STANDARDS.md
 │
 ├── .github/                       ← (mentors) PR template + CODEOWNERS
 │   ├── CODEOWNERS

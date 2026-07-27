@@ -1,0 +1,22 @@
+trigger:
+- main
+
+pool:
+  name: Default
+
+variables:
+  imageRepository: 'week3-flask-app'
+  dockerfilePath: 'Dockerfile'
+  tag: '$(Build.BuildId)'
+
+steps:
+- task: Docker@2
+  displayName: Build and push Docker image to ACR
+  inputs:
+    command: buildAndPush
+    repository: $(imageRepository)
+    dockerfile: $(dockerfilePath)
+    containerRegistry: 'acr-week3-service-connection'
+    tags: |
+      $(tag)
+      latest

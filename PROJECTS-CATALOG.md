@@ -4,7 +4,7 @@ Your Week-4 capstone is **one DevOps project**, built individually. This cohort 
 
 > 🔁 **Every project follows the same backbone:** Source in GitHub → **Dockerize** → **Azure CI/CD pipeline** (build → push to **ACR**) → **Deploy to AKS** (Service + **Application Gateway**) → **Monitoring** (Azure Monitor + Container Insights) → **Documentation**. What changes per project is the **DevOps focus** — so every portfolio is distinct.
 
-> 📌 **Note:** The assignment table below uses placeholders (`Student-01` … `Student-10`). Closer to the cohort dates, this file will be **regenerated with the final list of students and their assigned projects**. If there are more than 10 students, additional projects/assignments will be added then.
+> 📌 **Note:** This cohort has **5 students** (rows 1–5). Each implements **one** project hands-on and **learns the others**. Projects 6–10 remain available as **spare/learning projects** and for any students who join later.
 
 > Folder naming: `Project01-[DEVOPS]-Your-DevOps-Project` inside `interns/Your-Name/`.
 
@@ -81,20 +81,20 @@ Per the internship deliverables, every student submits:
 
 Each student is assigned **one** DevOps project. Confirm your assignment with your mentors and keep your `Status` updated.
 
-> ⚠️ **Placeholders only** — `Student-01` … `Student-10` will be replaced with the real student names (and their LinkedIn) when the final cohort list is confirmed.
+> ℹ️ Rows 1–5 are the current cohort's assignments (confirmed in the Week-4 kickoff, Class 6 — 25 July 2026). Rows 6–10 are **spare/learning projects** — unassigned for now.
 
 | # | Intern | Assigned Project | Track | GitHub folder | Status |
 |---|--------|------------------|-------|---------------|--------|
-| 1 | `Student-01` | Project 1 — Banking Application on AKS | `[DEVOPS]` | `interns/Student-01/Project01-[DEVOPS]-Banking-Application-on-AKS` | Assigned |
-| 2 | `Student-02` | Project 2 — Multi-Tier App with Autoscaling (HPA) | `[DEVOPS]` | `interns/Student-02/Project01-[DEVOPS]-Autoscaling-HPA-App` | Assigned |
-| 3 | `Student-03` | Project 3 — Multi-Stage CI/CD Pipeline | `[DEVOPS]` | `interns/Student-03/Project01-[DEVOPS]-MultiStage-CICD-Pipeline` | Assigned |
-| 4 | `Student-04` | Project 4 — Microservices Deployment on AKS | `[DEVOPS]` | `interns/Student-04/Project01-[DEVOPS]-Microservices-on-AKS` | Assigned |
-| 5 | `Student-05` | Project 5 — Secrets & Config Management | `[DEVOPS]` | `interns/Student-05/Project01-[DEVOPS]-Secrets-Config-Management` | Assigned |
-| 6 | `Student-06` | Project 6 — Zero-Downtime Releases (Blue-Green) | `[DEVOPS]` | `interns/Student-06/Project01-[DEVOPS]-Zero-Downtime-Releases` | Assigned |
-| 7 | `Student-07` | Project 7 — Infra Provisioning with Shell + Azure CLI | `[DEVOPS]` | `interns/Student-07/Project01-[DEVOPS]-Infra-Provisioning-AzureCLI` | Assigned |
-| 8 | `Student-08` | Project 8 — Observability with Azure Monitor | `[DEVOPS]` | `interns/Student-08/Project01-[DEVOPS]-Observability-Azure-Monitor` | Assigned |
-| 9 | `Student-09` | Project 9 — Docker Compose → Kubernetes Migration | `[DEVOPS]` | `interns/Student-09/Project01-[DEVOPS]-Compose-to-Kubernetes` | Assigned |
-| 10 | `Student-10` | Project 10 — End-to-End DevOps Pipeline (Web App) | `[DEVOPS]` | `interns/Student-10/Project01-[DEVOPS]-End-to-End-DevOps-Pipeline` | Assigned |
+| 1 | **Amna** | Project 1 — Banking Application on AKS | `[DEVOPS]` | `interns/Amna/Project01-[DEVOPS]-Banking-Application-on-AKS` | Assigned |
+| 2 | **Arun** | Project 2 — Multi-Tier App with Autoscaling (HPA) | `[DEVOPS]` | `interns/Arun/Project01-[DEVOPS]-Autoscaling-HPA-App` | Assigned |
+| 3 | **Malathi** | Project 3 — Multi-Stage CI/CD Pipeline | `[DEVOPS]` | `interns/Malathi/Project01-[DEVOPS]-MultiStage-CICD-Pipeline` | Assigned |
+| 4 | **Nandini** | Project 4 — Microservices Deployment on AKS | `[DEVOPS]` | `interns/Nandini/Project01-[DEVOPS]-Microservices-on-AKS` | Assigned |
+| 5 | **Riswan** | Project 5 — Secrets & Config Management | `[DEVOPS]` | `interns/Riswan/Project01-[DEVOPS]-Secrets-Config-Management` | Assigned |
+| 6 | _spare_ | Project 6 — Zero-Downtime Releases (Blue-Green) | `[DEVOPS]` | `interns/Student-06/Project01-[DEVOPS]-Zero-Downtime-Releases` | _Available_ |
+| 7 | _spare_ | Project 7 — Infra Provisioning with Shell + Azure CLI | `[DEVOPS]` | `interns/Student-07/Project01-[DEVOPS]-Infra-Provisioning-AzureCLI` | _Available_ |
+| 8 | _spare_ | Project 8 — Observability with Azure Monitor | `[DEVOPS]` | `interns/Student-08/Project01-[DEVOPS]-Observability-Azure-Monitor` | _Available_ |
+| 9 | _spare_ | Project 9 — Docker Compose → Kubernetes Migration | `[DEVOPS]` | `interns/Student-09/Project01-[DEVOPS]-Compose-to-Kubernetes` | _Available_ |
+| 10 | _spare_ | Project 10 — End-to-End DevOps Pipeline (Web App) | `[DEVOPS]` | `interns/Student-10/Project01-[DEVOPS]-End-to-End-DevOps-Pipeline` | _Available_ |
 
 > Status options: `Assigned` → `In progress` → `Shipped`.
 > Worked example to follow: [`interns/EXAMPLE-Intern-Aarav-S/`](interns/EXAMPLE-Intern-Aarav-S/) (Project 1 — Banking Application on AKS).
