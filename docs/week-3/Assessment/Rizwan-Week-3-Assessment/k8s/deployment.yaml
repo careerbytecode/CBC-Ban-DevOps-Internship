@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: week3-flask-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: week3-flask
+  template:
+    metadata:
+      labels:
+        app: week3-flask
+    spec:
+      containers:
+      - name: week3-flask-container
+        image: acrweek3rizwan268.azurecr.io/week3-flask-app:latest
+        ports:
+        - containerPort: 5000
