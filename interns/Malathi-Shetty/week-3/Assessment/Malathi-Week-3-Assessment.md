@@ -1,58 +1,59 @@
-### Q1. What is the difference between a **Resource Group**, a **Virtual Network**, and a **Subnet**? Explain with a simple analogy.
 
----
+# Questions
+
+# Q1.
+
+What is the difference between a **Resource Group**, a **Virtual Network**, and a **Subnet**? Explain with a simple analogy.
 
 ## Answer
 
-## Before We Start – What is Azure?
+## Before We Start - What is Azure?
 
-Imagine you want to build a house.
+Imagine my want to build a house.
 
-Normally, you would need to arrange everything yourself, including:
+Normally my'd buy:
 
-- Land
-- Electricity
-- Water
-- Security
-- Roads
+* Land
+* Electricity
+* Water
+* Security
+* Roads
 
 That's a lot of work.
 
-Azure is like a **huge city built by Microsoft**.
+Azure is like a **huge city** built by Microsoft.
 
-Instead of building everything yourself, Microsoft says:
+Instead of building everything myself, Microsoft says:
 
-> **"Come build your house inside our city."**
+> "Come build my house inside our city."
 
 That "house" could be:
 
-- Website
-- Virtual Machine
-- Database
-- Kubernetes Cluster
-- Storage
+* Website
+* Virtual Machine
+* Database
+* Kubernetes Cluster
+* Storage
 
 Everything lives inside Azure.
 
----
+Suppose my mother says:
 
-Suppose your mother says:
-
-> **"Keep all your toys in one cupboard."**
+> Keep all my toys in one cupboard.
 
 Inside that cupboard:
 
-- One shelf has cars.
-- One shelf has dolls.
-- One shelf has books.
+* One shelf has cars.
+* One shelf has dolls.
+* One shelf has books.
 
-Here:
+Here,
 
-- **Cupboard = Resource Group**
-- **Shelf = Virtual Network (VNet)**
-- **Different compartments on the shelf = Subnets**
+Cupboard = Resource Group
 
-This analogy helps us understand how Azure organizes its resources.
+Shelf = Virtual Network
+
+Different compartments on the shelf = Subnets
 
 ---
 
@@ -60,94 +61,103 @@ This analogy helps us understand how Azure organizes its resources.
 
 Imagine a city.
 
-```text
+```
+
 City
- │
- ├── Apartment Building
- │
- │   ├── Floor 1
- │   ├── Floor 2
- │   └── Floor 3
+│
+├── Apartment Building
+│
+│   ├── Floor 1
+│   ├── Floor 2
+│   └── Floor 3
+
 ```
 
 Now map this to Azure.
 
-```text
-Azure
- │
- ├── Resource Group
- │
- │   ├── Virtual Network
- │   │
- │   ├── Subnet 1
- │   ├── Subnet 2
- │   └── Subnet 3
 ```
 
-A **Resource Group** contains Azure resources.
+Azure
+│
+├── Resource Group
+│
+│   ├── Virtual Network
+│   │
+│   ├── Subnet 1
+│   ├── Subnet 2
+│   └── Subnet 3
 
-A **Virtual Network (VNet)** provides the private network where those resources communicate.
+```
 
-Inside a VNet, you create **Subnets** to divide the network into smaller sections for different workloads.
+---
 
-## Key Components
+## Definitions
 
-### 1. Resource Group
+## 1. Resource Group
 
-Think of a **Resource Group** as a **folder**.
+Think of it as a **folder**.
 
-It is a logical container that stores and organizes Azure resources.
+It stores Azure resources.
 
-### Example
+Example:
 
-```text
+```
+
 Week3-RG
 
 Contains
 
-- Virtual Machine (VM)
-- Storage Account
-- Virtual Network (VNet)
-- Public IP
-- Network Security Group (NSG)
-- Disk
-- AKS Cluster
+VM
+Storage
+Virtual Network
+Public IP
+NSG
+Disk
+AKS
+
 ```
 
-Everything related to your project stays together inside the same Resource Group.
+Everything stays together.
 
-If you delete the **Resource Group**, everything inside it is deleted as well.
+If my delete the Resource Group...
+
+Everything inside disappears.
 
 ---
 
-### 2. Virtual Network (VNet)
+## 2. Virtual Network (VNet)
 
-Now imagine your home has Wi-Fi.
+Now imagine my home has Wi-Fi.
 
-Only the devices connected to that Wi-Fi can communicate with each other easily.
+Only devices connected to that Wi-Fi can communicate easily.
 
 Azure also needs a network.
 
-That network is called a **Virtual Network (VNet)**.
+That network is called a
 
-A VNet provides:
+**Virtual Network (VNet).**
 
-- Private communication
-- IP addresses
-- Security
-- Isolation
+It provides:
 
-Without a VNet, your Virtual Machine has nowhere to communicate privately with other Azure resources.
+* Private communication
+* IP addresses
+* Security
+* Isolation
+
+Without a VNet...
+
+my VM has nowhere to live.
 
 ---
 
-### 3. Subnet
+## 3. Subnet
 
-A **Subnet** is a smaller section of a Virtual Network.
+A subnet is a smaller part of a VNet.
 
-Imagine your house.
+Imagine my house.
 
-```text
+```
+
 House
 
 Living Room
@@ -155,31 +165,31 @@ Living Room
 Kitchen
 
 Bedroom
+
 ```
 
-It is still one house.
+Still one house.
 
-It is simply divided into different rooms.
+Just divided.
 
-Azure works in exactly the same way.
+Exactly the same.
 
-```text
+```
+
 VNet
 
-Frontend Subnet
+Frontend subnet
 
-Backend Subnet
+Backend subnet
 
-Database Subnet
+Database subnet
+
 ```
-
-A subnet divides a Virtual Network into smaller logical sections.
-
-This helps organize resources based on their role, such as frontend servers, backend servers, or databases. It also improves security and network management.
 
 ---
 
 ## Diagram
+
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/17beda92-0ab6-4212-8590-8b2ced6bc41c" />
 
@@ -187,120 +197,117 @@ This helps organize resources based on their role, such as frontend servers, bac
 
 ## How They Work Together
 
-Suppose you're creating a Virtual Machine (VM).
+Suppose I am creating a VM.
 
-Azure asks you a few questions in a specific order.
+Azure asks:
 
-### Step 1
+Step 1
 
-**Where should I save this VM?**
+Where should I save this VM?
 
 Answer:
 
-```text
+```
+
 Resource Group
+
 ```
 
-### Step 2
+Step 2
 
-**Which network should this VM use?**
+Which network should it use?
 
 Answer:
 
-```text
-Virtual Network (VNet)
 ```
 
-### Step 3
+Virtual Network
 
-**Which part of the network should this VM be placed in?**
+```
+
+Step 3
+
+Which part of the network?
 
 Answer:
 
-```text
+```
+
 Subnet
+
 ```
 
-This is why Azure asks for these resources in the following order:
-
-**Resource Group → Virtual Network → Subnet**
+That's why Azure asks them in this order.
 
 ---
 
 ## Example
 
-Suppose you're building a shopping website.
+Suppose I'm making a shopping website.
 
-```text
+```
+
 Week3-RG
+
 ```
 
-Inside it:
+Inside:
 
-```text
+```
+
 Shopping-VNet
+
 ```
 
-Inside the Virtual Network:
+Inside:
 
-```text
-Frontend Subnet
-
-Backend Subnet
-
-Database Subnet
 ```
 
-Now place your resources:
+Frontend subnet
 
-```text
+Backend subnet
+
+Database subnet
+
+```
+
+Then:
+
+```
+
 VM1
+
 Frontend
 
 VM2
+
 Backend
 
 SQL Server
+
 ```
 
-Each resource stays in its appropriate subnet.
-
-This organization improves security, simplifies management, and makes the network easier to scale as your application grows.
+Each stays in its own subnet.
 
 ---
 
 ## Comparison Table
 
-| Feature | Resource Group | Virtual Network (VNet) | Subnet |
-|---------|----------------|------------------------|--------|
-| What is it? | Logical container | Private network | Smaller network inside a VNet |
-| Purpose | Organize Azure resources | Allow secure communication | Divide the network into smaller sections |
-| Contains | VM, Storage, VNet, NSG, Public IP, etc. | Subnets | Virtual Machines and other resources |
-| Can communicate? | No | Yes | Yes |
-| Similar to | Folder | House | Rooms in the house |
-| Deleted? | Deletes all contained resources | Deletes the network | Deletes only that subnet |
+| Feature          | Resource Group                  | Virtual Network (VNet) | Subnet                               |
+| ---------------- | ------------------------------- | ---------------------- | ------------------------------------ |
+| What is it?      | Logical container               | Private network        | Smaller network inside VNet          |
+| Purpose          | Organize Azure resources        | Allow communication    | Divide network into sections         |
+| Contains         | VM, Storage, VNet, NSG, etc.    | Subnets                | Virtual machines and other resources |
+| Can communicate? | No                              | Yes                    | Yes                                  |
+| Similar to       | Folder                          | House                  | Rooms in the house                   |
+| Deleted?         | Deletes all contained resources | Deletes network        | Deletes only that subnet             |
 
 ---
 
-## Quick Memory Trick
+Think:
 
-Think of Azure resources like this:
-
-```text
-Resource Group
-
-↓
-
-Virtual Network (VNet)
-
-↓
-
-Subnet
 ```
 
-Or even more simply:
-
-```text
 Folder
 
 ↓
@@ -310,242 +317,217 @@ Network
 ↓
 
 Small Network
+
 ```
 
-Remember:
+or
 
-- A **Resource Group** organizes resources.
-- A **Virtual Network (VNet)** provides the network.
-- A **Subnet** divides that network into smaller sections.
+```
+
+Resource Group
+
+↓
+
+VNet
+
+↓
+
+Subnet
+
+```
 
 ---
 
-## Final Answer
-
-> A **Resource Group** is a logical container that organizes related Azure resources, making them easier to manage, monitor, and delete together.
->
-> A **Virtual Network (VNet)** provides a private network where Azure resources can securely communicate with each other.
->
-> A **Subnet** is a smaller section within a VNet that helps organize resources based on their role, such as frontend, backend, or database servers.
->
-> A simple analogy is that a **Resource Group** is like a cupboard, the **Virtual Network (VNet)** is like a shelf inside the cupboard, and **Subnets** are the individual compartments on that shelf used to organize different items.
+> A Resource Group is a logical container that organizes related Azure resources, making them easier to manage, monitor, and delete together. A Virtual Network, or VNet, provides a private network where Azure resources can securely communicate with each other. A Subnet is a smaller section within a VNet that helps organize resources based on their role, such as frontend, backend, or database servers. An easy analogy is that a Resource Group is like a cupboard, the VNet is a shelf inside it, and Subnets are compartments on that shelf used to organize different items.
 
 ---
 
 ## Common Questions
 
-### Can a Resource Group have multiple VNets?
+## Can a Resource Group have multiple VNets?
 
-✅ Yes.
-
-A Resource Group can contain one or many Virtual Networks, depending on your design.
+Yes.
 
 ---
 
-### Can a VNet have multiple subnets?
+## Can a VNet have multiple subnets?
 
-✅ Yes.
-
-A Virtual Network can contain multiple subnets, such as:
-
-- Frontend
-- Backend
-- Database
-- Bastion
-- AKS
+Yes.
 
 ---
 
-### Can a subnet exist without a VNet?
+## Can a subnet exist without a VNet?
 
-❌ No.
-
-A subnet must always belong to a Virtual Network.
+No.
 
 ---
 
-### Can a VM exist without a subnet?
+## Can a VM exist without a subnet?
 
-❌ No.
-
-Every Azure Virtual Machine must be connected to a subnet.
+No.
 
 ---
 
-### Can a Resource Group contain many different resources?
+## Can a Resource Group contain many different resources?
 
-✅ Yes.
+Yes.
 
-A Resource Group can contain many Azure resources, including Virtual Machines, Storage Accounts, Virtual Networks, Network Security Groups, Public IP addresses, Managed Disks, AKS clusters, and more.
-
----
-
-### Q2. What is the difference between `10.0.0.0/16` and `10.0.1.0/24`? Explain how many addresses each provides and when you would use them.
 
 ---
+
+
+
+# Q2.
+
+What is the difference between `10.0.0.0/16` and `10.0.1.0/24`? Explain how many addresses each provides and when I would use them.
 
 ## Answer
 
-## Step 1: Why Do We Need IP Addresses?
+## Step 1: Why do we even need IP addresses?
 
-Imagine your city.
+Imagine my city.
 
 Every house has a unique address.
 
-For example:
+Example:
 
-```text
+```
+
 House 1 → 101
 House 2 → 102
 House 3 → 103
+
 ```
 
-Without house numbers, the postman would never know where to deliver your parcel.
+Without house numbers, the postman wouldn't know where to deliver my parcel.
 
-Similarly, every device connected to a network requires a unique IP address.
+Similarly, every device on a network needs a unique IP address.
 
-For example:
+```
 
-```text
-Laptop   → 10.0.0.4
+Laptop  → 10.0.0.4
 VM       → 10.0.0.5
 Database → 10.0.0.6
+
 ```
 
-An **IP address** is simply the unique address assigned to a device on a network.
+An IP address is simply the **address of a device on a network**.
 
 ---
 
 ## Step 2: What is a CIDR Block?
 
-**CIDR (Classless Inter-Domain Routing)** is a compact way of writing an IP address together with its network size.
+CIDR (Classless Inter-Domain Routing) tells us:
+
+It's a compact way to write an IP address + its network size together.
 
 Example:
 
-```text
-192.168.1.0/24
 ```
 
-The **`/24`** is called the **prefix length**.
+192.168.1.0/24
 
-It tells us:
+```
 
-- How many bits are reserved for the **network**.
-- How many bits remain available for **hosts (devices)**.
+The `/24` part is called the prefix length - it tells me how many bits are reserved for the network, and how many are left for hosts (devices).
 
----
+> **How big is this network?**
 
-### How Big Is This Network?
+Look at this:
 
-Consider the following network:
+```
 
-```text
 10.0.0.0/16
+
 ```
 
-It consists of two parts:
+It has two parts:
 
-```text
+```
+
 10.0.0.0   → Network Address
-/16        → Network Prefix Length
-```
+/16        → Size of the network
 
-Think of **`/16`** as saying:
+````
 
-> **"I'm reserving a very large neighborhood."**
+Think of `/16` as saying:
+
+> "I'm reserving a very large neighborhood."
 
 ---
 
-### What Does `/24` Mean?
+## What does /24 mean in 192.168.1.0/24?
 
-Take this example:
+- An IP address has 32 bits total.
+- /24 means subnet mask is 255.255.255.0 – last 8 bits for hosts.
+- /24 means → first 24 bits = network, remaining 8 bits = hosts
 
-```text
-192.168.1.0/24
+```bash
+192.168.1  .  0
+←  24 bits  → ← 8 bits →
+  (network)    (hosts)
+````
+
+Subnet mask equivalent:
+
 ```
-
-An IPv4 address contains **32 bits**.
-
-With **`/24`**:
-
-- The first **24 bits** identify the **network**.
-- The remaining **8 bits** identify individual **hosts**.
-
-```text
-192.168.1 . 0
-← 24 bits → ← 8 bits →
- (Network)   (Hosts)
-```
-
-Equivalent subnet mask:
-
-```text
 255.255.255.0
 ```
 
-This network covers the address range:
+So:
 
-```text
-192.168.1.0
-       to
-192.168.1.255
+```
+192.168.1.0/24
 ```
 
-Total addresses:
+covers addresses from:
 
-```text
-256
+```
+192.168.1.0 to 192.168.1.255
 ```
 
----
+That's:
 
-## Usable Host Calculation
-
-Formula:
-
-```text
-Usable Hosts = 2^(32 − CIDR) − 2
 ```
-
-> Note: The formula 2^(32 − CIDR) − 2 applies to general IPv4 networking. In Azure, an additional 3 IP addresses are reserved, making 251 usable IP addresses in a /24 subnet.
-
-Examples:
-
-- `/24` → **254 usable hosts**
-- `/16` → **65,534 usable hosts**
-- `/28` → **14 usable hosts**
-
----
-
-### Why Do We Create Subnets?
-
-Subnetting helps us:
-
-- Improve security.
-- Organize resources.
-- Reduce unnecessary broadcast traffic.
-- Use IP addresses more efficiently.
-
-Every subnet reserves two special addresses:
-
-- **First Address** → Network Address
-- **Last Address** → Broadcast Address
-
-Therefore:
-
-```text
-Usable Hosts = Total Addresses − 2
+256 addresses in one network.
 ```
 
 ---
 
-## CIDR Comparison Table
+## Usable Hosts Calculation
 
-| CIDR | Subnet Mask | Total IPs | Usable Hosts |
-|------|-------------|----------:|-------------:|
-| /24 | 255.255.255.0 | 256 | 254 |
-| /16 | 255.255.0.0 | 65,536 | 65,534 |
-| /28 | 255.255.255.240 | 16 | 14 |
+```
+Usable Hosts = 2^(32 - CIDR) - 2
+```
+
+* /24: 254 (total 256, minus network and broadcast)
+* /16: 65534
+* /28: 14
+
+**Why subnet?**
+
+* To isolate groups/devices, improve security, and better utilize address space.
+
+In every subnet, 2 addresses are always reserved:
+
+* First address → Network address / CIDR base IP (identifies the subnet itself)
+* Last address → Broadcast address / Broadcast IP (sends data to all devices in subnet)
+
+So usable:
+
+```
+Total − 2
+```
+
+---
+
+## Table: CIDR, Subnet Mask, Total IPs, Usable Hosts
+
+| CIDR | Subnet Mask     | Total IPs  | Usable Hosts |
+| ---- | --------------- | ---------- | ------------ |
+| /24  | 255.255.255.0   | **256**    | 254          |
+| /16  | 255.255.0.0     | **65,536** | 65,534       |
+| /28  | 255.255.255.240 | **16**     | 14           |
 
 <img width="1372" height="736" alt="image" src="https://github.com/user-attachments/assets/54d04c7e-6a99-4df5-9943-bae46bc8dc2d" />
 
@@ -553,310 +535,457 @@ Usable Hosts = Total Addresses − 2
 
 ---
 
-## Step 3: Understanding `/16` vs `/24` with a School Analogy
+## Step 3: Analogy
 
-Imagine a school.
+Imagine my school.
 
-The school has many classrooms.
+The principal asks:
 
-```text
-School
-│
-├── Class 1
-├── Class 2
-├── Class 3
-├── Class 4
-└── Class 5
+"How many students should we prepare classrooms for?"
+
+Option 1:
+
+```
+20 students
 ```
 
-Now compare this to Azure networking.
+Small school.
 
-```text
-Virtual Network (10.0.0.0/16)
-│
-├── Frontend Subnet (10.0.1.0/24)
-├── Backend Subnet  (10.0.2.0/24)
-├── Database Subnet (10.0.3.0/24)
-└── AKS Subnet      (10.0.4.0/24)
+Option 2:
+
+```
+500 students
 ```
 
-The **Virtual Network** is like the entire school, while each **Subnet** is like an individual classroom.
+Big school - students all sharing one giant classroom. Chaos. Nobody can hear anyone. One person sneezes and everyone knows.
+
+CIDR works exactly like that.
+
+Subnetting is like dividing that school into separate classrooms - each with its own group, its own rules, its own door.
+
+A **smaller number after `/` means a bigger network.**
+
+```
+/16 → BIG network
+
+/24 → SMALLER network
+```
+
+This is opposite of what many beginners expect.
+
+## Benefits:
+
+* **Security** - a breach in one subnet doesn't automatically spread to others
+* **Performance** - less broadcast traffic (devices stop shouting to the entire network)
+* **Organization** - HR team on one subnet, Engineering on another, Database servers on another
+* **Control** - apply different firewall rules per subnet
+
+> On AWS, this is exactly why I have **public subnets** (for web servers) and **private subnets** (for databases) inside a VPC.
 
 ---
 
-## Understanding `10.0.0.0/16`
+## Step 4: Real-Life Analogy
 
-```text
-Network: 10.0.0.0/16
+Imagine a housing society.
+
+Large Society
+
+```
+1000 houses
 ```
 
-This is a **large network**.
+Small Society
 
-It provides:
-
-- **65,536 total IP addresses**
-- **65,534 usable IP addresses**
-
-A `/16` network is typically used for the **entire Virtual Network (VNet)** because it provides enough address space for multiple subnets.
-
----
-
-## Understanding `10.0.1.0/24`
-
-```text
-Subnet: 10.0.1.0/24
+```
+100 houses
 ```
 
-This is a **smaller network** created inside the `/16` Virtual Network.
+Similarly,
 
-It provides:
-
-- **256 total IP addresses**
-- **254 usable IP addresses**
-
-A `/24` subnet is commonly used for a specific workload, such as:
-
-- Frontend
-- Backend
-- Database
-- AKS
-- Bastion
-
----
-
-## Visual Representation
-
-```text
+```
 10.0.0.0/16
-│
-├── 10.0.1.0/24  → Frontend
-├── 10.0.2.0/24  → Backend
-├── 10.0.3.0/24  → Database
-└── 10.0.4.0/24  → AKS
 ```
 
-Notice that **all `/24` subnets belong to the same `/16` Virtual Network.**
+is a large housing society.
 
----
-
-## Why Not Make Everything `/16`?
-
-Imagine giving every classroom in a school the entire school building.
-
-That wouldn't make sense.
-
-Instead, you divide the building into classrooms so that each class has its own dedicated space.
-
-Azure networking follows the same principle.
-
-Using smaller subnets:
-
-- Improves organization.
-- Enhances security.
-- Simplifies management.
-- Makes future expansion easier.
-
----
-
-## Relationship Between `/16` and `/24`
-
-Think of it like this:
-
-```text
-10.0.0.0/16
-        │
-        ├── 10.0.1.0/24
-        ├── 10.0.2.0/24
-        ├── 10.0.3.0/24
-        └── 10.0.4.0/24
 ```
-
-A `/16` network is the **parent network**, while the `/24` networks are **child subnets** created from it.
-
----
-
----
-
-## Azure Special Rule: Azure Reserves 5 IP Addresses
-
-In Azure, you **cannot use all the IP addresses** in a subnet.
-
-Azure automatically reserves **5 IP addresses** in every subnet for its own internal services.
-
-For example, consider the following subnet:
-
-```text
 10.0.1.0/24
 ```
 
-A `/24` subnet contains:
-
-```text
-Total IP Addresses = 256
-```
-
-Normally, you might think:
-
-```text
-Usable IP Addresses = 254
-```
-
-However, Azure reserves **5 IP addresses**, so the number of IP addresses available for your resources becomes:
-
-```text
-256 Total IP Addresses
-− 5 Reserved by Azure
------------------------
-251 Available IP Addresses
-```
-
-### Azure Reserved IP Addresses
-
-| IP Address | Reserved For |
-|------------|--------------|
-| First IP (`.0`) | Network Address |
-| Second IP (`.1`) | Azure Default Gateway |
-| Third IP (`.2`) | Azure DNS Mapping |
-| Fourth IP (`.3`) | Reserved for Future Azure Services |
-| Last IP (`.255`) | Broadcast (Reserved by Azure) |
-
-> **Note:** Although Azure reserves the last IP address, Azure VNets do **not** support traditional Layer 2 broadcast like on-premises networks. It is simply unavailable for customer use.
+is just one small block inside that society.
 
 ---
 
-## Real Azure Example
+## Step 5: Visual Diagram
 
-Suppose you create the following Virtual Network:
-
-```text
-VNet
+```
 10.0.0.0/16
+
++------------------------------------------------------+
+|                                                      |
+| 10.0.0.x                                              |
+| 10.0.1.x                                              |
+| 10.0.2.x                                              |
+| 10.0.3.x                                              |
+| 10.0.4.x                                              |
+| .....                                                  |
+| 10.0.255.x                                             |
+|                                                      |
++------------------------------------------------------+
 ```
 
-Inside this Virtual Network, you create multiple subnets:
+Inside this large network, I can create many smaller `/24` subnets.
 
-```text
-Frontend Subnet  → 10.0.1.0/24
+Example:
 
-Backend Subnet   → 10.0.2.0/24
+```
+10.0.0.0/24
 
-Database Subnet  → 10.0.3.0/24
+10.0.1.0/24
 
-AKS Subnet       → 10.0.4.0/24
+10.0.2.0/24
+
+10.0.3.0/24
 ```
 
-Each subnet provides approximately **251 usable IP addresses** in Azure after Azure reserves its required IP addresses.
-
-This design allows you to isolate workloads while keeping everything inside a single Virtual Network.
+All of these fit inside the `/16` network.
 
 ---
 
-## `/16` vs `/24` Comparison
+## Step 6: How Many IP Addresses?
 
-| Feature | `10.0.0.0/16` | `10.0.1.0/24` |
-|---------|---------------|---------------|
-| Network Type | Large Virtual Network | Smaller Subnet |
-| Total IP Addresses | 65,536 | 256 |
-| Usable Hosts (General Networking) | 65,534 | 254 |
-| Available IPs in Azure | Azure reserves 5 IPs per subnet | 251 usable after Azure reservations |
-| Best Use | Entire VNet | Individual application subnet |
-| Example | Company Network | Frontend, Backend, Database, AKS |
+## A. `10.0.0.0/16`
+
+Formula:
+
+```
+
+2^(32-16)
+
+=
+
+2^16
+
+=
+
+65,536 IP addresses
+
+```
+
+So,
+
+```
+
+10.0.0.0/16
+
+↓
+
+65,536 addresses
+
+```
 
 ---
 
-## Quick Revision
+## B. `10.0.1.0/24`
 
-Remember these points:
+Formula:
 
-- **`/16`** creates a large network.
-- **`/24`** creates a smaller subnet inside that network.
-- A `/16` network can contain many `/24` subnets.
-- Azure reserves **5 IP addresses** in every subnet.
-- Smaller subnets improve organization, security, and scalability.
+```
+
+2^(32-24)
+
+=
+
+2^8
+
+=
+
+256 IP addresses
+
+```
+
+So,
+
+```
+
+10.0.1.0/24
+
+↓
+
+256 addresses
+
+```
 
 ---
 
-## Interview Answer
+## Step 7: Azure Special Rule
 
-> **`10.0.0.0/16`** represents a large Virtual Network containing **65,536 IP addresses**, making it suitable for creating multiple subnets.
->
-> **`10.0.1.0/24`** is a smaller subnet within that Virtual Network. It contains **256 IP addresses**, but in Azure, only **251 IP addresses are available** because Azure reserves **5 IP addresses** for internal networking services.
->
-> In practice, a `/16` network is commonly used for the overall Virtual Network, while `/24` subnets are used to separate workloads such as frontend, backend, database, and AKS resources.
+Azure reserves **5 IP addresses in every subnet**.
+
+For a `/24` subnet:
+
+```
+
+Total IPs = 256
+
+Azure reserves = 5
+
+Usable = 251
+
+```
+
+For a `/16` network:
+
+```
+
+65,536 total addresses
+
+```
+
+(The 5 reserved IP rule applies to each subnet I create, not to the whole VNet.)
+
+---
+
+## Step 8: Where Would I Use Them?
+
+## Use `/16` when:
+
+* Building a complete company network
+* Creating many subnets
+* Planning for future growth
+* Hosting hundreds or thousands of VMs
+
+Example:
+
+```
+
+Company
+
+↓
+
+One VNet
+
+↓
+
+Frontend
+
+Backend
+
+Database
+
+AKS
+
+Bastion
+
+VPN
+
+```
+
+I'll need lots of IP addresses.
+
+---
+
+## Use `/24` when:
+
+* Small project
+* One subnet
+* Development lab
+* Testing environment
+
+Example:
+
+```
+
+One VM
+
+One Database
+
+One Jump Server
+
+```
+
+No need for thousands of IP addresses.
+
+---
+
+## Step 9: Relationship Between `/16` and `/24`
+
+```
+
+10.0.0.0/16
+
+│
+
+├──10.0.0.0/24
+
+├──10.0.1.0/24
+
+├──10.0.2.0/24
+
+├──10.0.3.0/24
+
+├──10.0.4.0/24
+
+└── ...
+
+```
+
+Think of `/16` as a **big pizza**.
+
+Each `/24` is **one slice of that pizza**.
+
+---
+
+## Step 10: Comparison Table
+
+| Feature                    | `10.0.0.0/16`                                  | `10.0.1.0/24`                                            |
+| -------------------------- | ---------------------------------------------- | -------------------------------------------------------- |
+| Network Size               | Large                                          | Small                                                    |
+| Total IP Addresses         | 65,536                                         | 256                                                      |
+| Usable IPs in Azure        | Depends on subnets; each subnet reserves 5 IPs | 251 usable (256 total − 5 reserved by Azure)             |
+| Best For                   | Large production VNet                          | Single subnet, labs, testing                             |
+| Future Expansion           | Excellent                                      | Limited                                                  |
+| Contains Multiple Subnets? | Yes                                            | No (it's already a subnet-sized network in most designs) |
+
+---
+
+## Step 11: Remember
+
+```
+
+Smaller CIDR number
+
+↓
+
+Bigger Network
+
+↓
+
+More IP addresses
+
+```
+```
+
+/16
+
+↓
+
+BIG
+
+```
+```
+
+/24
+
+↓
+
+SMALL
+
+```
+
+Remember:
+
+> **The smaller the number after the slash, the larger the network.**
+
+---
+
+> `10.0.0.0/16` is a larger network that provides 65,536 IP addresses and is commonly used for a Virtual Network because it allows room to create multiple subnets in the future. `10.0.1.0/24` is a smaller network with 256 IP addresses (251 usable in Azure after Azure reserves 5 IPs) and is typically used as an individual subnet for a specific workload such as frontend servers or a development environment. I usually choose `/16` for the overall VNet and `/24` for each subnet because it provides good organization and room for growth.
 
 ---
 
 ## Common Questions
 
-### Can a `/16` network contain multiple `/24` subnets?
+## Can I create multiple `/24` subnets inside one `/16` VNet?
 
-✅ Yes.
-
-A `/16` Virtual Network can contain many `/24` subnets, depending on your network design.
+Yes.
 
 ---
 
-### Which is larger: `/16` or `/24`?
+## Is `/16` larger than `/24`?
 
-✅ `/16` is much larger than `/24`.
-
-A `/16` network contains **65,536 IP addresses**, whereas a `/24` subnet contains **256 IP addresses**.
+Yes.
 
 ---
 
-### Why don't we create one huge `/16` subnet for everything?
+## Which provides more IP addresses?
 
-Using separate `/24` subnets provides:
-
-- Better security
-- Easier management
-- Clear workload separation
-- Simpler network troubleshooting
-- Better scalability
+`/16`
 
 ---
 
-### Why does Azure reserve 5 IP addresses?
+## Does Azure reserve some IP addresses?
 
-Azure reserves these IP addresses to provide essential platform services such as routing, DNS, and internal networking. These reserved addresses cannot be assigned to your resources.
+Yes, Azure reserves **5 IP addresses in every subnet**.
 
 ---
 
-#### Q3.
+## What is CIDR?
+
+Classless Inter-Domain Routing (CIDR) is a compact way to write IP address ranges and their network masks.
+
+---
+
+## Why is CIDR notation useful?
+
+It lets network engineers allocate address space precisely, aggregate routes and keep routing tables smaller.
+
+---
+
+## How is an IP address structured?
+
+An IPv4 address consists of four 8-bit numbers (octets) ranging from 0 to 255, separated by dots.
+
+---
+
+## What does the number after the slash mean?
+
+The slash value (e.g. /24) shows how many bits belong to the network prefix; the rest identify individual hosts.
+
+---
+
+## Reference:
+
+- https://echoflare.ca/tools/subnet-calculator/
+- https://cidr.xyz/
+
+---
+
+
+# Q3.
 
 Create a VNet and subnet in the Azure portal, then attach screenshots showing both.
 
-#### Answer
+## Answer
 
-#### Before We Start
+## Before We Start
 
 Remember what we learned?
 
 <img width="452" height="480" alt="image" src="https://github.com/user-attachments/assets/8c365ad8-0143-4f4b-bfb7-5b4854e83f05" />
 
-Azure requires you to create these resources in the following order.
+Azure will ask me to create them in this order.
 
 ---
 
-#### Analogy
+## Analogy
 
-Imagine your mom says:
+Imagine my mom says:
 
 > "We're building a new house."
 
-First, you buy the land.
+First, I buy land.
 
 ```text
 Land
-```
+````
 
-Next, you build the house.
+Then I build the house.
 
 ```text
 House
 ```
 
-Finally, you divide the house into rooms.
+Then I divide the house into rooms.
 
 ```text
 Living Room
@@ -866,7 +995,7 @@ Kitchen
 Bedroom
 ```
 
-Azure works in exactly the same way.
+Azure is exactly the same.
 
 ```text
 Resource Group
@@ -882,29 +1011,29 @@ Subnet
 
 ---
 
-#### Step 1: Sign In to Azure
+## Step 1: Sign in to Azure
 
-Open your browser and go to:
+Open my browser and go to:
 
-**https://portal.azure.com**
+**[https://portal.azure.com](https://portal.azure.com)**
 
-Sign in with your Azure account.
+Log in with my Azure account.
 
-After signing in, you'll see the Azure portal dashboard.
+I'll see the Azure Portal dashboard.
 
 <img width="1608" height="990" alt="image" src="https://github.com/user-attachments/assets/684c87fc-067e-43c0-b29b-52e286f28114" />
 
 ---
 
-#### Step 2: Create a Resource Group
+## Step 2: Create a Resource Group
 
-##### Why?
+## Why?
 
-Azure needs a place to organize and manage all related resources together.
+Azure needs a place to keep all my resources together.
 
-Think of it as creating a folder before saving files on your computer.
+Think of it as creating a folder before saving files.
 
-#### Navigation
+## Click
 
 ```text
 ☰ Menu
@@ -922,15 +1051,15 @@ Create
 
 ---
 
-#### Enter the Following Values
+## Fill these values
 
-| Field | Value |
-|-------|-------|
-| Subscription | Your Azure Subscription |
-| Resource Group Name | `week3-rg` |
-| Region | East US (or the same region that you will use for all resources) |
+| Field               | Value                                                  |
+| ------------------- | ------------------------------------------------------ |
+| Subscription        | my Azure Subscription                                |
+| Resource Group Name | `week3-rg`                                             |
+| Region              | East US (or the same region I'll use for everything) |
 
-> **Important:** Use the **same region** for every resource in this assignment to avoid compatibility issues.
+> Important: Use the **same region** for all resources in this assignment to avoid compatibility issues.
 
 ---
 
@@ -944,7 +1073,7 @@ Review + Create
 Create
 ```
 
-Wait approximately **20–30 seconds** for the deployment to complete.
+Wait about 20–30 seconds.
 
 <img width="698" height="1172" alt="image" src="https://github.com/user-attachments/assets/b7346b77-229b-442d-8468-9977766dbf26" />
 
@@ -952,9 +1081,9 @@ Wait approximately **20–30 seconds** for the deployment to complete.
 
 ---
 
-#### Step 3: Create a Virtual Network (VNet)
+## Step 3: Create a Virtual Network (VNet)
 
-Search for:
+Search:
 
 ```text
 Virtual Networks
@@ -970,15 +1099,13 @@ Create
 
 ---
 
-#### Basics Tab
+## Basics Tab
 
-Enter the following values:
-
-| Field | Value |
-|-------|-------|
-| Resource Group | `week3-rg` |
-| Name | `week3-vnet` |
-| Region | Same region as the Resource Group |
+| Field          | Value                             |
+| -------------- | --------------------------------- |
+| Resource Group | `week3-rg`                        |
+| Name           | `week3-vnet`                      |
+| Region         | Same region as the Resource Group |
 
 Click:
 
@@ -988,19 +1115,19 @@ Next
 
 ---
 
-#### Step 4: Configure the IP Address Space
+## Step 4: Configure IP Addresses
 
-This is where the concepts from **Q2** become useful.
+This is where Q2 becomes useful.
 
-Azure may automatically populate the address space with:
+Azure may automatically create:
 
 ```text
 10.0.0.0/16
 ```
 
-If it does, keep the default value.
+Keep it.
 
-If it doesn't, enter:
+If not, enter:
 
 ```text
 10.0.0.0/16
@@ -1008,7 +1135,7 @@ If it doesn't, enter:
 
 ---
 
-You'll also see a default subnet.
+Now I'll see a subnet.
 
 Rename it.
 
@@ -1022,13 +1149,13 @@ default
 frontend-subnet
 ```
 
-Set the **Subnet Address Range** to:
+Subnet Address Range:
 
 ```text
 10.0.1.0/24
 ```
 
-Your network configuration should now look like this:
+So now my network looks like this:
 
 ```text
 week3-vnet
@@ -1039,7 +1166,7 @@ week3-vnet
 
 └── frontend-subnet
 
-    10.0.1.0/24
+10.0.1.0/24
 ```
 
 Click:
@@ -1052,7 +1179,7 @@ Review + Create
 Create
 ```
 
-Wait until Azure displays the following message:
+Wait until Azure says:
 
 ```text
 Deployment completed.
@@ -1074,27 +1201,28 @@ Deployment completed.
 
 ---
 
-#### What Just Happened?
 
-You created the following Azure networking resources:
+## What Just Happened?
+
+I created:
 
 ```text
 week3-rg
-    │
-    ▼
+        │
+        ▼
 week3-vnet
-    │
-    ▼
+        │
+        ▼
 frontend-subnet
-```
+````
 
-These resources form the foundation of almost every Azure network deployment.
+This is the foundation for almost every Azure network.
 
 ---
 
-#### Step 5: Verify the Virtual Network
+## Step 5: Verify the VNet
 
-Navigate to:
+Go to:
 
 ```text
 Virtual Networks
@@ -1104,7 +1232,7 @@ Virtual Networks
 week3-vnet
 ```
 
-You should see:
+I should see:
 
 ```text
 Address Space
@@ -1112,13 +1240,15 @@ Address Space
 10.0.0.0/16
 ```
 
+---
+
 Click:
 
 ```text
 Subnets
 ```
 
-You should see the following subnet:
+I should see:
 
 ```text
 frontend-subnet
@@ -1128,142 +1258,122 @@ frontend-subnet
 
 Congratulations!
 
-You have successfully created your first Azure virtual network.
+I've successfully created my first Azure network.
 
 ---
 
-#### Architecture Diagram
+## Diagram
 
 <img width="1122" height="1402" alt="image" src="https://github.com/user-attachments/assets/597e954d-329b-4b13-ab8e-90cb5fd67201" />
 
 ---
 
-#### Why Do We Create a `/16` VNet?
+## Why Do We Create a `/16` VNet?
 
-A `/16` VNet provides enough address space to create multiple subnets as your infrastructure grows.
-
-For example:
+Because later we can create more subnets:
 
 ```text
 10.0.1.0/24
+
 Frontend
 
 10.0.2.0/24
+
 Backend
 
 10.0.3.0/24
+
 Database
 
 10.0.4.0/24
+
 AKS
 ```
 
-All of these subnets fit within the following VNet address space:
+All of them fit inside:
 
 ```text
 10.0.0.0/16
 ```
 
-This is why most organizations create a **larger VNet** first and then divide it into **smaller subnets** based on workload requirements.
+This is why companies usually create a **larger VNet** and then divide it into **smaller subnets**.
 
 ---
 
-#### Common Beginner Mistakes
+## Common Beginner Mistakes
 
-**Incorrect**
+Creating the VNet in one region and the VM in another.
 
-Creating the VNet in one region and the virtual machine in another region.
-
-**Correct**
-
-Always deploy related resources in the same Azure region.
+Always use the same region.
 
 ---
-
-**Incorrect**
 
 Creating a `/24` VNet.
 
-**Correct**
-
-Use a `/16` address space for the VNet and `/24` address spaces for subnets unless your assignment or design requires a different configuration.
+Use `/16` for the VNet and `/24` for the subnet unless the assignment specifies otherwise.
 
 ---
 
-**Incorrect**
-
 Creating resources in different Resource Groups.
 
-**Correct**
+Keep everything in **`week3-rg`**.
 
-Keep all resources inside **`week3-rg`**.
-
-This also makes cleanup much easier.
+This also makes cleanup easy:
 
 ```bash
 az group delete --name week3-rg --yes --no-wait
 ```
 
-Deleting the Resource Group removes every resource contained within it.
+Deleting the Resource Group deletes everything inside it.
 
 ---
 
-#### Interview Answer
-
-> A Virtual Network (VNet) is a private network in Azure that enables Azure resources to communicate securely with one another. A subnet is a smaller logical division within the VNet that helps organize resources based on their function, such as frontend, backend, or database workloads. In this lab, I created a VNet with the address space `10.0.0.0/16` and a subnet with the address range `10.0.1.0/24`. This design allows room for future expansion while maintaining an organized network structure.
+> A Virtual Network (VNet) is the private network where Azure resources communicate securely. A subnet is a smaller section of the VNet used to organize resources based on their role, such as frontend or backend. In this lab, I created a VNet with the address space `10.0.0.0/16` and a subnet with the address range `10.0.1.0/24`. This design provides room for future expansion while keeping workloads organized.
 
 ---
 
-#### Q4.
 
-What is the difference between a **Private IP** and a **Public IP**? Can a VM work without a Public IP? Explain.
+# Q4.
 
-#### Answer
+What is the difference between a **private IP** and a **public IP**? Can a VM work without a public IP? Explain.
 
-Networking is one of the core concepts in Azure, and understanding IP addressing is essential before working with virtual machines, load balancers, Azure Bastion, or Network Security Groups (NSGs).
+## Answer
 
-This is also a common interview question and forms the foundation for concepts covered in **Q5, Q7, Q10, and Q11**.
+## Step 1: What is an IP Address?
 
----
+Think of an IP address as a **home address**.
 
-#### Step 1: What Is an IP Address?
+If someone wants to send I a letter, they need my address.
 
-An IP address is a unique network address assigned to a device so that it can communicate with other devices over a network.
-
-Think of it as a home address.
-
-If someone wants to send you a letter, they need your home address.
-
-Similarly, when one computer wants to communicate with another, it needs the destination computer's IP address.
+Similarly, if one computer wants to communicate with another, it needs its IP address.
 
 Example:
 
 ```text
 VM
-
 ↓
 
 10.0.1.4
-```
+````
 
-The IP address shown above identifies the virtual machine within the network.
+This is the VM's address.
 
 ---
 
-#### Step 2: Types of IP Addresses
+## Step 2: Two Types of IP Addresses
 
-There are two main types of IP addresses used in Azure networking:
+There are **two main types**:
 
 1. Private IP
 2. Public IP
 
 ---
 
-#### Analogy
+## Analogy
 
-Imagine you live in an apartment building.
+Imagine you live in an apartment.
 
-Your apartment has:
+my apartment has:
 
 ```text
 Apartment Number
@@ -1280,14 +1390,14 @@ ABC Apartments,
 Mumbai
 ```
 
-The **apartment number** is meaningful only to people inside the building.
+The **flat number** only makes sense **inside the building**.
 
-The **building address** is what people outside the building use to locate it.
+The **building address** is what the outside world uses.
 
-Azure networking works in the same way.
+Now compare that to Azure.
 
 ```text
-Apartment Number
+Flat Number
 
 ↓
 
@@ -1302,11 +1412,11 @@ Public IP
 
 ---
 
-#### Real-World Example
+## Real-Life Example
 
 Suppose you work in an office.
 
-Inside the office, there are different departments:
+Inside the office:
 
 ```text
 HR
@@ -1316,17 +1426,19 @@ Finance
 IT
 ```
 
-Employees can easily move between departments because they are inside the same office.
+Everyone can walk to each other's desks.
 
-However, someone outside the company cannot directly enter the office without first accessing the main entrance.
+But someone outside the company cannot directly enter the office.
 
-Azure networking follows the same principle.
+The office has one main entrance.
+
+Azure works the same way.
 
 ---
 
-#### What Is a Private IP?
+## What is a Private IP?
 
-A Private IP address is used for communication **within an Azure Virtual Network (VNet)**.
+A Private IP is used **inside the Virtual Network (VNet)**.
 
 Example:
 
@@ -1342,33 +1454,33 @@ Database
 10.0.1.5
 ```
 
-Both resources belong to the same Virtual Network.
+Both are inside the same VNet.
 
-They can communicate directly using their Private IP addresses.
+They can communicate directly.
 
-However, these IP addresses are **not accessible from the internet**.
+The internet **cannot** reach these addresses.
 
 ---
 
-#### ASCII Diagram
+## Diagram
 
 ```text
 Internet
 
-❌ Cannot see
+Cannot see
 
 10.0.1.4
 
 10.0.1.5
 ```
 
-Only resources inside the Virtual Network can communicate directly using these Private IP addresses.
+Only devices inside the VNet can access them.
 
 ---
 
-#### What Is a Public IP?
+## What is a Public IP?
 
-A Public IP address is accessible over the internet.
+A Public IP is visible on the internet.
 
 Example:
 
@@ -1376,12 +1488,12 @@ Example:
 20.120.50.10
 ```
 
-Anyone who knows this IP address can attempt to connect, provided security rules such as Network Security Groups (NSGs) allow the traffic.
+Anyone who knows this IP can try to connect (subject to security rules like an NSG).
 
 Example:
 
 ```text
-Your Laptop
+my Laptop
 
 ↓
 
@@ -1395,50 +1507,54 @@ Internet
 
 Azure VM
 ```
+
 ---
 
-#### ASCII Diagram
+## Diagram
 
 ```text
                Internet
-                   │
-                   ▼
-              Public IP
-           20.120.50.10
-                   │
-                   ▼
-               Azure VM
-                   │
-                   ▼
-              Private IP
-               10.0.1.4
+                    │
+                    ▼
+          Public IP
+        20.120.50.10
+                    │
+                    ▼
+              Azure VM
+                    │
+                    ▼
+          Private IP
+            10.0.1.4
 ```
 
-The Public IP is like the **main entrance** to a building, while the Private IP is like the **room number** inside that building.
+The Public IP is like the **front gate**, and the Private IP is like the **room number inside the building**.
 
 ---
 
-#### Can a Virtual Machine Work Without a Public IP?
 
-**Yes. Absolutely.**
+## Can a VM Work Without a Public IP?
 
-This surprises many beginners, but an Azure Virtual Machine **does not require a Public IP address** to operate.
+**Yes! Absolutely.**
 
-A VM without a Public IP can still:
+This surprises many beginners.
 
-- Boot successfully.
-- Communicate with other virtual machines in the same Virtual Network.
-- Connect to Azure services, depending on the network configuration.
-- Be accessed securely using services such as Azure Bastion.
+A VM **does not need** a Public IP to run.
 
-The only limitation is that you **cannot connect directly to the VM from the public internet**.
+It can still:
+
+* Boot successfully
+* Communicate with other VMs in the same VNet
+* Connect to Azure services (depending on networking setup)
+* Be managed using services like Azure Bastion
+
+The only thing you **cannot** do is connect to it **directly from the internet**.
 
 ---
 
-#### Example 1: Virtual Machine with a Public IP
+## Example 1: VM with Public IP
 
 ```text
-Your Laptop
+my Laptop
 
 ↓
 
@@ -1450,17 +1566,17 @@ Public IP
 
 ↓
 
-Azure VM
-```
+VM
+````
 
-You can connect directly using SSH, provided that **port 22** is allowed by the Network Security Group (NSG).
+You can SSH directly (if port 22 is allowed).
 
 ---
 
-#### Example 2: Virtual Machine Without a Public IP
+## Example 2: VM without Public IP
 
 ```text
-Your Laptop
+my Laptop
 
 ↓
 
@@ -1472,33 +1588,33 @@ Azure Bastion
 
 ↓
 
-Azure VM
+VM
 
 Private IP Only
 ```
 
-The virtual machine continues to run normally, but it is **not exposed directly to the internet**.
+The VM is still running, but it isn't exposed to the internet.
 
-This is considered a more secure deployment model and is commonly used in production environments.
-
----
-
-#### Comparison Table
-
-| Feature | Private IP | Public IP |
-|---------|------------|-----------|
-| Visible on the Internet | No | Yes |
-| Used Inside a Virtual Network | Yes | No |
-| Can the Internet Connect Directly? | No | Yes (if permitted by the NSG) |
-| Security | More secure because it is private | Less secure because it is internet-facing |
-| Assignment | Usually remains with the VM's network configuration | Can be Static or Dynamic |
-| Example | `10.0.1.4` | `20.x.x.x` |
+This is considered **more secure**.
 
 ---
 
-#### Real-World Example
+## Comparison Table
 
-Consider an e-commerce application.
+| Feature                        | Private IP                                        | Public IP                                |
+| ------------------------------ | ------------------------------------------------- | ---------------------------------------- |
+| Visible on Internet?           | No                                                | Yes                                      |
+| Used Inside VNet?              | Yes                                               | No                                       |
+| Can Internet connect directly? | No                                                | Yes (if allowed by NSG)                  |
+| More Secure?                   | Yes                                               | Less secure because it's internet-facing |
+| Changes?                       | Usually stays with the VM's network configuration | Can be Static or Dynamic                 |
+| Example                        | `10.0.1.4`                                        | `20.x.x.x`                               |
+
+---
+
+## Real Company Example
+
+Suppose Amazon has:
 
 ```text
 Web Server
@@ -1508,9 +1624,9 @@ Web Server
 Public IP
 ```
 
-Customers need to access the website, so the web server requires a Public IP.
+Customers must reach the website.
 
-However:
+But:
 
 ```text
 Database Server
@@ -1520,11 +1636,11 @@ Database Server
 Private IP
 ```
 
-Customers should **never** connect directly to the database server.
+Customers should **never** connect directly to the database.
 
-Only the web server should communicate with the database.
+Only the web server should.
 
-The architecture looks like this:
+Architecture:
 
 ```text
 Internet
@@ -1546,17 +1662,17 @@ Private IP
 Database
 ```
 
-This is a common architecture used in production environments.
+This is a common production design.
 
 ---
 
-#### Why Not Assign a Public IP to Every Virtual Machine?
+## Why Not Give Every VM a Public IP?
 
-Imagine every room in your house had its own front door that opened directly onto the street.
+Imagine every room in my house had its own front door opening directly to the street.
 
 That would make it much easier for unwanted visitors to try every door.
 
-Instead, most houses have:
+Instead, you usually have:
 
 ```text
 One Main Gate
@@ -1570,68 +1686,44 @@ House
 Rooms
 ```
 
-Azure follows the same design principle.
-
-Only resources that must be accessible from the internet should have a Public IP address.
-
-Internal resources should use only Private IP addresses whenever possible.
-
-This approach improves security and reduces the attack surface.
+Azure follows the same principle.
 
 ---
 
-#### Common Beginner Mistakes
+## Common Beginner Mistakes
 
-**Incorrect**
+Thinking a VM needs a Public IP to run.
 
-Thinking that every virtual machine requires a Public IP address to function.
-
-**Correct**
-
-A virtual machine requires a Public IP only when it needs to be accessed directly from the internet.
+It only needs a Public IP if you want direct internet access.
 
 ---
 
-**Incorrect**
+Thinking a Private IP is accessible from home.
 
-Assuming a Private IP address can be accessed from your home or any internet connection.
-
-**Correct**
-
-A Private IP address is accessible only within its Virtual Network or through configured private connectivity solutions such as Azure VPN Gateway, ExpressRoute, or Azure Bastion.
+A Private IP is only reachable within its network (or through configured private connectivity).
 
 ---
 
-**Incorrect**
+Thinking a Public IP automatically allows login.
 
-Assuming that assigning a Public IP automatically allows users to connect to the virtual machine.
-
-**Correct**
-
-A Public IP address only makes the virtual machine reachable from the internet.
-
-Access still depends on:
-
-- Network Security Group (NSG) rules
-- The required service running on the VM (for example, SSH or RDP)
-- Authentication and authorization
+You also need an NSG rule permitting the traffic and the appropriate service (such as SSH) running.
 
 ---
 
-#### Interview Answer
 
-> A Private IP address is used for communication within an Azure Virtual Network and is not accessible from the public internet. A Public IP address is internet-routable and enables external users to connect to Azure resources, provided that security rules allow the traffic. A virtual machine can operate without a Public IP because it can still communicate within the Virtual Network and can be accessed securely using services such as Azure Bastion. In production environments, many organizations keep application servers and database servers on Private IP addresses to minimize internet exposure and improve security.
+
+> A Private IP is used for communication within an Azure Virtual Network and is not accessible from the internet. A Public IP is internet-routable and allows external users to connect to Azure resources, provided security rules permit it. A virtual machine can work without a Public IP because it can still communicate within the VNet and can be accessed securely using services like Azure Bastion. In production, many organizations keep application and database servers on Private IPs to reduce internet exposure.
 
 ---
 
-#### Quick Revision
+## Revision
 
 ```text
 Private IP
 
 ↓
 
-Inside Virtual Network
+Inside VNet
 
 ↓
 
@@ -1639,7 +1731,7 @@ More Secure
 
 ↓
 
-Not Reachable from the Internet
+Not reachable from Internet
 ```
 
 ```text
@@ -1655,171 +1747,209 @@ Direct Access Possible
 
 ↓
 
-Requires Proper Security Controls
+Requires Proper Security
 ```
 
 ---
 
-#### Q5.
 
-Create a VM with no inbound ports open and attempt to SSH. Explain the difference between a **"Connection Timed Out"** error and a **"Connection Refused"** error, and identify which one you received.
 
-#### Answer
+# Q5. Create a VM with no inbound ports open and attempt to SSH. Explain the difference between a **Connection Timed Out** error and a **Connection Refused** error, and which one you received.
 
-This is your first hands-on Azure networking troubleshooting exercise.
+## Answer
 
-It introduces several important networking concepts that are commonly discussed during technical interviews and frequently encountered in real-world environments.
+This is my first practical Azure networking troubleshooting lab.
 
-In this lab, you will learn:
+This lab helps you understand:
 
-- How to create your first Azure Virtual Machine (VM)
-- What SSH is and why it is used
-- What **No inbound ports** means
-- Why an SSH connection can fail
-- The difference between **Connection Timed Out** and **Connection Refused**
+* How to create an Azure Virtual Machine
+* How SSH works
+* What inbound ports mean
+* How Network Security Groups (NSGs) control access
+* The difference between **Connection Timed Out** and **Connection Refused**
 
 ---
 
-#### Step 1: What Is a Virtual Machine (VM)?
+## Step 1: What is an Azure Virtual Machine (VM)?
 
-A Virtual Machine (VM) is a software-based computer that runs inside Microsoft's Azure datacenters.
+A Virtual Machine is a computer running inside Microsoft's Azure datacenter.
 
-Just like a physical computer, a virtual machine includes:
+A physical computer has:
 
-- CPU
-- Memory (RAM)
-- Storage
-- An operating system
+```
+CPU
+RAM
+Storage
+Operating System
+```
 
-The only difference is that the hardware is virtualized and managed by Azure.
+An Azure VM has the same components:
 
-Think of it like this:
-
-```text
-Your Laptop
-
-        =
-
+```
 Azure Virtual Machine
+
++----------------+
+| Ubuntu Linux   |
+|                |
+| CPU            |
+| RAM            |
+| Disk           |
++----------------+
 ```
 
-Instead of running in your home or office, the VM runs in Microsoft's cloud infrastructure.
+The only difference is that the computer is hosted in the cloud instead of my home.
 
 ---
 
-#### Step 2: What Is SSH?
+## Step 2: What is SSH?
 
-SSH stands for **Secure Shell**.
+SSH stands for:
 
-It is a secure network protocol used to remotely connect to and manage Linux servers.
+> Secure Shell
 
-Rather than physically accessing the machine, you can securely run commands from your own computer.
+SSH allows you to securely connect to and manage a Linux machine remotely.
 
-This makes SSH one of the most commonly used administration tools for Linux virtual machines.
+Example:
 
----
+my laptop:
 
-#### Analogy
-
-Imagine your friend lives in another apartment building.
-
-You want to visit.
-
-There is one main entrance.
-
-If the entrance is locked, you cannot enter the building.
-
-SSH works in a similar way.
-
-Port **22** acts as the entrance used for SSH connections.
-
-If that port is blocked, you cannot establish a remote connection.
-
----
-
-#### Step 3: What Is a Port?
-
-Think of a house with multiple doors.
-
-```text
-House
-
-🚪 Front Door
-
-🚪 Back Door
-
-🚪 Garage Door
+```
+Terminal
 ```
 
-Each door serves a different purpose.
+connects to:
 
-Similarly, computers have multiple communication endpoints called **ports**.
+```
+Azure Linux VM
+```
 
-Each port is designed for a specific type of network communication.
-
-Some commonly used ports are:
-
-| Port | Purpose |
-|------|---------|
-| 22 | SSH (Linux Remote Login) |
-| 80 | HTTP |
-| 443 | HTTPS |
+You can then run commands remotely.
 
 ---
 
-#### Step 4: What Does "No Inbound Ports Open" Mean?
+## Simple Analogy 
 
-Imagine a house where every door is locked.
+Imagine my friend lives in another city.
 
-```text
-All Doors Locked
+You want to enter their house.
+
+The house has a door.
+
 ```
+my Location
 
-No one can enter.
-
-Azure works the same way.
-
-When you select:
-
-```text
-No Inbound Ports
-```
-
-Azure does **not** create a Network Security Group (NSG) rule that allows traffic from the internet.
-
-As a result, even though the virtual machine is running, incoming network connections are blocked.
-
----
-
-#### ASCII Diagram
-
-```text
-Your Laptop
-      │
+      |
+      |
       ▼
-Internet
-      │
+
+Friend's House
+
+      🚪
+```
+
+The door is like a network port.
+
+For Linux SSH:
+
+```
+Port 22 = SSH Door
+```
+
+If the door is closed, you cannot enter.
+
+---
+
+## Step 3: What is a Port?
+
+A port is a communication endpoint used by applications.
+
+Think of a computer as a building.
+
+```
+Computer Building
+
++----------------+
+| Door 22        | → SSH
+| Door 80        | → HTTP Website
+| Door 443       | → HTTPS Website
++----------------+
+```
+
+Common ports:
+
+| Port | Service | Purpose                     |
+| ---- | ------- | --------------------------- |
+| 22   | SSH     | Remote Linux administration |
+| 80   | HTTP    | Website traffic             |
+| 443  | HTTPS   | Secure website traffic      |
+
+---
+
+## Step 4: What Does "No Inbound Ports Open" Mean?
+
+When creating an Azure VM, Azure asks:
+
+```
+Allow inbound ports?
+```
+
+Inbound means:
+
+> Traffic coming from outside Azure into my VM.
+
+Example:
+
+```
+my Laptop
+
+      |
+      |
       ▼
+
 Azure VM
-
-SSH Port 22
-
-❌ Closed
 ```
 
-Result:
+If you choose:
 
-The SSH connection fails because traffic cannot reach the virtual machine.
+```
+Public inbound ports:
+
+None
+```
+
+Azure creates no rule allowing incoming connections.
 
 ---
 
-#### Step 5: Practical Lab
+## Network View
 
-##### Create a Virtual Machine
+Before:
 
-Navigate to:
+```
+Internet
 
-```text
+    |
+    ▼
+
+NSG
+
+22 SSH ❌ Blocked
+
+    |
+    ▼
+
+Azure VM
+```
+
+The VM is running, but nobody from the internet can connect.
+
+---
+
+## Step 5: Create the Azure VM
+
+Go to:
+
+```
 Azure Portal
 
 ↓
@@ -1837,51 +1967,59 @@ Azure Virtual Machine
 
 ---
 
-#### Basics Tab
+## Basics Configuration
 
-Enter the following values:
+Use:
 
-| Field | Value |
-|------|-------|
-| Resource Group | `week3-rg` |
-| VM Name | `week3-vm` |
-| Region | Same region as the VNet |
-| Image | Ubuntu Server 24.04 LTS (or the latest available Ubuntu LTS version) |
-| Size | Standard B1s (or another free or low-cost size available in your subscription) |
-| Authentication | SSH Public Key (recommended) or Password if permitted for your lab |
+| Setting              | Value                                       |
+| -------------------- | ------------------------------------------- |
+| Resource Group       | week3-rg                                    |
+| Virtual Machine Name | week3-vm                                    |
+| Region               | Same region as my VNet                    |
+| Image                | Ubuntu Server 24.04 LTS                     |
+| Size                 | Standard B1s (or available low-cost option) |
+| Authentication       | SSH Public Key                              |
 
 ---
 
-#### Networking Tab
-
-Configure the following settings:
-
-| Field | Value |
-|------|-------|
-| Virtual Network | `week3-vnet` |
-| Subnet | `frontend-subnet` |
-
-Now look carefully.
-
-You'll see the following option:
-
-```text
-Public Inbound Ports
-```
+## Networking Configuration
 
 Select:
 
-```text
+| Setting         | Value           |
+| --------------- | --------------- |
+| Virtual Network | week3-vnet      |
+| Subnet          | frontend-subnet |
+
+Now check:
+
+```
+Public Inbound Ports
+```
+
+Choose:
+
+```
 None
 ```
 
-This is the most important configuration in this lab.
+This is the important step.
 
-By selecting **None**, Azure does **not** create a Network Security Group (NSG) rule that allows inbound SSH traffic on port **22**.
+It means:
+
+```
+No SSH rule
+No HTTP rule
+No RDP rule
+```
+
+will be created.
+
+---
 
 Click:
 
-```text
+```
 Review + Create
 
 ↓
@@ -1889,469 +2027,604 @@ Review + Create
 Create
 ```
 
-Wait until the deployment completes successfully.
+Wait for deployment completion.
 
 ---
 
-#### Step 6: Attempt an SSH Connection
+## Step 6: Attempt SSH Connection
 
-After the virtual machine has been deployed:
+After deployment:
 
-Open:
+Go to:
 
-```text
-VM
+```
+Virtual Machine
 
 ↓
 
 Overview
 ```
 
-If the VM has a Public IP address, note the IP address.
-
-From your terminal, run the following command:
-
-```bash
-ssh azureuser@<public-ip>
-```
+Copy the Public IP address.
 
 Example:
 
+```
+20.xxx.xxx.xxx
+```
+
+From my terminal:
+
 ```bash
-ssh azureuser@20.120.xxx.xxx
+ssh azureuser@20.xxx.xxx.xxx
 ```
 
 ---
 
-#### What Happens?
+## Expected Result
 
-In most cases, you'll receive an error similar to:
+You will most likely receive:
 
-```text
+```
 Connection timed out
 ```
 
 ---
 
-#### Why Does This Happen?
+## Why Does This Happen?
 
-Let's trace the network path.
+The traffic flow looks like this:
 
-```text
-Laptop
+```
+my Laptop
 
-↓
+      |
+      ▼
 
 Internet
 
-↓
+      |
+      ▼
 
-Azure Network
+Azure NSG
 
-↓
+      |
+      X
 
-Network Security Group (NSG)
+SSH Port 22 Blocked
 
-↓
+      |
+      ▼
 
-❌ Traffic Blocked
-
-↓
-
-Virtual Machine
+Azure VM
 ```
 
-The SSH request never reaches the virtual machine.
+The request never reaches the VM.
 
-Instead, the Network Security Group silently drops the incoming packets.
+The firewall silently drops the traffic.
 
-Your computer waits for a response.
-
-It continues waiting until the connection attempt eventually expires.
-
-The result is:
-
-```text
-Connection timed out
-```
+my computer keeps waiting until the timeout period expires.
 
 ---
 
-#### What Does "Connection Timed Out" Mean?
+## What is "Connection Timed Out"?
 
-Imagine calling someone on the phone.
+A timeout means:
 
-The phone keeps ringing.
+> The connection request was sent, but no response was received.
 
-No one answers.
+Example:
 
-Eventually, the call ends automatically.
+You call someone:
 
-```text
-Call Ended
+```
+Phone Ringing...
+
+Ring...
+
+Ring...
+
+No Answer
 ```
 
-The same behavior occurs during a network timeout.
+Eventually:
 
-Your computer sends the request but never receives a response from the destination.
+```
+Call Failed
+```
+
+That is a timeout.
 
 ---
 
-#### ASCII Diagram
+## Network Example
 
-```text
+```
 Laptop
 
+   |
+   ▼
+
+SSH Request
+
+   |
+   ▼
+
+NSG
+
+❌ Dropped
+
+   |
+   ▼
+
+No Response
+
+   |
+   ▼
+
+Connection Timed Out
+```
+
+---
+
+## What is "Connection Refused"?
+
+A refused connection is different.
+
+It means:
+
+> The request reached the destination, but the service rejected it.
+
+Example:
+
+You knock on a door.
+
+Someone opens it and says:
+
+> "You cannot enter."
+
+You received a response.
+
+---
+
+## Network Example
+
+```
+Laptop
+
+   |
+   ▼
+
+Azure VM
+
+   |
+   ▼
+
+SSH Service
+
+   |
+   ▼
+
+Not Running / Not Listening
+
+   |
+   ▼
+
+Connection Refused
+```
+
+---
+
+## Connection Timed Out vs Connection Refused
+
+| Feature             | Connection Timed Out            | Connection Refused  |
+| ------------------- | ------------------------------- | ------------------- |
+| Request reaches VM? | ❌ No                            | ✅ Yes               |
+| Response received?  | ❌ No                            | ✅ Yes               |
+| Common Cause        | Firewall / NSG blocking traffic | Service not running |
+| Speed               | Takes time                      | Immediate           |
+| Example             | Port 22 blocked                 | SSH service stopped |
+
+---
+
+## Which Error Did You Receive?
+
+Because the VM was created with:
+
+```
+No inbound ports open
+```
+
+The expected error is:
+
+```
+Connection Timed Out
+```
+
+Reason:
+
+```
+SSH Port 22
+
 ↓
 
-"Hello?"
+Blocked by NSG
 
 ↓
 
-No reply
-
-↓
-
-Still waiting
+Request never reaches VM
 
 ↓
 
 Timeout
 ```
 
-A timeout indicates that the request never received a response before the waiting period expired.
-
 ---
 
-#### What Does "Connection Refused" Mean?
+## Screenshots 
 
-Now consider a different situation.
+Capture:
 
-This time, the request successfully reaches the destination.
+## 1. VM Overview
 
-However, the server immediately rejects the connection because the required service is unavailable or not accepting requests.
+Show:
 
-Think of someone opening the door and saying:
+* VM name
+* Running status
+* Public IP
 
-> "Sorry, you can't come in."
+## 2. Networking Page
 
-Unlike a timeout, the server actually responds.
+Show:
 
-It simply refuses the connection.
-
----
-
-#### Network Flow
-
-```text
-Laptop
-
-↓
-
-Virtual Machine
-
-↓
-
-"I received your request."
-
-↓
-
-"SSH service isn't accepting connections."
-
-↓
-
-Connection Refused
+```
+No inbound security rules
 ```
 
-A **Connection Refused** error means the request reached the virtual machine, but the SSH service was unavailable, stopped, or not listening on port **22**.
+or
 
----
-
----
-
-#### ASCII Comparison
-
-##### Connection Timed Out
-
-```text
-Laptop
-
-↓
-
-Internet
-
-↓
-
-❌ Firewall / NSG
-
-↓
-
-Virtual Machine Never Receives the Request
+```
+Port 22 not allowed
 ```
 
----
+## 3. Terminal Output
 
-##### Connection Refused
-
-```text
-Laptop
-
-↓
-
-Internet
-
-↓
-
-Virtual Machine
-
-↓
-
-SSH Service Rejects the Connection
-```
-
----
-
-#### Comparison Table
-
-| Feature | Connection Timed Out | Connection Refused |
-|---------|----------------------|--------------------|
-| Does the request reach the VM? | No | Yes |
-| Common Cause | Firewall, NSG, or Route blocking the traffic | SSH service is stopped, not listening, or port 22 is closed on the VM |
-| Response Time | Long (waits until timeout) | Immediate |
-| Does the VM respond? | No | Yes |
-| Common Azure Cause | Port 22 blocked by the NSG | SSH service stopped or misconfigured |
-
----
-
-#### Which Error Will You Receive?
-
-The assignment specifically states:
-
-> Create a VM with **No Inbound Ports Open**.
-
-In this scenario, the expected result is usually:
+Show:
 
 ```text
+ssh azureuser@<public-ip>
+
 Connection timed out
 ```
 
-##### Why?
+---
 
-Because port **22** is blocked by the **Network Security Group (NSG)**, the SSH request never reaches the virtual machine.
+## Common Beginner Mistakes
 
-Since the VM never receives the request, it cannot send a response.
+## Mistake 1
 
-Your computer waits until the connection attempt times out.
+❌ "The VM is broken."
+
+Reality:
+
+✅ The VM is working.
+
+Only network access is blocked.
 
 ---
 
-#### Screenshots for the Assignment
+## Mistake 2
 
-Capture screenshots of the following:
+❌ "A Public IP means SSH should work."
 
-1. **VM Overview**
-2. **Networking** page showing that there is **no inbound rule allowing port 22**
-3. Your terminal displaying the SSH error (for example, **Connection timed out**)
+Reality:
 
-These screenshots demonstrate that the VM was deployed successfully while inbound SSH access was intentionally blocked.
+A Public IP only gives the VM an address.
 
----
+You also need:
 
-#### Common Beginner Mistakes
+```
+Public IP
 
-**Incorrect**
++
 
-Thinking the virtual machine is not running because SSH fails.
+NSG Rule
 
-**Correct**
++
 
-The virtual machine is running correctly.
-
-The Network Security Group is preventing the SSH request from reaching the VM.
+SSH Service Running
+```
 
 ---
 
-**Incorrect**
+## Mistake 3
 
-Assuming a Public IP address automatically allows SSH access.
-
-**Correct**
-
-A Public IP address only makes the virtual machine reachable from the internet.
-
-SSH access also requires:
-
-- An NSG rule allowing inbound traffic on port **22**
-- The SSH service running on the virtual machine
-- Valid authentication credentials
-
----
-
-**Incorrect**
-
-Confusing **Connection Timed Out** with **Connection Refused**.
+Confusing errors:
 
 Remember:
 
-```text
+```
 Connection Timed Out
 
 ↓
 
-No response received
+Nobody answered
 ```
 
-```text
+```
 Connection Refused
 
 ↓
 
-The server responded,
+Someone answered
 
-but rejected the connection.
+but rejected the request
 ```
 
 ---
 
-#### Interview Answer
 
-> A **Connection Timed Out** error indicates that the SSH request never reached the virtual machine. This usually occurs because a firewall, Network Security Group (NSG), or routing rule blocked the traffic. A **Connection Refused** error indicates that the request successfully reached the virtual machine, but the SSH service was not accepting connections on port 22. In this lab, the virtual machine was created with **No Inbound Ports Open**, so the Network Security Group blocked the SSH traffic before it reached the VM. As a result, the expected error was **Connection Timed Out**.
+
+> A connection timed out error means that the connection request never reached the target machine, usually because a firewall, Network Security Group, or network route blocked the traffic. A connection refused error means that the request successfully reached the machine, but the application or service was not accepting connections on that port. In this lab, I created an Azure VM without inbound ports open, so SSH traffic on port 22 was blocked by the NSG and I received a connection timed out error.
 
 ---
 
-#### Quick Revision
+## Revision
 
-```text
-No Inbound Port
+```
+No Inbound SSH Rule
 
-↓
+        |
+        ▼
 
-NSG Blocks SSH
+NSG Blocks Port 22
 
-↓
+        |
+        ▼
 
 Request Never Reaches VM
 
-↓
+        |
+        ▼
 
 Connection Timed Out
 ```
 
-```text
-Port Open
+---
 
-↓
+```
+Port 22 Allowed
 
-VM Receives Request
+        |
+        ▼
 
-↓
+Request Reaches VM
 
-SSH Service Unavailable
+        |
+        ▼
 
-↓
+SSH Service Not Available
+
+        |
+        ▼
 
 Connection Refused
 ```
 
 ---
 
-#### Q6.
 
-What is the difference between a **Network Security Group (NSG)** and a **Route Table**?
 
-#### Answer
+# Q6. What is the difference between a **Network Security Group (NSG)** and a **Route Table**? Compare them in a table covering purpose, what they act on, and what they attach to.
 
-This is one of the most commonly misunderstood Azure networking concepts.
+## Answer
 
-Many assume that a **Network Security Group (NSG)** and a **Route Table** perform the same function because both influence network traffic.
+This is one of the most important Azure networking concepts.
 
-In reality, they serve **completely different purposes**.
+Many confuse **NSG** and **Route Table** because both are related to network traffic.
 
-Understanding this difference is essential when designing, securing, and troubleshooting Azure networks.
+However, they solve completely different problems.
 
----
-
-#### Before We Begin
-
-Think about traveling from one city to another.
-
-Two things determine whether your journey is successful:
-
-1. Which **road** you take.
-2. Whether you're **allowed** to pass through the security checkpoint.
-
-Azure networking works in exactly the same way.
-
-- A **Route Table** decides **where traffic should go**.
-- A **Network Security Group (NSG)** decides **whether the traffic is allowed or denied**.
-
----
-
-#### Analogy
-
-Imagine you're driving to a company's office.
-
-First, your GPS determines which road to take.
-
-```text
-Home
-
-↓
-
-GPS
-
-↓
-
-Office
-```
-
-After you arrive, you reach the security gate.
-
-The security guard checks whether you are authorized to enter.
-
-```text
-Office Gate
-
-↓
-
-Security Guard
-
-↓
-
-Allow or Deny
-```
-
-This is exactly how Azure networking works.
+The easiest way to remember:
 
 ```text
 Route Table
 
 ↓
 
-Chooses the Path
+Where should traffic go?
+
+
+NSG
 
 ↓
 
-Network Security Group
-
-↓
-
-Allows or Denies Traffic
+Should this traffic be allowed?
 ```
 
 ---
 
-#### What Is a Route Table?
+## Step 1: Understand Network Traffic
 
-A **Route Table** determines **where network traffic should be sent**.
+Whenever a packet moves inside Azure, two questions must be answered.
 
-It does **not** decide whether traffic is allowed.
+# Question 1:
 
-Instead, it selects the next destination for each packet.
+> Where should this packet travel?
 
-Think of it as a navigation system.
+This is routing.
 
-For example:
+Handled by:
+
+```text
+Route Table
+```
+
+---
+
+# Question 2:
+
+> Is this packet allowed?
+
+This is security.
+
+Handled by:
+
+```text
+Network Security Group (NSG)
+```
+
+---
+
+## Real-Life Analogy 
+
+Imagine driving to a shopping mall.
+
+## Step 1: Finding the Road
+
+Google Maps tells you:
+
+```text
+Home
+
+↓
+
+Highway
+
+↓
+
+Mall
+```
+
+It decides the path.
+
+This is:
+
+```text
+Route Table
+```
+
+---
+
+## Step 2: Security Check
+
+When you reach the mall entrance:
+
+The security guard asks:
+
+```text
+Do you have permission to enter?
+```
+
+Allowed:
+
+```text
+✅ Enter
+```
+
+Not allowed:
+
+```text
+❌ Stop
+```
+
+This is:
+
+```text
+NSG
+```
+
+---
+
+## Analogy 
+
+Imagine my school.
+
+You want to visit the library.
+
+my teacher says:
+
+```text
+Classroom
+
+↓
+
+Left Corridor
+
+↓
+
+Second Floor
+
+↓
+
+Library
+```
+
+The directions are the:
+
+```text
+Route Table
+```
+
+---
+
+When you reach the library:
+
+The librarian checks:
+
+```text
+Do you have a student ID?
+```
+
+Allowed?
+
+```text
+Yes → Enter
+```
+
+Denied?
+
+```text
+No → Stop
+```
+
+That is:
+
+```text
+NSG
+```
+
+---
+
+## What is a Route Table?
+
+A Route Table defines:
+
+> Where network traffic should go next.
+
+It decides the path using routes.
+
+Example:
+
+A VM wants to access the internet.
+
+Azure checks:
+
+```text
+Destination:
+
+0.0.0.0/0
+```
+
+Route:
+
+```text
+Next Hop:
+
+Internet
+```
+
+Traffic goes:
 
 ```text
 VM
@@ -2359,89 +2632,108 @@ VM
 ↓
 
 Internet
+
+↓
+
+Website
 ```
 
-or
+---
+
+## Route Table Example: Using Azure Firewall
+
+Without custom routing:
 
 ```text
 VM
 
-↓
+    |
+    ▼
+
+Internet
+```
+
+---
+
+Company requirement:
+
+> All internet traffic must pass through a firewall.
+
+A User Defined Route (UDR) is created:
+
+```text
+VM
+
+    |
+    ▼
 
 Azure Firewall
+
+    |
+    ▼
+
+Internet
 ```
 
-or
+The route changed.
+
+---
+
+## What is an NSG?
+
+NSG stands for:
+
+> Network Security Group
+
+An NSG acts like a virtual firewall.
+
+It controls:
+
+* Source IP
+* Destination IP
+* Port
+* Protocol
+* Direction
+
+Example:
+
+Allow SSH:
 
 ```text
+Source:
+
+My IP
+
+Destination:
+
 VM
 
-↓
+Port:
 
-Virtual Appliance
+22
+
+Action:
+
+Allow
 ```
-
-The Route Table decides which path the packet follows.
 
 ---
 
-#### Real-World Example
-
-Imagine driving to an airport.
-
-Your GPS may suggest:
+Allow website traffic:
 
 ```text
-Highway
-
-↓
-
-Airport
-```
-
-or
-
-```text
-City Road
-
-↓
-
-Airport
-```
-
-The GPS only chooses the route.
-
-It does not decide whether you are allowed to enter the airport.
-
-That decision is made by airport security.
-
-Similarly, an Azure Route Table only determines the network path.
-
----
-
-#### What Is a Network Security Group (NSG)?
-
-A **Network Security Group (NSG)** is a virtual firewall that filters inbound and outbound network traffic.
-
-It evaluates traffic using **Allow** and **Deny** rules.
-
-For example:
-
-```text
-SSH
-
-Port 22
+Port 80
 
 ↓
 
 Allow
 ```
 
-or
+---
+
+Block RDP:
 
 ```text
-RDP
-
 Port 3389
 
 ↓
@@ -2449,505 +2741,536 @@ Port 3389
 Deny
 ```
 
-Unlike a Route Table, an NSG does **not** choose where traffic goes.
-
-It only decides whether the traffic is permitted to continue.
-
 ---
 
-#### ASCII Diagram
+## Traffic Flow Example
+
+A user connects to a VM.
 
 ```text
 Internet
-     │
+
+     |
      ▼
-Network Security Group
-
-Allow?
-
- ├── Yes → Continue
- └── No  → Drop Packet
-```
-
-If the traffic matches an **Allow** rule, Azure forwards it.
-
-If it matches a **Deny** rule, Azure drops the packet.
-
----
-
----
-
-#### How a Route Table and an NSG Work Together
-
-A Route Table and a Network Security Group work together during packet processing, but each has a different responsibility.
-
-The Route Table determines **where the packet should go**.
-
-The Network Security Group determines **whether the packet is allowed to continue**.
-
-Neither resource replaces the other.
-
-Both are required to control network traffic effectively.
-
----
-
-#### Traffic Flow
-
-```text
-Source
-
-↓
 
 Route Table
 
-(Where should the packet go?)
+"Which path?"
 
-↓
+     |
+     ▼
 
-Next Hop Selected
+NSG
 
-↓
+"Allowed or Blocked?"
 
-Network Security Group
+     |
+     ▼
 
-(Is the traffic allowed?)
-
-↓
-
-Allow
-
-↓
-
-Destination
+VM
 ```
-
-If the NSG blocks the traffic, the packet is discarded even though the Route Table selected a valid destination.
 
 ---
 
-#### Example 1: Route Is Correct, but NSG Blocks Traffic
+## Important Difference
 
-Suppose your virtual machine needs to connect to another server.
+A Route Table does:
 
-The Route Table correctly forwards the traffic.
+```text
+Choose the road
+```
+
+An NSG does:
+
+```text
+Check permission
+```
+
+---
+
+## Water Pipe Analogy 
+
+Imagine water flowing through pipes.
+
+## Route Table
+
+It decides:
+
+```text
+Which pipe should water use?
+```
+
+Example:
+
+```text
+Pipe A
+
+or
+
+Pipe B
+```
+
+---
+
+## NSG
+
+It is the valve:
+
+```text
+Open?
+
+↓
+
+Allow water
+```
+
+or
+
+```text
+Closed?
+
+↓
+
+Block water
+```
+
+---
+
+## NSG vs Route Table Comparison
+
+| Feature               | Network Security Group (NSG)  | Route Table                       |
+| --------------------- | ----------------------------- | --------------------------------- |
+| Purpose               | Control and filter traffic    | Decide traffic path               |
+| Works Like            | Firewall / Security Guard     | GPS / Road Map                    |
+| Main Question         | "Should traffic be allowed?"  | "Where should traffic go?"        |
+| Acts On               | IP, Port, Protocol, Direction | Destination IP and Next Hop       |
+| Controls              | Access                        | Routing                           |
+| Blocks Traffic        | ✅ Yes                         | ❌ No                              |
+| Changes Path          | ❌ No                          | ✅ Yes                             |
+| Created Automatically | Default NSG possible          | Azure system routes automatically |
+| Custom Rules          | Security Rules                | Routes                            |
+| Attached To           | Subnet or NIC                 | Subnet                            |
+
+---
+
+## Where Are They Attached?
+
+## NSG Attachment
+
+An NSG can be attached to:
+
+```text
+Subnet
+
+OR
+
+Network Interface (NIC)
+```
+
+Example:
+
+```text
+VNet
+
+ |
+ |
+ +----------------+
+ | Subnet         |
+ |                |
+ | NSG            |
+ |                |
+ | VM             |
+ +----------------+
+```
+
+---
+
+A NIC-level NSG:
 
 ```text
 VM
 
+ |
+
+NIC
+
+ |
+
+NSG
+```
+
+---
+
+## Route Table Attachment
+
+A Route Table is attached to:
+
+```text
+Subnet
+```
+
+Example:
+
+```text
+VNet
+
+ |
+ |
+ +----------------+
+ | Subnet         |
+ |                |
+ | Route Table    |
+ |                |
+ | VM             |
+ +----------------+
+```
+
+---
+
+## Azure Real Example
+
+Imagine a web application.
+
+Architecture:
+
+```text
+Internet
+
+      |
+      ▼
+
+Public Subnet
+
+      |
+      ▼
+
+Frontend VM
+
+      |
+      ▼
+
+Backend Subnet
+
+      |
+      ▼
+
+Database
+```
+
+---
+
+Security requirement:
+
+Allow users to access website:
+
+```text
+Port 443
+
+Allow
+```
+
+Handled by:
+
+```text
+NSG
+```
+
+---
+
+Routing requirement:
+
+Backend servers must access the internet only through Azure Firewall.
+
+Handled by:
+
+```text
+Route Table
+```
+
+---
+
+## Common Beginner Mistakes
+
+## Mistake 1
+
+❌ "Route Table blocks traffic."
+
+Wrong.
+
+A Route Table only chooses the path.
+
+---
+
+## Mistake 2
+
+❌ "NSG decides where traffic goes."
+
+Wrong.
+
+NSG only allows or denies.
+
+---
+
+## Mistake 3
+
+❌ "NSG and Route Table do the same thing."
+
+Wrong.
+
+They work together but have different responsibilities.
+
+---
+
+## Remember
+
+Remember:
+
+## NSG
+
+Think:
+
+```text
+N
+
 ↓
 
+No or Yes
+```
+
+It answers:
+
+```text
+Allow?
+
+or
+
+Deny?
+```
+
+---
+
+## Route Table
+
+Think:
+
+```text
+Route
+
+↓
+
+Road
+```
+
+It answers:
+
+```text
+Which way?
+```
+
+---
+
+
+
+> A Network Security Group (NSG) is a virtual firewall in Azure that controls inbound and outbound traffic using rules based on source, destination, port, protocol, and direction. A Route Table controls traffic routing by defining where packets should go using routes and next hops. An NSG decides whether traffic is allowed, while a Route Table decides the path traffic follows. NSGs attach to subnets or network interfaces, whereas Route Tables are associated with subnets.
+
+---
+
+## Visual Summary
+
+```text
+                 Traffic
+
+                    |
+                    ▼
+
+        +---------------------+
+        |     Route Table     |
+        |                     |
+        | Where should it go? |
+        +---------------------+
+
+                    |
+                    ▼
+
+        +---------------------+
+        |        NSG          |
+        |                     |
+        | Allow or Block?     |
+        +---------------------+
+
+                    |
+                    ▼
+
+                  VM
+```
+
+---
+
+## Revision
+
+```text
 Route Table
 
 ↓
 
-Destination VM
-```
-
-However, the NSG contains the following rule:
-
-```text
-Port 22
+Direction
 
 ↓
 
-Deny
+Where does traffic go?
+```
+
+```text
+NSG
+
+↓
+
+Security
+
+↓
+
+Should traffic enter?
+```
+
+---
+
+# Q7. 
+Open ports 22, 80, and 443 one at a time, test SSH/Web access, and document what became possible after each.
+
+## Answer
+
+This lab demonstrates how **Network Security Groups (NSGs)** control access to Azure Virtual Machines.
+
+Instead of opening everything together, we will open each port separately and observe the result.
+
+By the end of this lab, you will understand:
+
+* Why port 22 is required for SSH
+* Why port 80 is required for HTTP websites
+* Why port 443 is required for HTTPS
+* How opening a port changes what users can access
+
+---
+
+## Lab Goal
+
+We start with:
+
+```text
+Azure VM
+
++
+
+NSG
+
++
+
+All inbound ports blocked
+```
+
+Then we open:
+
+```text
+Step 1 → Port 22
+
+↓
+
+Step 2 → Port 80
+
+↓
+
+Step 3 → Port 443
+```
+
+and test the result after each change.
+
+---
+
+## Step 1: Understand Ports
+
+A port is like a door on a computer.
+
+Different services use different doors.
+
+Example:
+
+```text
+Azure VM
+
++-------------------+
+|                   |
+| Port 22           | → SSH
+| Port 80           | → HTTP
+| Port 443          | → HTTPS
+|                   |
++-------------------+
+```
+
+---
+
+## Port Overview
+
+| Port | Protocol | Used For               | Purpose                     |
+| ---- | -------- | ---------------------- | --------------------------- |
+| 22   | SSH      | Linux Remote Access    | Manage VM remotely          |
+| 80   | HTTP     | Website Traffic        | Access websites             |
+| 443  | HTTPS    | Secure Website Traffic | Encrypted web communication |
+
+---
+
+## Initial State
+
+Before opening any ports:
+
+```text
+Internet
+
+     |
+     ▼
+
+Azure NSG
+
+22  ❌
+
+80  ❌
+
+443 ❌
+
+     |
+     ▼
+
+Azure VM
 ```
 
 Result:
 
 ```text
-Packet
+No SSH
 
-↓
+No Website
 
-NSG
-
-↓
-
-Blocked
-```
-
-Even though the routing is correct, communication fails because the NSG blocks the traffic.
-
----
-
-#### Example 2: NSG Allows Traffic, but the Route Is Incorrect
-
-Now consider the opposite situation.
-
-The NSG allows SSH traffic.
-
-```text
-SSH
-
-Port 22
-
-↓
-
-Allow
-```
-
-However, the Route Table sends the packet to the wrong destination.
-
-```text
-VM
-
-↓
-
-Wrong Next Hop
-
-↓
-
-Packet Lost
-```
-
-Although the NSG allows the connection, the packet never reaches the intended destination because the routing path is incorrect.
-
----
-
-#### Complete Network Flow
-
-```text
-Virtual Machine
-        │
-        ▼
-Route Table
-(Select Next Hop)
-        │
-        ▼
-Network Security Group
-(Check Security Rules)
-        │
-        ▼
-Allow
-        │
-        ▼
-Destination
-```
-
-Both routing and security must be configured correctly for successful communication.
-
----
-
-#### Comparison Table
-
-| Feature | Network Security Group (NSG) | Route Table |
-|---------|-------------------------------|-------------|
-| Primary Purpose | Controls network traffic | Determines the path for network traffic |
-| Main Function | Allow or Deny traffic | Select the next hop |
-| Acts Like | Firewall | GPS or Navigation System |
-| Makes Security Decisions | Yes | No |
-| Determines Traffic Path | No | Yes |
-| Uses Rules | Security Rules | Routes |
-| Common Configuration | Allow SSH, HTTPS, RDP | Internet, Virtual Appliance, VPN Gateway, Azure Firewall |
-| Can Block Traffic | Yes | No |
-| Can Redirect Traffic | No | Yes |
-
----
-
-#### Real-World Example
-
-Consider an organization with the following architecture.
-
-```text
-Internet
-
-↓
-
-Azure Firewall
-
-↓
-
-Application Server
-
-↓
-
-Database Server
-```
-
-The Route Table sends internet-bound traffic through the Azure Firewall.
-
-The Network Security Group allows only the required ports, such as HTTPS on port **443**, while blocking unnecessary traffic.
-
-Together they provide both **correct routing** and **network security**.
-
----
-
-#### Common Beginner Mistakes
-
-**Incorrect**
-
-Assuming that a Route Table blocks unwanted traffic.
-
-**Correct**
-
-A Route Table only determines the destination of network traffic.
-
-It does not inspect or block packets.
-
----
-
-**Incorrect**
-
-Assuming that an NSG decides where traffic should be sent.
-
-**Correct**
-
-An NSG only evaluates security rules.
-
-It does not determine the next hop or routing path.
-
----
-
-**Incorrect**
-
-Believing that configuring only one of these resources is sufficient.
-
-**Correct**
-
-A secure Azure network typically requires both:
-
-- A Route Table for directing traffic.
-- A Network Security Group for controlling access.
-
----
-
----
-
-#### Interview Answer
-
-> A **Network Security Group (NSG)** is a virtual firewall that controls inbound and outbound network traffic by using **Allow** and **Deny** security rules. A **Route Table** determines the path that network traffic follows by selecting the appropriate next hop. In simple terms, the Route Table decides **where traffic goes**, while the NSG decides **whether the traffic is allowed**. In most Azure environments, both services work together to provide secure and efficient network communication.
-
----
-
-#### Quick Revision
-
-```text
-Route Table
-
-↓
-
-Where should the packet go?
-
-↓
-
-Next Hop
-```
-
-```text
-Network Security Group
-
-↓
-
-Should the packet be allowed?
-
-↓
-
-Allow or Deny
+No HTTPS
 ```
 
 ---
 
-#### One-Minute Revision
+## PART 1: Open Port 22 (SSH)
 
-| Resource | Main Responsibility | Think Of It As |
-|----------|----------------------|----------------|
-| Route Table | Determines the network path | GPS or Navigation System |
-| Network Security Group | Controls network access | Security Guard or Firewall |
+## Why Port 22?
 
-Remember this simple rule:
+Port 22 allows administrators to remotely connect to Linux machines.
 
-> **Route Tables control the path. Network Security Groups control access.**
+Example:
 
-This single sentence is often enough to answer the interview question correctly.
-
----
-
-#### Architecture Diagram
-
-```text
-                 Internet
-                     │
-                     ▼
-              Route Table
-          (Select Next Hop)
-                     │
-                     ▼
-        Network Security Group
-        (Allow or Deny Traffic)
-                     │
-           ┌─────────┴─────────┐
-           │                   │
-         Allow               Deny
-           │                   │
-           ▼                   ▼
-     Destination VM       Packet Dropped
+```bash
+ssh username@public-ip
 ```
 
 ---
 
-#### Key Takeaways
+## Azure Portal Steps
 
-- A **Route Table** determines where network traffic should be sent.
-- A **Network Security Group** determines whether traffic is allowed or denied.
-- A Route Table does not inspect or block packets.
-- An NSG does not determine the next hop.
-- Both resources work together to provide secure and reliable network communication.
-- Most Azure production environments use both Route Tables and NSGs together.
-
----
-
-#### Q7.
-
-Open ports **22**, **80**, and **443** one at a time, documenting what became possible after each. Attach screenshots.
-
-#### Answer
-
-This lab demonstrates how opening different ports in a Network Security Group (NSG) enables specific services on an Azure Virtual Machine.
-
-The objective is **not** to open all three ports simultaneously.
-
-Instead, you will:
-
-1. Open **Port 22** and observe what changes.
-2. Open **Port 80** and observe what changes.
-3. Open **Port 443** and observe what changes.
-
-By completing these steps one at a time, you'll understand the purpose of each port and the services it enables.
-
----
-
-#### Before You Begin
-
-Remember that an Azure Virtual Machine is protected by a **Network Security Group (NSG)**.
-
-By default, if an inbound rule does not allow traffic on a particular port, Azure blocks that traffic.
-
-As you open each port, you'll see how the VM's capabilities change.
-
----
-
-#### Step 1: House Analogy
-
-Imagine your house has three different doors.
-
-```text
-Door 1 → Friend
-
-Door 2 → Delivery Person
-
-Door 3 → Family
-```
-
-Each door serves a different purpose.
-
-Similarly, a computer has many communication endpoints called **ports**.
-
-Each port is used by a specific service.
-
----
-
-#### What Is a Port?
-
-A port is a logical communication endpoint identified by a **port number**.
-
-Think of it like an apartment number inside a building.
-
-```text
-Building
-
-Apartment 22
-
-Apartment 80
-
-Apartment 443
-```
-
-Each apartment contains different people.
-
-Likewise, different services use different ports.
-
-```text
-Port 22
-
-↓
-
-SSH
-```
-
-```text
-Port 80
-
-↓
-
-HTTP Website
-```
-
-```text
-Port 443
-
-↓
-
-HTTPS Secure Website
-```
-
----
-
-#### Step 2: Current Situation
-
-At the moment, your virtual machine is protected by an NSG, and all inbound ports are closed.
-
-```text
-Internet
-
-↓
-
-Azure
-
-↓
-
-Network Security Group (NSG)
-
-↓
-
-Virtual Machine
-
-All Ports Closed
-```
-
-Because no inbound rules allow traffic, external users cannot connect to the virtual machine.
-
----
-
-## Part A — Open Port 22
-
-#### Why Open Port 22?
-
-Port **22** is used by **SSH (Secure Shell)**.
-
-SSH allows you to securely connect to and remotely manage a Linux virtual machine.
-
-Without Port 22, remote administration using SSH is not possible.
-
----
-
-#### Analogy
-
-Imagine your house has only one entrance.
-
-Your parents give you the key.
-
-Only someone with the key can enter the house.
-
-SSH works in a similar way.
-
-Port **22** is the entrance used for secure remote access to your Linux VM.
-
----
-
-#### Step 3: Open Port 22
-
-Navigate to:
+Go to:
 
 ```text
 Azure Portal
@@ -2963,28 +3286,32 @@ week3-vm
 ↓
 
 Networking
+
+↓
+
+Inbound Port Rules
+
+↓
+
+Add inbound rule
 ```
 
-Open the **Inbound Port Rules** section.
+---
 
-Click:
+Create the rule:
 
-```text
-Add Inbound Rule
-```
+| Setting          | Value         |
+| ---------------- | ------------- |
+| Source           | My IP Address |
+| Source Port      | Any           |
+| Destination      | Any           |
+| Service          | SSH           |
+| Destination Port | 22            |
+| Action           | Allow         |
+| Priority         | 300           |
+| Name             | Allow-SSH     |
 
-Configure the following values:
-
-| Field | Value |
-|-------|-------|
-| Source | My IP Address (recommended) |
-| Source Port Ranges | * |
-| Destination | Any |
-| Service | SSH |
-| Destination Port Ranges | 22 |
-| Action | Allow |
-| Priority | 300 (or Azure default if available) |
-| Name | Allow-SSH |
+---
 
 Click:
 
@@ -2994,12 +3321,12 @@ Add
 
 ---
 
-#### Test SSH Connectivity
+## Test SSH Connection
 
-Open a terminal on your computer and run the following command:
+From my terminal:
 
 ```bash
-ssh azureuser@<Public-IP>
+ssh azureuser@<public-ip>
 ```
 
 Example:
@@ -3008,97 +3335,138 @@ Example:
 ssh azureuser@20.xxx.xxx.xxx
 ```
 
-If the configuration is correct, you'll see output similar to:
+---
+
+Successful output:
 
 ```text
-Welcome to Ubuntu...
+Welcome to Ubuntu
+
+azureuser@week3-vm:~$
 ```
 
-You have now successfully connected to your Linux virtual machine using SSH.
+---
+
+## What Became Possible?
+
+Before opening Port 22:
+
+```text
+❌ Cannot connect remotely
+```
+
+After opening Port 22:
+
+```text
+✅ Can securely manage Linux VM
+```
 
 ---
 
-#### What Became Possible?
+## Traffic Flow
 
-Before opening Port **22**:
+```text
+my Laptop
 
-- Remote SSH access to the VM was blocked.
-- Linux administration from your local computer was not possible.
+      |
+      ▼
 
-After opening Port **22**:
+Internet
 
-- You can securely connect to the Linux virtual machine.
-- You can execute Linux commands remotely.
-- You can install software, configure services, and manage the VM from your terminal.
+      |
+      ▼
 
----
+NSG
 
-#### Screenshots
+Port 22 ✅
 
-Capture the following screenshots:
+      |
+      ▼
 
-- Network Security Group (NSG) rule showing **Port 22** is allowed.
-- Terminal displaying a successful SSH login.
+Azure VM
 
----
-
-## Part B — Open Port 80
-
-#### Why Open Port 80?
-
-Port **80** is used for **HTTP (Hypertext Transfer Protocol)**.
-
-HTTP allows users to access a website through a web browser.
-
-If Port **80** is closed, web browsers cannot reach the web server.
+SSH Login Successful
+```
 
 ---
 
-#### Real-World Analogy
+## Screenshot Required
 
-Imagine opening a restaurant.
+Capture:
 
-Customers know the restaurant's address.
+✅ NSG rule showing:
 
-However, the entrance door remains locked.
+```text
+SSH
 
-No customers can enter.
+Port 22
 
-Opening Port **80** is similar to unlocking the restaurant entrance so customers can access your business.
+Allow
+```
+
+and:
+
+✅ Terminal showing successful SSH connection
 
 ---
 
-#### Step 4: Install Apache Web Server
+## PART 2: Open Port 80 (HTTP)
 
-First, connect to the virtual machine using SSH.
+## Why Port 80?
 
-Update the package repository:
+Port 80 allows users to access websites using HTTP.
+
+Example:
+
+```text
+Browser
+
+↓
+
+http://public-ip
+
+↓
+
+Web Server
+```
+
+---
+
+## Step 1: Install Web Server
+
+First SSH into my VM.
+
+Install Apache:
 
 ```bash
 sudo apt update
 ```
 
-Install Apache:
-
 ```bash
 sudo apt install apache2 -y
 ```
 
-If necessary, enable and start the Apache service:
+---
+
+Start Apache:
 
 ```bash
-sudo systemctl enable apache2
-
 sudo systemctl start apache2
 ```
 
-Verify that Apache is running:
+Enable it:
+
+```bash
+sudo systemctl enable apache2
+```
+
+Check status:
 
 ```bash
 systemctl status apache2
 ```
 
-Expected output:
+Expected:
 
 ```text
 active (running)
@@ -3106,25 +3474,19 @@ active (running)
 
 ---
 
-#### Step 5: Open Port 80
+## Step 2: Open Port 80
 
-Navigate to:
+Create NSG rule:
 
-```text
-Networking
+| Setting | Value      |
+| ------- | ---------- |
+| Source  | Any        |
+| Service | HTTP       |
+| Port    | 80         |
+| Action  | Allow      |
+| Name    | Allow-HTTP |
 
-↓
-
-Add Inbound Rule
-```
-
-Configure the following values:
-
-| Field | Value |
-|-------|-------|
-| Service | HTTP |
-| Destination Port | 80 |
-| Action | Allow |
+---
 
 Click:
 
@@ -3134,12 +3496,12 @@ Add
 
 ---
 
-#### Test the Website
+## Test Website Access
 
-Open a web browser and navigate to:
+Open browser:
 
 ```text
-http://<Public-IP>
+http://<public-ip>
 ```
 
 Example:
@@ -3148,1080 +3510,1220 @@ Example:
 http://20.xxx.xxx.xxx
 ```
 
-If everything is configured correctly, you'll see:
+You should see:
 
 ```text
 Apache2 Ubuntu Default Page
 ```
 
-This confirms that your web server is now accessible over HTTP.
-
 ---
 
-#### What Became Possible?
+## What Became Possible?
 
-Before opening Port **80**:
-
-- Web browsers could not access the website.
-- HTTP requests were blocked by the Network Security Group.
-
-After opening Port **80**:
-
-- Users can access the website over HTTP.
-- The Apache web server is reachable from the internet, subject to the configured NSG rules.
-
----
-
-#### Screenshots
-
-Capture the following screenshots:
-
-- Browser displaying the **Apache2 Ubuntu Default Page**.
-- Network Security Group (NSG) rule showing **Port 80** is allowed.
-
----
-
-## Part C — Open Port 443
-
-#### Why Open Port 443?
-
-Port **443** is used for **HTTPS (Hypertext Transfer Protocol Secure)**.
-
-HTTPS encrypts communication between a user's web browser and the web server, protecting sensitive information such as passwords, payment details, and personal data while it travels across the internet.
-
----
-
-#### Understanding HTTPS
-
-The **"S"** in **HTTPS** stands for **Secure**.
-
-Unlike HTTP, HTTPS encrypts all data exchanged between the client and the server using **SSL/TLS**.
-
-This prevents attackers from reading or modifying the data during transmission.
-
----
-
-#### Analogy
-
-Imagine sending a postcard.
+Before:
 
 ```text
-Postcard
+Browser
 
 ↓
 
-Anyone who handles it can read the message.
-```
-
-This is similar to **HTTP**.
-
-Now imagine placing the same letter inside a locked envelope.
-
-```text
-Locked Envelope
+Port 80 blocked
 
 ↓
 
-Only the intended recipient can open and read it.
+Website unavailable
 ```
 
-This is similar to **HTTPS**.
-
-Encryption protects the information while it is being transmitted.
-
----
-
-#### Step 6: Open Port 443
-
-Navigate to:
+After:
 
 ```text
-Networking
+Browser
 
 ↓
 
-Add Inbound Rule
-```
+Port 80 allowed
 
-Configure the following values:
+↓
 
-| Field | Value |
-|-------|-------|
-| Service | HTTPS |
-| Destination Port | 443 |
-| Action | Allow |
-
-Click:
-
-```text
-Add
+Apache Website Accessible
 ```
 
 ---
 
-#### Important Note
-
-Opening **Port 443** does **not** automatically enable HTTPS.
-
-To serve a website securely over HTTPS, you must also configure:
-
-- An SSL/TLS certificate
-- A web server configured to use that certificate
-- HTTPS support within the web server (such as Apache or Nginx)
-
-Without these additional steps, simply opening Port **443** will not provide a functioning HTTPS website.
-
-For this assignment, the objective is only to **open the port and document what becomes possible**.
-
----
-
-#### What Became Possible?
-
-Before opening Port **443**:
-
-- HTTPS traffic could not reach the virtual machine.
-- Secure browser connections were not possible.
-
-After opening Port **443**:
-
-- The virtual machine can accept HTTPS traffic.
-- Once SSL/TLS is configured, users can securely access the website over HTTPS.
-
----
-
-#### Network Progression
-
-##### Initial State
+## Traffic Flow
 
 ```text
 Internet
 
-↓
+      |
+      ▼
 
-Network Security Group
+NSG
 
-❌ Port 22
+Port 80 ✅
 
-❌ Port 80
+      |
+      ▼
 
-❌ Port 443
+Apache Web Server
 
-↓
+      |
+      ▼
 
-Virtual Machine
+Website Displayed
 ```
 
 ---
 
-##### After Opening Port 22
+## Screenshot Required
+
+Capture:
+
+✅ NSG rule showing:
 
 ```text
-Internet
+HTTP
+
+Port 80
+
+Allow
+```
+
+and:
+
+✅ Browser showing Apache page
+
+---
+
+## PART 3: Open Port 443 (HTTPS)
+
+## Why Port 443?
+
+Port 443 is used for HTTPS.
+
+HTTPS provides:
+
+* Encryption
+* Secure communication
+* Data protection
+
+---
+
+## HTTP vs HTTPS
+
+HTTP:
+
+```text
+Browser
 
 ↓
 
-Network Security Group
+Website
 
-✅ Port 22
-
-❌ Port 80
-
-❌ Port 443
-
-↓
-
-Virtual Machine
-
-SSH Access Available
+(Unencrypted)
 ```
 
 ---
 
-##### After Opening Port 80
+HTTPS:
 
 ```text
-Internet
+Browser
 
 ↓
 
-Network Security Group
-
-✅ Port 22
-
-✅ Port 80
-
-❌ Port 443
+Encrypted Connection
 
 ↓
 
-Virtual Machine
-
-SSH
-
-HTTP Website
+Website
 ```
 
 ---
 
-##### After Opening Port 443
+## Analogy
+
+HTTP:
+
+Sending a postcard.
+
+Anyone can read it.
+
+---
+
+HTTPS:
+
+Sending a locked envelope.
+
+Only the receiver can open it.
+
+---
+
+## Open Port 443
+
+Create NSG rule:
+
+| Setting | Value       |
+| ------- | ----------- |
+| Source  | Any         |
+| Service | HTTPS       |
+| Port    | 443         |
+| Action  | Allow       |
+| Name    | Allow-HTTPS |
+
+---
+
+## Important Note
+
+Opening port 443 alone does NOT create HTTPS.
+
+You also need:
+
+* SSL/TLS certificate
+* Web server HTTPS configuration
+
+Example:
+
+```text
+Port 443
+
++
+
+Certificate
+
++
+
+Apache/Nginx HTTPS Setup
+
+=
+
+Secure Website
+```
+
+---
+
+## What Became Possible?
+
+After opening Port 443:
+
+```text
+VM can accept HTTPS traffic
+```
+
+However:
+
+```text
+HTTPS will work only after SSL configuration
+```
+
+---
+
+## Final Architecture
+
+## Initially
 
 ```text
 Internet
 
-↓
+      |
+      ▼
 
-Network Security Group
+NSG
 
-✅ Port 22
+22 ❌
 
-✅ Port 80
+80 ❌
 
-✅ Port 443
+443 ❌
 
-↓
+      |
+      ▼
 
-Virtual Machine
+VM
+```
+
+---
+
+## After Port 22
+
+```text
+Internet
+
+      |
+      ▼
+
+NSG
+
+22 ✅
+
+80 ❌
+
+443 ❌
+
+      |
+      ▼
+
+VM
+
+SSH Available
+```
+
+---
+
+##  After Port 80
+
+```text
+Internet
+
+      |
+      ▼
+
+NSG
+
+22 ✅
+
+80 ✅
+
+443 ❌
+
+      |
+      ▼
+
+VM
+
+SSH + Website
+```
+
+---
+
+##  After Port 443
+
+```text
+Internet
+
+      |
+      ▼
+
+NSG
+
+22 ✅
+
+80 ✅
+
+443 ✅
+
+      |
+      ▼
+
+VM
 
 SSH
 
 HTTP
 
-HTTPS
-(After SSL/TLS Configuration)
+HTTPS Ready
 ```
 
 ---
 
-#### Comparison Table
-
-| Port | Service | What Became Possible? |
-|------|----------|-----------------------|
-| 22 | SSH | Secure remote login and administration of the Linux VM |
-| 80 | HTTP | Users can access the website over HTTP |
-| 443 | HTTPS | Secure web communication becomes available after SSL/TLS configuration |
-
----
-
-#### Common Beginner Mistakes
-
-**Incorrect**
-
-Opening Port **80** but forgetting to install Apache.
-
-**Result**
-
-The website does not load because no web server is running.
-
----
-
-**Incorrect**
-
-Opening Port **22** but using the wrong username.
-
-**Result**
-
-SSH authentication fails.
-
-Ubuntu virtual machines typically use the username specified during VM creation.
-
----
-
-**Incorrect**
-
-Assuming that opening Port **443** automatically enables HTTPS.
-
-**Correct**
-
-Opening the port only allows HTTPS traffic to reach the virtual machine.
-
-You must also configure:
-
-- An SSL/TLS certificate
-- A web server configured for HTTPS
-
----
-
----
-
-#### Interview Answer
-
-> Port **22** is used for **SSH** and allows secure remote administration of a Linux virtual machine. Port **80** is used for **HTTP** and allows users to access a website over the internet. Port **443** is used for **HTTPS** and enables encrypted communication between a web browser and a web server after SSL/TLS has been configured. In this lab, opening Port **22** allowed me to connect to the virtual machine using SSH, opening Port **80** made the Apache web page accessible through a browser, and opening Port **443** prepared the virtual machine to accept secure HTTPS connections after SSL/TLS configuration.
-
----
-
-#### Assignment Screenshots
-
-Include the following screenshots in your submission:
-
-1. Network Security Group (NSG) rule showing **Port 22** is allowed.
-2. Terminal displaying a successful SSH session.
-3. Network Security Group (NSG) rule showing **Port 80** is allowed.
-4. Browser displaying the **Apache2 Ubuntu Default Page**.
-5. Network Security Group (NSG) rule showing **Port 443** is allowed.
-
-These screenshots demonstrate the effect of enabling each port individually.
-
----
-
-#### Key Takeaways
-
-| Port | Primary Purpose | What It Enables |
-|------|-----------------|-----------------|
-| **22** | SSH | Secure remote administration of the Linux VM |
-| **80** | HTTP | Web applications accessible over HTTP |
-| **443** | HTTPS | Secure web communication after SSL/TLS configuration |
-
-Remember:
-
-- **Port 22** is for administrators.
-- **Port 80** is for websites using HTTP.
-- **Port 443** is for secure websites using HTTPS.
-
-Each port serves a different purpose and should only be opened when required.
-
----
-
-#### Security Best Practice
-
-For **Port 22 (SSH)**, avoid using **Any** as the source whenever possible.
-
-Instead, use:
-
-```text
-My IP Address
-```
-
-Why?
-
-Because using **Any** allows **any device on the internet** to attempt an SSH connection to your virtual machine.
-
-Using **My IP Address** restricts SSH access to **only your current public IP address**, significantly reducing the attack surface.
-
-This is considered a security best practice for development, learning environments, and production systems whenever administrative access originates from a known location.
-
----
-
-#### Q8.
-
-What is the difference between the NSG source options **Any**, **My IP Address**, and **Service Tag**? Which is safest for SSH, and why?
-
-#### Answer
-
-In **Q7**, you learned how to open a port in a Network Security Group (NSG).
-
-In this section, you'll learn **who is allowed to use that port**.
-
-This is one of the most important security concepts in Azure networking.
-
-When creating an inbound NSG rule, Azure asks you to specify the **Source**.
-
-The **Source** defines **where incoming traffic is allowed to originate**.
-
-Choosing the correct source is just as important as choosing the correct port.
-
----
-
-#### Before We Begin
-
-Think of your home's front door.
-
-Opening the door doesn't mean everyone should be allowed inside.
-
-You still need to decide **who is permitted to enter**.
-
-Azure networking follows the same principle.
-
-- The **Port** determines **which service** can be accessed.
-- The **Source** determines **who is allowed** to access that service.
-
----
-
-#### Step 1: What Is a Source?
-
-Imagine someone rings your doorbell.
-
-The first question you ask is:
-
-> "Who is outside?"
-
-That person is the **source**.
-
-In networking, the source is the device that sends the request.
-
-```text
-Source ---------------------> Destination
-
-Your Laptop -------------> Azure VM
-```
-
-- **Source** = Where the network traffic originates.
-- **Destination** = The resource receiving the traffic.
-
-Every inbound NSG rule begins by checking the source.
-
----
-
-#### Why Does Azure Ask for the Source?
-
-Not every computer on the internet should be able to connect to your virtual machine.
-
-Azure lets you control **who can initiate the connection**.
-
-For example:
-
-- Only your laptop
-- Everyone on the internet
-- Azure services
-- Resources inside your Virtual Network
-
-The **Source** field allows you to define these restrictions.
-
----
-
-#### Understanding the Three Source Options
-
-The most commonly used source options are:
-
-1. **Any**
-2. **My IP Address**
-3. **Service Tag**
-
-Each option serves a different purpose and should be selected based on your security requirements.
-
----
-
-## Option 1 — Any
-
-#### What Does "Any" Mean?
-
-When you select:
-
-```text
-Source
-
-↓
-
-Any
-```
-
-Azure interprets this as:
-
-> Allow traffic from **any IP address on the internet**.
-
-Every public IP address is permitted to attempt a connection.
-
-Example:
-
-```text
-India         ✅
-
-United States ✅
-
-Japan         ✅
-
-Australia     ✅
-
-Any Country   ✅
-```
-
----
-
-#### ASCII Diagram
-
-```text
-Internet
-
-Laptop A      ✅
-
-Laptop B      ✅
-
-Laptop C      ✅
-
-Laptop D      ✅
-
-        │
-
-        ▼
-
-Azure Virtual Machine
-```
-
-Every device on the internet can attempt to connect.
-
-Whether the connection succeeds depends on the remaining NSG rules and authentication.
-
----
-
-#### Is "Any" Safe for SSH?
-
-Generally, **No**.
-
-Although authentication is still required, exposing SSH to the entire internet significantly increases the attack surface.
-
-Attackers and automated bots continuously scan public IP addresses looking for open SSH ports.
-
-Whenever possible, avoid using **Any** as the source for SSH access.
-
----
-
-Continuing from **Q8 – Part 1** exactly where it stopped.
-
----
-
-#### Option 2 — My IP Address
-
-### What Does "My IP Address" Mean?
-
-When you select:
-
-```text
-Source
-
-↓
-
-My IP Address
-```
-
-Azure automatically detects your current public IP address and creates a rule that allows traffic only from that IP.
-
-Example:
-
-```text
-Your Laptop
-
-      │
-
-      ▼
-
-49.xx.xx.xx
-```
-
-Azure creates an NSG rule similar to:
-
-```text
-Allow
-
-Source
-
-49.xx.xx.xx
-```
-
-This means only the device using that public IP can attempt to connect.
-
----
-
-#### ASCII Diagram
-
-```text
-              Internet
-
-
-Your Laptop        ✅
-49.xx.xx.xx
-
-
-Friend Laptop      ❌
-
-
-Random Hacker      ❌
-
-
-Office PC          ❌
-
-
-          │
-
-          ▼
-
-
-Azure Virtual Machine
-```
-
-Only your current public IP address is allowed.
-
----
-
-#### Is "My IP Address" Safe?
-
-✅ Yes.
-
-For learning environments, personal projects, and administration tasks, this is the recommended option for SSH access.
-
-Example:
-
-You create a Linux VM in Azure.
-
-You want to connect using:
-
-```bash
-ssh username@public-ip-address
-```
-
-Instead of allowing:
-
-```text
-Source: Any
-```
-
-you configure:
-
-```text
-Source: My IP Address
-```
-
-Now only your machine can reach Port 22.
-
----
-
-### Important Note: Your IP Address Can Change
-
-Many beginners think:
-
-> "My IP Address means my laptop forever."
-
-That is not always true.
-
-Your public IP may change when:
-
-* You restart your home router
-* You switch networks
-* You use mobile hotspot
-* Your ISP assigns a new dynamic IP
-
-Example:
-
-Today:
-
-```text
-Your Public IP
-
-49.xx.xx.xx
-```
-
-Tomorrow:
-
-```text
-Your Public IP
-
-52.xx.xx.xx
-```
-
-Your old NSG rule will no longer work.
-
-You need to update the NSG rule with the new IP.
-
----
-
-# Option 3 — Service Tag
-
-## What Is a Service Tag?
-
-A **Service Tag** is a predefined group of IP addresses maintained by Microsoft.
-
-Instead of manually entering hundreds or thousands of IP addresses, Azure provides a simple name.
-
-Example:
-
-```text
-AzureLoadBalancer
-
-VirtualNetwork
-
-AzureCloud
-```
-
-These names represent Microsoft-managed IP ranges.
-
----
-
-## Kid Analogy 👶
-
-Imagine a school.
-
-The principal does not maintain a list like:
-
-```text
-Teacher Rahul
-Teacher Priya
-Teacher John
-Teacher David
-Teacher Lisa
-```
-
-Instead, the principal creates a group:
-
-```text
-Teachers
-```
-
-Whenever a new teacher joins, the group is automatically updated.
-
-Service Tags work the same way.
-
-Instead of managing IP addresses manually:
-
-```text
-13.x.x.x
-20.x.x.x
-40.x.x.x
-52.x.x.x
-...
-```
-
-Azure provides:
-
-```text
-AzureLoadBalancer
-```
-
-and manages the IP list automatically.
-
----
-
-# Real Azure Example
-
-Suppose you have a Virtual Machine behind an Azure Load Balancer.
-
-The Load Balancer needs to perform health checks.
-
-Instead of allowing many Azure Load Balancer IP addresses manually:
-
-```text
-13.x.x.x
-
-20.x.x.x
-
-40.x.x.x
-```
-
-You simply configure:
-
-```text
-Source
-
-↓
-
-Service Tag
-
-↓
-
-AzureLoadBalancer
-```
-
-Azure automatically maintains the IP ranges.
-
----
-
-# Common Azure Service Tags
-
-## 1. AzureLoadBalancer
-
-Used when traffic comes from Azure Load Balancer.
-
-Example:
-
-```text
-Azure Load Balancer
-
-        │
-
-        ▼
-
-Virtual Machine
-```
-
----
-
-## 2. VirtualNetwork
-
-Represents resources inside the same Virtual Network.
-
-Example:
-
-```text
-VM1
-
- │
-
- ▼
-
-VM2
-```
-
-Instead of allowing:
-
-```text
-10.10.1.4
-10.10.2.5
-10.10.3.6
-```
-
-You allow:
-
-```text
-VirtualNetwork
-```
-
----
-
-## 3. AzureCloud
-
-Represents Azure public IP ranges.
-
-Used when communication is required with Azure services.
-
----
-
-# ASCII Diagram — Service Tag
-
-```text
-              Azure
-
-     VM1
-
-     VM2
-
-     VM3
-
-     VM4
-
-        │
-
-        ▼
-
- VirtualNetwork
-
-        │
-
-        ▼
-
-       NSG
-
-        │
-
-        ▼
-
-       VM5
-```
-
-Azure manages the IP addresses behind the Service Tag.
-
----
-
-# Comparison Table
-
-| Source Option     | Who Can Connect?                       | Typical Use                                       | Security                        |
-| ----------------- | -------------------------------------- | ------------------------------------------------- | ------------------------------- |
-| **Any**           | Anyone on the internet                 | Public services like websites                     | ❌ Lowest                        |
-| **My IP Address** | Only your current public IP            | SSH/RDP administration                            | ✅ Highest for individual access |
-| **Service Tag**   | Azure services or Azure-managed groups | Load Balancer, Azure services, VNet communication | ✅ Secure when used correctly    |
-
----
-
-# Which Source Is Safest for SSH?
-
-The answer is:
-
-```text
-✅ My IP Address
-```
-
-## Why?
-
-Because SSH provides administrative access to your VM.
-
-Port:
-
-```text
-22
-```
-
-should not be open to the entire internet.
-
-With:
-
-```text
-Source: My IP Address
-```
-
-only your machine can attempt SSH access.
-
-Everyone else is blocked.
-
----
-
-# Why Not "Any"?
-
-Imagine your house:
-
-```text
-Door
-
- ↓
-
-Everyone Can Enter
-```
-
-You would not do this.
-
-The internet is similar.
-
-Thousands of automated bots continuously scan public IP addresses.
-
-If you configure:
-
-```text
-Port: 22
-
-Source: Any
-```
-
-then every scanner can attempt SSH login.
-
-Even if passwords are strong, unnecessary exposure should be avoided.
-
----
-
-# Why Not Service Tag?
-
-Service Tags are mainly designed for:
-
-* Azure services
-* Azure resources
-* Microsoft-managed IP ranges
-
-Your personal laptop is not represented by a Service Tag.
-
-Example:
-
-Your laptop:
-
-```text
-49.xx.xx.xx
-```
-
-is not:
-
-```text
-AzureLoadBalancer
-```
-
-or:
-
-```text
-VirtualNetwork
-```
-
-Therefore, Service Tags are usually not used for personal SSH access.
-
----
-
-## Real Company Example
-
-Imagine a company with 500 developers.
-
-They need SSH access to production servers.
-
-A bad design:
-
-```text
-Source
-
-↓
-
-Any
-```
-
-A better design:
-
-```text
-Developer Laptop
-
-        │
-
-        ▼
-
-Company VPN
-
-        │
-
-        ▼
-
-Production VM
-```
-
-The NSG allows:
-
-```text
-Company VPN Public IP
-```
-
-Only approved users can connect.
+## Comparison Table
+
+| Port | Service | What Became Possible?                      |
+| ---- | ------- | ------------------------------------------ |
+| 22   | SSH     | Remote VM administration                   |
+| 80   | HTTP    | Website accessible through browser         |
+| 443  | HTTPS   | Secure web traffic after SSL configuration |
 
 ---
 
 ## Common Beginner Mistakes
 
-### ❌ Mistake 1: Using Any for SSH
+## Mistake 1
 
-Beginners often choose:
+❌ Opening Port 80 but not installing a web server.
+
+Result:
 
 ```text
-Source: Any
+Port open
+
+but
+
+No website
 ```
 
-because it is easy.
+---
+
+## Mistake 2
+
+❌ Opening Port 443 and expecting HTTPS immediately.
+
+Reality:
+
+You still need:
+
+```text
+SSL Certificate
+
++
+
+HTTPS Configuration
+```
+
+---
+
+## Mistake 3
+
+❌ Allowing SSH from Any.
 
 Better:
 
 ```text
-Source: My IP Address
+Source:
+
+My IP Address
 ```
+
+because SSH should not be exposed unnecessarily.
 
 ---
 
-### ❌ Mistake 2: Thinking Service Tag Means Microsoft Employee
 
-Service Tag does not represent people.
 
-It represents:
+> Port 22 is used for SSH and allows secure remote administration of Linux virtual machines. Port 80 is used for HTTP and allows users to access web applications without encryption. Port 443 is used for HTTPS and enables encrypted web communication after SSL/TLS configuration. In my Azure lab, opening port 22 allowed SSH access to the VM, opening port 80 allowed the Apache web page to be accessed from a browser, and opening port 443 allowed the VM to accept secure HTTPS traffic after certificate configuration.
+
+---
+
+## Screenshots Checklist
+
+Capture:
+
+1. ✅ NSG rule for Port 22
+2. ✅ Successful SSH login
+3. ✅ NSG rule for Port 80
+4. ✅ Browser showing Apache page
+5. ✅ NSG rule for Port 443
+
+---
+
+## Revision
 
 ```text
-Microsoft-managed IP ranges
+Port 22
+
+↓
+
+SSH
+
+↓
+
+Manage VM
+```
+
+```text
+Port 80
+
+↓
+
+HTTP
+
+↓
+
+Website Access
+```
+
+```text
+Port 443
+
+↓
+
+HTTPS
+
+↓
+
+Secure Website Traffic
 ```
 
 ---
 
-### ❌ Mistake 3: Assuming My IP Address Never Changes
 
-Your public IP may change.
+# Q8. What is the difference between NSG Source options: Any vs My IP Address vs Service Tag? Which is safest for SSH?
 
-If SSH suddenly stops working:
+## Answer
 
-Check your current public IP and update the NSG rule.
+In Q7, we learned:
+
+> Opening a port creates a door.
+
+Now Q8 teaches us:
+
+> **Who is allowed to enter through that door?**
+
+Opening SSH Port 22 is not enough.
+
+We must decide:
+
+**Who can access SSH?**
+
+That decision is controlled by the **Source** option in an Azure Network Security Group (NSG) rule.
 
 ---
 
-# Interview Answer (2 Minutes)
+## Step 1: What is Source in NSG?
 
-> In Azure Network Security Groups, the Source field defines where incoming traffic is allowed from.
->
-> **Any** allows traffic from all IP addresses on the internet. It is useful for public services but is not recommended for SSH because it increases the attack surface.
->
-> **My IP Address** automatically uses my current public IP address and allows access only from my machine. This is the safest option for SSH administration.
->
-> **Service Tag** represents Microsoft-managed groups of IP addresses, such as Azure Load Balancer or Virtual Network. It helps securely allow traffic from Azure services without manually maintaining IP addresses.
+Imagine my house.
+
+Someone is standing outside my door.
+
+The first question you ask is:
+
+> "Who is trying to enter?"
+
+That person is the **source**.
+
+In networking:
+
+```text
+Source
+   |
+   |
+   ▼
+Destination
+
+
+my Laptop
+      |
+      |
+      ▼
+Azure VM
+```
 
 ---
 
-# Quick Revision
+## Networking Meaning
+
+| Term        | Meaning                   |
+| ----------- | ------------------------- |
+| Source      | Where traffic comes from  |
+| Destination | Where traffic goes        |
+| Port        | Which service is accessed |
+
+Example:
+
+```text
+Laptop
+
+Source IP:
+49.xx.xx.xx
+
+
+Destination:
+
+Azure VM
+
+Port:
+22
+```
+
+Meaning:
+
+> Allow this laptop to SSH into my VM.
+
+---
+
+##  Analogy
+
+Imagine my school gate.
+
+The security guard asks:
+
+> "Who are you?"
+
+There are three possible answers.
+
+---
+
+## Option 1: Any
+
+Student says:
+
+> "Anyone can enter."
+
+Security says:
+
+> "Okay, everyone is allowed."
+
+This is:
+
+```
+Any
+```
+
+---
+
+## Option 2: My IP Address
+
+Student says:
+
+> "Only my home address is allowed."
+
+This is:
+
+```
+My IP Address
+```
+
+Only my computer can enter.
+
+---
+
+## Option 3: Service Tag
+
+Student says:
+
+> "Allow all teachers."
+
+Instead of writing every teacher's name:
+
+```
+Teacher Group
+```
+
+is created.
+
+This is:
+
+```
+Service Tag
+```
+
+---
+
+##  Real-World Analogy
+
+Imagine an apartment building.
+
+You want to control who can enter.
+
+---
+
+## Any
+
+Building security says:
+
+```
+Everyone is welcome
+```
+
+Visitors:
+
+```
+Person A ✅
+
+Person B ✅
+
+Unknown Person ✅
+
+Attacker ✅
+```
+
+Very open.
+
+---
+
+## My IP Address
+
+Security says:
+
+```
+Only Apartment 302 owner can enter
+```
+
+Only one person.
+
+More secure.
+
+---
+
+## Service Tag
+
+Security says:
+
+```
+Allow all delivery employees
+```
+
+Instead of listing:
+
+```
+Amazon driver
+FedEx driver
+DHL driver
+...
+```
+
+One group is created:
+
+```
+Delivery Employees
+```
+
+---
+
+## Option 1: Any
+
+## What is Any?
+
+When Source is:
+
+```
+Any
+```
+
+Azure allows traffic from:
+
+```
+0.0.0.0/0
+```
+
+Meaning:
+
+```
+Every IP address on Internet
+```
+
+---
+
+## Diagram
+
+```text
+             Internet
+
+ Laptop A  ─────┐
+
+ Laptop B  ─────┤
+
+ Hacker    ─────┤
+
+ Bot       ─────┘
+
+
+          ▼
+
+        NSG
+
+     Source: Any
+
+
+          ▼
+
+       Azure VM
+```
+
+Everyone can try.
+
+---
+
+## Example Rule
+
+```
+Inbound Rule
+
+Source:
+Any
+
+Destination:
+VM
+
+Port:
+22
+
+Action:
+Allow
+```
+
+Meaning:
+
+> Anyone on the internet can attempt SSH.
+
+---
+
+## Security Level
+
+❌ Lowest security
+
+Why?
+
+Because attackers constantly scan the internet for:
+
+```
+Port 22 Open
+```
+
+---
+
+## Option 2: My IP Address
+
+## What is My IP Address?
+
+Azure detects my current public IP.
+
+Example:
+
+```
+my Laptop
+
+Public IP:
+
+49.37.xx.xx
+```
+
+Azure creates:
+
+```
+Allow
+
+Source:
+
+49.37.xx.xx
+
+Port:
+
+22
+```
+
+---
+
+## Diagram
+
+```text
+my Laptop
+
+49.xx.xx.xx
+
+      │
+
+      ▼
+
+    NSG
+
+Allow:
+
+49.xx.xx.xx
+
+      │
+
+      ▼
+
+    VM
+```
+
+---
+
+Other people:
+
+```
+Friend Laptop ❌
+
+Office Laptop ❌
+
+Attacker ❌
+```
+
+---
+
+## Security Level
+
+✅ Highest security for personal SSH access.
+
+Best for:
+
+* Learning labs
+* Personal VMs
+* Administrator access
+
+---
+
+## Option 3: Service Tag
+
+## What is a Service Tag?
+
+A Service Tag is a predefined group of Azure IP addresses.
+
+Azure manages the IP list automatically.
+
+Instead of writing:
+
+```
+20.1.1.1
+20.1.1.2
+20.1.1.3
+...
+```
+
+Azure provides:
+
+```
+AzureLoadBalancer
+```
+
+or
+
+```
+VirtualNetwork
+```
+
+---
+
+## Diagram
+
+Without Service Tag:
+
+```text
+Azure IP 1
+
+Azure IP 2
+
+Azure IP 3
+
+Azure IP 4
+
+      |
+      ▼
+
+      VM
+```
+
+Too many IPs.
+
+---
+
+With Service Tag:
+
+```text
+AzureLoadBalancer
+
+        |
+
+        ▼
+
+       NSG
+
+        |
+
+        ▼
+
+       VM
+```
+
+Azure manages the addresses.
+
+---
+
+## Common Azure Service Tags
+
+| Service Tag       | Purpose                           |
+| ----------------- | --------------------------------- |
+| VirtualNetwork    | Resources inside the VNet         |
+| AzureLoadBalancer | Azure Load Balancer health probes |
+| Internet          | Public internet traffic           |
+| AzureCloud        | Azure datacenter IP ranges        |
+
+---
+
+## Comparison Table
+
+| Feature               | Any             | My IP Address          | Service Tag                 |
+| --------------------- | --------------- | ---------------------- | --------------------------- |
+| Allows                | Everyone        | Only my IP           | Azure service/group         |
+| Security              | ❌ Low           | ✅ High                 | ✅ Depends on usage          |
+| Used For              | Public services | SSH/RDP administration | Azure service communication |
+| Example               | Public website  | Admin login            | Load Balancer checks        |
+| Manual IP list needed | No              | No                     | No                          |
+
+---
+
+## Which is Safest for SSH?
+
+##  Answer:
+
+```
+My IP Address
+```
+
+---
+
+## Why?
+
+SSH gives administrative access.
+
+Example:
+
+```text
+Port 22
+
+↓
+
+Linux Shell
+
+↓
+
+Full VM Control
+```
+
+Therefore, we should restrict who can connect.
+
+---
+
+## Secure SSH Flow
+
+```text
+my Laptop
+
+       |
+       |
+       ▼
+
+Source:
+
+My IP Address
+
+
+       |
+       |
+       ▼
+
+NSG
+
+Allow Port 22
+
+
+       |
+       |
+       ▼
+
+Azure VM
+```
+
+---
+
+## Why Not Any for SSH?
+
+Because:
+
+```text
+Internet
+
+      |
+      |
+      ▼
+
+Port 22 Open
+
+      |
+      |
+      ▼
+
+Attackers can try login
+```
+
+Even if password is strong, allowing everyone increases risk.
+
+---
+
+## Why Not Service Tag for SSH?
+
+Because my laptop is not an Azure service.
+
+Example:
+
+Wrong:
+
+```
+Source:
+
+AzureLoadBalancer
+
+Port:
+
+22
+```
+
+my laptop does not belong to Azure Load Balancer.
+
+---
+
+## Practical Azure Lab
+
+## Open VM
+
+Go to:
+
+```
+Azure Portal
+
+↓
+
+Virtual Machines
+
+↓
+
+week3-vm
+
+↓
+
+Networking
+```
+
+---
+
+## Check NSG Rules
+
+You will see:
+
+```
+Inbound security rules
+```
+
+---
+
+## Add SSH Rule
+
+Click:
+
+```
+Add inbound port rule
+```
+
+Configure:
+
+| Setting  | Value          |
+| -------- | -------------- |
+| Source   | My IP Address  |
+| Service  | SSH            |
+| Port     | 22             |
+| Action   | Allow          |
+| Priority | 300            |
+| Name     | Allow-SSH-MyIP |
+
+---
+
+## Test SSH
+
+Terminal:
+
+```bash
+ssh azureuser@<public-ip>
+```
+
+Expected:
+
+```text
+Welcome to Ubuntu
+```
+
+---
+
+## Screenshots Required
+
+Take screenshots of:
+
+## 1. NSG Rule
+
+Showing:
+
+```
+Source:
+
+My IP Address
+
+Destination:
+
+VM
+
+Port:
+
+22
+```
+
+---
+
+## 2. Successful SSH
+
+Terminal:
+
+```text
+ubuntu@week3-vm:
+```
+
+---
+
+## Common Beginner Mistakes
+
+## ❌ Mistake 1
+
+Using:
+
+```
+Source: Any
+```
+
+for SSH.
+
+Problem:
+
+Everyone can try connecting.
+
+---
+
+## ❌ Mistake 2
+
+Thinking Service Tag means users.
+
+Wrong.
+
+Service Tag = Azure managed IP group.
+
+---
+
+## ❌ Mistake 3
+
+Thinking My IP Address is permanent.
+
+my public IP can change.
+
+Example:
+
+Today:
+
+```
+49.xx.xx.xx
+```
+
+Tomorrow:
+
+```
+103.xx.xx.xx
+```
+
+You may need to update the rule.
+
+---
+
+
+
+> In Azure NSG rules, the Source option defines where incoming traffic is allowed from. **Any** allows traffic from all internet IP addresses and is the least secure option. **My IP Address** allows traffic only from my current public IP address, making it the safest option for SSH administration because only my machine can connect. **Service Tags** represent Microsoft-managed groups of IP addresses used for Azure services such as Azure Load Balancer or Virtual Network communication.
+
+---
+
+## Revision
 
 ```text
 Any
 
 ↓
 
-Everyone on Internet
+Everyone
 ```
 
 ---
@@ -4241,594 +4743,433 @@ Service Tag
 
 ↓
 
-Azure Managed Services
+Azure Managed Group
 ```
 
 ---
 
-# Easy Memory Trick
+## Remember 
 
-Think about your phone contacts.
+```
+NSG Source
 
-```text
-Any
+Who can enter?
 
-↓
+        |
 
-Answer every unknown call
+        +---- Any
+        |
+        +---- Everyone
+
+
+        +---- My IP
+        |
+        +---- Only Me
+
+
+        +---- Service Tag
+        |
+        +---- Azure Group
 ```
 
 ---
 
-```text
-My IP Address
 
-↓
-
-Answer only your saved personal number
-```
-
----
-
-```text
-Service Tag
-
-↓
-
-Answer calls from an official company group
-```
-
----
-
-### Note
-> **Any** allows traffic from any IP address on the internet and is suitable for public services like websites but is not recommended for SSH because it increases the attack surface.
->
-> **My IP Address** restricts access to the current public IP address, making it the safest option for SSH because only the administrator's machine can connect.
->
-> **Service Tag** allows traffic from predefined Azure-managed IP ranges, such as Azure Load Balancer or Virtual Network, and is mainly used for communication between Azure services rather than direct administrator access.
-
-
-
-
-In an Azure Network Security Group (NSG), the **Source** field defines where incoming network traffic is allowed to originate from.
-
-The three commonly used source options are:
-
-### 1. Any
-
-**Any** allows traffic from **all IP addresses on the internet**.
-
-Example:
-
-```text
-Source
-
-↓
-
-Any
-```
-
-This means any device from anywhere can attempt to connect to the resource.
-
-It is commonly used for public services such as web servers (HTTP/HTTPS), but it is **not recommended for SSH access** because it exposes the VM to unnecessary connection attempts from attackers and automated scanners.
-
----
-
-### 2. My IP Address
-
-**My IP Address** automatically uses your current public IP address and allows traffic only from that specific IP.
-
-Example:
-
-```text
-Source
-
-↓
-
-Your Public IP Address
-```
-
-This is the **safest option for SSH administration** because only your computer can attempt to connect to the Azure VM.
-
-However, if your public IP changes due to a router restart, ISP change, or network change, you may need to update the NSG rule.
-
----
-
-### 3. Service Tag
-
-A **Service Tag** represents a Microsoft-managed group of IP addresses for Azure services.
-
-Examples:
-
-```text
-AzureLoadBalancer
-
-VirtualNetwork
-
-AzureCloud
-```
-
-Instead of manually maintaining multiple IP addresses, Azure automatically manages the IP ranges behind the Service Tag.
-
-Service Tags are mainly used for communication between Azure services and resources, not for allowing SSH access from a personal laptop.
-
----
-
-### Which is safest for SSH?
-
-The safest option for SSH is:
-
-```text
-✅ My IP Address
-```
-
-because SSH provides administrative access to the virtual machine, and restricting access to only the administrator's public IP reduces the attack surface.
-
-A recommended SSH rule would be:
-
-```text
-Port:
-22
-
-Source:
-My IP Address
-```
-
-Avoid using:
-
-```text
-Port:
-22
-
-Source:
-Any
-```
-
-because it allows every device on the internet to attempt an SSH connection.
-
-**In summary:**
-
-* **Any** → Allows everyone on the internet to connect; least secure.
-* **My IP Address** → Allows only your current public IP; best choice for SSH administration.
-* **Service Tag** → Allows predefined Azure service IP ranges; used mainly for Azure service communication.
-
-
-
----
 
 # Q9. 
-What is the difference between a system route and a user-defined route UDR Create a UDR with next hop None and demonstrate its effect. Attach screenshots.
+What is the difference between a System Route and a User-Defined Route (UDR)? Create a UDR with Next Hop = None and demonstrate its effect. Attach screenshots.
 
-# Answer
+## Answer
 
-In Q6, I learned about **Route Tables**. Now I will understand how Azure decides:
+Q9 focuses on **Azure routing behavior**.
 
-> **"Where should this network traffic go?"**
+In previous questions:
 
-This process is called **Routing**.
+* Q6 explained the difference between **NSG and Route Table**
+* Q8 explained who can access traffic using **NSG Source rules**
 
-In this lesson, you will learn:
+Now we learn:
 
-* What **System Routes** are
-* What **User-Defined Routes (UDRs)** are
-* What **Next Hop** means
-* What happens when **Next Hop = None**
-* How to create a UDR in Azure
-* Why traffic stops after applying a UDR
-* Which screenshots to capture for your assignment
+> How does Azure decide where network traffic should go?
+
+This is controlled by **routes**.
 
 ---
 
-# Step 1: What is a Route?
+## Step 1: What is Routing?
 
-Imagine you are travelling from your home to a shopping mall.
+Routing means deciding the path that network traffic should take.
 
-You open Google Maps.
+Example:
 
-Google Maps gives you directions:
+You want to travel from my home to an office.
+
+A navigation system decides:
 
 ```text
 Home
 
- ↓
+↓
 
-Turn Left
+Main Road
 
- ↓
+↓
 
-Take Highway
+Highway
 
- ↓
+↓
 
-Shopping Mall
+Office
 ```
 
-Google Maps is deciding the path you should follow.
+The navigation system decides the path.
 
-This path is called a **Route**.
+In Azure:
 
-Azure networking works the same way.
+```text
+VM
 
-Azure decides the path that network packets should take to reach their destination.
+↓
+
+Route Table
+
+↓
+
+Destination
+```
+
+The Route Table decides where packets should go.
 
 ---
 
-## Kid Analogy 👶
+## Step 2: What is a Route?
 
-Imagine your school.
-
-You ask your teacher:
-
-> "How do I reach the library?"
-
-Your teacher says:
+A route contains three main things:
 
 ```text
-Classroom
+Destination
 
- ↓
+        +
 
-Left Corridor
+Next Hop
 
- ↓
+        +
 
-Stairs
-
- ↓
-
-Library
+Path Decision
 ```
 
-These instructions are a **route**.
+Example:
 
-A route simply tells traffic:
+```text
+Destination:
 
-> "Where should you go next?"
+Internet (0.0.0.0/0)
+
+
+Next Hop:
+
+Internet Gateway
+```
+
+Meaning:
+
+> Send this traffic to the internet.
 
 ---
 
-# Step 2: What is a System Route?
+## Step 3: What is a System Route?
 
-When you create an Azure Virtual Network (VNet), Azure automatically creates default routes.
+A **System Route** is a route automatically created and managed by Azure.
 
-These are called:
+When you create a Virtual Network (VNet), Azure automatically creates default routes.
 
-```text
-System Routes
-```
-
-You do not create them manually.
-
-Azure manages them automatically.
-
-Think of System Routes as:
-
-> Azure's default GPS directions.
+You do not manually configure them.
 
 ---
 
 ## Example
 
-Suppose one VM needs to communicate with another VM:
+Suppose you create:
 
 ```text
-VM1
+VNet
 
- ↓
+10.0.0.0/16
 
-VM2
+
+Subnet
+
+10.0.1.0/24
+
+
+VM
+
+10.0.1.4
 ```
 
-Azure already knows how to deliver the traffic.
+Azure automatically knows:
 
-You did not create any route manually.
+```text
+VM
 
-Why?
+↓
 
-Because Azure created a System Route automatically.
+Other VM inside VNet
+
+↓
+
+Reachable
+```
+
+No configuration required.
 
 ---
 
-## ASCII Diagram
+## System Route Diagram
 
 ```text
-Azure Creates Automatically
+Azure Automatically Creates
 
 
-VM1
+VM A
 
- ↓
+ |
+
+ |
 
 System Route
 
- ↓
+ |
 
-VM2
+ |
+
+VM B
 ```
 
-No manual configuration is required.
+---
+
+## Types of System Routes
+
+Azure automatically provides routes for:
+
+| Destination     | Purpose                           |
+| --------------- | --------------------------------- |
+| Virtual Network | Communication between subnets     |
+| Internet        | Default internet access           |
+| Azure Services  | Access to Azure platform services |
+| Peered Networks | VNet peering communication        |
 
 ---
 
-# What Can System Routes Handle?
+## Step 4: What is a User-Defined Route (UDR)?
 
-System Routes provide default connectivity for:
-
-* Communication between subnets inside a VNet
-* Communication with the internet
-* Communication with Azure services
-
-They allow Azure resources to communicate without additional routing configuration.
-
----
-
-# Step 3: What is a User-Defined Route (UDR)?
-
-A **User-Defined Route (UDR)** is a custom route created by the user.
+A User-Defined Route is a custom route created by the user.
 
 It allows you to override Azure's default routing behavior.
 
 ---
 
-## Kid Analogy 👶
+## Real-World Example
 
 Normally:
 
 ```text
-House
+Office Laptop
 
- ↓
+↓
 
-Main Road
-
- ↓
-
-Shopping Mall
+Internet
 ```
 
-Your father says:
+Company security policy says:
 
-> "Do not use the main road. Take another path."
+> All internet traffic must go through a firewall.
 
-Now you use:
+Now the path becomes:
 
 ```text
-House
+Office Laptop
 
- ↓
+↓
 
-Park Road
+Firewall
 
- ↓
+↓
 
-Bridge
-
- ↓
-
-Shopping Mall
+Internet
 ```
 
-You changed the default path.
-
-That is a **User-Defined Route**.
+This custom path is created using a UDR.
 
 ---
 
-# Azure Example
+## Azure Example
 
 Default routing:
 
 ```text
-Virtual Machine
+VM
 
- ↓
+↓
 
 Internet
 ```
 
-Company security policy:
-
-> "All internet traffic must pass through a firewall."
-
-New route:
+After UDR:
 
 ```text
-Virtual Machine
+VM
 
- ↓
+↓
 
 Azure Firewall
 
- ↓
+↓
 
 Internet
 ```
 
-This custom routing decision is created using a UDR.
+The user changed the traffic path.
 
 ---
 
-# System Route vs User-Defined Route
+## Step 5: System Route vs UDR
 
-## System Route
+Simple difference:
 
 ```text
-Azure decides
+System Route
+
+↓
+
+Azure decides the path
 ```
 
-## User-Defined Route
-
 ```text
-You decide
+User-Defined Route
+
+↓
+
+You decide the path
 ```
 
 ---
 
-# Step 4: What is Next Hop?
+## Step 6: What is Next Hop?
 
-This is the most important routing concept.
+Next Hop means:
 
-Imagine you are sending a package.
+> Where should the traffic go next?
+
+Think about sending a parcel.
 
 Current location:
 
 ```text
-Home
+my House
 ```
 
-The delivery person asks:
-
-> "Where should I go next?"
-
-Maybe:
+Next destination:
 
 ```text
-Post Office
+Courier Center
 ```
 
-The next destination is called the:
-
-```text
-Next Hop
-```
-
----
+The courier center is the next hop.
 
 Networking works the same way.
-
-A packet asks:
-
-> "Where should I send this traffic next?"
-
-The answer is the Next Hop.
 
 ---
 
 ## Example
 
-Traffic going directly to internet:
+Traffic flow:
 
 ```text
 VM
 
- ↓
+↓
 
 Next Hop
 
- ↓
+↓
 
 Internet
 ```
 
-Traffic going through firewall:
+or:
 
 ```text
 VM
 
- ↓
+↓
 
 Next Hop
 
- ↓
+↓
 
 Firewall
-
- ↓
-
-Internet
 ```
 
 ---
 
-# Step 5: What Does Next Hop = None Mean?
+## Step 7: What Does Next Hop = None Mean?
 
-This is where many beginners get confused.
+Next Hop = None means:
 
-**Next Hop = None** means:
-
-> There is no destination to forward the traffic to.
+> There is no destination for this traffic.
 
 Azure drops the packet.
 
----
-
-## Real-Life Example
-
-Imagine driving.
-
-Normally:
-
-```text
-Car
-
- ↓
-
-Road
-
- ↓
-
-Destination
-```
-
-Now Google Maps says:
-
-```text
-STOP
-
-Road Closed
-```
-
-You cannot continue.
-
-This is similar to:
-
-```text
-Next Hop = None
-```
+The traffic cannot continue.
 
 ---
 
-## ASCII Diagram
-
-### Normal Traffic
+## Normal Flow
 
 ```text
 VM
 
- ↓
+↓
+
+Route Table
+
+↓
 
 Internet
+
+↓
+
+Success
 ```
 
 ---
 
-### After UDR with Next Hop = None
+## After UDR with Next Hop = None
 
 ```text
 VM
 
- ↓
+↓
 
 User Defined Route
 
- ↓
+↓
 
-None
+Next Hop: None
 
- ↓
+↓
 
-❌ Traffic Dropped
+Traffic Dropped
 ```
-
-The packet has nowhere to go.
 
 ---
 
-# Practical Lab: Create UDR with Next Hop = None
+## Practical Lab: Create a UDR with Next Hop = None
 
 ## Step 1: Create Route Table
 
-Go to:
+Open Azure Portal:
 
 ```text
 Azure Portal
@@ -4844,13 +5185,13 @@ Create
 
 ---
 
-Fill the details:
+## Configuration
 
-| Field          | Value             |
+| Setting        | Value             |
 | -------------- | ----------------- |
 | Resource Group | week3-rg          |
+| Region         | Same as VM region |
 | Name           | week3-route-table |
-| Region         | Same as VM        |
 
 Click:
 
@@ -4866,11 +5207,13 @@ Create
 
 ## Step 2: Add a Route
 
-Open the Route Table.
-
-Go to:
+Open:
 
 ```text
+Route Table
+
+↓
+
 Routes
 
 ↓
@@ -4884,43 +5227,42 @@ Configure:
 | ---------------- | -------------- |
 | Route Name       | block-internet |
 | Destination Type | IP Addresses   |
-| Destination CIDR | `0.0.0.0/0`    |
+| Destination CIDR | 0.0.0.0/0      |
 | Next Hop Type    | None           |
 
 ---
 
-# Why Use `0.0.0.0/0`?
+## Why Use 0.0.0.0/0?
 
-This represents:
-
-> All possible IP addresses.
-
-In simple words:
+`0.0.0.0/0` represents:
 
 ```text
-Everything
+All IPv4 Addresses
 ```
 
-So the rule means:
+Meaning:
 
-> Drop traffic going anywhere.
+```text
+Any destination
+```
+
+The rule says:
+
+> For all traffic, there is no next hop.
+
+Therefore:
+
+```text
+Drop traffic
+```
 
 ---
 
-Click:
+## Step 3: Associate Route Table with Subnet
 
-```text
-Add
-```
+Creating a route table alone does nothing.
 
----
-
-
-# Step 3: Associate the Route Table with a Subnet
-
-Creating a Route Table alone does **not** affect traffic.
-
-You must associate it with the subnet where your resources are running.
+It must be attached to a subnet.
 
 Go to:
 
@@ -4939,223 +5281,6 @@ Associate
 Select:
 
 ```text
-Virtual Network
-
-↓
-
-week3-vnet
-```
-
-Choose the subnet:
-
-```text
-frontend-subnet
-```
-
-Click:
-
-```text
-OK
-```
-
----
-
-## Important Concept
-
-The Route Table is now attached to the subnet.
-
-Any VM inside this subnet will follow the routes defined in this Route Table.
-
-Example:
-
-```text
-Azure VNet
-
-      │
-
-      ▼
-
-frontend-subnet
-
-      │
-
-      ▼
-
-Virtual Machine
-
-      │
-
-      ▼
-
-User Defined Route
-```
-
----
-
-# Step 4: Test the Effect
-
-Now test whether internet access works.
-
-Connect to your VM using SSH.
-
-Run:
-
-```bash
-ping google.com
-```
-
-or:
-
-```bash
-curl https://www.microsoft.com
-```
-
----
-
-## Expected Result
-
-The internet connection should fail.
-
-Why?
-
-Because the UDR contains:
-
-```text
-Destination:
-
-0.0.0.0/0
-
-
-Next Hop:
-
-None
-```
-
-Azure does not know where to forward the traffic.
-
-Therefore, the packet is dropped.
-
----
-
-# Why Did This Happen?
-
-## Before Applying the UDR
-
-Traffic followed Azure's default System Route:
-
-```text
-VM
-
- │
-
- ▼
-
-System Route
-
- │
-
- ▼
-
-Internet ✅
-```
-
-Azure already knew the path.
-
----
-
-## After Applying the UDR
-
-The custom route overrides the default behavior:
-
-```text
-VM
-
- │
-
- ▼
-
-Route Table
-
- │
-
- ▼
-
-0.0.0.0/0
-
- │
-
- ▼
-
-Next Hop = None
-
- │
-
- ▼
-
-❌ Traffic Dropped
-```
-
-The VM itself is working correctly.
-
-The problem is the routing decision.
-
----
-
-# System Route vs User-Defined Route Comparison
-
-| Feature       | System Route                  | User-Defined Route (UDR)                                         |
-| ------------- | ----------------------------- | ---------------------------------------------------------------- |
-| Created By    | Azure                         | User                                                             |
-| Configuration | Automatic                     | Manual                                                           |
-| Modification  | Cannot be modified            | Can be created and changed                                       |
-| Purpose       | Provides default connectivity | Overrides default routing behavior                               |
-| Common Usage  | Normal communication          | Firewall routing, VPN routing, traffic control, blocking traffic |
-
----
-
-# Screenshots Required for Assignment
-
-Capture the following screenshots:
-
-## 1. Route Table Overview
-
-Show:
-
-```text
-Route Table Name
-
-week3-route-table
-```
-
----
-
-## 2. Route Configuration
-
-Show the created route:
-
-```text
-Route Name:
-
-block-internet
-
-
-Destination:
-
-0.0.0.0/0
-
-
-Next Hop Type:
-
-None
-```
-
----
-
-## 3. Subnet Association
-
-Show:
-
-```text
 Virtual Network:
 
 week3-vnet
@@ -5166,13 +5291,13 @@ Subnet:
 frontend-subnet
 ```
 
+Save.
+
 ---
 
-## 4. Terminal Testing
+## Step 4: Test the Effect
 
-Show the failed internet connectivity test.
-
-Example:
+Before applying the UDR:
 
 ```bash
 curl https://www.microsoft.com
@@ -5187,72 +5312,240 @@ ping google.com
 Expected:
 
 ```text
-Connection Failed
+Successful response
 ```
 
 ---
 
-# Common Beginner Mistakes
+After applying the UDR:
 
-## ❌ Mistake 1: Thinking the VM is broken
+```bash
+curl https://www.microsoft.com
+```
 
-Some beginners think:
+or:
 
-> "My VM stopped working."
+```bash
+ping google.com
+```
 
-The VM is healthy.
-
-The Route Table is blocking traffic.
-
-Remember:
+Expected:
 
 ```text
-VM Problem ❌
+Connection failure
+```
 
-Routing Decision Problem ✅
+because traffic has no next hop.
+
+---
+
+## Traffic Flow Comparison
+
+## Before UDR
+
+```text
+VM
+
+ |
+
+ ▼
+
+System Route
+
+ |
+
+ ▼
+
+Internet
+
+ |
+
+ ▼
+
+Success
 ```
 
 ---
 
-## ❌ Mistake 2: Creating the Route Table but not associating it
+## After UDR
 
-Creating a Route Table alone does nothing.
+```text
+VM
+
+ |
+
+ ▼
+
+User Defined Route
+
+Destination:
+
+0.0.0.0/0
+
+
+Next Hop:
+
+None
+
+
+ |
+
+ ▼
+
+Traffic Dropped
+```
+
+---
+
+## Comparison Table
+
+| Feature       | System Route              | User-Defined Route (UDR)                        |
+| ------------- | ------------------------- | ----------------------------------------------- |
+| Created By    | Azure                     | User                                            |
+| Configuration | Automatic                 | Manual                                          |
+| Purpose       | Default connectivity      | Custom traffic control                          |
+| Modification  | Cannot be changed         | User controls it                                |
+| Priority      | Lower than UDR            | Higher priority                                 |
+| Common Usage  | Normal VNet communication | Firewall routing, VPN routing, blocking traffic |
+
+---
+
+## NSG vs UDR Reminder
+
+Many beginners confuse these concepts.
+
+## NSG
+
+Question answered:
+
+> Should this traffic be allowed?
 
 Example:
 
 ```text
-Route Table Created
+Allow Port 22
 
-↓
-
-No Subnet Association
-
-↓
-
-No Effect
+Deny Port 3389
 ```
-
-The Route Table must be attached to a subnet.
 
 ---
 
-## ❌ Mistake 3: Confusing NSG and UDR
+## UDR
 
-Both control network traffic, but they solve different problems.
+Question answered:
 
-Remember:
-
-```text
-NSG
-
-↓
-
-"Should this traffic be allowed?"
-```
+> Where should this traffic go?
 
 Example:
 
-Allow SSH on Port 22.
+```text
+VM
+
+↓
+
+Firewall
+
+↓
+
+Internet
+```
+
+---
+
+## Common Beginner Mistakes
+
+## Mistake 1: Creating a Route Table but seeing no change
+
+Reason:
+
+The route table was not associated with a subnet.
+
+Fix:
+
+Associate it with the required subnet.
+
+---
+
+## Mistake 2: Thinking UDR blocks traffic like an NSG
+
+Incorrect.
+
+UDR changes the path.
+
+NSG filters traffic.
+
+---
+
+## Mistake 3: Using the wrong destination
+
+Example:
+
+```text
+10.0.0.0/16
+```
+
+Only affects that network.
+
+For blocking internet traffic:
+
+```text
+0.0.0.0/0
+```
+
+is used.
+
+---
+
+## Screenshots 
+
+Capture:
+
+1. Route Table creation page
+
+2. Route rule showing:
+
+```text
+Destination:
+
+0.0.0.0/0
+
+
+Next Hop:
+
+None
+```
+
+3. Subnet association page
+
+4. Terminal showing internet connectivity failure
+
+Example:
+
+```bash
+curl https://www.microsoft.com
+```
+
+---
+
+
+
+> A System Route is automatically created and managed by Azure to provide default network connectivity between resources such as virtual networks, subnets, and the internet. A User-Defined Route (UDR) is manually created by users to override Azure's default routing behavior and control where traffic should flow. In my lab, I created a UDR with destination `0.0.0.0/0` and configured the next hop as `None`. After associating it with the subnet, outbound internet traffic from the VM was dropped because Azure had no next hop to forward the packets.
+
+---
+
+## Revision
+
+```text
+System Route
+
+↓
+
+Created by Azure
+
+↓
+
+Default path
+```
 
 ---
 
@@ -5261,116 +5554,6729 @@ UDR
 
 ↓
 
-"Where should this traffic go?"
+Created by User
+
+↓
+
+Custom path
+```
+
+---
+
+```text
+Next Hop = None
+
+↓
+
+No destination
+
+↓
+
+Traffic Dropped
+```
+
+---
+
+
+# Q10.
+
+What is the difference between connecting to a VM using a **public IP with port 22 open** versus using **Azure Bastion**? Compare in a table with at least five points.
+
+## Answer
+
+Let's first understand the problem.
+
+---
+
+## Step 1: Imagine my House
+
+Suppose you live in a house.
+
+There are two ways my friend can visit.
+
+## Method 1
+
+You leave my front door open.
+
+my friend comes directly.
+
+```text
+Friend
+   │
+   ▼
+Front Door
+   │
+   ▼
+my House
+```
+
+But...
+
+Anyone walking on the street can also see my door.
+
+---
+
+## Method 2
+
+Instead of opening my front door,
+
+You tell my friend:
+
+> "Come to the security gate first."
+
+The security guard checks who they are.
+
+Only then are they allowed inside.
+
+```text
+Friend
+   │
+   ▼
+Security Gate
+   │
+   ▼
+my House
+```
+
+This is exactly how **Azure Bastion** works.
+
+---
+
+## Step 2: Public IP + Port 22
+
+Suppose my VM has:
+
+* Public IP
+* Port 22 Open
+
+Architecture:
+
+```text
+my Laptop
+      │
+      ▼
+Internet
+      │
+      ▼
+Public IP
+      │
+      ▼
+Port 22 (SSH)
+      │
+      ▼
+Azure VM
+```
+
+You simply run:
+
+```bash
+ssh azureuser@20.xxx.xxx.xxx
+```
+
+You are directly connected to the VM.
+
+---
+
+## Is This Good?
+
+Yes.
+
+It's simple.
+
+But...
+
+my VM is visible on the Internet.
+
+Anyone can try connecting to it.
+
+Even if they don't know the password, they can still scan Port 22 and attempt login.
+
+---
+
+## Step 3: What is Azure Bastion?
+
+Azure Bastion is a **managed service** provided by Microsoft.
+
+It lets you connect to a VM **without giving the VM a Public IP**.
+
+Think of Bastion as a **secure jump server** managed by Azure.
+
+---
+
+## How Does Bastion Work?
+
+Architecture:
+
+```text
+my Laptop
+      │
+      ▼
+Azure Portal
+      │
+      ▼
+Azure Bastion
+      │
+      ▼
+Private IP
+      │
+      ▼
+Azure VM
+```
+
+Notice something important...
+
+The VM **does not need a Public IP**.
+
+---
+
+## Real-World Example
+
+Imagine a bank.
+
+Would they expose the vault directly to the street?
+
+No.
+
+Instead,
+
+```text
+Street
+
+↓
+
+Main Entrance
+
+↓
+
+Security
+
+↓
+
+Vault
+```
+
+Similarly,
+
+Companies avoid exposing production VMs directly to the Internet.
+
+They use Bastion.
+
+---
+
+## ASCII Comparison
+
+## Public IP + SSH
+
+```text
+Laptop
+
+↓
+
+Internet
+
+↓
+
+Public IP
+
+↓
+
+VM
+```
+
+---
+
+## Azure Bastion
+
+```text
+Laptop
+
+↓
+
+Azure Portal
+
+↓
+
+Azure Bastion
+
+↓
+
+Private IP
+
+↓
+
+VM
+```
+
+---
+
+## Why is Bastion More Secure?
+
+With Public IP:
+
+```text
+Internet
+
+↓
+
+VM
+```
+
+Anyone can see the VM.
+
+---
+
+With Bastion:
+
+```text
+Internet
+
+↓
+
+Azure Bastion
+
+↓
+
+VM
+```
+
+The VM stays private.
+
+---
+
+## Features of Azure Bastion
+
+Azure Bastion provides:
+
+* Browser-based SSH/RDP
+* No Public IP required on the VM
+* Managed by Microsoft
+* Secure access
+* Clipboard (copy/paste) support
+* No need to expose management ports to the internet
+
+---
+
+## Comparison Table
+
+| Feature                            | Public IP + Port 22         | Azure Bastion           |
+| ---------------------------------- | --------------------------- | ----------------------- |
+| Public IP required on VM?          | Yes                         | No                      |
+| SSH Port (22) exposed to Internet? | Yes                         | No                      |
+| Security                           | Lower (internet-facing)     | Higher (private access) |
+| Connection Method                  | SSH client (Terminal/PuTTY) | Azure Portal (browser)  |
+| Attack Surface                     | Higher                      | Lower                   |
+| Microsoft Managed                  | No                          | Yes                     |
+| Best For                           | Labs, testing               | Production environments |
+
+---
+
+
+# Q11.
+
+Deploy Bastion and connect to a VM that has **no public IP**. Then enable copy/paste and demonstrate it. Attach screenshots.
+
+## Answer
+
+## Before We Start
+
+Let's remember the two architectures.
+
+## Method 1 (Old Way)
+
+```text
+my Laptop
+      │
+      ▼
+Internet
+      │
+      ▼
+Public IP
+      │
+      ▼
+VM
+```
+
+Everyone on the Internet can see the VM.
+
+---
+
+## Method 2 (Azure Bastion)
+
+```text
+my Laptop
+      │
+      ▼
+Azure Portal
+      │
+      ▼
+Azure Bastion
+      │
+      ▼
+Private IP
+      │
+      ▼
+VM
+```
+
+The VM is hidden from the Internet.
+
+---
+
+## Analogy
+
+Imagine a school.
+
+Without Bastion:
+
+```text
+Visitor
+
+↓
+
+Classroom
+```
+
+Anyone can try entering.
+
+---
+
+With Bastion:
+
+```text
+Visitor
+
+↓
+
+Security Office
+
+↓
+
+Visitor Pass
+
+↓
+
+Classroom
+```
+
+Only verified visitors reach the classroom.
+
+---
+
+## Step 1: Why Do We Remove the Public IP?
+
+Ask myself:
+
+> If Azure Bastion is going to connect to my VM...
+
+Why should my VM also be visible on the Internet?
+
+It shouldn't.
+
+So first we remove the Public IP.
+
+---
+
+## Step 2: Remove the Public IP
+
+Go to:
+
+```text
+Azure Portal
+
+↓
+
+Virtual Machines
+
+↓
+
+week3-vm
+
+↓
+
+Networking
+
+↓
+
+Network Interface
+```
+
+Click the Public IP resource.
+
+Then choose:
+
+```text
+Dissociate
+```
+
+or
+
+```text
+Delete Public IP
+```
+
+(depending on the portal experience)
+
+Now my VM only has:
+
+```text
+Private IP
+
+10.0.1.x
+```
+
+No Public IP.
+
+---
+
+## What Just Happened?
+
+Earlier:
+
+```text
+VM
+
+Public IP ✅
+
+Private IP ✅
+```
+
+Now:
+
+```text
+VM
+
+Public IP ❌
+
+Private IP ✅
+```
+
+The VM still runs normally.
+
+It simply isn't reachable directly from the Internet anymore.
+
+---
+
+## Step 3: Create Azure Bastion
+
+Search:
+
+```text
+Bastion
+```
+
+Click:
+
+```text
+Create
+```
+
+---
+
+Fill these values:
+
+| Field           | Value             |
+| --------------- | ----------------- |
+| Resource Group  | week3-rg          |
+| Name            | week3-bastion     |
+| Region          | Same region as VM |
+| Virtual Network | week3-vnet        |
+
+Azure will ask for:
+
+```text
+AzureBastionSubnet
+```
+
+---
+
+## What is AzureBastionSubnet?
+
+This confuses many beginners.
+
+Think of Bastion as another machine inside my VNet.
+
+It needs its own dedicated room.
+
+That room is called:
+
+```text
+AzureBastionSubnet
+```
+
+It is a **special subnet reserved only for Azure Bastion**.
+
+You cannot place my own VMs there.
+
+---
+
+## Analogy
+
+Imagine a school.
+
+Students have classrooms.
+
+Teachers have staff rooms.
+
+Principal has a separate office.
+
+Similarly,
+
+```text
+Frontend Subnet
+
+↓
+
+VMs
+```
+
+```text
+AzureBastionSubnet
+
+↓
+
+Only Bastion
+```
+
+---
+
+Azure usually creates this subnet for you if needed.
+
+---
+
+## Step 4: Wait for Deployment
+
+Bastion deployment may take several minutes.
+
+This is normal.
+
+---
+
+## Step 5: Connect Using Bastion
+
+Go to:
+
+```text
+Virtual Machines
+
+↓
+
+week3-vm
+```
+
+You'll see:
+
+```text
+Connect
+```
+
+Choose:
+
+```text
+Bastion
+```
+
+Enter:
+
+* Username
+* Password (or SSH key, depending on how you created the VM)
+
+Click:
+
+```text
+Connect
+```
+
+---
+
+## What Happens?
+
+Instead of opening PuTTY or Terminal...
+
+Azure opens the VM **inside my web browser**.
+
+```text
+Browser
+
+↓
+
+Azure Portal
+
+↓
+
+Bastion
+
+↓
+
+VM
+```
+
+No Public IP needed.
+
+---
+
+## Step 6: Enable Copy/Paste
+
+Inside the Bastion session,
+
+Look for:
+
+```text
+Settings
+
+↓
+
+Clipboard
+
+↓
+
+Enable
+```
+
+(The exact location can vary slightly depending on the Azure Portal version.)
+
+Now try:
+
+Copy this:
+
+```text
+Hello Azure Bastion
+```
+
+Paste it into the VM terminal.
+
+It works!
+
+---
+
+## Why is Copy/Paste Useful?
+
+Imagine typing:
+
+```bash
+sudo apt update
+```
+
+Easy.
+
+Now imagine typing:
+
+```bash
+kubectl apply -f deployment-production-final-version.yaml
+```
+
+That's annoying.
+
+Copy/paste saves time and reduces typing mistakes.
+
+---
+
+## Diagram
+
+Without Bastion
+
+```text
+Laptop
+
+↓
+
+Internet
+
+↓
+
+Public IP
+
+↓
+
+VM
+```
+
+---
+
+With Bastion
+
+```text
+Laptop
+
+↓
+
+Azure Portal
+
+↓
+
+Azure Bastion
+
+↓
+
+Private IP
+
+↓
+
+VM
+```
+
+---
+
+## What Changed?
+
+Before Bastion:
+
+```text
+Need Public IP
+
+Need SSH Client
+
+Port 22 Open
+```
+
+After Bastion:
+
+```text
+No Public IP
+
+Browser Access
+
+Private Connection
+```
+
+---
+
+## Screenshots 
+
+## Screenshot 1
+
+Bastion Overview
+
+Show:
+
+```text
+week3-bastion
+```
+
+---
+
+## Screenshot 2
+
+VM
+
+```text
+Public IP
+
+None
+```
+
+This proves the VM has no Public IP.
+
+---
+
+## Screenshot 3
+
+Browser showing Bastion connected to the VM.
+
+---
+
+## Screenshot 4
+
+Copy text.
+
+Paste into terminal.
+
+Take a screenshot.
+
+---
+
+## Common Beginner Mistakes
+
+## Forgetting AzureBastionSubnet
+
+Bastion cannot be deployed without its dedicated subnet.
+
+---
+
+## Different Regions
+
+Keep:
+
+* VM
+* Bastion
+* VNet
+
+all in the same region.
+
+---
+
+## Expecting SSH from my laptop to work
+
+Once the Public IP is removed,
+
+This won't work:
+
+```bash
+ssh azureuser@20.xx.xx.xx
+```
+
+Because there is no Public IP anymore.
+
+You must use the Azure Portal and Bastion.
+
+---
+
+## Comparison
+
+| Feature             | SSH                | Azure Bastion      |
+| ------------------- | ------------------ | ------------------ |
+| Public IP Needed    | Yes                | No                 |
+| Browser Access      | No                 | Yes                |
+| SSH Client Required | Yes                | No                 |
+| Copy/Paste          | Terminal dependent | Built into Bastion |
+| Internet Exposure   | Higher             | Lower              |
+
+---
+
+#
+
+> In this lab, I deployed Azure Bastion in the same Virtual Network as my virtual machine. I removed the VM's Public IP and connected to it through the Azure Portal using Bastion. Azure Bastion used the VM's private IP address, so the VM remained inaccessible directly from the internet. I also enabled clipboard support and successfully copied and pasted text into the VM terminal. This approach is more secure because it avoids exposing SSH (port 22) to the public internet.
+
+---
+
+## Remember
+
+```text
+SSH
+
+↓
+
+Direct Door
+```
+
+```text
+Azure Bastion
+
+↓
+
+Security Gate
+```
+
+---
+
+## Cost Tip
+
+Azure Bastion is **billable**.
+
+Once you've:
+
+* Connected successfully
+* Taken my screenshots
+
+Delete it if you don't need it anymore.
+
+This follows my assignment's instruction to avoid unnecessary Azure costs.
+
+---
+
+## Revision
+
+```text
+Without Bastion
+
+Laptop
+ │
+ ▼
+Internet
+ │
+ ▼
+Public IP
+ │
+ ▼
+VM
+```
+
+```text
+With Bastion
+
+Laptop
+ │
+ ▼
+Azure Portal
+ │
+ ▼
+Azure Bastion
+ │
+ ▼
+Private IP
+ │
+ ▼
+VM
+```
+
+---
+
+
+
+# Q12.
+
+What is the difference between **authentication** and **authorization**? Give one example of each failing.
+
+## Answer
+
+This is one of the **most important concepts in cloud computing**. It doesn't just apply to Azure—it also applies to AWS, Linux, Kubernetes, GitHub, and even my phone.
+
+Many confuse these two words:
+
+* **Authentication**
+* **Authorization**
+
+Let's make them super simple.
+
+## Step 1: First Understand the Problem
+
+Imagine I'm going to watch a movie in a theatre.
+
+There are **two checks**.
+
+## Check 1
+
+The security guard asks:
+
+> "Show me my ticket."
+
+He is checking:
+
+**Who are you?**
+
+This is **Authentication**.
+
+---
+
+## Check 2
+
+After entering,
+
+You try to sit in the VIP seats.
+
+The staff asks:
+
+> "Do you have a VIP ticket?"
+
+They are checking:
+
+**Are you allowed to sit here?**
+
+This is **Authorization**.
+
+---
+
+## Analogy
+
+Imagine my school.
+
+You reach the school gate.
+
+The teacher asks:
+
+> "Are you a student here?"
+
+You show my ID card.
+
+I'm allowed inside.
+
+This is:
+
+## Authentication
+
+---
+
+Now you walk into the Principal's office.
+
+The peon says:
+
+> "Only teachers may enter."
+
+Even though I'm a student,
+
+You can't enter.
+
+This is:
+
+## Authorization
+
+---
+
+## Easy Way to Remember
+
+Authentication answers:
+
+```text
+WHO ARE YOU?
+```
+
+Authorization answers:
+
+```text
+WHAT ARE YOU ALLOWED TO DO?
+```
+
+---
+
+## Step 2: What is Authentication?
+
+Authentication is the process of **proving my identity**.
+
+Azure asks:
+
+> "Who are you?"
+
+Examples:
+
+* Username + Password
+* SSH Key
+* Fingerprint
+* Face ID
+* OTP
+* Microsoft Login
+
+---
+
+## Diagram
+
+```text
+You
+
+↓
+
+Username
+
+Password
+
+↓
+
+Azure
+
+↓
+
+✅ Identity Verified
+```
+
+Now Azure knows:
+
+> This is Malathi.
+
+---
+
+## Authentication Failure Example
+
+Suppose my password is wrong.
+
+You enter:
+
+```text
+Username
+
+Malathi
+
+Password
+
+12345
+```
+
+But my real password is different.
+
+Azure says:
+
+```text
+❌ Invalid Username or Password
+```
+
+This is an **Authentication Failure**.
+
+Azure doesn't know who you are.
+
+---
+
+## Step 3: What is Authorization?
+
+Now Azure already knows who you are.
+
+Next it asks:
+
+> "What are you allowed to do?"
+
+Maybe I'm allowed to:
+
+* Read
+* Restart a VM
+
+But not allowed to:
+
+* Delete the VM
+
+This is Authorization.
+
+---
+
+## Diagram
+
+```text
+Identity Verified
+
+↓
+
+Azure Checks Permissions
+
+↓
+
+Allow?
+
+or
+
+Deny?
+```
+
+---
+
+## Authorization Failure Example
+
+Suppose I'm logged into Azure successfully.
+
+You click:
+
+```text
+Delete Resource Group
+```
+
+Azure replies:
+
+```text
+You do not have permission.
+```
+
+You are logged in.
+
+Azure knows who you are.
+
+But you don't have permission.
+
+This is an **Authorization Failure**.
+
+---
+
+## Real Azure Example
+
+Imagine I'm working in a company.
+
+You log into Azure.
+
+Authentication succeeds.
+
+```text
+Microsoft Login
+
+↓
+
+Success
+```
+
+Now you try:
+
+```text
+Delete Production VM
+```
+
+Azure checks my role.
+
+Maybe I'm only a Reader.
+
+Azure says:
+
+```text
+❌ Access Denied
+```
+
+Authentication succeeded.
+
+Authorization failed.
+
+---
+
+## Another Real-Life Example
+
+Think about an ATM.
+
+## # Step 1
+
+Insert ATM Card.
+
+Enter PIN.
+
+```text
+PIN Correct
+
+↓
+
+Authentication
+```
+
+---
+
+## # Step 2
+
+Try to withdraw $5,000.
+
+Bank checks my balance.
+
+Only $500 available.
+
+```text
+❌ Transaction Denied
+```
+
+That's Authorization.
+
+The bank knows who you are.
+
+You just aren't allowed to perform that action.
+
+---
+
+## Comparison Table
+
+| Feature         | Authentication         | Authorization                |
+| --------------- | ---------------------- | ---------------------------- |
+| Main Question   | Who are you?           | What can you do?             |
+| Happens First?  | Yes                    | No (after authentication)    |
+| Verifies        | Identity               | Permissions                  |
+| Examples        | Password, OTP, SSH Key | Azure RBAC Roles             |
+| Failure Example | Wrong password         | No permission to delete a VM |
+
+---
+
+## Remember
+
+Authentication
+
+Think:
+
+```text
+A
+
+↓
+
+Ask
+
+Who?
+```
+
+---
+
+Authorization
+
+Think:
+
+```text
+A
+
+↓
+
+Allow
+
+What?
+```
+
+---
+
+## Flow Diagram
+
+```text
+User
+
+↓
+
+Authentication
+
+"Who are you?"
+
+↓
+
+Identity Verified
+
+↓
+
+Authorization
+
+"What can you do?"
+
+↓
+
+Perform Action
+```
+
+---
+
+## Azure Example
+
+Suppose Malathi logs into Azure.
+
+## # Step 1
+
+```text
+Username
+
+Password
+
+↓
+
+Authentication
+
+↓
+
+Success
+```
+
+---
+
+## # Step 2
+
+Malathi tries:
+
+```text
+Delete VM
+```
+
+Azure checks:
+
+```text
+Role
+
+↓
+
+Reader
+```
+
+Reader cannot delete.
+
+Azure replies:
+
+```text
+Access Denied
+```
+
+Authentication passed.
+
+Authorization failed.
+
+---
+
+## Common Beginner Mistakes
+
+## Thinking they're the same
+
+No.
+
+Authentication verifies **identity**.
+
+Authorization verifies **permissions**.
+
+---
+
+## Thinking Authorization happens first
+
+No.
+
+Azure must know **who you are** before it can check **what I'm allowed to do**.
+
+---
+
+## Thinking login failure is Authorization
+
+No.
+
+Wrong password = Authentication Failure.
+
+---
+
+
+
+> Authentication is the process of verifying a user's identity, such as by using a username and password, SSH key, or multi-factor authentication. It answers the question, "Who are you?" Authorization happens after successful authentication and determines what actions the user is allowed to perform. It answers the question, "What are you allowed to do?" An example of authentication failure is entering an incorrect password and being unable to log in. An example of authorization failure is successfully logging into Azure but being denied permission to delete a virtual machine because my assigned role does not allow that action.
+
+---
+
+
+
+> Authentication verifies the identity of a user, while authorization determines what that authenticated user is permitted to do. For example, entering an incorrect password results in an authentication failure because Azure cannot verify the user's identity. Logging into Azure successfully but receiving an "Access Denied" message when trying to delete a resource group is an authorization failure because the user lacks the required permissions.
+
+---
+
+## Revision
+
+```text
+Authentication
+
+↓
+
+Who are you?
+
+↓
+
+Identity
+```
+
+```text
+Authorization
+
+↓
+
+What can you do?
+
+↓
+
+Permission
+```
+
+---
+
+## Real Azure Example
+
+```text
+Malathi
+
+↓
+
+Login
+
+↓
+
+✅ Authentication Success
+
+↓
+
+Delete Resource Group
+
+↓
+
+❌ Authorization Failed
+
+Reason:
+
+No Contributor Role
+```
+
+
+# Q13.
+
+What is the difference between assigning a role to a **user** and assigning it to a **group**? Explain with a team of 10 people needing access to 5 resource groups.
+
+## Answer
+
+
+## First, What is a Role?
+
+A **role** is simply a **set of permissions**.
+
+For example:
+
+* Reader → Can only view resources.
+* Contributor → Can create, modify, and delete resources (but cannot manage access).
+* Owner → Full control, including assigning roles to others.
+
+Think of a role as a **job responsibility**.
+
+---
+
+## Analogy
+
+Imagine my school.
+
+There are 10 students.
+
+The teacher wants everyone to enter the library.
+
+She has two choices.
+
+## Option 1
+
+Call every student one by one.
+
+```text
+Rahul → Allowed
+
+Priya → Allowed
+
+Amit → Allowed
+
+...
+
+10 students
+```
+
+This takes time.
+
+---
+
+## Option 2
+
+Create one group.
+
+```text
+Class 5A
+```
+
+Tell the librarian:
+
+> "Everyone in Class 5A can enter."
+
+Done!
+
+Much easier.
+
+---
+
+## Azure Works the Same Way
+
+Suppose you have:
+
+```text
+10 Employees
+```
+
+They all need access to:
+
+```text
+RG-Dev
+
+RG-Test
+
+RG-UAT
+
+RG-Stage
+
+RG-Prod
+```
+
+---
+
+## Method 1: Assign Role to Each User
+
+```text
+Admin
+
+↓
+
+Rahul → Contributor
+
+↓
+
+Priya → Contributor
+
+↓
+
+John → Contributor
+
+↓
+
+...
+
+10 Times
+```
+
+Now repeat this for 5 Resource Groups.
+
+That's:
+
+```text
+10 Users × 5 Resource Groups
+
+=
+
+50 Role Assignments
+```
+
+A lot of work!
+
+---
+
+## Method 2: Assign Role to a Group
+
+Create one group.
+
+```text
+Dev-Team
+```
+
+Add all 10 users.
+
+```text
+Dev-Team
+
+↓
+
+Rahul
+
+Priya
+
+John
+
+...
+
+10 Users
+```
+
+Now assign the **Contributor** role **once**.
+
+```text
+Contributor
+
+↓
+
+Dev-Team
+
+↓
+
+RG-Dev
+```
+
+Everyone in the group automatically gets access.
+
+---
+
+## Real-Life Analogy
+
+Imagine an office building.
+
+Instead of giving every employee a separate access card for every floor...
+
+The HR department creates a group.
+
+```text
+Developers
+```
+
+Everyone in that group automatically gets access to:
+
+* Floor 2
+* Floor 3
+* Lab
+
+If a new developer joins?
+
+Just add them to the group.
+
+No need to update every door individually.
+
+---
+
+## Diagram
+
+## User-Based Assignment
+
+```text
+Admin
+
+ │
+
+ ├── Rahul → Contributor
+
+ ├── Priya → Contributor
+
+ ├── Amit → Contributor
+
+ ├── Sara → Contributor
+
+ └── ... (10 Users)
+```
+
+Lots of repeated work.
+
+---
+
+## Group-Based Assignment
+
+```text
+Admin
+
+ │
+
+ ▼
+
+Dev-Team Group
+
+ │
+
+ ├── Rahul
+
+ ├── Priya
+
+ ├── Amit
+
+ ├── Sara
+
+ └── ...
+
+ │
+
+ ▼
+
+Contributor Role
+
+ │
+
+ ▼
+
+Resource Group
+```
+
+One assignment benefits everyone.
+
+---
+
+## Let's Solve the Assignment Scenario
+
+You have:
+
+```text
+10 People
+```
+
+Need access to:
+
+```text
+5 Resource Groups
+```
+
+---
+
+## Option 1: Individual Users
+
+For each Resource Group:
+
+Assign Contributor to each user.
+
+```text
+RG1
+
+↓
+
+10 Assignments
+
+RG2
+
+↓
+
+10 Assignments
+
+RG3
+
+↓
+
+10 Assignments
+
+RG4
+
+↓
+
+10 Assignments
+
+RG5
+
+↓
+
+10 Assignments
+```
+
+Total:
+
+```text
+50 Assignments
+```
+
+Imagine if the company had 500 employees!
+
+---
+
+## Option 2: Group
+
+Create one group.
+
+```text
+Developers
+```
+
+Add all 10 users.
+
+Assign:
+
+```text
+Contributor
+
+↓
+
+Developers Group
+
+↓
+
+RG1
+```
+
+Repeat for each Resource Group.
+
+Only:
+
+```text
+5 Assignments
+```
+
+Much simpler.
+
+---
+
+## What Happens When a New Employee Joins?
+
+Suppose **Neha** joins the company.
+
+## User-Based
+
+You must manually assign:
+
+* RG1
+* RG2
+* RG3
+* RG4
+* RG5
+
+Five separate role assignments.
+
+---
+
+## Group-Based
+
+Simply:
+
+```text
+Add Neha
+
+↓
+
+Developers Group
+```
+
+Done.
+
+She automatically gets access everywhere the group already has permissions.
+
+---
+
+## What Happens When Someone Leaves?
+
+Suppose Rahul resigns.
+
+## User-Based
+
+Remove Rahul from every Resource Group individually.
+
+---
+
+## Group-Based
+
+Just remove Rahul from the group.
+
+Access is removed automatically.
+
+---
+
+## Comparison Table
+
+| Feature         | Role Assigned to User       | Role Assigned to Group |
+| --------------- | --------------------------- | ---------------------- |
+| Assigned To     | Individual user             | Azure Entra ID group   |
+| Administration  | More manual work            | Easier to manage       |
+| Best for        | One or two users            | Teams and departments  |
+| New Employee    | Assign roles manually       | Add user to the group  |
+| Employee Leaves | Remove multiple assignments | Remove from the group  |
+| Scalability     | Poor for large teams        | Excellent              |
+
+---
+
+## Why Do Companies Prefer Groups?
+
+Imagine Microsoft has:
+
+```text
+20,000 Employees
+```
+
+Would they assign permissions one person at a time?
+
+No.
+
+They create groups like:
+
+```text
+Developers
+
+Testers
+
+HR
+
+Finance
+
+Security
+```
+
+Then assign roles to the groups.
+
+This saves time and reduces mistakes.
+
+---
+
+## Common Beginner Mistakes
+
+## "Groups and Resource Groups are the same."
+
+No.
+
+* **Resource Group** = Container for Azure resources.
+* **Entra ID Group** = Collection of users.
+
+Completely different things.
+
+---
+
+## "Groups store VMs."
+
+No.
+
+Groups store **users**, not Azure resources.
+
+---
+
+## "Assigning roles to users is always bad."
+
+No.
+
+It's fine for one or two users.
+
+For teams, groups are the recommended approach.
+
+---
+
+## Remember
+
+Think of WhatsApp.
+
+Instead of sending the same message to 10 friends individually...
+
+You create:
+
+```text
+Family Group
+```
+
+Send the message once.
+
+Everyone receives it.
+
+Azure groups work the same way.
+
+---
+
+
+
+> A role assignment to a user gives permissions directly to one individual. A role assignment to a group gives permissions to all members of that group. In a scenario where 10 people need access to 5 Resource Groups, assigning roles individually would require 50 separate assignments. Using a group, I would add all 10 users to an Entra ID group and assign the required role to the group for each Resource Group. This reduces administrative effort, simplifies onboarding and offboarding, and follows Azure RBAC best practices.
+
+---
+
+
+
+> Assigning a role directly to a user gives permissions only to that individual. Assigning a role to an Entra ID group gives the same permissions to every member of the group. For a team of 10 people needing access to 5 Resource Groups, assigning roles individually would require 50 role assignments. By creating one group, adding all 10 users, and assigning the role to the group, only 5 assignments are needed. This approach is easier to manage, scales better, and is the recommended practice in Azure.
+
+---
+
+## Revision
+
+```text
+User Assignment
+
+↓
+
+One User
+
+↓
+
+One Permission
+```
+
+```text
+Group Assignment
+
+↓
+
+Many Users
+
+↓
+
+One Permission
+
+↓
+
+Easy Management
+```
+
+---
+
+
+# Q14.
+
+Create an Entra ID user and group, add the user to the group, and assign a role at resource-group scope. Attach screenshots of every step.
+
+## Answer
+
+## Step 1: What is Microsoft Entra ID?
+
+Microsoft Entra ID (previously called **Azure Active Directory**) is Azure's **Identity and Access Management (IAM)** service.
+
+It stores:
+
+* Users
+* Groups
+* Applications
+* Roles
+
+Think of it as Azure's **employee directory**.
+
+---
+
+## Analogy
+
+Imagine my school.
+
+The principal has a register.
+
+```text
+Class 5A
+
+Rahul
+
+Priya
+
+Amit
+
+Sara
+```
+
+This register tells the school:
+
+* Who is a student?
+* Which class are they in?
+
+Microsoft Entra ID is like that register.
+
+---
+
+## Step 2: What are We Going to Build?
+
+We'll create this:
+
+```text
+Microsoft Entra ID
+
+│
+
+├── User
+
+│     Malathi-Test
+
+│
+
+└── Group
+
+      Dev-Team
+
+            │
+
+            ▼
+
+      Contributor Role
+
+            │
+
+            ▼
+
+     week3-rg
+```
+
+---
+
+## Step 3: Create an Entra ID User
+
+Go to:
+
+```text
+Azure Portal
+
+↓
+
+Microsoft Entra ID
+
+↓
+
+Users
+
+↓
+
++ New User
+```
+
+Choose:
+
+```text
+Create New User
+```
+
+---
+
+Fill the details:
+
+| Field               | Example Value                                 |
+| ------------------- | --------------------------------------------- |
+| User Principal Name | `malathi.test@<mytenant>.onmicrosoft.com`   |
+| Display Name        | `Malathi Test`                                |
+| Password            | Auto-generated or set one manually if allowed |
+
+Click:
+
+```text
+Review + Create
+
+↓
+
+Create
+```
+
+---
+
+## What Just Happened?
+
+You created a new Azure identity.
+
+Think of it like creating a new employee account.
+
+---
+
+## Screenshot 1
+
+Take a screenshot showing:
+
+```text
+Microsoft Entra ID
+
+↓
+
+Users
+
+↓
+
+Malathi Test
+```
+
+---
+
+## Step 4: Create a Group
+
+Go to:
+
+```text
+Microsoft Entra ID
+
+↓
+
+Groups
+
+↓
+
+New Group
+```
+
+---
+
+Fill:
+
+| Field           | Value    |
+| --------------- | -------- |
+| Group Type      | Security |
+| Group Name      | Dev-Team |
+| Membership Type | Assigned |
+
+Click:
+
+```text
+Create
+```
+
+---
+
+## Why Security Group?
+
+Azure RBAC works with **Security Groups**.
+
+Microsoft 365 Groups are mainly for collaboration tools like Outlook and Teams.
+
+---
+
+## Screenshot 2
+
+Take a screenshot showing:
+
+```text
+Groups
+
+↓
+
+Dev-Team
+```
+
+---
+
+## Step 5: Add User to Group
+
+Open:
+
+```text
+Dev-Team
+
+↓
+
+Members
+
+↓
+
++ Add Members
+```
+
+Select:
+
+```text
+Malathi Test
+```
+
+Click:
+
+```text
+Select
+```
+
+---
+
+Now my group looks like:
+
+```text
+Dev-Team
+
+↓
+
+Malathi Test
+```
+
+---
+
+## Diagram
+
+```text
+Dev-Team
+
+│
+
+└── Malathi Test
+```
+
+---
+
+## Screenshot 3
+
+Take a screenshot showing:
+
+```text
+Dev-Team
+
+↓
+
+Members
+
+↓
+
+Malathi Test
+```
+
+---
+
+## Step 6: Assign a Role
+
+Now we'll give permissions.
+
+Go to:
+
+```text
+Resource Groups
+
+↓
+
+week3-rg
+```
+
+---
+
+Click:
+
+```text
+Access Control (IAM)
+```
+
+---
+
+## What is IAM?
+
+IAM stands for:
+
+```text
+Identity
+
+and
+
+Access
+
+Management
+```
+
+This is where Azure decides:
+
+> Who can do what?
+
+---
+
+## Step 7: Add Role Assignment
+
+Click:
+
+```text
+Add
+
+↓
+
+Add Role Assignment
+```
+
+---
+
+Choose:
+
+```text
+Contributor
+```
+
+Click:
+
+```text
+Next
+```
+
+---
+
+Choose:
+
+```text
+Assign access to
+
+↓
+
+User, Group, or Service Principal
+```
+
+Click:
+
+```text
+Select Members
+```
+
+Choose:
+
+```text
+Dev-Team
+```
+
+Click:
+
+```text
+Review + Assign
+```
+
+Done!
+
+---
+
+## What Happened?
+
+Earlier:
+
+```text
+Dev-Team
+
+↓
+
+No Permissions
+```
+
+Now:
+
+```text
+Dev-Team
+
+↓
+
+Contributor
+
+↓
+
+week3-rg
+```
+
+Everyone inside **Dev-Team** now has Contributor access to **week3-rg**.
+
+---
+
+## Diagram
+
+```text
+Microsoft Entra ID
+
+        │
+
+        ▼
+
++-----------------+
+
+ Dev-Team Group
+
++-----------------+
+
+        │
+
+        ▼
+
++-----------------+
+
+ Contributor Role
+
++-----------------+
+
+        │
+
+        ▼
+
++-----------------+
+
+ week3-rg
+
++-----------------+
+```
+
+---
+
+## Screenshot 4
+
+Take a screenshot showing:
+
+```text
+Resource Group
+
+↓
+
+Access Control (IAM)
+
+↓
+
+Contributor
+
+↓
+
+Dev-Team
+```
+
+---
+
+## How Does It Work?
+
+Suppose **Malathi Test** logs into Azure.
+
+Azure checks:
+
+```text
+Who are you?
+
+↓
+
+Malathi Test
+```
+
+Azure sees:
+
+```text
+Member of Dev-Team
+```
+
+Azure checks:
+
+```text
+Dev-Team
+
+↓
+
+Contributor
+
+↓
+
+week3-rg
+```
+
+Result:
+
+Access Granted
+
+---
+
+## Real-Life Analogy
+
+Imagine a company.
+
+HR creates:
+
+```text
+Developers
+```
+
+Inside:
+
+```text
+Rahul
+
+Priya
+
+Malathi
+
+John
+```
+
+The IT Admin says:
+
+> "Everyone in Developers can enter Building A."
+
+He doesn't need to grant access to each person separately.
+
+---
+
+## Comparison
+
+## Without Group
+
+```text
+Rahul
+
+↓
+
+Contributor
+
+↓
+
+RG
+```
+
+```text
+Priya
+
+↓
+
+Contributor
+
+↓
+
+RG
+```
+
+```text
+Malathi
+
+↓
+
+Contributor
+
+↓
+
+RG
+```
+
+Many assignments.
+
+---
+
+## With Group
+
+```text
+Developers
+
+↓
+
+Contributor
+
+↓
+
+RG
+```
+
+One assignment.
+
+Everyone benefits.
+
+---
+
+## Common Beginner Mistakes
+
+## Assigning the role to the user instead of the group
+
+The assignment specifically asks you to:
+
+* Create a User
+* Create a Group
+* Add the User to the Group
+* Assign the Role to the **Group**
+
+---
+
+## Choosing Microsoft 365 Group
+
+Choose:
+
+```text
+Security Group
+```
+
+---
+
+## Forgetting to add the user to the group
+
+If the user isn't a member,
+
+they won't inherit the group's permissions.
+
+---
+
+## Screenshots Required
+
+my assignment asks for every step.
+
+Take these:
+
+* User Created
+* Group Created
+* User Added to Group
+* IAM showing Contributor assigned to Dev-Team
+
+---
+
+## Interview Questions
+
+## Why assign the role to the group instead of the user?
+
+Because it's easier to manage.
+
+---
+
+## What happens if a new employee joins?
+
+Add them to the group.
+
+No need to create new role assignments.
+
+---
+
+## What happens if someone leaves?
+
+Remove them from the group.
+
+Their inherited access is removed.
+
+---
+
+#
+
+> In this lab, I created a new Microsoft Entra ID user and a Security Group. I added the user to the group and then assigned the Contributor role to the group at the Resource Group scope using Azure RBAC. This approach follows best practices because permissions are managed through groups instead of individual users, making onboarding and offboarding much easier.
+
+---
+
+
+
+> I created a Microsoft Entra ID user and a Security Group, added the user to the group, and assigned the Contributor role to the group at the Resource Group scope using Azure RBAC. Assigning roles to groups instead of individual users simplifies permission management because any new user added to the group automatically inherits the assigned permissions.
+
+---
+
+## Revision
+
+```text
+Entra ID
+
+↓
+
+Create User
+
+↓
+
+Create Security Group
+
+↓
+
+Add User to Group
+
+↓
+
+Assign Contributor Role
+
+↓
+
+Resource Group
+```
+
+---
+
+# Q15.
+
+What is the difference between the Contributor role and the Virtual Machine Administrator Login role? Why might a user be able to restart a VM but not log into it?
+
+## Answer
+
+---
+
+## Step 1: Think of a Hotel
+
+Imagine a hotel.
+
+There are two people:
+
+* Hotel Manager
+* Hotel Guest
+
+Both have different permissions.
+
+The manager can:
+
+* Hire staff
+* Buy furniture
+* Pay bills
+* Restart the elevator
+
+But...
+
+The manager **cannot enter every guest room** whenever they want.
+
+Only the guest with the room key can enter.
+
+---
+
+Azure works exactly the same way.
+
+Managing a VM and logging into a VM are **different permissions**.
+
+---
+
+## Step 2: What is the Contributor Role?
+
+The **Contributor** role is an Azure RBAC role.
+
+It allows a user to **manage Azure resources**.
+
+Think of it as:
+
+> "You can manage the VM."
+
+Examples:
+
+* Create VM
+* Restart VM
+* Stop VM
+* Resize VM
+* Delete VM
+
+But...
+
+It **does not automatically allow you to log into the operating system**.
+
+---
+
+## Analogy
+
+Imagine I'm the school principal.
+
+You can:
+
+* Paint classrooms
+* Buy desks
+* Repair windows
+
+But...
+
+You don't automatically know every classroom's lock password.
+
+Managing the building is different from entering a locked room.
+
+---
+
+## Step 3: What is the Virtual Machine Administrator Login Role?
+
+This is another Azure RBAC role.
+
+It gives permission to **log into the operating system** of the VM.
+
+For Linux:
+
+```text
+SSH Login
+```
+
+For Windows:
+
+```text
+RDP Login
+```
+
+Think of it as giving someone **the room key**.
+
+---
+
+## Step 4: Visualize the Difference
+
+## Contributor
+
+```text
+User
+ │
+ ▼
+Azure Portal
+ │
+ ▼
+Restart VM
+
+Delete VM
+
+Resize VM
+
+Create VM
+```
+
+Notice:
+
+No OS login.
+
+---
+
+## Virtual Machine Administrator Login
+
+```text
+User
+ │
+ ▼
+Azure Portal
+ │
+ ▼
+SSH / RDP
+ │
+ ▼
+Inside VM
+```
+
+---
+
+## Real-Life Analogy
+
+Imagine you own an apartment.
+
+There are two people.
+
+## Building Maintenance
+
+Can:
+
+* Repair the lift
+* Turn electricity on/off
+* Paint walls
+
+Cannot:
+
+Enter my apartment without permission.
+
+---
+
+## Apartment Owner
+
+Can:
+
+* Unlock the apartment
+* Enter inside
+* Use everything
+
+This is like the **Virtual Machine Administrator Login** role.
+
+---
+
+## Step 5: Why Can Someone Restart a VM but Not Log In?
+
+This is the exact assignment question.
+
+Suppose Rahul has:
+
+```text
+Contributor
+```
+
+Rahul clicks:
+
+```text
+Restart VM
+```
+
+Azure says:
+
+Allowed.
+
+---
+
+Now Rahul tries:
+
+```bash
+ssh azureuser@<vm-ip>
+```
+
+Azure checks:
+
+Does Rahul have:
+
+```text
+Virtual Machine Administrator Login
+```
+
+No.
+
+Azure denies access.
+
+Result:
+
+```text
+Restart VM
+
+SSH Login
+```
+
+---
+
+## Diagram
+
+```text
+Rahul
+
+ │
+
+ ▼
+
+Contributor
+
+ │
+
+ ├── Create VM
+
+ ├── Restart VM
+
+ ├── Delete VM
+
+ └── Login to VM
+```
+
+---
+
+Another user:
+
+```text
+Priya
+
+ │
+
+ ▼
+
+Virtual Machine Administrator Login
+
+ │
+
+ ├── SSH Login
+
+ ├── RDP Login
+
+ └── Restart VM
+```
+
+Unless Priya also has Contributor (or another management role), she cannot manage the VM itself.
+
+---
+
+## Why Did Microsoft Separate These?
+
+Security.
+
+Imagine if everyone who could restart a VM could also log in.
+
+That would be dangerous.
+
+Companies separate responsibilities.
+
+Example:
+
+Operations Team
+
+```text
+Can restart VMs.
+```
+
+Security Team
+
+```text
+Can log into VMs.
+```
+
+Different jobs.
+
+---
+
+## Comparison Table
+
+| Feature                 | Contributor               | Virtual Machine Administrator Login |
+| ----------------------- | ------------------------- | ----------------------------------- |
+| Purpose                 | Manage Azure resources    | Log into the VM OS                  |
+| Restart VM              | Yes                       | No (unless another role allows it)  |
+| Create/Delete VM        | Yes                       | No                                  |
+| SSH/RDP Login           | No                        | Yes                                 |
+| Azure Portal Management | Yes                       | Limited to login permission         |
+| Used For                | Infrastructure management | Operating system administration     |
+
+---
+
+## Common Beginner Mistakes
+
+## "Contributor means full access."
+
+No.
+
+Contributor has broad **resource management** permissions, but not automatic OS login rights.
+
+---
+
+## "If I can SSH, I can restart the VM."
+
+Not necessarily.
+
+SSH access and Azure resource management are different permission sets.
+
+---
+
+## "Logging into Azure Portal means I can log into every VM."
+
+No.
+
+Portal access and VM OS login are separate authorizations.
+
+---
+
+## Remember
+
+Think of a car.
+
+## Contributor
+
+```text
+Can repair the car.
+```
+
+But doesn't have the car key.
+
+---
+
+## VM Administrator Login
+
+```text
+Has the car key.
+
+Can drive it.
+```
+
+---
+
+## Interview Question
+
+**Interviewer:**
+
+> Why could someone restart a VM but still fail to SSH into it?
+
+**Answer:**
+
+> Because restarting a VM requires Azure resource management permissions, which the Contributor role provides. Logging into the VM requires a separate role, such as Virtual Machine Administrator Login, along with valid credentials. Azure separates infrastructure management from operating system access for better security.
+
+---
+
+
+
+> The Contributor role allows a user to manage Azure resources such as creating, deleting, starting, stopping, and restarting virtual machines. However, it does not grant permission to log into the operating system. The Virtual Machine Administrator Login role allows a user to sign in to the VM using SSH (Linux) or RDP (Windows), but it does not provide permissions to manage Azure resources. Therefore, a user may be able to restart a VM using the Contributor role but still be unable to log into it because they do not have the required VM login role.
+
+---
+
+## Revision
+
+```text
+Contributor
+
+↓
+
+Manage Azure Resources
+
+↓
+
+Create
+
+Restart
+
+Delete
+
+Resize
+```
+
+```text
+Virtual Machine Administrator Login
+
+↓
+
+Enter VM
+
+↓
+
+SSH
+
+RDP
+
+Use Operating System
+```
+
+---
+
+## Visual Summary
+
+```text
+                Azure VM
+
+        +----------------------+
+        |   Azure Resource     |
+        |  (Start/Stop/Resize) |
+        +----------------------+
+                  ▲
+                  │
+          Contributor Role
+
+
+        +----------------------+
+        |   Operating System   |
+        | (SSH / RDP Access)   |
+        +----------------------+
+                  ▲
+                  │
+Virtual Machine Administrator Login
+```
+
+---
+
+
+
+# Q16.
+
+What is the difference between a **managed Kubernetes cluster (AKS)** and an **on-premises Kubernetes cluster**? Compare in a table with at least six points.
+
+## Answer
+
+
+## Step 1: First Understand Kubernetes
+
+Think of Kubernetes as a **manager**.
+
+Imagine you own a restaurant.
+
+You have many chefs.
+
+If one chef gets sick,
+
+another chef immediately starts cooking.
+
+```text
+Customer Orders
+
+       │
+
+       ▼
+
+Restaurant Manager
+
+       │
+
+ ┌─────┴─────┐
+
+ ▼           ▼
+
+Chef 1     Chef 2
+```
+
+Kubernetes is like the **Restaurant Manager**.
+
+It manages containers instead of chefs.
+
+---
+
+## Step 2: What is On-Premises Kubernetes?
+
+"On-Premises" means:
+
+> **You own and manage everything myself.**
+
+Imagine building my own house.
+
+You must buy:
+
+* Land
+* Bricks
+* Cement
+* Doors
+* Electricity
+* Plumbing
+
+Everything is my responsibility.
+
+---
+
+## Kubernetes Version
+
+With On-Prem Kubernetes, **you install everything**.
+
+```text
+You
+
+│
+
+├── Buy Servers
+
+├── Install Linux
+
+├── Install Kubernetes
+
+├── Configure Networking
+
+├── Install Monitoring
+
+├── Upgrade Kubernetes
+
+└── Fix Problems
+```
+
+Everything is my responsibility.
+
+---
+
+## Step 3: What is AKS?
+
+AKS stands for:
+
+**Azure Kubernetes Service**
+
+It is a **managed Kubernetes service**.
+
+Microsoft manages many parts for you.
+
+Think of renting an apartment.
+
+The building owner takes care of:
+
+* Lift
+* Security
+* Water
+* Electricity (common areas)
+* Maintenance
+
+You simply move in and use it.
+
+---
+
+## Analogy
+
+## On-Prem
+
+Build my own playground.
+
+```text
+Buy Slide
+
+Buy Swing
+
+Install Everything
+
+Repair Everything
+```
+
+---
+
+## AKS
+
+Go to a public playground.
+
+Everything is already built.
+
+You just play.
+
+---
+
+## Step 4: Architecture
+
+## On-Prem Kubernetes
+
+```text
+Company
+
+ │
+
+ ▼
+
+Own Servers
+
+ │
+
+ ▼
+
+Linux
+
+ │
+
+ ▼
+
+Kubernetes
+
+ │
+
+ ▼
+
+Applications
+```
+
+Company manages everything.
+
+---
+
+## AKS
+
+```text
+Microsoft Azure
+
+ │
+
+ ▼
+
+AKS
+
+ │
+
+ ▼
+
+Worker Nodes
+
+ │
+
+ ▼
+
+Applications
+```
+
+Microsoft manages much of the platform.
+
+---
+
+## Step 5: Who Does What?
+
+## On-Prem
+
+You manage:
+
+* Servers
+* Networking
+* Control Plane
+* Upgrades
+* Backups
+* Security patches
+
+---
+
+## AKS
+
+Microsoft manages:
+
+* Kubernetes Control Plane
+* API Server
+* etcd
+* High availability of the control plane
+
+You mainly manage:
+
+* Worker nodes
+* Applications
+* Deployments
+* Containers
+
+---
+
+## Real-Life Analogy
+
+Imagine owning a school.
+
+## On-Prem
+
+You own:
+
+* Building
+* Furniture
+* Electricity
+* Internet
+* CCTV
+* Water
+* Repairs
+
+---
+
+## AKS
+
+You rent classrooms.
+
+The building owner maintains the infrastructure.
+
+You focus on teaching.
+
+---
+
+## Comparison Table
+
+| Feature           | AKS (Managed Kubernetes)  | On-Premises Kubernetes                                         |
+| ----------------- | ------------------------- | -------------------------------------------------------------- |
+| Infrastructure    | Azure Cloud               | Company's own servers                                          |
+| Control Plane     | Managed by Microsoft      | Managed by the company                                         |
+| Installation      | Quick                     | Manual installation                                            |
+| Upgrades          | Easier, Azure-assisted    | Manual responsibility                                          |
+| High Availability | Built-in options          | Must be designed and managed                                   |
+| Scaling           | Easy through Azure        | Manual planning and hardware dependent                         |
+| Maintenance       | Lower operational effort  | Higher operational effort                                      |
+| Best For          | Cloud-native applications | Organizations requiring full control or on-prem infrastructure |
+
+---
+
+## Which One is Easier?
+
+Imagine you buy a washing machine.
+
+## On-Prem
+
+You repair it myself.
+
+---
+
+## AKS
+
+The company sends a service engineer.
+
+That's AKS.
+
+---
+
+## Why Do Companies Like AKS?
+
+Because they don't want to spend time managing Kubernetes itself.
+
+They want to focus on:
+
+* Building applications
+* Deploying software
+* Delivering features
+
+Instead of:
+
+* Fixing Kubernetes
+* Upgrading control planes
+* Maintaining etcd
+
+---
+
+## Common Beginner Mistakes
+
+## "AKS means Azure runs my application."
+
+Not exactly.
+
+You still deploy and manage **my applications**.
+
+Azure mainly manages the Kubernetes platform components.
+
+---
+
+## "AKS is free."
+
+The **AKS control plane** is managed by Azure, but you **pay for the worker nodes (VMs)** and other Azure resources like load balancers and storage.
+
+---
+
+## "On-Prem is always bad."
+
+No.
+
+Some companies choose on-premises Kubernetes because of:
+
+* Compliance
+* Data residency
+* Existing infrastructure
+* Regulatory requirements
+
+---
+
+## Remember
+
+## On-Prem
+
+```text
+Build my Own House
+```
+
+Everything is my responsibility.
+
+---
+
+## AKS
+
+```text
+Rent an Apartment
+```
+
+The building owner maintains the building.
+
+You live in it.
+
+---
+
+
+
+> AKS is a managed Kubernetes service provided by Microsoft Azure. In AKS, Microsoft manages important platform components such as the Kubernetes control plane, making deployment, upgrades, and maintenance easier. In an on-premises Kubernetes cluster, the organization is responsible for installing, configuring, upgrading, securing, and maintaining the entire Kubernetes environment, including the control plane and infrastructure. AKS reduces operational overhead and is commonly used for cloud-native workloads, while on-premises Kubernetes is suitable for organizations that require complete control over their infrastructure.
+
+---
+
+
+
+> AKS is a managed Kubernetes service where Microsoft manages the Kubernetes control plane and simplifies operations such as upgrades and maintenance. In contrast, an on-premises Kubernetes cluster is fully managed by the organization, including servers, networking, Kubernetes installation, upgrades, and troubleshooting. AKS reduces operational effort and allows teams to focus on deploying applications, while on-premises Kubernetes provides greater control but requires more administrative work.
+
+---
+
+## Revision
+
+```text
+On-Prem Kubernetes
+
+You manage:
+
+Servers
+Linux
+Kubernetes
+Control Plane
+Upgrades
+Networking
+```
+
+```text
+AKS
+
+Microsoft manages:
+
+Control Plane
+Kubernetes platform
+
+You manage:
+
+Worker Nodes
+Applications
+Pods
+```
+
+---
+
+# Q17. 
+What is the difference between the AKS Control Plane and the Worker Nodes in terms of who manages them and who pays for them?
+
+## Answer
+
+## Step 1: What is a Kubernetes Cluster?
+
+A Kubernetes cluster has **two main parts**.
+
+```text
+                Kubernetes Cluster
+
+        +---------------------------+
+        |      Control Plane        |
+        +---------------------------+
+                    │
+        ----------------------------
+        │            │            │
+        ▼            ▼            ▼
+
+    Worker 1     Worker 2     Worker 3
+```
+
+Think of it like a school.
+
+---
+
+## Analogy
+
+Imagine a school.
+
+There is:
+
+* Principal
+* Teachers
+
+Who makes decisions?
+
+The Principal.
+
+Who teaches students?
+
+The Teachers.
+
+In Kubernetes,
+
+```text
+Principal
+
+↓
+
+Control Plane
+```
+
+```text
+Teachers
+
+↓
+
+Worker Nodes
+```
+
+---
+
+## Step 2: What is the Control Plane?
+
+The **Control Plane** is the **brain** of Kubernetes.
+
+It doesn't run my application.
+
+Instead, it decides:
+
+* Where should Pods run?
+* Is a Pod unhealthy?
+* Should another Pod be created?
+* Which Node should receive the workload?
+
+---
+
+## Real-Life Analogy
+
+Imagine an airport.
+
+The Air Traffic Controller does not fly airplanes.
+
+Instead, they decide:
+
+* Which runway to use
+* When to land
+* When to take off
+
+The Air Traffic Controller is like the **Control Plane**.
+
+---
+
+## Diagram
+
+```text
+Users
+
+ │
+
+ ▼
+
+Control Plane
+
+ │
+
+ ├── Schedules Pods
+
+ ├── Monitors Cluster
+
+ ├── Stores Cluster State
+
+ └── Makes Decisions
+```
+
+---
+
+## Step 3: What are Worker Nodes?
+
+Worker Nodes are the machines that **actually run my applications**.
+
+If you deploy:
+
+```text
+nginx
+```
+
+The Pod runs on a Worker Node.
+
+---
+
+## Diagram
+
+```text
+Worker Node
+
+ │
+
+ ├── Pod
+
+ ├── Pod
+
+ ├── Pod
+
+ └── Container Runtime
+```
+
+This is where my application lives.
+
+---
+
+## Step 4: Another Analogy
+
+Imagine a pizza restaurant.
+
+Manager:
+
+```text
+Take Order
+
+Assign Chef
+
+Check Quality
+```
+
+Chef:
+
+```text
+Cook Pizza
+```
+
+The manager never cooks.
+
+The chef never manages the restaurant.
+
+---
+
+Kubernetes works exactly the same way.
+
+```text
+Manager
+
+↓
+
+Control Plane
+```
+
+```text
+Chef
+
+↓
+
+Worker Node
+```
+
+---
+
+## Step 5: Who Manages the Control Plane in AKS?
+
+In AKS,
+
+Microsoft manages:
+
+* Kubernetes API Server
+* Scheduler
+* Controller Manager
+* etcd
+* High Availability of the control plane
+
+You don't install them.
+
+You don't patch them.
+
+You don't repair them.
+
+Microsoft does.
+
+---
+
+## Step 6: Who Manages Worker Nodes?
+
+You manage the Worker Nodes.
+
+That means:
+
+* Choose VM size
+* Choose number of nodes
+* Scale nodes
+* Upgrade node pools (with Azure assistance)
+* Deploy applications
+* Monitor workloads
+
+Think of Worker Nodes as **my virtual machines**.
+
+---
+
+## Step 7: Who Pays?
+
+This is exactly what the assignment asks.
+
+## Control Plane
+
+In AKS,
+
+Microsoft manages it.
+
+For the standard AKS experience used in learning labs, you are **not charged separately for the managed control plane**.
+
+---
+
+## Worker Nodes
+
+Worker Nodes are Azure Virtual Machines.
+
+VMs cost money.
+
+So you pay for:
+
+* Worker Node VMs
+* Storage disks
+* Load Balancers (if used)
+* Public IPs (if used)
+
+---
+
+## Analogy
+
+Imagine a shopping mall.
+
+The mall owner provides:
+
+* Security
+* Escalators
+* Cleaning
+
+You don't pay separately for each security guard.
+
+But...
+
+If you rent a shop,
+
+You pay rent.
+
+---
+
+Azure is similar.
+
+```text
+Mall Management
+
+↓
+
+Control Plane
+```
+
+```text
+my Shop
+
+↓
+
+Worker Nodes
+```
+
+---
+
+## Visual Diagram
+
+```text
+Azure
+
+        │
+
+        ▼
+
++-----------------------+
+
+ Control Plane
+
+(API Server)
+
+Scheduler
+
+Controllers
+
+etcd
+
++-----------------------+
+
+Managed by Microsoft
+
+No separate charge
+
+        │
+
+        ▼
+
++-----------------------+
+
+ Worker Node 1
+
+ Worker Node 2
+
+ Worker Node 3
+
++-----------------------+
+
+Managed by You
+
+You pay for the VMs
+```
+
+---
+
+## Example
+
+Suppose you create:
+
+```text
+AKS
+
+↓
+
+1 Node
+
+↓
+
+Standard_B2s
+```
+
+Azure creates:
+
+```text
+Control Plane
+
+↓
+
+Microsoft
+```
+
+and
+
+```text
+Worker VM
+
+↓
+
+Standard_B2s
+```
+
+You pay for the **Standard_B2s VM**, not for the managed control plane itself.
+
+---
+
+## Comparison Table
+
+| Feature | Control Plane | Worker Nodes |
+|----------|---------------|--------------|
+| Main Purpose | Manages the cluster | Runs applications |
+| Runs Pods? | No | Yes |
+| Managed By (AKS) | Microsoft | Customer |
+| User Access | Limited | Full (through node management and workloads) |
+| Separate Charge in AKS | No separate charge | Yes (VMs and related resources) |
+| Examples | API Server, Scheduler, etcd | Virtual Machines running Pods |
+
+---
+
+## Common Beginner Mistakes
+
+## Forgetting that Pods run on Worker Nodes
+
+No.
+
+Pods run on **Worker Nodes**.
+
+---
+
+## Thinking Microsoft manages everything
+
+No.
+
+Microsoft manages the **Control Plane**.
+
+You still manage:
+
+* Applications
+* Deployments
+* Node pools
+* Scaling decisions
+* Worker node configuration
+
+---
+
+## Thinking AKS is completely free
+
+Not true.
+
+You pay for the Azure resources my cluster uses, especially the **Worker Node VMs**.
+
+---
+
+## Remember
+
+Think of a restaurant.
+
+```text
+Control Plane
+
+↓
+
+Manager
+
+↓
+
+Makes Decisions
+```
+
+```text
+Worker Node
+
+↓
+
+Chef
+
+↓
+
+Cooks Food
+```
+
+---
+
+
+
+> An AKS cluster consists of a Control Plane and one or more Worker Nodes. The Control Plane is responsible for managing the Kubernetes cluster by scheduling Pods, maintaining cluster state, and handling API requests. In AKS, Microsoft manages the Control Plane, so users do not manage or pay separately for it. Worker Nodes are Azure Virtual Machines where containers and Pods actually run. Customers are responsible for choosing the node size, scaling the node pool, deploying applications, and paying for the Worker Node VMs and other Azure resources they consume.
+
+---
+
+
+
+> In AKS, the Control Plane is the management component of Kubernetes and is operated by Microsoft. It handles scheduling, cluster state, and API operations. The Worker Nodes are Azure Virtual Machines that run Pods and containers. Microsoft manages the Control Plane without a separate charge, while customers manage and pay for the Worker Nodes and the Azure resources associated with them.
+
+---
+
+## Revision
+
+```text
+Control Plane
+
+Brain
+
+↓
+
+Managed by Microsoft
+
+↓
+
+Makes Decisions
+
+↓
+
+No separate control-plane charge
+```
+
+```text
+Worker Nodes
+
+Workers
+
+↓
+
+Managed by You
+
+↓
+
+Run Pods
+
+↓
+
+You pay for the VMs
+```
+
+---
+
+
+
+# Q18. 
+Create an AKS cluster with 1 node and connect `kubectl`. Explain the difference between what you saw on **Minikube** in Week 2 and what you see on **AKS** now. Attach screenshots.
+
+## Answer
+
+
+
+## Step 1: Remember Minikube
+
+Last week you used:
+
+```text
+my Laptop
+
+↓
+
+Minikube
+
+↓
+
+Node
+
+↓
+
+Pods
+```
+
+Everything was running on **my laptop**.
+
+my laptop was doing all the work.
+
+---
+
+## Step 2: What is AKS?
+
+Now imagine instead of using my laptop...
+
+Azure gives you a computer in Microsoft's data center.
+
+```text
+my Laptop
+
+↓
+
+Internet
+
+↓
+
+Azure
+
+↓
+
+AKS
+
+↓
+
+Worker Node
+
+↓
+
+Pods
+```
+
+my laptop only sends commands.
+
+The real work happens in Azure.
+
+---
+
+## Analogy
+
+## Minikube
+
+Imagine playing with LEGO at home.
+
+```text
+You
+
+↓
+
+Bedroom
+
+↓
+
+LEGO
+```
+
+Everything is in my room.
+
+---
+
+## AKS
+
+Now imagine a huge LEGO room at school.
+
+```text
+You
+
+↓
+
+School
+
+↓
+
+Large LEGO Room
+```
+
+The LEGO is no longer at home.
+
+It is in a bigger, professionally managed place.
+
+---
+
+## Step 3: Create the AKS Cluster
+
+Go to:
+
+```text
+Azure Portal
+
+↓
+
+Search
+
+↓
+
+Kubernetes Services
+
+↓
+
+Create
+```
+
+---
+
+## Fill the Basics
+
+| Field | Value |
+|-------|-------|
+| Resource Group | week3-rg |
+| Cluster Name | week3-aks |
+| Region | Same as my VM |
+| Kubernetes Version | Default |
+| Node Size | Default or smallest available for the lab |
+| Node Count | **1** |
+
+---
+
+Why **1 node**?
+
+Because the assignment specifically asks for **1 node**, and using one node helps reduce costs.
+
+---
+
+Click:
+
+```text
+Review + Create
+
+↓
+
+Create
+```
+
+---
+
+## Step 4: Wait
+
+AKS creation takes several minutes.
+
+This is normal.
+
+Azure is creating:
+
+* Kubernetes Control Plane
+* Worker Node
+* Networking
+* Storage configuration
+
+---
+
+## Step 5: Connect to AKS
+
+You need **kubectl**.
+
+Remember Week 2?
+
+You typed:
+
+```bash
+kubectl get nodes
+```
+
+We'll do exactly the same.
+
+---
+
+## Step 6: Open Azure Cloud Shell
+
+In Azure Portal click:
+
+```text
+Cloud Shell
+```
+
+Choose:
+
+```text
+Bash
+```
+
+Azure prepares a Linux terminal for you.
+
+---
+
+## Step 7: Connect kubectl
+
+Run:
+
+```bash
+az aks get-credentials --resource-group week3-rg --name week3-aks
+```
+
+Replace the names if you used different ones.
+
+---
+
+## What does this command do?
+
+Think of it like getting the address of my new school.
+
+Without the address...
+
+You don't know where to go.
+
+This command tells kubectl:
+
+> "This is the Kubernetes cluster you should talk to."
+
+---
+
+## Diagram
+
+```text
+kubectl
+
+↓
+
+Credentials
+
+↓
+
+AKS Cluster
+
+↓
+
+Connected
+```
+
+---
+
+## Step 8: Verify Connection
+
+Run:
+
+```bash
+kubectl get nodes
+```
+
+Expected output looks similar to:
+
+```text
+NAME                              STATUS   ROLES   AGE   VERSION
+
+aks-nodepool1-xxxxxxxx-vmss0000   Ready    agent   10m   v1.xx.x
+```
+
+Notice something different?
+
+---
+
+## Minikube Output
+
+You probably saw something like:
+
+```text
+minikube
+
+Ready
+```
+
+---
+
+## AKS Output
+
+Now you see a much longer name.
+
+Example:
+
+```text
+aks-nodepool1-xxxxxxxx-vmss000001
+```
+
+Why?
+
+Because this is an Azure Virtual Machine Scale Set (VMSS) node created by AKS.
+
+---
+
+## Step 9: Check Pods
+
+Run:
+
+```bash
+kubectl get pods -A
+```
+
+`-A` means:
+
+```text
+All Namespaces
+```
+
+---
+
+You'll see many system Pods.
+
+For example:
+
+* CoreDNS
+* metrics-server (if enabled)
+* kube-proxy
+* cloud-controller-manager (names may vary depending on the AKS version)
+
+These help Kubernetes work properly.
+
+---
+
+## Analogy
+
+Imagine opening a new school.
+
+You only invited one student.
+
+But inside the school you also see:
+
+* Principal
+* Teachers
+* Security Guard
+* Cleaner
+
+The school needs all of them to operate.
+
+Similarly, AKS runs several system Pods behind the scenes.
+
+---
+
+## What Changed Compared to Minikube?
+
+Let's compare.
+
+---
+
+## Minikube
+
+```text
+Laptop
+
+↓
+
+Minikube
+
+↓
+
+One Node
+
+↓
+
+Pods
+```
+
+Everything was local.
+
+---
+
+## AKS
+
+```text
+Laptop
+
+↓
+
+Azure
+
+↓
+
+Managed Kubernetes
+
+↓
+
+Azure VM
+
+↓
+
+Pods
+```
+
+Everything runs in Azure.
+
+---
+
+## Comparison Table
+
+| Feature | Minikube | AKS |
+|----------|----------|-----|
+| Runs Where? | my laptop | Azure Cloud |
+| Best For | Learning and local testing | Production and cloud deployments |
+| Control Plane | Local | Managed by Microsoft |
+| Worker Nodes | Local machine | Azure Virtual Machines |
+| Scalability | Limited | Easy to scale |
+| High Availability | Limited | Supported through Azure |
+| Internet Required | Not always | Yes |
+
+
+---
+
+# Q19. What is the difference between **Docker Hub** and **Azure Container Registry (ACR)**? Create an ACR, push an image to it, and attach a screenshot.
+
+## Answer
+
+## # Step 1: What is a Container Registry?
+
+When you build a Docker image, it stays on your computer.
+
+Example:
+
+```bash
+docker images
+```
+
+Output:
+
+```text
+REPOSITORY     TAG
+
+myapp          latest
+```
+
+Only **your computer** knows about this image.
+
+If another developer wants it, they can't access it.
+
+You need a place to **store and share** Docker images.
+
+That place is called a **Container Registry**.
+
+---
+
+## Analogy
+
+Imagine you baked a cake.
+
+Keeping it:
+
+```text
+Kitchen
+```
+
+Only your family can eat it.
+
+---
+
+Keeping it in a bakery:
+
+```text
+Bakery
+
+↓
+
+Everyone can buy it.
+```
+
+A Container Registry is like the bakery.
+
+It stores Docker images.
+
+---
+
+## # Step 2: What is Docker Hub?
+
+Docker Hub is the world's most popular public Docker image registry.
+
+Example:
+
+```text
+docker.io/nginx
+
+docker.io/mysql
+
+docker.io/redis
+```
+
+Millions of developers download images from Docker Hub.
+
+---
+
+## Analogy
+
+Docker Hub is like:
+
+```text
+Public Library
+```
+
+Anyone can borrow books.
+
+Similarly,
+
+Anyone can download public Docker images.
+
+---
+
+## # Step 3: What is Azure Container Registry (ACR)?
+
+Azure Container Registry is Microsoft's **private container registry**.
+
+Instead of storing images on Docker Hub,
+
+You store them inside **your Azure subscription**.
+
+Example:
+
+```text
+week3acr.azurecr.io/myapp:v1
+```
+
+Only authorized users and Azure services can access it.
+
+---
+
+## Real-Life Analogy
+
+Imagine two lockers.
+
+## # Docker Hub
+
+```text
+Public Locker
+```
+
+Many people can access public images.
+
+---
+
+## # ACR
+
+```text
+Office Locker
+```
+
+Only employees with permission can access it.
+
+---
+
+## # Step 4: Why Use ACR Instead of Docker Hub?
+
+Suppose your company has a banking application.
+
+Would you upload it to a public registry?
+
+Probably not.
+
+Instead:
+
+```text
+Developer
+
+↓
+
+ACR
+
+↓
+
+AKS
+```
+
+The application stays inside Azure.
+
+---
+
+## # Step 5: Architecture
+
+## # Docker Hub
+
+```text
+Developer
+
+↓
+
+Docker Hub
+
+↓
+
+Anyone Can Pull Public Images
+```
+
+---
+
+## # ACR
+
+```text
+Developer
+
+↓
+
+Azure Container Registry
+
+↓
+
+AKS
+
+↓
+
+Runs Pods
+```
+
+Everything stays inside Azure.
+
+---
+
+## # Step 6: Create Azure Container Registry
+
+Go to:
+
+```text
+Azure Portal
+
+↓
+
+Search
+
+↓
+
+Container Registries
+
+↓
+
+Create
+```
+
+---
+
+Fill:
+
+| Field          | Value                              |
+| -------------- | ---------------------------------- |
+| Resource Group | week3-rg                           |
+| Registry Name  | week3acr (must be globally unique) |
+| Region         | Same region                        |
+| SKU            | Basic                              |
+
+Choose **Basic** because it's sufficient for the assignment and keeps costs lower.
+
+Click:
+
+```text
+Review + Create
+
+↓
+
+Create
+```
+
+---
+
+## # Step 7: Enable Admin User
+
+Open:
+
+```text
+Your Registry
+
+↓
+
+Settings
+
+↓
+
+Access Keys
+```
+
+Enable:
+
+```text
+Admin User
+
+↓
+
+ON
+```
+
+Azure shows:
+
+* Username
+* Password
+
+You'll use these to log in.
+
+---
+
+## # Step 8: Login to ACR
+
+Open Azure Cloud Shell or your terminal.
+
+Run:
+
+```bash
+az acr login --name week3acr
+```
+
+Replace `week3acr` with your registry name.
+
+---
+
+## # What happened?
+
+Azure authenticated Docker with your registry.
+
+Think of it as:
+
+```text
+Show ID Card
+
+↓
+
+Registry says
+
+↓
+
+Welcome!
+```
+
+---
+
+## # Step 9: Tag the Image
+
+Suppose your image is:
+
+```text
+myapp:latest
+```
+
+Tell Docker where you want to upload it.
+
+Run:
+
+```bash
+docker tag myapp:latest week3acr.azurecr.io/myapp:v1
+```
+
+---
+
+## # Why Tag?
+
+Imagine sending a parcel.
+
+Without an address,
+
+The courier doesn't know where to deliver it.
+
+The tag adds the destination.
+
+---
+
+## # Step 10: Push the Image
+
+Run:
+
+```bash
+docker push week3acr.azurecr.io/myapp:v1
+```
+
+Docker uploads the image.
+
+---
+
+## Diagram
+
+```text
+Laptop
+
+ │
+
+ ▼
+
+Docker Image
+
+ │
+
+ ▼
+
+Tag Image
+
+ │
+
+ ▼
+
+Push
+
+ │
+
+ ▼
+
+Azure Container Registry
+```
+
+---
+
+## # Step 11: Verify
+
+Go to:
+
+```text
+Azure Portal
+
+↓
+
+Container Registry
+
+↓
+
+Repositories
+```
+
+You should see:
+
+```text
+myapp
+```
+
+Click it.
+
+You'll see:
+
+```text
+v1
+```
+
+Success!
+
+---
+
+## Comparison Table
+
+| Feature        | Docker Hub                      | Azure Container Registry (ACR)                     |
+| -------------- | ------------------------------- | -------------------------------------------------- |
+| Provider       | Docker                          | Microsoft Azure                                    |
+| Purpose        | Public/private image registry   | Azure-native private image registry                |
+| Integration    | General-purpose                 | Integrated with Azure services like AKS            |
+| Authentication | Docker account                  | Azure Entra ID, managed identity, admin user, etc. |
+| Best For       | Open-source and general sharing | Enterprise and Azure workloads                     |
+| Security       | Public or private repositories  | Azure RBAC and Azure security features             |
+
+---
+
+## Common Beginner Mistakes
+
+## # Forgetting to tag the image
+
+Docker doesn't know where to upload it.
+
+Always tag before pushing.
+
+---
+
+## # Wrong registry name
+
+Your registry name becomes part of the image name.
+
+Example:
+
+```text
+week3acr.azurecr.io/myapp:v1
+```
+
+---
+
+## # Thinking Docker Hub and ACR are different image formats
+
+They both store **Docker images**.
+
+The difference is **where they're stored** and **how they're managed**.
+
+---
+
+## Screenshots Required
+
+Take these screenshots:
+
+## # Screenshot 1
+
+Container Registry Overview
+
+Show:
+
+```text
+week3acr
+```
+
+---
+
+## # Screenshot 2
+
+Repositories
+
+Show:
+
+```text
+myapp
+```
+
+---
+
+## # Screenshot 3
+
+Tag:
+
+```text
+v1
+```
+
+inside the repository.
+
+---
+
+## # Screenshot 4
+
+Terminal showing:
+
+```bash
+docker push
+```
+
+completed successfully.
+
+---
+
+## # Remember
+
+Think of photos.
+
+## # Docker Hub
+
+```text
+Instagram
+```
+
+You can share publicly.
+
+---
+
+## # ACR
+
+```text
+Company Internal Drive
+```
+
+Only employees can access it.
+
+---
+
+
+
+> Docker Hub is a general-purpose container registry provided by Docker that hosts both public and private container images. Azure Container Registry (ACR) is Microsoft's private container registry service designed for Azure environments. ACR integrates closely with Azure services such as AKS, provides Azure-based authentication and access control, and is commonly used for enterprise applications. In this lab, I created an Azure Container Registry, tagged my Docker image with the registry name, pushed it successfully to ACR, and verified that the image appeared in the repository.
+
+---
+
+
+
+> Docker Hub is a public container registry widely used for sharing Docker images, while Azure Container Registry (ACR) is a private Azure-native registry designed for secure storage and management of container images. I created an ACR, logged into it, tagged my Docker image with the registry URL, pushed it successfully, and verified the uploaded image in the Azure Portal.
+
+---
+
+## Revision
+
+## # Docker Hub
+
+```text
+Docker Image
+
+↓
+
+Docker Hub
+
+↓
+
+Anyone with access can pull public images
+```
+
+## # Azure Container Registry
+
+```text
+Docker Image
+
+↓
+
+Azure Container Registry
+
+↓
+
+AKS
+
+↓
+
+Deploy Application
+```
+
+---
+
+# Q20. What is the difference between the **Azure Portal** (`portal.azure.com`) and **Azure DevOps** (`dev.azure.com`)? What is a **Service Connection** and why is it needed to link them?
+
+## Answer
+
+Many beginners get confused because both names start with **Azure**.
+
+Remember this:
+
+> **Azure Portal builds and manages cloud resources.**
+>
+> **Azure DevOps builds and deploys your application.**
+
+Think of them as **two different tools that work together**.
+
+---
+
+## # Step 1: First Understand the Two Websites
+
+Microsoft has two different websites.
+
+## # Azure Portal
+
+```text
+portal.azure.com
+```
+
+Used for managing Azure resources.
+
+Examples:
+
+* Virtual Machines
+* AKS
+* Storage Accounts
+* Virtual Networks
+* Resource Groups
+
+Think of it as your **cloud control panel**.
+
+---
+
+## # Azure DevOps
+
+```text
+dev.azure.com
+```
+
+Used for software development.
+
+Examples:
+
+* Git Repositories
+* CI/CD Pipelines
+* Boards
+* Test Plans
+* Artifacts
+
+Think of it as your **software factory**.
+
+---
+
+## Analogy
+
+Imagine you're building a house.
+
+You need two things.
+
+## # Construction Site
+
+Where the house exists.
+
+This is:
+
+```text
+Azure Portal
+```
+
+---
+
+## # Construction Office
+
+Where engineers:
+
+* Draw plans
+* Track work
+* Schedule workers
+
+This is:
+
+```text
+Azure DevOps
+```
+
+One builds the infrastructure.
+
+The other manages software delivery.
+
+---
+
+## # Step 2: What Does Azure Portal Do?
+
+Suppose you want to create:
+
+* VM
+* AKS
+* Storage Account
+* Virtual Network
+
+You go to:
+
+```text
+portal.azure.com
+
+↓
+
+Create VM
+
+↓
+
+Running Server
+```
+
+---
+
+## # Step 3: What Does Azure DevOps Do?
+
+Suppose you wrote code.
+
+You want:
+
+* Build
+* Test
+* Docker Build
+* Push to ACR
+* Deploy to AKS
+
+You use:
+
+```text
+dev.azure.com
 ```
 
 Example:
 
-Send traffic through Firewall.
-
----
-
-# Easy Memory Trick
-
-Think about a road trip.
-
-## System Route
-
 ```text
-GPS chooses the road automatically
-```
+Developer
 
-Azure selects the default path.
+↓
 
----
+Git Push
 
-## User-Defined Route
+↓
 
-```text
-You change the GPS route
-```
+Pipeline
 
-You override Azure's default path.
+↓
 
----
+Docker Build
 
-## Next Hop = None
+↓
 
-```text
-Road Closed 🚧
+Push Image
 
-No path available
-```
+↓
 
-Traffic cannot continue.
-
----
-
-# Interview Answer (2 Minutes)
-
-> A System Route is automatically created and managed by Azure when a Virtual Network is created. It provides default connectivity between resources inside the VNet, to the internet, and to Azure services.
->
-> A User-Defined Route (UDR) is a custom route created by the user to override Azure's default routing behavior. It is commonly used for scenarios such as forcing traffic through a firewall, VPN gateway, or controlling network traffic flow.
->
-> In this lab, I created a UDR with destination `0.0.0.0/0` and configured the Next Hop as **None**. After associating the Route Table with the subnet, all outbound internet traffic from the VM was dropped because Azure had no next hop to forward the packets.
-
----
-
-# Visual Summary
-
-## Without UDR
-
-```text
-VM
-
- │
-
- ▼
-
-System Route
-
- │
-
- ▼
-
-Internet ✅
+Deploy
 ```
 
 ---
 
-## With UDR (Next Hop = None)
+## # Step 4: Why Can't Azure DevOps Deploy Directly?
+
+Imagine you're working at a bank.
+
+You receive a phone call:
+
+> "I'm Rahul. Please transfer $10,000."
+
+Will the bank transfer the money?
+
+No.
+
+The bank first verifies who is calling.
+
+Azure works the same way.
+
+Azure DevOps must prove its identity before Azure allows it to create or modify resources.
+
+---
+
+## # Step 5: What is a Service Connection?
+
+A **Service Connection** is a **trusted connection between Azure DevOps and Azure**.
+
+It tells Azure:
+
+> "I trust this Azure DevOps project."
+
+Without it,
+
+Azure DevOps has **no permission** to create VMs, push images, or deploy to AKS.
+
+---
+
+## Analogy
+
+Imagine your school.
+
+A delivery person arrives.
+
+The security guard asks:
+
+> "Do you have an ID card?"
+
+If yes,
+
+They can enter.
+
+If no,
+
+Entry denied.
+
+The ID card is like a **Service Connection**.
+
+---
+
+## # Step 6: Architecture
+
+Without Service Connection
 
 ```text
-VM
+Azure DevOps
 
- │
+      │
 
- ▼
+      ▼
 
-User-Defined Route
+Deploy
 
- │
+      │
 
- ▼
+      ▼
 
-None
+Azure
 
- │
+      │
 
- ▼
+      ▼
 
-❌ Traffic Dropped
+Permission Denied
+```
+
+---
+
+With Service Connection
+
+```text
+Azure DevOps
+
+      │
+
+      ▼
+
+Service Connection
+
+      │
+
+      ▼
+
+Azure
+
+      │
+
+      ▼
+
+Deployment Allowed
+```
+
+---
+
+## # Step 7: Real Pipeline Flow
+
+Imagine your application.
+
+```text
+Developer
+
+↓
+
+Git Push
+
+↓
+
+Azure DevOps
+
+↓
+
+Build Docker Image
+
+↓
+
+Service Connection
+
+↓
+
+Azure Container Registry
+
+↓
+
+AKS
+```
+
+Without the Service Connection,
+
+the pipeline stops before reaching Azure.
+
+---
+
+## # Step 8: What Information Does a Service Connection Store?
+
+It securely stores credentials so Azure DevOps can authenticate with Azure.
+
+Depending on how it's configured, it may use:
+
+* Service Principal
+* Managed Identity (in some scenarios)
+* Workload Identity Federation (recommended in many modern setups)
+
+You don't have to type your Azure username and password every time a pipeline runs.
+
+---
+
+## Comparison Table
+
+| Feature                  | Azure Portal                           | Azure DevOps                                                |
+| ------------------------ | -------------------------------------- | ----------------------------------------------------------- |
+| Website                  | portal.azure.com                       | dev.azure.com                                               |
+| Purpose                  | Manage Azure resources                 | Develop and deploy applications                             |
+| Used By                  | Cloud Administrators, DevOps Engineers | Developers, QA, DevOps Engineers                            |
+| Creates VMs?             | Yes                                    | No (unless deploying through a pipeline using Azure access) |
+| Runs Pipelines?          | No                                     | Yes                                                         |
+| Stores Git Repositories? | No                                     | Yes                                                         |
+| Manages Resource Groups? | Yes                                    | Not directly                                                |
+
+---
+
+## Real-Life Example
+
+Imagine Amazon.
+
+## # Warehouse
+
+Stores products.
+
+```text
+Azure Portal
+```
+
+---
+
+## # Delivery Company
+
+Moves products to customers.
+
+```text
+Azure DevOps
+```
+
+---
+
+## # Security Pass
+
+Allows delivery trucks inside.
+
+```text
+Service Connection
+```
+
+---
+
+## Common Beginner Mistakes
+
+## # "Azure Portal and Azure DevOps are the same."
+
+No.
+
+Portal manages cloud resources.
+
+Azure DevOps manages the software development lifecycle.
+
+---
+
+## # "Service Connection copies files."
+
+No.
+
+It provides **authentication and authorization** so Azure DevOps can access Azure resources.
+
+---
+
+## # "Without a Service Connection, pipelines always work."
+
+No.
+
+If your pipeline needs to interact with Azure (for example, pushing to ACR or deploying to AKS), it needs a valid Service Connection or another supported authentication method.
+
+---
+
+## # Remember
+
+Think of building a restaurant.
+
+## # Azure Portal
+
+```text
+Build the Restaurant
+```
+
+---
+
+## # Azure DevOps
+
+```text
+Cook and Deliver Food
+```
+
+---
+
+## # Service Connection
+
+```text
+Restaurant Key
+```
+
+Without the key,
+
+the delivery staff can't enter.
+
+---
+
+
+
+> Azure Portal is the web interface used to create and manage Azure cloud resources such as Virtual Machines, Resource Groups, Storage Accounts, and AKS clusters. Azure DevOps is a platform used for source code management, CI/CD pipelines, work tracking, and software delivery. A Service Connection is a secure authentication link that allows Azure DevOps pipelines to access Azure resources. It is required so pipelines can perform actions such as pushing Docker images to Azure Container Registry or deploying applications to AKS without exposing user credentials.
+
+---
+
+
+
+> Azure Portal is used to create and manage Azure infrastructure, while Azure DevOps is used to manage source code, build pipelines, and application deployments. A Service Connection securely connects Azure DevOps to an Azure subscription by providing authenticated access. This allows CI/CD pipelines to deploy resources or applications to Azure services such as Azure Container Registry and AKS.
+
+---
+
+## Revision
+
+## # Azure Portal
+
+```text
+Create VM
+
+Create AKS
+
+Create Storage
+
+Manage Cloud
+```
+
+## # Azure DevOps
+
+```text
+Git Repo
+
+CI/CD Pipeline
+
+Build
+
+Test
+
+Deploy
+```
+
+## # Service Connection
+
+```text
+Azure DevOps
+
+↓
+
+Authentication
+
+↓
+
+Azure
+
+↓
+
+Deployment Allowed
+```
+
+---
+
+# Q21. 
+Build a simple Azure DevOps pipeline that builds a Docker image and pushes it to Azure Container Registry (ACR). Attach screenshots of the successful pipeline run.
+
+## Answer
+
+
+## Step 1: What is a CI/CD Pipeline?
+
+Imagine every time you write code, you manually have to:
+
+* Build the application
+* Create a Docker image
+* Login to ACR
+* Push the image
+
+Doing this every day is repetitive.
+
+A CI/CD pipeline automates all these steps.
+
+---
+
+## Analogy
+
+Imagine packing school bags every morning.
+
+Without automation:
+
+```text
+Wake Up
+
+↓
+
+Pack Books
+
+↓
+
+Pack Lunch
+
+↓
+
+Pack Water Bottle
+
+↓
+
+Go to School
+```
+
+You repeat this every day.
+
+Now imagine a robot does all the packing for you.
+
+That's exactly what a CI/CD pipeline does.
+
+---
+
+## Step 2: What Will We Build?
+
+Our pipeline will do this:
+
+```text
+GitHub Repository
+
+        │
+
+        ▼
+
+Azure DevOps Pipeline
+
+        │
+
+        ▼
+
+Build Docker Image
+
+        │
+
+        ▼
+
+Push Image
+
+        │
+
+        ▼
+
+Azure Container Registry
+```
+
+Everything happens automatically.
+
+---
+
+## Step 3: Before You Start
+
+Make sure you already have:
+
+✅ Azure DevOps Project
+
+✅ GitHub Repository
+
+✅ Dockerfile
+
+✅ Azure Container Registry (ACR)
+
+✅ Service Connection
+
+---
+
+## Step 4: Create the Pipeline
+
+Open:
+
+```text
+Azure DevOps
+
+↓
+
+Pipelines
+
+↓
+
+Create Pipeline
+```
+
+Choose:
+
+```text
+GitHub
+```
+
+Authorize GitHub if prompted.
+
+---
+
+Select my repository.
+
+For example:
+
+```text
+flavorforge
+```
+
+---
+
+Choose:
+
+```text
+Existing Azure Pipelines YAML file
+```
+
+or
+
+```text
+Starter Pipeline
+```
+
+if I'm creating it for the first time.
+
+---
+
+## Step 5: Pipeline YAML
+
+A simple pipeline can include these stages:
+
+```text
+Checkout Code
+
+↓
+
+Build Docker Image
+
+↓
+
+Login to ACR
+
+↓
+
+Push Docker Image
+```
+
+---
+
+## Example YAML
+
+```yaml
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  imageName: sampleapp
+
+steps:
+
+- checkout: self
+
+- task: Docker@2
+  displayName: Build and Push Image
+  inputs:
+    command: buildAndPush
+    repository: $(imageName)
+    dockerfile: Dockerfile
+    containerRegistry: my-acr-service-connection
+    tags: |
+      latest
+```
+
+---
+
+## What Does This Pipeline Do?
+
+```text
+checkout
+
+↓
+
+Downloads my source code
+```
+
+```text
+Docker Build
+
+↓
+
+Creates Docker Image
+```
+
+```text
+Docker Push
+
+↓
+
+Uploads image to Azure Container Registry
+```
+
+Everything is automatic.
+
+---
+
+## Analogy
+
+Imagine making a birthday cake.
+
+Instead of:
+
+* Mixing ingredients
+* Baking
+* Decorating
+* Delivering
+
+myself,
+
+you press one button.
+
+The machine does everything.
+
+That is what the pipeline does.
+
+---
+
+## Step 6: Run the Pipeline
+
+Click:
+
+```text
+Save
+
+↓
+
+Run Pipeline
+```
+
+Azure DevOps starts the build.
+
+I'll see stages running one after another.
+
+```text
+Checkout
+
+↓
+
+Build
+
+↓
+
+Push
+
+↓
+
+Success
+```
+
+---
+
+## Step 7: Verify the Image
+
+Go to:
+
+```text
+Azure Portal
+
+↓
+
+Container Registry
+
+↓
+
+Repositories
+```
+
+I should see:
+
+```text
+sampleapp
+```
+
+Open it.
+
+I should see:
+
+```text
+latest
+```
+
+This confirms the image was pushed successfully.
+
+---
+
+## Diagram
+
+```text
+Developer
+
+      │
+
+      ▼
+
+Git Push
+
+      │
+
+      ▼
+
+Azure DevOps
+
+      │
+
+      ▼
+
+Build Docker Image
+
+      │
+
+      ▼
+
+Push Image
+
+      │
+
+      ▼
+
+Azure Container Registry
+```
+
+---
+
+## Real-Life Analogy
+
+Imagine a factory.
+
+Worker:
+
+```text
+Makes Product
+```
+
+↓
+
+Packing Machine:
+
+```text
+Packs Product
+```
+
+↓
+
+Delivery Truck:
+
+```text
+Sends Product
+```
+
+The factory is like Azure DevOps.
+
+The warehouse is Azure Container Registry.
+
+---
+
+## Screenshots Required
+
+
+
+## Screenshot 1
+
+Azure DevOps Pipeline
+
+Show:
+
+```text
+Pipeline Name
+```
+
+---
+
+## Screenshot 2
+
+Pipeline Run
+
+Show:
+
+```text
+Successful Run
+
+✓ Passed
+```
+
+---
+
+## Screenshot 3
+
+Pipeline Logs
+
+Show:
+
+```text
+Docker Build
+
+Docker Push
+```
+
+completed successfully.
+
+---
+
+## Screenshot 4
+
+Azure Container Registry
+
+↓
+
+Repositories
+
+
+
+---
+
+## Screenshot 5
+
+Repository Tag
+
+Show:
+
+```text
+latest
+```
+
+or the tag I used.
+
+---
+
+## What Happens Behind the Scenes?
+
+When the pipeline runs:
+
+```text
+Azure DevOps
+
+↓
+
+Downloads Code
+
+↓
+
+Reads Dockerfile
+
+↓
+
+Builds Docker Image
+
+↓
+
+Logs in to ACR
+
+↓
+
+Uploads Image
+
+↓
+
+Pipeline Completes
+```
+
+Everything is automated.
+
+---
+
+## Comparison Table
+
+| Manual Process               | Azure DevOps Pipeline            |
+| ---------------------------- | -------------------------------- |
+| Build image manually         | Builds automatically             |
+| Login to ACR manually        | Logs in using Service Connection |
+| Push image manually          | Pushes automatically             |
+| More time and effort         | Faster and consistent            |
+| Higher chance of human error | Reduced manual errors            |
+| Best for small experiments   | Best for production CI/CD        |
+
+---
+
+## Common Beginner Mistakes
+
+## ❌ Forgetting the Service Connection
+
+Without a valid Service Connection,
+
+Azure DevOps cannot authenticate with Azure and the pipeline will fail while pushing the image.
+
+---
+
+## ❌ Wrong Dockerfile Path
+
+If the Dockerfile path is incorrect,
+
+the Docker image cannot be built.
+
+---
+
+## ❌ Wrong ACR Name
+
+The pipeline must use the correct Azure Container Registry and Service Connection.
+
+Otherwise, the push step will fail.
+
+---
+
+## Remember
+
+Think of an online shopping order.
+
+```text
+Customer Places Order
+
+↓
+
+Warehouse Packs Product
+
+↓
+
+Courier Delivers Product
+```
+
+Similarly,
+
+```text
+Git Push
+
+↓
+
+Azure DevOps Builds Image
+
+↓
+
+ACR Stores Image
 ```
 
 ---
 
 
 
+> In this lab, I created an Azure DevOps pipeline that automatically built a Docker image from my application and pushed it to Azure Container Registry (ACR). The pipeline used a Docker task along with a Service Connection to authenticate with Azure. After the pipeline completed successfully, I verified the uploaded image and its tag in the ACR repository. This automation reduces manual effort, ensures consistent deployments, and forms the foundation of a CI/CD workflow.
+
+> I created an Azure DevOps pipeline that automatically built a Docker image and pushed it to Azure Container Registry using a Service Connection. After running the pipeline successfully, I verified the uploaded image in the ACR repository. This CI/CD pipeline automates the build and image publishing process, making deployments faster, more reliable, and less prone to manual errors.
+
+---
+
+## Revision
+
+## Azure DevOps Pipeline
+
+```text
+GitHub
+
+↓
+
+Azure DevOps
+
+↓
+
+Build Docker Image
+
+↓
+
+Push Image
+
+↓
+
+Azure Container Registry
+```
+
+## CI/CD Flow
+
+```text
+Developer
+
+↓
+
+Git Push
+
+↓
+
+Pipeline
+
+↓
+
+Docker Build
+
+↓
+
+ACR
+
+↓
+
+Image Ready
+```
+
+---
 
 
 
+## Cleanup
 
 
+## Cleanup: Delete All Azure Resources and Attach Proof
+
+After completing all the labs and taking the required screenshots, I should delete the Azure resources I created to avoid unnecessary charges.
+
+---
+
+## Why Should We Delete Resources?
+
+Remember assignment warning:
+
+> **VMs, Bastion, AKS, Public IPs, and other Azure resources can incur charges if they continue running.**
+
+---
+
+## Analogy
+
+Imagine I book a hotel room.
+
+```text
+I Check In
+
+↓
+
+Use Room
+
+↓
+
+Finish Trip
+
+↓
+
+Check Out
+```
+
+If I never check out...
+
+The hotel keeps charging me.
+
+Azure works exactly the same way.
+
+If my resources continue running,
+
+Azure may continue billing my subscription.
+
+---
+
+## What Should We Delete?
+
+If my created everything inside **one Resource Group** (recommended), deleting it is the easiest option.
+
+Example:
+
+```text
+week3-rg
+
+│
+
+├── Virtual Machine
+
+├── Virtual Network
+
+├── Subnet
+
+├── Network Security Group
+
+├── Public IP
+
+├── Azure Bastion
+
+├── AKS Cluster
+
+├── Azure Container Registry
+
+├── Route Table
+
+└── Other Azure Resources
+```
+
+Instead of deleting each resource one by one,
+
+delete the **Resource Group**.
+
+Everything inside it is deleted automatically.
+
+---
+
+## Step 1: Open Azure Portal
+
+Go to:
+
+```text
+Azure Portal
+
+↓
+
+Resource Groups
+```
+
+---
+
+## Step 2: Open my Resource Group
+
+For example:
+
+```text
+week3-rg
+```
+
+I'll see all the resources inside the Resource Group.
+
+---
+
+## Step 3: Delete the Resource Group
+
+Click:
+
+```text
+Delete Resource Group
+```
+
+Azure will ask me to confirm the deletion.
+
+Type the Resource Group name exactly.
+
+Example:
+
+```text
+week3-rg
+```
+
+Then click:
+
+```text
+Delete
+```
+
+---
+
+## What Happens?
+
+```text
+Delete Resource Group
+
+        │
+
+        ▼
+
+Delete Virtual Machine
+
+Delete AKS
+
+Delete Azure Bastion
+
+Delete Virtual Network
+
+Delete NSG
+
+Delete Public IP
+
+Delete Azure Container Registry
+
+Delete Everything
+```
+
+This process may take several minutes.
+
+---
+
+## Alternative (Azure CLI)
+
+If I am using Azure CLI, run:
+
+```bash
+az group delete --name week3-rg --yes --no-wait
+```
+
+## What does this command mean?
+
+```text
+az group delete
+```
+
+Deletes a Resource Group.
+
+```text
+--name week3-rg
+```
+
+Specifies which Resource Group to delete.
+
+```text
+--yes
+```
+
+Automatically confirms the deletion.
+
+```text
+--no-wait
+```
+
+Starts the deletion immediately without waiting for it to finish.
+
+---
+
+## How Do I Know It's Deleted?
+
+Go back to:
+
+```text
+Resource Groups
+```
+
+If I no longer see:
+
+```text
+week3-rg
+```
+
+or its status changes to:
+
+```text
+Deleting
+```
+
+and later disappears,
+
+my cleanup was successful.
+
+---
+
+## Screenshot
+
+## Option 1 (Recommended)
+
+```text
+Resource Groups
+
+↓
+
+week3-rg
+
+↓
+
+Status: Deleting
+```
+
+This proves I initiated the cleanup.
+
+---
+
+## Option 2
+
+After deletion completes:
+
+```text
+Resource Groups
+
+↓
+
+week3-rg
+
+↓
+
+Not Found
+```
+
+or the Resource Group is no longer listed.
+
+---
+
+## Common Beginner Mistakes
+
+## ❌ Deleting only the Virtual Machine
+
+The VM is deleted, but resources like:
+
+* Public IP
+* Azure Bastion
+* AKS
+* Azure Container Registry
+* Managed Disks
+
+may still exist and could continue to incur charges.
+
+---
+
+## ❌ Forgetting Managed Disks
+
+If my delete VMs individually, always verify whether the managed disks were also removed.
+
+Deleting the **Resource Group** removes everything together.
+
+---
+
+## ❌ Deleting the Wrong Resource Group
+
+Always verify the Resource Group name before confirming the deletion.
+
+---
+
+## Remember
+
+```text
+One Resource Group
+
+↓
+
+One Delete
+
+↓
+
+Everything Removed
+```
+
+---
 
 
+> After completing all the required Azure labs and capturing the necessary screenshots, I deleted the entire Resource Group containing all the Azure resources. This removed the Virtual Machine, AKS cluster, Azure Bastion, Azure Container Registry, Virtual Network, Network Security Group, Public IP, and other related resources, helping avoid unnecessary Azure charges.
 
+---
+
+## Revision
+
+```text
+Complete Assignment
+
+↓
+
+Take Screenshots
+
+↓
+
+Delete Resource Group
+
+↓
+
+All Resources Removed
+
+↓
+
+No Unnecessary Charges
+```
+
+---
+
+
+```text
+Azure Networking
+
+↓
+
+Virtual Machines
+
+↓
+
+Public & Private IPs
+
+↓
+
+Azure Bastion
+
+↓
+
+Microsoft Entra ID & RBAC
+
+↓
+
+Azure Kubernetes Service (AKS)
+
+↓
+
+Azure Container Registry (ACR)
+
+↓
+
+Azure DevOps & CI Pipeline
+
+↓
+
+Resource Cleanup
+```
