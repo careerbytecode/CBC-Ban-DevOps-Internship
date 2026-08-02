@@ -474,6 +474,10 @@ So usable = Total − 2
 | /16  | 255.255.0.0   | **65,536**    | 65,534       |
 | /28  | 255.255.255.240 | **16**      | 14           |
 
+<img width="1372" height="736" alt="image" src="https://github.com/user-attachments/assets/54d04c7e-6a99-4df5-9943-bae46bc8dc2d" />
+<img width="1392" height="1007" alt="image" src="https://github.com/user-attachments/assets/53e30ae6-8259-45a4-b7de-b662b1816331" />
+
+
 ---
 
 # Step 3: Analogy
