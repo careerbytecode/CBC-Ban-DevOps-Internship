@@ -193,34 +193,7 @@ Database subnet
 
 # Diagram
 
-```
-Azure Subscription
-        │
-        │
-        ▼
-+-------------------------+
-|    Resource Group       |
-|                         |
-|  +-------------------+  |
-|  |      VNet         |  |
-|  |                   |  |
-|  | +-------------+   |  |
-|  | | Frontend    |   |  |
-|  | | Subnet      |   |  |
-|  | +-------------+   |  |
-|  |                   |  |
-|  | +-------------+   |  |
-|  | | Backend     |   |  |
-|  | | Subnet      |   |  |
-|  | +-------------+   |  |
-|  +-------------------+  |
-|                         |
-| VM                      |
-| NSG                     |
-| Public IP               |
-+-------------------------+
-```
-
+![alt text](image.png)
 ---
 
 # How They Work Together
