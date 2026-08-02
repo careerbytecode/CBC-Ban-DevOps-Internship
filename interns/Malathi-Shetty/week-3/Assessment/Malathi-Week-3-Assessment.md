@@ -193,7 +193,8 @@ Database subnet
 
 # Diagram
 
-![alt text](interns/Malathi-Shetty/week-3/PracticeProjects/images/Q1. What is the difference between a Resource Group a Virtual Network and a Subnet Explain with a simple analogy.png)
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/db71eb39-e6a4-46e2-baed-614c5ae9c812" />
+
 
 ---
 
