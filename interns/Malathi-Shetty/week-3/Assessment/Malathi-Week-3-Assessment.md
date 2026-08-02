@@ -20,7 +20,7 @@
 What is the difference between a **Resource Group**, a **Virtual Network**, and a **Subnet**? Explain with a simple analogy.
 
 
-# ☁️ Before We Start - What is Azure?
+# Before We Start - What is Azure?
 
 Imagine you want to build a house.
 
