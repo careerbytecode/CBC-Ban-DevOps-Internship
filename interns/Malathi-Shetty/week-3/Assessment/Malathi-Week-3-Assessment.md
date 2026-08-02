@@ -19,6 +19,7 @@
 ### Q1.
 What is the difference between a **Resource Group**, a **Virtual Network**, and a **Subnet**? Explain with a simple analogy.
 
+### Answer
 
 # Before We Start - What is Azure?
 
@@ -327,7 +328,7 @@ Subnet
 
 ---
 
-# Answer
+
 
 > A Resource Group is a logical container that organizes related Azure resources, making them easier to manage, monitor, and delete together. A Virtual Network, or VNet, provides a private network where Azure resources can securely communicate with each other. A Subnet is a smaller section within a VNet that helps organize resources based on their role, such as frontend, backend, or database servers. An easy analogy is that a Resource Group is like a cupboard, the VNet is a shelf inside it, and Subnets are compartments on that shelf used to organize different items.
 
@@ -367,6 +368,483 @@ Subnet
 
 ### Q2.
 What is the difference between `10.0.0.0/16` and `10.0.1.0/24`? Explain how many addresses each provides and when you would use them.
+
+### Answer
+
+# Step 1: Why do we even need IP addresses?
+
+Imagine your city.
+
+Every house has a unique address.
+
+Example:
+
+```
+House 1 → 101
+House 2 → 102
+House 3 → 103
+```
+
+Without house numbers, the postman wouldn't know where to deliver your parcel.
+
+Similarly, every device on a network needs a unique IP address.
+
+```
+Laptop  → 10.0.0.4
+VM       → 10.0.0.5
+Database → 10.0.0.6
+```
+
+An IP address is simply the **address of a device on a network**.
+
+---
+
+# Step 2: What is a CIDR Block?
+
+CIDR (Classless Inter-Domain Routing) tells us:
+It's a compact way to write an IP address + its network size together.
+
+Example: 192.168.1.0/24
+
+The /24 part is called the prefix length - it tells you how many bits are reserved for the network, and how many are left for hosts (devices).
+
+
+> **How big is this network?**
+
+Look at this:
+
+```
+10.0.0.0/16
+```
+
+It has two parts:
+
+```
+10.0.0.0   → Network Address
+/16        → Size of the network
+```
+
+Think of `/16` as saying:
+
+> "I'm reserving a very large neighborhood."
+
+
+---
+
+**Q: What does /24 mean in 192.168.1.0/24?**  
+
+- An IP address has 32 bits total.
+- /24 means subnet mask is 255.255.255.0 – last 8 bits for hosts.
+- /24 means → first 24 bits = network, remaining 8 bits = hosts
+
+```bash
+192.168.1  .  0
+←  24 bits  → ← 8 bits →
+  (network)    (hosts)
+```
+
+Subnet mask equivalent: `255.255.255.0`
+
+So `192.168.1.0/24` covers addresses from `192.168.1.0` to `192.168.1.255` - that's `256` addresses in one network.
+
+
+
+**Usable hosts Calculation:**
+```
+Usable Hosts = 2^(32 - CIDR) - 2
+```
+- /24: 254 (total 256, minus network and broadcast)
+- /16: 65534
+- /28: 14
+
+**Why subnet?**  
+- To isolate groups/devices, improve security, and better utilize address space.
+
+In every subnet, 2 addresses are always reserved:
+
+- First address → Network address / CIDR base IP (identifies the subnet itself)
+- Last address → Broadcast address / Broadcast IP (sends data to all devices in subnet)
+So usable = Total − 2
+
+**Table: CIDR, Subnet Mask, Total IPs, Usable Hosts**
+
+| CIDR | Subnet Mask   | Total IPs | Usable Hosts |
+|------|---------------|-----------|--------------|
+| /24  | 255.255.255.0 | **256**       | 254          |
+| /16  | 255.255.0.0   | **65,536**    | 65,534       |
+| /28  | 255.255.255.240 | **16**      | 14           |
+
+---
+
+# Step 3: Analogy
+
+Imagine your school.
+
+The principal asks:
+
+"How many students should we prepare classrooms for?"
+
+Option 1:
+
+```
+20 students
+```
+
+Small school.
+
+Option 2:
+
+```
+500 students
+```
+
+Big school - students all sharing one giant classroom. Chaos. Nobody can hear anyone. One person sneezes and everyone knows.
+
+CIDR works exactly like that. Subnetting is like dividing that school into separate classrooms - each with its own group, its own rules, its own door.
+
+A **smaller number after `/` means a bigger network**.
+
+```
+/16 → BIG network
+
+/24 → SMALLER network
+```
+
+This is opposite of what many beginners expect.
+
+### Benefits:
+
+- **Security** - a breach in one subnet doesn't automatically spread to others
+- **Performance** - less broadcast traffic (devices stop shouting to the entire network)
+- **Organization** - HR team on one subnet, Engineering on another, Database servers on another
+- **Control** - apply different firewall rules per subnet
+
+> On AWS, this is exactly why you have **public subnets** (for web servers) and **private subnets** (for databases) inside a VPC.
+
+---
+
+# Step 4: Real-Life Analogy
+
+Imagine a housing society.
+
+Large Society
+
+```
+1000 houses
+```
+
+Small Society
+
+```
+100 houses
+```
+
+Similarly,
+
+```
+10.0.0.0/16
+```
+
+is a large housing society.
+
+```
+10.0.1.0/24
+```
+
+is just one small block inside that society.
+
+---
+
+# Step 5: Visual Diagram
+
+```
+10.0.0.0/16
+
++------------------------------------------------------+
+|                                                      |
+| 10.0.0.x                                              |
+| 10.0.1.x                                              |
+| 10.0.2.x                                              |
+| 10.0.3.x                                              |
+| 10.0.4.x                                              |
+| .....                                                  |
+| 10.0.255.x                                             |
+|                                                      |
++------------------------------------------------------+
+```
+
+Inside this large network, you can create many smaller `/24` subnets.
+
+Example:
+
+```
+10.0.0.0/24
+
+10.0.1.0/24
+
+10.0.2.0/24
+
+10.0.3.0/24
+```
+
+All of these fit inside the `/16` network.
+
+---
+
+# Step 6: How Many IP Addresses?
+
+## A. `10.0.0.0/16`
+
+Formula:
+
+```
+2^(32-16)
+
+=
+
+2^16
+
+=
+
+65,536 IP addresses
+```
+
+So,
+
+```
+10.0.0.0/16
+
+↓
+
+65,536 addresses
+```
+
+---
+
+## B. `10.0.1.0/24`
+
+Formula:
+
+```
+2^(32-24)
+
+=
+
+2^8
+
+=
+
+256 IP addresses
+```
+
+So,
+
+```
+10.0.1.0/24
+
+↓
+
+256 addresses
+```
+
+---
+
+# Step 7: Azure Special Rule
+
+Azure reserves **5 IP addresses in every subnet**.
+
+For a `/24` subnet:
+
+```
+Total IPs = 256
+
+Azure reserves = 5
+
+Usable = 251
+```
+
+For a `/16` network:
+
+```
+65,536 total addresses
+```
+
+(The 5 reserved IP rule applies to each subnet you create, not to the whole VNet.)
+
+---
+
+# Step 8: Where Would You Use Them?
+
+## Use `/16` when:
+
+* Building a complete company network
+* Creating many subnets
+* Planning for future growth
+* Hosting hundreds or thousands of VMs
+
+Example:
+
+```
+Company
+
+↓
+
+One VNet
+
+↓
+
+Frontend
+
+Backend
+
+Database
+
+AKS
+
+Bastion
+
+VPN
+```
+
+You'll need lots of IP addresses.
+
+---
+
+## Use `/24` when:
+
+* Small project
+* One subnet
+* Development lab
+* Testing environment
+
+Example:
+
+```
+One VM
+
+One Database
+
+One Jump Server
+```
+
+No need for thousands of IP addresses.
+
+---
+
+# Step 9: Relationship Between `/16` and `/24`
+
+```
+10.0.0.0/16
+
+│
+
+├──10.0.0.0/24
+
+├──10.0.1.0/24
+
+├──10.0.2.0/24
+
+├──10.0.3.0/24
+
+├──10.0.4.0/24
+
+└── ...
+```
+
+Think of `/16` as a **big pizza**.
+
+Each `/24` is **one slice of that pizza**.
+
+---
+
+# Step 10: Comparison Table
+
+| Feature                    | `10.0.0.0/16`                                  | `10.0.1.0/24`                                            |
+| -------------------------- | ---------------------------------------------- | -------------------------------------------------------- |
+| Network Size               | Large                                          | Small                                                    |
+| Total IP Addresses         | 65,536                                         | 256                                                      |
+| Usable IPs in Azure        | Depends on subnets; each subnet reserves 5 IPs | 251 usable (256 total − 5 reserved by Azure)             |
+| Best For                   | Large production VNet                          | Single subnet, labs, testing                             |
+| Future Expansion           | Excellent                                      | Limited                                                  |
+| Contains Multiple Subnets? | Yes                                            | No (it's already a subnet-sized network in most designs) |
+
+---
+
+# Step 11: Remember
+
+```
+Smaller CIDR number
+
+↓
+
+Bigger Network
+
+↓
+
+More IP addresses
+```
+
+```
+/16
+
+↓
+
+BIG
+```
+
+```
+/24
+
+↓
+
+SMALL
+```
+
+Remember:
+
+> **The smaller the number after the slash, the larger the network.**
+
+---
+
+
+> `10.0.0.0/16` is a larger network that provides 65,536 IP addresses and is commonly used for a Virtual Network because it allows room to create multiple subnets in the future. `10.0.1.0/24` is a smaller network with 256 IP addresses (251 usable in Azure after Azure reserves 5 IPs) and is typically used as an individual subnet for a specific workload such as frontend servers or a development environment. I usually choose `/16` for the overall VNet and `/24` for each subnet because it provides good organization and room for growth.
+
+---
+
+# Common Questions
+
+### Can you create multiple `/24` subnets inside one `/16` VNet?
+
+✅ Yes.
+
+### Is `/16` larger than `/24`?
+
+✅ Yes.
+
+### Which provides more IP addresses?
+
+✅ `/16`
+
+### Does Azure reserve some IP addresses?
+
+✅ Yes, Azure reserves **5 IP addresses in every subnet**.
+
+### What is CIDR?
+✅ Classless Inter-Domain Routing (CIDR) is a compact way to write IP address ranges and their network masks.
+
+### Why is CIDR notation useful?
+✅ It lets network engineers allocate address space precisely, aggregate routes and keep routing tables smaller.
+
+### How is an IP address structured?
+✅ An IPv4 address consists of four 8-bit numbers (octets) ranging from 0 to 255, separated by dots.
+
+### What does the number after the slash mean?
+✅ The slash value (e.g. /24) shows how many bits belong to the network prefix; the rest identify individual hosts.
+
+### Refernce:
+- https://echoflare.ca/tools/subnet-calculator/
+- https://cidr.xyz/
+
 
 ### Q3.
 Create a VNet and subnet in the Azure portal, then attach screenshots showing both.
