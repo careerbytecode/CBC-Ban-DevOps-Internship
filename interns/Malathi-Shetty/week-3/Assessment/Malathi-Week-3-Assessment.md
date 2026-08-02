@@ -195,7 +195,8 @@ Database subnet
 # Diagram
 
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/db71eb39-e6a4-46e2-baed-614c5ae9c812" />
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/17beda92-0ab6-4212-8590-8b2ced6bc41c" />
 
 
 
