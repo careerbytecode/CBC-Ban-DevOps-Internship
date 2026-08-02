@@ -1,0 +1,35 @@
+# ─────────────────────────────────────────────────────────────
+# CBC Week 3 — CI pipeline TEMPLATE (corrected / reusable)
+#
+# This is the cleaned-up version of the class demo file.
+# Change the three values marked  👈 CHANGE  before running.
+# ─────────────────────────────────────────────────────────────
+
+trigger:
+- main                                  # 👈 CHANGE to your branch (main or master)
+
+pool:
+  vmImage: ubuntu-latest                # Microsoft-hosted agent — nothing to install
+  # For a self-hosted agent instead, replace the line above with:
+  # name: my-agent-pool                 # 👈 your agent pool name
+
+variables:
+  imageRepository: sampleapp            # repository name created inside ACR
+  containerRegistry: my-acr-connection  # 👈 CHANGE to your SERVICE CONNECTION name
+  dockerfilePath: sampleapp/Dockerfile  # 👈 CHANGE if your Dockerfile lives elsewhere
+  tag: $(Build.BuildId)                 # auto-incrementing build number
+
+steps:
+
+- checkout: self                        # clone the repo onto the agent
+
+- task: Docker@2
+  displayName: Build and Push Docker Image
+  inputs:
+    command: buildAndPush
+    repository: $(imageRepository)
+    dockerfile: $(dockerfilePath)
+    containerRegistry: $(containerRegistry)
+    tags: |
+      $(tag)                            # traceable to this exact run
+      latest                            # moving pointer to the newest build

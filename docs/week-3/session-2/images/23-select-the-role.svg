@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 700" width="1180" height="700" role="img" aria-label="Step 22 — Select the role" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1180" height="700" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 22 — Select the role</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Role tab of the Add role assignment wizard.</text>
+<rect x="28" y="76" width="1124" height="40" fill="#1B2733" rx="0"/>
+<text x="44" y="101" font-size="16" fill="#FFFFFF" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">≡</text>
+<text x="66" y="101" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Azure</text>
+<rect x="218" y="84" width="724" height="24" fill="#2C3B49" rx="3" stroke="#41525F" stroke-width="1"/>
+<text x="228" y="100" font-size="12" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">⌕</text>
+<text x="244" y="100" font-size="11.5" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Search resources, services, and docs (G+/)</text>
+<circle cx="1122" cy="96" r="12" fill="#3A4B59"/>
+<text x="1122" y="100" font-size="11" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">A</text>
+<text x="1096" y="100" font-size="10.5" fill="#C6D2DB" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">admin@contoso</text>
+<rect x="28" y="116" width="1124" height="52" fill="#FFFFFF" rx="0"/>
+<rect x="44" y="129" width="24" height="24" fill="#0F6CBD" rx="4"/>
+<text x="56" y="146" font-size="13" fill="#FFFFFF" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">◈</text>
+<text x="78" y="142" font-size="15" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Add role assignment</text>
+<text x="78" y="158" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">cbc-internship-program</text>
+<line x1="28" y1="168" x2="1152" y2="168" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="28" y="168" width="1124" height="30" fill="#FFFFFF" rx="0"/>
+<line x1="28" y1="198" x2="1152" y2="198" stroke="#D3DAE0" stroke-width="1"/>
+<text x="70.4" y="188" font-size="11.5" fill="#0F6CBD" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Role</text>
+<rect x="50" y="195" width="40.8" height="2.5" fill="#0F6CBD" rx="0"/>
+<text x="134.0" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Members</text>
+<text x="219.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Conditions</text>
+<text x="333.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Review + assign</text>
+<rect x="28" y="198" width="1124" height="460" fill="#FFFFFF" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="52" y="214" width="1076" height="30" fill="#FFFFFF" rx="0"/>
+<line x1="52" y1="244" x2="1128" y2="244" stroke="#D3DAE0" stroke-width="1"/>
+<text x="144.8" y="234" font-size="11.5" fill="#0F6CBD" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Job function roles</text>
+<rect x="74" y="241" width="141.6" height="2.5" fill="#0F6CBD" rx="0"/>
+<text x="341.6" y="234" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Privileged administrator roles</text>
+<rect x="72" y="262" width="340" height="26" fill="#FFFFFF" rx="3" stroke="#0F6CBD" stroke-width="1.6"/>
+<text x="82" y="279" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">virtual machine</text>
+<rect x="72" y="306" width="1032" height="28" fill="#F7F8FA" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="84" y="324" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Name</text>
+<text x="424" y="324" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Description</text>
+<text x="984" y="324" font-size="10.5" fill="#5B6773" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Type</text>
+<rect x="72" y="334" width="1032" height="32" fill="#E5F0FA" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="84" y="354.0" font-size="11" fill="#0F6CBD" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Virtual Machine Administrator Login</text>
+<text x="424" y="354.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">View VMs and log in as a Windows/Linux administrator.</text>
+<text x="984" y="354.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">BuiltInRole</text>
+<rect x="72" y="366" width="1032" height="32" fill="#FFFFFF" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="84" y="386.0" font-size="11" fill="#0F6CBD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Virtual Machine User Login</text>
+<text x="424" y="386.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">View VMs and log in as a regular user.</text>
+<text x="984" y="386.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">BuiltInRole</text>
+<rect x="72" y="398" width="1032" height="32" fill="#FFFFFF" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="84" y="418.0" font-size="11" fill="#0F6CBD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Virtual Machine Contributor</text>
+<text x="424" y="418.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Manage VMs — but not the VNet or the OS inside them.</text>
+<text x="984" y="418.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">BuiltInRole</text>
+<rect x="72" y="430" width="1032" height="32" fill="#FFFFFF" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="84" y="450.0" font-size="11" fill="#0F6CBD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Network Contributor</text>
+<text x="424" y="450.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Manage networking resources (VNet, NSG, public IP).</text>
+<text x="984" y="450.0" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">BuiltInRole</text>
+<circle cx="66" cy="275" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="66" y="279" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<circle cx="66" cy="353" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="66" y="357" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">2</text>
+<rect x="72" y="470" width="620" height="96" fill="#EEF5FB" rx="4" stroke="#0F6CBD" stroke-width="1"/>
+<rect x="72" y="470" width="3.5" height="96" fill="#0F6CBD" rx="2"/>
+<text x="86" y="490" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Administrator Login vs User Login</text>
+<text x="86" y="506" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Both let the principal see the VM and sign in with an Entra ID</text>
+<text x="86" y="522" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">identity. Administrator Login additionally grants root / local</text>
+<text x="86" y="538" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">administrator rights on the guest OS. Pick User Login unless the</text>
+<text x="86" y="554" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">intern genuinely needs sudo — that is least privilege in practice.</text>
+<rect x="716" y="470" width="388" height="80" fill="#EDF7F1" rx="4" stroke="#107C41" stroke-width="1"/>
+<rect x="716" y="470" width="3.5" height="80" fill="#107C41" rx="2"/>
+<text x="730" y="490" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Data actions, not control-plane actions</text>
+<text x="730" y="506" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">These two roles carry dataActions. They authorize the sign-in</text>
+<text x="730" y="522" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">itself, which is why the VM must also have the Entra ID login</text>
+<text x="730" y="538" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">extension installed and AAD auth enabled.</text>
+<rect x="28" y="606" width="1124" height="42" fill="#F7F8FA" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="50" y="618" width="90" height="27" fill="#0F6CBD" rx="3"/>
+<text x="95.0" y="635.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Next</text>
+<circle cx="44" cy="631" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="44" y="635" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">3</text>
+<circle cx="188" cy="634" r="8" fill="#C8501E"/>
+<text x="188" y="637.5" font-size="9" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<text x="202" y="638" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Numbered markers = click order</text>
+<text x="1156" y="688" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

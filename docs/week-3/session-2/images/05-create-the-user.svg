@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 640" width="1180" height="640" role="img" aria-label="Step 5 — Review and create the user" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1180" height="640" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 5 — Review and create the user</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Validation runs before the object is written to the directory.</text>
+<rect x="28" y="76" width="1124" height="40" fill="#1B2733" rx="0"/>
+<text x="44" y="101" font-size="16" fill="#FFFFFF" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">≡</text>
+<text x="66" y="101" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Azure</text>
+<rect x="218" y="84" width="724" height="24" fill="#2C3B49" rx="3" stroke="#41525F" stroke-width="1"/>
+<text x="228" y="100" font-size="12" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">⌕</text>
+<text x="244" y="100" font-size="11.5" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Search resources, services, and docs (G+/)</text>
+<circle cx="1122" cy="96" r="12" fill="#3A4B59"/>
+<text x="1122" y="100" font-size="11" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">A</text>
+<text x="1096" y="100" font-size="10.5" fill="#C6D2DB" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">admin@contoso</text>
+<rect x="28" y="116" width="1124" height="52" fill="#FFFFFF" rx="0"/>
+<rect x="44" y="129" width="24" height="24" fill="#0F6CBD" rx="4"/>
+<text x="56" y="146" font-size="13" fill="#FFFFFF" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">◈</text>
+<text x="78" y="142" font-size="15" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Create new user</text>
+<text x="78" y="158" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Review + create</text>
+<line x1="28" y1="168" x2="1152" y2="168" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="28" y="168" width="1124" height="30" fill="#FFFFFF" rx="0"/>
+<line x1="28" y1="198" x2="1152" y2="198" stroke="#D3DAE0" stroke-width="1"/>
+<text x="77.6" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Basics</text>
+<text x="159.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Properties</text>
+<text x="258.8" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Assignments</text>
+<text x="376.4" y="188" font-size="11.5" fill="#0F6CBD" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Review + create</text>
+<rect x="316.4" y="195" width="120.0" height="2.5" fill="#0F6CBD" rx="0"/>
+<rect x="28" y="198" width="1124" height="380" fill="#FFFFFF" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="60" y="222" width="700" height="34" fill="#E7F4EC" rx="3" stroke="#107C41" stroke-width="1"/>
+<circle cx="78" cy="239" r="8" fill="#107C41"/>
+<path d="M74,239 L77,242.5 L82.5,235.5" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+<text x="94" y="243" font-size="12" fill="#107C41" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Validation passed</text>
+<text x="60" y="292" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">User principal name</text>
+<text x="300" y="292" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">devuser01@yourtenant.onmicrosoft.com</text>
+<line x1="60" y1="304" x2="760" y2="304" stroke="#EDF0F3" stroke-width="1"/>
+<text x="60" y="326" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Display name</text>
+<text x="300" y="326" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Dev User 01</text>
+<line x1="60" y1="338" x2="760" y2="338" stroke="#EDF0F3" stroke-width="1"/>
+<text x="60" y="360" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Password</text>
+<text x="300" y="360" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Auto-generated</text>
+<line x1="60" y1="372" x2="760" y2="372" stroke="#EDF0F3" stroke-width="1"/>
+<text x="60" y="394" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Account enabled</text>
+<text x="300" y="394" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Yes</text>
+<line x1="60" y1="406" x2="760" y2="406" stroke="#EDF0F3" stroke-width="1"/>
+<text x="60" y="428" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Usage location</text>
+<text x="300" y="428" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Not set</text>
+<line x1="60" y1="440" x2="760" y2="440" stroke="#EDF0F3" stroke-width="1"/>
+<text x="60" y="462" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Groups</text>
+<text x="300" y="462" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">None (assigned in Part 3)</text>
+<line x1="60" y1="474" x2="760" y2="474" stroke="#EDF0F3" stroke-width="1"/>
+<rect x="800" y="292" width="320" height="80" fill="#FDF6E9" rx="4" stroke="#B26B00" stroke-width="1"/>
+<rect x="800" y="292" width="3.5" height="80" fill="#B26B00" rx="2"/>
+<text x="814" y="312" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">After you click Create</text>
+<text x="814" y="328" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Copy the temporary password now.</text>
+<text x="814" y="344" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">The user must change it at first sign-in</text>
+<text x="814" y="360" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">(Step 27).</text>
+<rect x="28" y="538" width="1124" height="40" fill="#F7F8FA" rx="0"/>
+<line x1="28" y1="538" x2="1152" y2="538" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="50" y="544" width="90" height="27" fill="#0F6CBD" rx="3"/>
+<text x="95.0" y="561.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Create</text>
+<rect x="150" y="544" width="94" height="27" fill="#FFFFFF" rx="3" stroke="#9AA7B2" stroke-width="1"/>
+<text x="197.0" y="561.5" font-size="11.5" fill="#16202B" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">&lt; Previous</text>
+<circle cx="50" cy="240" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="50" y="244" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<circle cx="44" cy="557" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="44" y="561" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">2</text>
+<circle cx="288" cy="560" r="8" fill="#C8501E"/>
+<text x="288" y="563.5" font-size="9" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<text x="302" y="564" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Numbered markers = click order</text>
+<text x="1156" y="628" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

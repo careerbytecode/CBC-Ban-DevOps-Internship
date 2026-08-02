@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 660" width="1180" height="660" role="img" aria-label="Step 15b — Basics tab: administrator account and inbound ports" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1180" height="660" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 15b — Basics tab: administrator account and inbound ports</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Local credentials plus the NSG rules opened at creation time.</text>
+<rect x="28" y="76" width="1124" height="40" fill="#1B2733" rx="0"/>
+<text x="44" y="101" font-size="16" fill="#FFFFFF" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">≡</text>
+<text x="66" y="101" font-size="13" fill="#FFFFFF" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Azure</text>
+<rect x="218" y="84" width="724" height="24" fill="#2C3B49" rx="3" stroke="#41525F" stroke-width="1"/>
+<text x="228" y="100" font-size="12" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">⌕</text>
+<text x="244" y="100" font-size="11.5" fill="#9FB0BD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Search resources, services, and docs (G+/)</text>
+<circle cx="1122" cy="96" r="12" fill="#3A4B59"/>
+<text x="1122" y="100" font-size="11" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">A</text>
+<text x="1096" y="100" font-size="10.5" fill="#C6D2DB" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">admin@contoso</text>
+<rect x="28" y="116" width="1124" height="52" fill="#FFFFFF" rx="0"/>
+<rect x="44" y="129" width="24" height="24" fill="#0F6CBD" rx="4"/>
+<text x="56" y="146" font-size="13" fill="#FFFFFF" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">◈</text>
+<text x="78" y="142" font-size="15" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Create a virtual machine</text>
+<text x="78" y="158" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Basics (continued)</text>
+<line x1="28" y1="168" x2="1152" y2="168" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="28" y="168" width="1124" height="30" fill="#FFFFFF" rx="0"/>
+<line x1="28" y1="198" x2="1152" y2="198" stroke="#D3DAE0" stroke-width="1"/>
+<text x="77.6" y="188" font-size="11.5" fill="#0F6CBD" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Basics</text>
+<rect x="50" y="195" width="55.2" height="2.5" fill="#0F6CBD" rx="0"/>
+<text x="141.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Disks</text>
+<text x="219.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Networking</text>
+<text x="315.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Management</text>
+<text x="411.2" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Monitoring</text>
+<text x="500.0" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Advanced</text>
+<text x="567.1999999999999" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Tags</text>
+<text x="659.5999999999999" y="188" font-size="11.5" fill="#33414D" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Review + create</text>
+<rect x="28" y="198" width="1124" height="420" fill="#FFFFFF" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<text x="70" y="240" font-size="13" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Administrator account</text>
+<circle cx="76" cy="270" r="6.5" fill="#FFFFFF" stroke="#9AA7B2" stroke-width="1.4"/>
+<text x="91" y="274" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">SSH public key</text>
+<circle cx="76" cy="292" r="6.5" fill="#FFFFFF" stroke="#0F6CBD" stroke-width="1.4"/>
+<circle cx="76" cy="292" r="3.2" fill="#0F6CBD"/>
+<text x="91" y="296" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Password</text>
+<text x="70" y="316" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Username *</text>
+<rect x="70" y="324" width="420" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="80" y="341" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">learning</text>
+<text x="70" y="362" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Password *</text>
+<rect x="70" y="370" width="420" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="80" y="387" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">••••••••••</text>
+<text x="70" y="408" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Confirm password *</text>
+<rect x="70" y="416" width="420" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="80" y="433" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">••••••••••</text>
+<text x="630" y="240" font-size="13" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Inbound port rules</text>
+<circle cx="636" cy="270" r="6.5" fill="#FFFFFF" stroke="#9AA7B2" stroke-width="1.4"/>
+<text x="651" y="274" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">None</text>
+<circle cx="636" cy="292" r="6.5" fill="#FFFFFF" stroke="#0F6CBD" stroke-width="1.4"/>
+<circle cx="636" cy="292" r="3.2" fill="#0F6CBD"/>
+<text x="651" y="296" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Allow selected ports</text>
+<text x="630" y="316" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Select inbound ports</text>
+<rect x="630" y="324" width="440" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="640" y="341" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">SSH (22), HTTP (80), HTTPS (443)</text>
+<text x="1056" y="341" font-size="10" fill="#5B6773" font-weight="400" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">▾</text>
+<rect x="630" y="368" width="440" height="96" fill="#FDF6E9" rx="4" stroke="#B26B00" stroke-width="1"/>
+<rect x="630" y="368" width="3.5" height="96" fill="#B26B00" rx="2"/>
+<text x="644" y="388" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Lab settings, not production settings</text>
+<text x="644" y="404" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Opening 22 to the internet and using a local password are</text>
+<text x="644" y="420" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">convenient for a classroom exercise only. In a real environment</text>
+<text x="644" y="436" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">use SSH keys, restrict the source to your own IP, and reach the</text>
+<text x="644" y="452" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">VM through Azure Bastion or a private endpoint.</text>
+<circle cx="48" cy="292" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="48" y="296" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<circle cx="48" cy="337" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="48" y="341" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">2</text>
+<circle cx="48" cy="383" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="48" y="387" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">3</text>
+<circle cx="608" cy="292" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="608" y="296" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">4</text>
+<circle cx="608" cy="337" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="608" y="341" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">5</text>
+<rect x="28" y="618" width="1124" height="42" fill="#F7F8FA" rx="0" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="50" y="630" width="118" height="27" fill="#0F6CBD" rx="3"/>
+<text x="109.0" y="647.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Next: Disks &gt;</text>
+<circle cx="44" cy="643" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="44" y="647" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">6</text>
+<circle cx="208" cy="646" r="8" fill="#C8501E"/>
+<text x="208" y="649.5" font-size="9" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<text x="222" y="650" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Numbered markers = click order</text>
+<text x="1156" y="648" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

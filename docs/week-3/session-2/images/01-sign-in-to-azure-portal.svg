@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 620" width="1180" height="620" role="img" aria-label="Step 1 — Sign in to the Azure portal" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1180" height="620" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 1 — Sign in to the Azure portal</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Use the account that holds Global Administrator or User Administrator rights in the tenant.</text>
+<rect x="28" y="76" width="1124" height="470" fill="#FFFFFF" rx="8" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="28" y="76" width="1124" height="34" fill="#ECEFF2" rx="8" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="28" y="102" width="1124" height="8" fill="#ECEFF2" rx="0"/>
+<circle cx="46" cy="93" r="5" fill="#E06C60"/>
+<circle cx="61" cy="93" r="5" fill="#E3B341"/>
+<circle cx="76" cy="93" r="5" fill="#4FA96A"/>
+<rect x="102" y="84" width="1032" height="19" fill="#FFFFFF" rx="9.5" stroke="#D3DAE0" stroke-width="1"/>
+<text x="114" y="97" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">https://portal.azure.com</text>
+<rect x="28" y="110" width="1124" height="436" fill="#F0F3F6" rx="0"/>
+<rect x="420" y="165" width="340" height="300" fill="#FFFFFF" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="420" y="165" width="340" height="4" fill="#0F6CBD" rx="0"/>
+<rect x="450" y="199" width="11" height="11" fill="#F25022" rx="0"/>
+<rect x="463" y="199" width="11" height="11" fill="#7FBA00" rx="0"/>
+<rect x="450" y="212" width="11" height="11" fill="#00A4EF" rx="0"/>
+<rect x="463" y="212" width="11" height="11" fill="#FFB900" rx="0"/>
+<text x="482" y="216" font-size="13" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft</text>
+<text x="450" y="261" font-size="21" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Sign in</text>
+<text x="450" y="293" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif"></text>
+<rect x="450" y="301" width="280" height="26" fill="#FFFFFF" rx="3" stroke="#0F6CBD" stroke-width="1.6"/>
+<text x="460" y="318" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">admin@yourtenant.onmicrosoft.com</text>
+<text x="450" y="355" font-size="11" fill="#0F6CBD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">No account? Create one!</text>
+<text x="450" y="375" font-size="11" fill="#0F6CBD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Can't access your account?</text>
+<rect x="650" y="401" width="80" height="27" fill="#0F6CBD" rx="3"/>
+<text x="690.0" y="418.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Next</text>
+<circle cx="115" cy="96" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="115" y="100" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<circle cx="440" cy="310" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="440" y="314" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">2</text>
+<circle cx="642" cy="415" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="642" y="419" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">3</text>
+<rect x="102" y="84" width="300" height="24" fill="none" rx="4" stroke="#C8501E" stroke-width="1.8" stroke-dasharray="5 3"/>
+<rect x="60" y="200" width="300" height="80" fill="#EEF5FB" rx="4" stroke="#0F6CBD" stroke-width="1"/>
+<rect x="60" y="200" width="3.5" height="80" fill="#0F6CBD" rx="2"/>
+<text x="74" y="220" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Why an admin account?</text>
+<text x="74" y="236" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Creating users, groups and role</text>
+<text x="74" y="252" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">assignments all require directory</text>
+<text x="74" y="268" font-size="11" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">and subscription privileges.</text>
+<circle cx="68" cy="500" r="8" fill="#C8501E"/>
+<text x="68" y="503.5" font-size="9" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<text x="82" y="504" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Numbered markers = click order</text>
+<text x="1156" y="608" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

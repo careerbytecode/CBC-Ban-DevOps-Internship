@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 560" width="1180" height="560" role="img" aria-label="Step 26 — Sign in as the Entra ID user" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1180" height="560" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 26 — Sign in as the Entra ID user</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Same portal URL, the newly created credentials.</text>
+<rect x="28" y="76" width="1124" height="440" fill="#F0F3F6" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="90" y="120" width="320" height="320" fill="#FFFFFF" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="90" y="120" width="320" height="4" fill="#0F6CBD" rx="0"/>
+<text x="118" y="168" font-size="13" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft</text>
+<text x="118" y="210" font-size="20" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Sign in</text>
+<text x="118" y="236" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif"></text>
+<rect x="118" y="244" width="264" height="26" fill="#FFFFFF" rx="3" stroke="#0F6CBD" stroke-width="1.6"/>
+<text x="128" y="261" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">devuser01@yourtenant.onmicrosoft.com</text>
+<rect x="302" y="320" width="80" height="27" fill="#0F6CBD" rx="3"/>
+<text x="342.0" y="337.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Next</text>
+<text x="118" y="382" font-size="10.5" fill="#C8501E" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1  Enter the user principal name</text>
+<rect x="470" y="120" width="320" height="320" fill="#FFFFFF" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="470" y="120" width="320" height="4" fill="#0F6CBD" rx="0"/>
+<text x="498" y="168" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">←  devuser01@yourtenant…</text>
+<text x="498" y="210" font-size="20" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Enter password</text>
+<text x="498" y="236" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif"></text>
+<rect x="498" y="244" width="264" height="26" fill="#FFFFFF" rx="3" stroke="#0F6CBD" stroke-width="1.6"/>
+<text x="508" y="261" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">••••••••••</text>
+<text x="498" y="298" font-size="11" fill="#0F6CBD" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Forgot my password</text>
+<rect x="674" y="320" width="88" height="27" fill="#0F6CBD" rx="3"/>
+<text x="718.0" y="337.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Sign in</text>
+<text x="498" y="382" font-size="10.5" fill="#C8501E" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">2  Use the temporary password</text>
+<rect x="850" y="120" width="320" height="320" fill="#FFFFFF" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="850" y="120" width="320" height="4" fill="#0F6CBD" rx="0"/>
+<text x="878" y="168" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">devuser01@yourtenant…</text>
+<text x="878" y="210" font-size="18" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Update your password</text>
+<text x="878" y="232" font-size="10" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">You need to update your password because</text>
+<text x="878" y="246" font-size="10" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">this is the first time you are signing in.</text>
+<text x="878" y="260" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif"></text>
+<rect x="878" y="268" width="264" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="888" y="285" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">••••••••••</text>
+<text x="878" y="306" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif"></text>
+<rect x="878" y="314" width="264" height="26" fill="#FFFFFF" rx="3" stroke="#D3DAE0" stroke-width="1"/>
+<text x="888" y="331" font-size="11.5" fill="#16202B" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">••••••••••</text>
+<rect x="1054" y="352" width="88" height="27" fill="#0F6CBD" rx="3"/>
+<text x="1098.0" y="369.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Sign in</text>
+<text x="878" y="408" font-size="10.5" fill="#C8501E" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">3  Set a permanent password</text>
+<path d="M414,280 L436,280" fill="none" stroke="#C8501E" stroke-width="1.6" marker-end="url(#ar)"/>
+<path d="M794,280 L816,280" fill="none" stroke="#C8501E" stroke-width="1.6" marker-end="url(#ar)"/>
+<text x="1156" y="548" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

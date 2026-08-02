@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 620" width="1160" height="620" role="img" aria-label="Step 28a — Authenticate the CLI as the Entra ID user" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8501E"/></marker></defs>
+<rect x="0" y="0" width="1160" height="620" fill="#FFFFFF" rx="0"/>
+<text x="28" y="34" font-size="17" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Step 28a — Authenticate the CLI as the Entra ID user</text>
+<text x="28" y="55" font-size="12.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">az login uses a device code when the terminal cannot open a browser.</text>
+<rect x="28" y="84" width="600" height="250" fill="#10171E" rx="6" stroke="#2A3640" stroke-width="1"/>
+<rect x="28" y="84" width="600" height="26" fill="#1D2830" rx="6"/>
+<rect x="28" y="102" width="600" height="8" fill="#1D2830" rx="0"/>
+<circle cx="44" cy="97" r="4.5" fill="#E06C60"/>
+<circle cx="58" cy="97" r="4.5" fill="#E3B341"/>
+<circle cx="72" cy="97" r="4.5" fill="#4FA96A"/>
+<text x="98" y="101" font-size="10.5" fill="#8FA0AD" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">WSL / MobaXterm — bash</text>
+<text x="44" y="130" font-size="10.8" fill="#7FD4A0" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">$ az login --use-device-code</text>
+<text x="44" y="147" font-size="10.8" fill="#7A8894" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  </text>
+<text x="44" y="164" font-size="10.8" fill="#F0B860" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  To sign in, use a web browser to open the page</text>
+<text x="44" y="181" font-size="10.8" fill="#F0B860" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  https://microsoft.com/devicelogin and enter the</text>
+<text x="44" y="198" font-size="10.8" fill="#F0B860" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  code F7QK9XZ4T to authenticate.</text>
+<text x="44" y="215" font-size="10.8" fill="#7A8894" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  </text>
+<text x="44" y="232" font-size="10.8" fill="#C6D2DB" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  Waiting for the sign-in to complete...</text>
+<circle cx="40" cy="118" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="40" y="122" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">1</text>
+<rect x="660" y="84" width="470" height="250" fill="#FFFFFF" rx="8" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="660" y="84" width="470" height="34" fill="#ECEFF2" rx="8" stroke="#D3DAE0" stroke-width="1"/>
+<rect x="660" y="110" width="470" height="8" fill="#ECEFF2" rx="0"/>
+<circle cx="678" cy="101" r="5" fill="#E06C60"/>
+<circle cx="693" cy="101" r="5" fill="#E3B341"/>
+<circle cx="708" cy="101" r="5" fill="#4FA96A"/>
+<rect x="734" y="92" width="378" height="19" fill="#FFFFFF" rx="9.5" stroke="#D3DAE0" stroke-width="1"/>
+<text x="746" y="105" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">https://microsoft.com/devicelogin</text>
+<rect x="720" y="154" width="350" height="150" fill="#FFFFFF" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<text x="744" y="190" font-size="16" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Enter code</text>
+<text x="744" y="214" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Enter the code displayed in your terminal.</text>
+<rect x="744" y="228" width="200" height="28" fill="#FFFFFF" rx="3" stroke="#0F6CBD" stroke-width="1.6"/>
+<text x="754" y="247" font-size="12" fill="#16202B" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">F7QK9XZ4T</text>
+<rect x="744" y="270" width="80" height="27" fill="#0F6CBD" rx="3"/>
+<text x="784.0" y="287.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Next</text>
+<circle cx="732" cy="242" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="732" y="246" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">2</text>
+<rect x="28" y="366" width="380" height="210" fill="#FFFFFF" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<text x="52" y="402" font-size="15" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Pick an account</text>
+<rect x="52" y="418" width="332" height="46" fill="#E5F0FA" rx="3"/>
+<circle cx="76" cy="441" r="13" fill="#B9CBD9"/>
+<text x="76" y="445" font-size="10" fill="#3A4B59" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">DU</text>
+<text x="100" y="437" font-size="12" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Dev User 01</text>
+<text x="100" y="453" font-size="9.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">devuser01@yourtenant.onmicrosoft.com</text>
+<text x="76" y="496" font-size="11.5" fill="#0F6CBD" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">+  Use another account</text>
+<text x="52" y="538" font-size="10" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">If the intended user is not listed, choose</text>
+<text x="52" y="552" font-size="10" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">“Use another account” and sign in explicitly.</text>
+<circle cx="42" cy="441" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="42" y="445" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">3</text>
+<rect x="440" y="366" width="300" height="210" fill="#FFFFFF" rx="4" stroke="#D3DAE0" stroke-width="1"/>
+<text x="464" y="402" font-size="11" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Are you trying to sign in to</text>
+<text x="464" y="420" font-size="13" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Microsoft Azure CLI?</text>
+<text x="464" y="450" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Only continue if you started this</text>
+<text x="464" y="466" font-size="10.5" fill="#5B6773" font-weight="400" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">sign-in from your own terminal.</text>
+<rect x="464" y="490" width="94" height="27" fill="#0F6CBD" rx="3"/>
+<text x="511.0" y="507.5" font-size="11.5" fill="#FFFFFF" font-weight="600" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">Continue</text>
+<circle cx="452" cy="503" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="452" y="507" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">4</text>
+<rect x="464" y="536" width="260" height="32" fill="#FDF6E9" rx="4" stroke="#B26B00" stroke-width="1"/>
+<rect x="464" y="536" width="3.5" height="32" fill="#B26B00" rx="2"/>
+<text x="478" y="556" font-size="11" fill="#16202B" font-weight="600" text-anchor="start" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">This prompt is an anti-phishing check.</text>
+<rect x="770" y="366" width="360" height="210" fill="#10171E" rx="6" stroke="#2A3640" stroke-width="1"/>
+<rect x="770" y="366" width="360" height="26" fill="#1D2830" rx="6"/>
+<rect x="770" y="384" width="360" height="8" fill="#1D2830" rx="0"/>
+<circle cx="786" cy="379" r="4.5" fill="#E06C60"/>
+<circle cx="800" cy="379" r="4.5" fill="#E3B341"/>
+<circle cx="814" cy="379" r="4.5" fill="#4FA96A"/>
+<text x="840" y="383" font-size="10.5" fill="#8FA0AD" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">bash</text>
+<text x="786" y="412" font-size="10.8" fill="#7FD4A0" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">$ az account show \</text>
+<text x="786" y="429" font-size="10.8" fill="#7FD4A0" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">$   --query user.name -o tsv</text>
+<text x="786" y="446" font-size="10.8" fill="#C6D2DB" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  devuser01@yourtenant.onmi…</text>
+<text x="786" y="463" font-size="10.8" fill="#7A8894" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  </text>
+<text x="786" y="480" font-size="10.8" fill="#C6D2DB" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  CLI is now acting as the</text>
+<text x="786" y="497" font-size="10.8" fill="#C6D2DB" font-weight="400" text-anchor="start" font-family="SFMono-Regular,Consolas,Liberation Mono,monospace">  Entra ID user, not the admin.</text>
+<circle cx="782" cy="414" r="11" fill="#C8501E" stroke="#FFFFFF" stroke-width="2"/>
+<text x="782" y="418" font-size="11.5" fill="#FFFFFF" font-weight="700" text-anchor="middle" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">5</text>
+<text x="1136" y="608" font-size="9.5" fill="#9AA7B2" font-weight="400" text-anchor="end" font-family="Segoe UI,Inter,Helvetica Neue,Arial,sans-serif">CareerByteCode • Schematic diagram — not an actual screenshot</text>
+</svg>

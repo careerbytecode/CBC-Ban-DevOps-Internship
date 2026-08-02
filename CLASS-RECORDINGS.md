@@ -33,23 +33,27 @@ All live-session recordings for the cohort, week by week. Missed a class or want
 
 ---
 
-## ⏳ Week 3 — Azure · CI/CD · AKS · Pipelines
+## ✅ Week 3 — Azure · Entra ID · AKS · Azure DevOps CI/CD *(18–19 July 2026)*
 
-_Recordings will be added here after Week 3 sessions._
+**Topics:** Azure networking (VNet, subnets, NSG, ports, route tables), Azure Bastion, Microsoft Entra ID & RBAC, AKS (managed vs on-prem, node sizing, quota requests), ACR, Azure DevOps (organization, project, service connections, Repos), CI pipelines, and Microsoft-hosted vs self-hosted agents.
+📝 **Class notes for this week:** [`docs/week-3/`](docs/week-3/)
 
-| # | Session | Recording |
-|---|---------|-----------|
-| 1 | — | _coming soon_ |
+| # | Session | 🎥 Recording | 📝 Notes |
+|---|---------|-------------|----------|
+| 1 | Azure Networking — Class 4, Session 1 *(Sat 18 July)* | [▶ Watch](https://drive.google.com/file/d/1SrZmXZxaP6U4-4amqaafhS3-lafpiQh7/view?usp=drive_link) | [Azure Networking](docs/week-3/session-1/azure-networking.md) · [Route Tables](docs/week-3/session-1/route-tables.md) |
+| 2 | Bastion & Entra ID — Class 4, Session 2 *(Sat 18 July)* | [▶ Watch](https://drive.google.com/file/d/1H21BExawloWcAW9Y4Nnj64DvuuoHsDpB/view?usp=drive_link) | [Bastion](docs/week-3/session-2/bastion-host.md) · [Entra ID & RBAC](docs/week-3/session-2/entra-id-rbac-concepts.md) · [Hands-on steps](docs/week-3/session-2/entra-id-user-group-rbac.md) |
+| 3 | AKS, ACR & Azure DevOps CI/CD — Class 5 *(Sun 19 July)* | [▶ Watch](https://drive.google.com/file/d/19RocNYyRu7LbJGT-2rgzTrQ4YwP7H3aR/view?usp=drive_link) | [AKS](docs/week-3/session-3/aks-cluster.md) · [ACR](docs/week-3/session-3/acr.md) · [Azure DevOps](docs/week-3/session-3/azure-devops-org-project.md) · [Pipelines](docs/week-3/session-3/pipelines-ci.md) · [Agents](docs/week-3/session-3/agents-hosted-vs-selfhosted.md) |
 
 ---
 
-## ⏳ Week 4 — Capstone Support & Demo Day
+## ✅ Week 4 — Capstone Projects & Demo Day *(from 25 July 2026)*
 
-_Recordings will be added here after Week 4 sessions._
+**Topics:** Week-4 capstone kickoff — all 10 projects in [`PROJECTS-CATALOG.md`](PROJECTS-CATALOG.md) explained; each student picks one to build hands-on, learns the rest, and submits end-to-end step-by-step documentation with screenshots.
+📝 **Notes for this week:** [`docs/week-4/`](docs/week-4/)
 
-| # | Session | Recording |
-|---|---------|-----------|
-| 1 | — | _coming soon_ |
+| # | Session | 🎥 Recording | 📝 Notes |
+|---|---------|-------------|----------|
+| 1 | Capstone Projects — Class 6 *(Sat 25 July)* | [▶ Watch](https://drive.google.com/file/d/1_LbszcBt-nV2u7uwDLqKtkGEtyljSP8r/view?usp=sharing) | [Kickoff](docs/week-4/capstone-kickoff.md) · [Template](docs/week-4/IMPLEMENTATION-TEMPLATE.md) · [Standards](docs/week-4/DOCUMENTATION-STANDARDS.md) |
 
 ---
 
