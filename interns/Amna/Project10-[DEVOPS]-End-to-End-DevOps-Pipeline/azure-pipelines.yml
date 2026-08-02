@@ -1,0 +1,68 @@
+trigger:
+  branches:
+    include:
+      - capstone-project10
+  paths:
+    include:
+      - 'interns/Amna/Project10-[DEVOPS]-End-to-End-DevOps-Pipeline/**'
+
+pr:
+  branches:
+    include:
+      - main
+
+variables:
+  projectPath: '$(Build.SourcesDirectory)/interns/Amna/Project10-[DEVOPS]-End-to-End-DevOps-Pipeline'
+  imageRepository: 'devops-capstone-webapp'
+  imageTag: '$(Build.BuildId)'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: Validate
+    displayName: Test and validate application
+
+    jobs:
+      - job: TestAndBuild
+        displayName: Run tests and build Docker image
+
+        steps:
+          - checkout: self
+
+          - task: UsePythonVersion@0
+            displayName: Use Python 3.12
+            inputs:
+              versionSpec: '3.12'
+
+          - script: |
+              python -m pip install --upgrade pip
+              python -m pip install -r "$(projectPath)/app/requirements.txt"
+            displayName: Install Python dependencies
+
+          - script: |
+              mkdir -p "$(projectPath)/test-results"
+
+              python -m pytest \
+                -q tests/test_app.py \
+                --junitxml="$(projectPath)/test-results/pytest.xml"
+            displayName: Run unit tests
+            workingDirectory: '$(projectPath)/app'
+
+          - task: PublishTestResults@2
+            displayName: Publish unit-test results
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: JUnit
+              testResultsFiles: '$(projectPath)/test-results/pytest.xml'
+              testRunTitle: 'Flask application tests'
+
+          - task: Docker@2
+            displayName: Build Docker image
+            inputs:
+              command: build
+              repository: '$(imageRepository)'
+              Dockerfile: '$(projectPath)/app/Dockerfile'
+              buildContext: '$(projectPath)/app'
+              tags: |
+                $(imageTag)
