@@ -854,6 +854,446 @@ Remember:
 ### Q3.
 Create a VNet and subnet in the Azure portal, then attach screenshots showing both.
 
+### Answer
+
+# Before We Start
+
+Remember what we learned?
+
+```mermaid
+Azure Subscription
+        │
+        ▼
+Resource Group
+        │
+        ▼
+Virtual Network (VNet)
+        │
+        ▼
+     Subnet
+```
+
+Azure will ask you to create them in this order.
+
+---
+
+# Analogy
+
+Imagine your mom says:
+
+> "We're building a new house."
+
+First, you buy land.
+
+```text
+Land
+```
+
+Then you build the house.
+
+```text
+House
+```
+
+Then you divide the house into rooms.
+
+```text
+Living Room
+
+Kitchen
+
+Bedroom
+```
+
+Azure is exactly the same.
+
+```text
+Resource Group
+
+↓
+
+Virtual Network
+
+↓
+
+Subnet
+```
+
+---
+
+# Step 1: Sign in to Azure
+
+Open your browser and go to:
+
+**[https://portal.azure.com](https://portal.azure.com)**
+
+Log in with your Azure account.
+
+You'll see the Azure Portal dashboard.
+
+---
+
+# Step 2: Create a Resource Group
+
+## Why?
+
+Azure needs a place to keep all your resources together.
+
+Think of it as creating a folder before saving files.
+
+### Click
+
+```text
+☰ Menu
+
+↓
+
+Resource Groups
+
+↓
+
+Create
+```
+
+---
+
+### Fill these values
+
+| Field               | Value                                                  |
+| ------------------- | ------------------------------------------------------ |
+| Subscription        | Your Azure Subscription                                |
+| Resource Group Name | `week3-rg`                                             |
+| Region              | East US (or the same region you'll use for everything) |
+
+> 💡 **Important:** Use the **same region** for all resources in this assignment to avoid compatibility issues.
+
+---
+
+Click:
+
+```text
+Review + Create
+
+↓
+
+Create
+```
+
+Wait about 20–30 seconds.
+
+---
+
+# Step 3: Create a Virtual Network (VNet)
+
+Search:
+
+```text
+Virtual Networks
+```
+
+Click:
+
+```text
+Create
+```
+
+---
+
+### Basics Tab
+
+| Field          | Value                             |
+| -------------- | --------------------------------- |
+| Resource Group | `week3-rg`                        |
+| Name           | `week3-vnet`                      |
+| Region         | Same region as the Resource Group |
+
+Click:
+
+```text
+Next
+```
+
+---
+
+# Step 4: Configure IP Addresses
+
+This is where Q2 becomes useful.
+
+Azure may automatically create:
+
+```text
+10.0.0.0/16
+```
+
+Keep it.
+
+If not, enter:
+
+```text
+10.0.0.0/16
+```
+
+---
+
+Now you'll see a subnet.
+
+Rename it.
+
+Example:
+
+```text
+default
+
+↓
+
+frontend-subnet
+```
+
+Subnet Address Range:
+
+```text
+10.0.1.0/24
+```
+
+So now your network looks like this:
+
+```text
+week3-vnet
+
+10.0.0.0/16
+
+│
+
+└── frontend-subnet
+
+10.0.1.0/24
+```
+
+Click:
+
+```text
+Review + Create
+
+↓
+
+Create
+```
+
+Wait until Azure says:
+
+```text
+Deployment completed.
+```
+
+---
+
+# What Just Happened?
+
+You created:
+
+```text
+week3-rg
+        │
+        ▼
+week3-vnet
+        │
+        ▼
+frontend-subnet
+```
+
+This is the foundation for almost every Azure network.
+
+---
+
+# Step 5: Verify the VNet
+
+Go to:
+
+```text
+Virtual Networks
+
+↓
+
+week3-vnet
+```
+
+You should see:
+
+```text
+Address Space
+
+10.0.0.0/16
+```
+
+---
+
+Click:
+
+```text
+Subnets
+```
+
+You should see:
+
+```text
+frontend-subnet
+
+10.0.1.0/24
+```
+
+Congratulations! 🎉
+
+You've successfully created your first Azure network.
+
+---
+
+# Screenshots Required
+
+Your assignment asks for screenshots.
+
+Take these:
+
+### Screenshot 1
+
+Resource Group
+
+```text
+week3-rg
+```
+
+---
+
+### Screenshot 2
+
+Virtual Network Overview
+
+It should show:
+
+```text
+Name
+
+Address Space
+
+Resource Group
+
+Region
+```
+
+---
+
+### Screenshot 3
+
+Subnets Page
+
+It should show:
+
+```text
+frontend-subnet
+
+10.0.1.0/24
+```
+
+---
+
+# ASCII Diagram
+
+```text
+Azure Subscription
+        │
+        ▼
++-----------------------+
+| week3-rg              |
+|                       |
+|  +-----------------+  |
+|  | week3-vnet      |  |
+|  |10.0.0.0/16      |  |
+|  |                 |  |
+|  | frontend-subnet |  |
+|  |10.0.1.0/24      |  |
+|  +-----------------+  |
++-----------------------+
+```
+
+---
+
+# Why Do We Create a `/16` VNet?
+
+Because later we can create more subnets:
+
+```text
+10.0.1.0/24
+
+Frontend
+
+10.0.2.0/24
+
+Backend
+
+10.0.3.0/24
+
+Database
+
+10.0.4.0/24
+
+AKS
+```
+
+All of them fit inside:
+
+```text
+10.0.0.0/16
+```
+
+This is why companies usually create a **larger VNet** and then divide it into **smaller subnets**.
+
+---
+
+# Common Beginner Mistakes
+
+❌ Creating the VNet in one region and the VM in another.
+
+✔ Always use the same region.
+
+---
+
+❌ Creating a `/24` VNet.
+
+✔ Use `/16` for the VNet and `/24` for the subnet unless the assignment specifies otherwise.
+
+---
+
+❌ Creating resources in different Resource Groups.
+
+✔ Keep everything in **`week3-rg`**.
+
+This also makes cleanup easy:
+
+```bash
+az group delete --name week3-rg --yes --no-wait
+```
+
+Deleting the Resource Group deletes everything inside it.
+
+---
+
+# Interview Answer
+
+> A Virtual Network (VNet) is the private network where Azure resources communicate securely. A subnet is a smaller section of the VNet used to organize resources based on their role, such as frontend or backend. In this lab, I created a VNet with the address space `10.0.0.0/16` and a subnet with the address range `10.0.1.0/24`. This design provides room for future expansion while keeping workloads organized.
+
+---
+
+## Before Moving to Q4
+
+Make sure you've successfully created:
+
+* ✅ Resource Group
+* ✅ VNet
+* ✅ Subnet
+* ✅ Taken the required screenshots
+
+In **Q4**, you'll learn **Private IP vs Public IP**—one of the most important networking concepts in Azure, with simple analogies, ASCII diagrams, and real VM examples.
+
+
 ### Q4.
 What is the difference between a **private IP** and a **public IP**? Can a VM work without a public IP? Explain.
 
