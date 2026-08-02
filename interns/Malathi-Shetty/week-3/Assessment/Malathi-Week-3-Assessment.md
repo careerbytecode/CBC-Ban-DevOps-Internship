@@ -2,7 +2,6 @@
 # Questions
 
 # Q1.
-
 What is the difference between a **Resource Group**, a **Virtual Network**, and a **Subnet**? Explain with a simple analogy.
 
 ## Answer
