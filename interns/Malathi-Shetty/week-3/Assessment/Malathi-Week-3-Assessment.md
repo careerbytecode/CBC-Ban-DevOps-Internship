@@ -6,7 +6,7 @@ What is the difference between a **Resource Group**, a **Virtual Network**, and 
 
 ## Answer
 
-## Before We Start - What is Azure?
+**Before We Start - What is Azure?**
 
 Imagine my want to build a house.
 
