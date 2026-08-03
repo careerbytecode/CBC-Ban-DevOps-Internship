@@ -1370,21 +1370,12 @@ I've successfully created my first Azure network.
 Because later we can create more subnets:
 
 ```text
-10.0.1.0/24
-
-Frontend
-
-10.0.2.0/24
-
-Backend
-
-10.0.3.0/24
-
-Database
-
-10.0.4.0/24
-
-AKS
+10.0.0.0/16 (VNet)
+│
+├── 10.0.1.0/24 → Frontend Subnet
+├── 10.0.2.0/24 → Backend Subnet
+├── 10.0.3.0/24 → Database Subnet
+└── 10.0.4.0/24 → AKS Subnet
 ```
 
 All of them fit inside:
@@ -1563,21 +1554,27 @@ The internet **cannot** reach these addresses.
 
 ```text
 Internet
-
-Cannot see
-
-10.0.1.4
-
-10.0.1.5
+    │
+    ✖ Cannot directly access
+    │
+┌──────────────────────────────┐
+│ VNet: 10.0.0.0/16            │
+│                              │
+│ 10.0.1.0/24                  │
+│ ├── VM: 10.0.1.4             │
+│ └── VM: 10.0.1.5             │
+└──────────────────────────────┘
 ```
 
-Only devices inside the VNet can access them.
+- 10.x.x.x addresses are private IP addresses. Only devices inside the VNet can access them.
+- They are not directly reachable from the Internet.
+- To access them from the Internet, you typically need a Public IP, Load Balancer, Application Gateway, Azure Bastion, or VPN, depending on the scenario.
 
 ---
 
 ## What is a Public IP?
 
-A Public IP is visible on the internet.
+A **Public IP** is an IP address that is **reachable from the Internet**.
 
 Example:
 
@@ -1585,23 +1582,20 @@ Example:
 20.120.50.10
 ```
 
-Anyone who knows this IP can try to connect (subject to security rules like an NSG).
+Anyone who knows this IP can **attempt** to connect to it, but whether the connection succeeds depends on security rules such as **Network Security Groups (NSGs)**, Azure Firewall, or the application itself.
 
 Example:
 
 ```text
-my Laptop
-
-↓
-
+My Laptop
+    │
+    ▼
 Internet
-
-↓
-
-20.120.50.10
-
-↓
-
+    │
+    ▼
+20.120.50.10 (Public IP)
+    │
+    ▼
 Azure VM
 ```
 
@@ -1610,30 +1604,33 @@ Azure VM
 ## Diagram
 
 ```text
-               Internet
+                Internet
                     │
                     ▼
-          Public IP
-        20.120.50.10
+          Public IP Address
+          20.120.50.10
                     │
                     ▼
-              Azure VM
+        Network Interface (NIC)
+        ├── Public IP : 20.120.50.10
+        └── Private IP: 10.0.1.4
                     │
                     ▼
-          Private IP
-            10.0.1.4
+               Azure VM
 ```
 
-The Public IP is like the **front gate**, and the Private IP is like the **room number inside the building**.
+### Explanation
 
+- The **Public IP** is like the **front gate** of a building—it is visible and reachable from the Internet.
+- The **Private IP** is like the **room number** inside the building—it is used only within the private network (VNet).
+- The **Public IP** allows external users to reach the VM (subject to security rules).
+- The VM uses its **Private IP** (`10.0.1.4`) to communicate with other resources inside the **Virtual Network (VNet)**.
+- If a VM has **no Public IP**, it **cannot be accessed directly from the Internet**. You would typically access it through services such as **Azure Bastion**, a **VPN**, or another secure method.
+- In Azure, the **Network Interface (NIC)** is the resource that owns the VM's IP configuration (private IP and, if configured, the associated public IP).
 ---
 
 
 ## Can a VM Work Without a Public IP?
-
-**Yes! Absolutely.**
-
-This surprises many beginners.
 
 A VM **does not need** a Public IP to run.
 
@@ -1651,48 +1648,43 @@ The only thing you **cannot** do is connect to it **directly from the internet**
 ## Example 1: VM with Public IP
 
 ```text
-my Laptop
-
-↓
-
+My Laptop
+    │
+    ▼
 Internet
-
-↓
-
+    │
+    ▼
 Public IP
+    │
+    ▼
+Azure VM
+```
 
-↓
-
-VM
-````
-
-You can SSH directly (if port 22 is allowed).
+You can SSH directly (if port 22 is allowed by NSG/firewall rules).
 
 ---
 
 ## Example 2: VM without Public IP
 
 ```text
-my Laptop
-
-↓
-
+My Laptop
+    │
+    ▼
 Internet
-
-↓
-
+    │
+    ▼
 Azure Bastion
-
-↓
-
-VM
-
-Private IP Only
+    │
+    ▼
+Azure VM
+(Private IP Only)
 ```
 
-The VM is still running, but it isn't exposed to the internet.
+The VM is still running and accessible, but it is **not directly exposed to the Internet**.
 
-This is considered **more secure**.
+This is generally considered **more secure** because attackers cannot directly connect to the VM's IP address from the Internet.
+
+
 
 ---
 
@@ -1741,25 +1733,30 @@ Architecture:
 
 ```text
 Internet
-
-↓
-
+    │
+    ▼
 Public IP
-
-↓
-
-Web Server
-
-↓
-
-Private IP
-
-↓
-
+    │
+    ▼
+Web Server (Public IP + Private IP)
+(Public: 20.120.50.10)
+(Private: 10.0.1.4)
+    │
+    │  Uses Private Network
+    ▼
 Database
+(Private IP Only: 10.0.2.4)
 ```
 
-This is a common production design.
+- This is a common production design.
+- The **Internet** reaches the **Web Server** through its **Public IP**.
+- The **Web Server** communicates with the **Database** using the **Database's Private IP** over the VNet.
+- The **Database has no Public IP**, so it **cannot be accessed directly from the Internet**.
+
+This is the architecture commonly used in Azure and AWS:
+
+**Frontend/Web Server** → Public IP
+**Backend/Database** → Private IP only
 
 ---
 
