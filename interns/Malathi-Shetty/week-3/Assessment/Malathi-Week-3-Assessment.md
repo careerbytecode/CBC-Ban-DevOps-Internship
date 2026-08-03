@@ -201,7 +201,7 @@ Suppose I am creating a VM.
 
 Azure asks:
 
-- Step 1
+## Step 1
 
 Where should I save this VM?
 
@@ -213,7 +213,7 @@ Resource Group
 
 ```
 
-- Step 2
+## Step 2
 
 Which network should it use?
 
@@ -225,7 +225,7 @@ Virtual Network
 
 ```
 
-- Step 3
+## Step 3
 
 Which part of the network?
 
@@ -850,7 +850,7 @@ Each `/24` is **one slice of that pizza**.
 
 ---
 
-## Step 10: Comparison Table
+## ## Step 10: Comparison Table
 
 | Feature                    | `10.0.0.0/16`                                  | `10.0.1.0/24`                                            |
 | -------------------------- | ---------------------------------------------- | -------------------------------------------------------- |
@@ -863,7 +863,7 @@ Each `/24` is **one slice of that pizza**.
 
 ---
 
-## Step 11: Remember
+## ## Step 11: Remember
 
 ```
 
@@ -3185,15 +3185,15 @@ All inbound ports blocked
 Then we open:
 
 ```text
-Step 1 → Port 22
+## Step 1 → Port 22
 
 ↓
 
-Step 2 → Port 80
+## Step 2 → Port 80
 
 ↓
 
-Step 3 → Port 443
+## Step 3 → Port 443
 ```
 
 and test the result after each change.
@@ -6815,7 +6815,7 @@ Authorization failed.
 
 Think about an ATM.
 
-## # Step 1
+## Step 1
 
 Insert ATM Card.
 
@@ -6831,7 +6831,7 @@ Authentication
 
 ---
 
-## # Step 2
+## Step 2
 
 Try to withdraw $5,000.
 
@@ -6929,7 +6929,7 @@ Perform Action
 
 Suppose Malathi logs into Azure.
 
-## # Step 1
+## Step 1
 
 ```text
 Username
@@ -6947,7 +6947,7 @@ Success
 
 ---
 
-## # Step 2
+## Step 2
 
 Malathi tries:
 
@@ -10369,7 +10369,7 @@ Let's learn it like a kid.
 
 ---
 
-#### Step 1: What is a Container Registry?
+## Step 1: What is a Container Registry?
 
 When you build a Docker image, it stays on your computer.
 
@@ -10427,7 +10427,7 @@ It stores Docker images.
 
 ---
 
-#### Step 2: What is Docker Hub?
+## Step 2: What is Docker Hub?
 
 Docker Hub is the world's most popular public Docker image registry.
 
@@ -10461,7 +10461,7 @@ Anyone can download public Docker images.
 
 ---
 
-#### Step 3: What is Azure Container Registry (ACR)?
+## Step 3: What is Azure Container Registry (ACR)?
 
 Azure Container Registry is Microsoft's **private container registry**.
 
@@ -10503,7 +10503,7 @@ Only employees with permission can access it.
 
 ---
 
-#### Step 4: Why Use ACR Instead of Docker Hub?
+## Step 4: Why Use ACR Instead of Docker Hub?
 
 Suppose your company has a banking application.
 
@@ -10529,7 +10529,7 @@ The application stays inside Azure.
 
 ---
 
-#### Step 5: Architecture
+## Step 5: Architecture
 
 ######## Docker Hub
 
@@ -10569,7 +10569,7 @@ Everything stays inside Azure.
 
 ---
 
-#### Step 6: Create Azure Container Registry
+## Step 6: Create Azure Container Registry
 
 Go to:
 
@@ -10614,7 +10614,7 @@ Create
 
 ---
 
-#### Step 7: Enable Admin User
+## Step 7: Enable Admin User
 
 Open:
 
@@ -10649,7 +10649,7 @@ You'll use these to log in.
 
 ---
 
-#### Step 8: Login to ACR
+## Step 8: Login to ACR
 
 Open Azure Cloud Shell or your terminal.
 
@@ -10683,7 +10683,7 @@ Welcome!
 
 ---
 
-#### Step 9: Tag the Image
+## Step 9: Tag the Image
 
 Suppose your image is:
 
@@ -10713,7 +10713,7 @@ The tag adds the destination.
 
 ---
 
-#### Step 10: Push the Image
+## ## Step 10: Push the Image
 
 Run:
 
@@ -10757,7 +10757,7 @@ Azure Container Registry
 
 ---
 
-#### Step 11: Verify
+## ## Step 11: Verify
 
 Go to:
 
@@ -10993,7 +10993,7 @@ Think of them as **two different tools that work together**.
 
 ---
 
-#### Step 1: First Understand the Two Websites
+## Step 1: First Understand the Two Websites
 
 Microsoft has two different websites.
 
@@ -11075,7 +11075,7 @@ The other manages software delivery.
 
 ---
 
-#### Step 2: What Does Azure Portal Do?
+## Step 2: What Does Azure Portal Do?
 
 Suppose you want to create:
 
@@ -11106,7 +11106,7 @@ Running Server
 
 ---
 
-#### Step 3: What Does Azure DevOps Do?
+## Step 3: What Does Azure DevOps Do?
 
 Suppose you wrote code.
 
@@ -11152,7 +11152,7 @@ Deploy
 
 ---
 
-#### Step 4: Why Can't Azure DevOps Deploy Directly?
+## Step 4: Why Can't Azure DevOps Deploy Directly?
 
 Imagine you're working at a bank.
 
@@ -11172,7 +11172,7 @@ Azure DevOps must prove its identity before Azure allows it to create or modify 
 
 ---
 
-#### Step 5: What is a Service Connection?
+## Step 5: What is a Service Connection?
 
 A **Service Connection** is a **trusted connection between Azure DevOps and Azure**.
 
@@ -11208,7 +11208,7 @@ The ID card is like a **Service Connection**.
 
 ---
 
-#### Step 6: Architecture
+## Step 6: Architecture
 
 Without Service Connection
 
@@ -11262,7 +11262,7 @@ Azure
 
 ---
 
-#### Step 7: Real Pipeline Flow
+## Step 7: Real Pipeline Flow
 
 Imagine your application.
 
@@ -11300,7 +11300,7 @@ the pipeline stops before reaching Azure.
 
 ---
 
-#### Step 8: What Information Does a Service Connection Store?
+## Step 8: What Information Does a Service Connection Store?
 
 It securely stores credentials so Azure DevOps can authenticate with Azure.
 
