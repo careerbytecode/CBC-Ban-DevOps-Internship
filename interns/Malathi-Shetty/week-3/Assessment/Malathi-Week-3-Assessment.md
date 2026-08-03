@@ -106,19 +106,19 @@ Week3-RG
 
 Contains
 
-VM
-Storage
-Virtual Network
-Public IP
-NSG
-Disk
-AKS
+* VM
+* Storage
+* Virtual Network
+* Public IP
+* NSG
+* Disk
+* AKS
 
 ```
 
 Everything stays together.
 
-If my delete the Resource Group...
+If I delete the Resource Group...
 
 Everything inside disappears.
 
@@ -132,9 +132,7 @@ Only devices connected to that Wi-Fi can communicate easily.
 
 Azure also needs a network.
 
-That network is called a
-
-**Virtual Network (VNet).**
+That network is called a **Virtual Network (VNet).**
 
 It provides:
 
@@ -157,13 +155,13 @@ Imagine my house.
 
 ```
 
-House
+* House
 
-Living Room
+* Living Room
 
-Kitchen
+* Kitchen
 
-Bedroom
+* Bedroom
 
 ```
 
@@ -175,13 +173,13 @@ Exactly the same.
 
 ```
 
-VNet
+* VNet
 
-Frontend subnet
+* Frontend subnet
 
-Backend subnet
+* Backend subnet
 
-Database subnet
+* Database subnet
 
 ```
 
@@ -200,7 +198,7 @@ Suppose I am creating a VM.
 
 Azure asks:
 
-Step 1
+- Step 1
 
 Where should I save this VM?
 
@@ -212,7 +210,7 @@ Resource Group
 
 ```
 
-Step 2
+- Step 2
 
 Which network should it use?
 
@@ -224,7 +222,7 @@ Virtual Network
 
 ```
 
-Step 3
+- Step 3
 
 Which part of the network?
 
@@ -262,11 +260,11 @@ Inside:
 
 ```
 
-Frontend subnet
+* Frontend subnet
 
-Backend subnet
+* Backend subnet
 
-Database subnet
+* Database subnet
 
 ```
 
@@ -274,15 +272,15 @@ Then:
 
 ```
 
-VM1
+* VM1
 
-Frontend
+* Frontend
 
-VM2
+* VM2
 
-Backend
+* Backend
 
-SQL Server
+* SQL Server
 
 ```
 
@@ -343,31 +341,31 @@ Subnet
 
 ## Common Questions
 
-## Can a Resource Group have multiple VNets?
+#### Can a Resource Group have multiple VNets?
 
 Yes.
 
 ---
 
-## Can a VNet have multiple subnets?
+#### Can a VNet have multiple subnets?
 
 Yes.
 
 ---
 
-## Can a subnet exist without a VNet?
+#### Can a subnet exist without a VNet?
 
 No.
 
 ---
 
-## Can a VM exist without a subnet?
+#### Can a VM exist without a subnet?
 
 No.
 
 ---
 
-## Can a Resource Group contain many different resources?
+#### Can a Resource Group contain many different resources?
 
 Yes.
 
