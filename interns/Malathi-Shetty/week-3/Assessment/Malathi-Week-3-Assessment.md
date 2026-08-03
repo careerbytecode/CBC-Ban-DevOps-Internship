@@ -1057,7 +1057,7 @@ Create a VNet and subnet in the Azure portal, then attach screenshots showing bo
 
 ## Answer
 
-## Before We Start
+### Before We Start
 
 Remember what we learned?
 
@@ -2586,7 +2586,7 @@ What is the difference between a **Network Security Group (NSG)** and a **Route 
 
 This is one of the most important Azure networking concepts.
 
-Many confuse **NSG** and **Route Table** because both are related to network traffic.
+Confusion about Network Security Groups (NSGs) and Route Tables because both work with network traffic in Azure. However, they perform completely different tasks. A Route Table decides where traffic should go, while an NSG decides whether the traffic should be allowed or denied.
 
 However, they solve completely different problems.
 
@@ -2810,7 +2810,7 @@ Website
 Without custom routing:
 
 ```text
-VM
+   VM
 
     |
     ▼
@@ -2827,7 +2827,7 @@ Company requirement:
 A User Defined Route (UDR) is created:
 
 ```text
-VM
+   VM
 
     |
     ▼
@@ -2912,27 +2912,34 @@ Deny
 
 A user connects to a VM.
 
-```text
+```
 Internet
 
      |
+
+     ▼
+
+Azure Network
+
+     |
+
      ▼
 
 Route Table
-
-"Which path?"
-
-     |
-     ▼
-
-NSG
-
-"Allowed or Blocked?"
+(Choose the path)
 
      |
+
      ▼
 
-VM
+Network Security Group (NSG)
+(Check security rules - "Allowed or Blocked?")
+
+     |
+
+     ▼
+
+Virtual Machine
 ```
 
 ---
@@ -3008,13 +3015,17 @@ Block water
 | Purpose               | Control and filter traffic    | Decide traffic path               |
 | Works Like            | Firewall / Security Guard     | GPS / Road Map                    |
 | Main Question         | "Should traffic be allowed?"  | "Where should traffic go?"        |
-| Acts On               | IP, Port, Protocol, Direction | Destination IP and Next Hop       |
+| Acts On               | Source IP, Destination IP, Port, Protocol, Direction | Destination IP and Next Hop       |
 | Controls              | Access                        | Routing                           |
 | Blocks Traffic        | ✅ Yes                         | ❌ No                              |
 | Changes Path          | ❌ No                          | ✅ Yes                             |
-| Created Automatically | Default NSG possible          | Azure system routes automatically |
+| Created Automatically | Default security rules are included        | Azure automatically creates system routes |
 | Custom Rules          | Security Rules                | Routes                            |
 | Attached To           | Subnet or NIC                 | Subnet                            |
+| Example Rule          | Allow TCP Port 22             | Send traffic to Azure Firewall |
+
+
+> Note: Azure doesn't automatically create an NSG, but every NSG contains default rules.
 
 ---
 
@@ -3053,7 +3064,7 @@ VNet
 A NIC-level NSG:
 
 ```text
-VM
+ VM
 
  |
 
@@ -3077,7 +3088,7 @@ Subnet
 Example:
 
 ```text
-VNet
+ VNet
 
  |
  |
@@ -3099,7 +3110,7 @@ Imagine a web application.
 Architecture:
 
 ```text
-Internet
+   Internet
 
       |
       ▼
@@ -3119,7 +3130,7 @@ Backend Subnet
       |
       ▼
 
-Database
+  Database
 ```
 
 ---
@@ -3150,6 +3161,26 @@ Handled by:
 
 ```text
 Route Table
+```
+---
+
+## Azure Portal Practice
+To see an NSG in Azure Portal:
+
+```
+Azure Portal
+
+↓
+
+Virtual Machines
+
+↓
+
+week3-vm
+
+↓
+
+Networking
 ```
 
 ---
@@ -3186,31 +3217,66 @@ They work together but have different responsibilities.
 
 ---
 
-## Remember
+## Example
 
-Remember:
+Suppose a company wants all employee internet traffic to pass through an Azure Firewall.
 
-## NSG
-
-Think:
-
-```text
-N
+The Route Table sends traffic like this:
+```
+Employee VM
 
 ↓
 
-No or Yes
-```
+Azure Firewall
 
-It answers:
+↓
+
+Internet
+```
+The Route Table decides the path.
+
+Now the company wants to allow only HTTPS traffic.
+
+The NSG checks:
+```
+Port 443
+
+↓
+
+Allow
+
+Port 80
+
+↓
+
+Deny
+```
+The NSG decides whether the traffic is allowed.
+
+---
+
+## Remember
+
+
+## NSG
 
 ```text
+NSG
+
+↓
+
+Network Security Guard
+
+↓
+
 Allow?
 
 or
 
 Deny?
 ```
+
+
 
 ---
 
@@ -3266,7 +3332,7 @@ Which way?
                     |
                     ▼
 
-                  VM
+                   VM
 ```
 
 ---
@@ -3297,25 +3363,25 @@ Security
 Should traffic enter?
 ```
 
+```
+Route Table = Decides the Road 
+
+↓
+
+NSG = Checks the Gate 
+
+↓
+
+VM = Destination 
+```
+
+
 ---
 
 # Q7. 
 Open ports 22, 80, and 443 one at a time, test SSH/Web access, and document what became possible after each.
 
 ## Answer
-
-This lab demonstrates how **Network Security Groups (NSGs)** control access to Azure Virtual Machines.
-
-Instead of opening everything together, we will open each port separately and observe the result.
-
-By the end of this lab, you will understand:
-
-* Why port 22 is required for SSH
-* Why port 80 is required for HTTP websites
-* Why port 443 is required for HTTPS
-* How opening a port changes what users can access
-
----
 
 ## Lab Goal
 
