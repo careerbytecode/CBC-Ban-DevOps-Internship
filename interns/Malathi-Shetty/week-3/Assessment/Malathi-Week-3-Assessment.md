@@ -3494,7 +3494,7 @@ Port 22 allows administrators to remotely connect to Linux machines.
 Example:
 
 ```bash
-ssh username@public-ip
+ssh -i week3-vm_key.pem azureuser@4.155.111.190ssh username@public-ip
 ```
 
 ---
@@ -3520,11 +3520,11 @@ Networking
 
 ↓
 
-Inbound Port Rules
+Network Settings
 
 ↓
 
-Add inbound rule
+Add Inbound Port Rule
 ```
 
 ---
@@ -3538,6 +3538,7 @@ Create the rule:
 | Destination      | Any           |
 | Service          | SSH           |
 | Destination Port | 22            |
+| Protocol         | TCP           |
 | Action           | Allow         |
 | Priority         | 300           |
 | Name             | Allow-SSH     |
@@ -3549,6 +3550,8 @@ Click:
 ```text
 Add
 ```
+
+> After creating the rule, Azure updated the NSG to allow SSH traffic only from my current public IP address.
 
 ---
 
@@ -3563,7 +3566,7 @@ ssh azureuser@<public-ip>
 Example:
 
 ```bash
-ssh azureuser@20.xxx.xxx.xxx
+ssh -i week3-vm_key.pem azureuser@4.155.111.190
 ```
 
 ---
@@ -3571,7 +3574,7 @@ ssh azureuser@20.xxx.xxx.xxx
 Successful output:
 
 ```text
-Welcome to Ubuntu
+Welcome to Ubuntu 24.04.4 LTS
 
 azureuser@week3-vm:~$
 ```
@@ -3625,10 +3628,10 @@ SSH Login Successful
 
 Capture:
 
-✅ NSG rule showing:
+✅ Inbound Port Rule showing:
 
 ```text
-SSH
+Allow-SSH
 
 Port 22
 
@@ -3638,6 +3641,18 @@ Allow
 and:
 
 ✅ Terminal showing successful SSH connection
+
+```
+ssh -i week3-vm_key.pem azureuser@4.155.111.190
+```
+
+images/
+└── Q7. Open ports 22 80 and 443 one at a time documenting what became possible after each. Attach screenshots/
+    └── port-22/
+        ├── 1-Inbound Port Rules.png
+        ├── 2_1-Add-inbound-security-rule before connecting.png
+        ├── 2-Add-inbound-security-rule.png
+        └── 3-successfully log in.png
 
 ---
 
@@ -3694,7 +3709,7 @@ sudo systemctl enable apache2
 Check status:
 
 ```bash
-systemctl status apache2
+sudo systemctl status apache2
 ```
 
 Expected:
@@ -3738,7 +3753,7 @@ http://<public-ip>
 Example:
 
 ```text
-http://20.xxx.xxx.xxx
+http://4.155.111.190
 ```
 
 You should see:
@@ -3810,10 +3825,21 @@ Website Displayed
 
 Capture:
 
+
+✅ Apache installation
+```
+sudo apt install apache2 -y
+```
+✅ Apache service running
+```
+sudo systemctl status apache2
+```
+
+
 ✅ NSG rule showing:
 
 ```text
-HTTP
+Allow-HTTP
 
 Port 80
 
@@ -3823,6 +3849,21 @@ Allow
 and:
 
 ✅ Browser showing Apache page
+
+```
+Apache2 Ubuntu Default Page
+
+It works!
+```
+
+images/
+└── Q7. Open ports 22 80 and 443 one at a time documenting what became possible after each. Attach screenshots/
+    └── port-80/
+        ├── 1-Install Apache Web Server.png
+        ├── 2-systemctl.png
+        ├── 3-Add-inbound-security-rule.png
+        ├── 4-Added-inbound-security-rule.png
+        └── 5-Apache2-Ubuntu-Default-Page-It-works.png
 
 ---
 
@@ -3892,17 +3933,70 @@ Only the receiver can open it.
 
 ## Open Port 443
 
+Go to:
+```
+Azure Portal
+
+↓
+
+Virtual Machines
+
+↓
+
+week3-vm
+
+↓
+
+Networking
+
+↓
+
+Network Settings
+
+↓
+
+Add Inbound Port Rule
+```
+
 Create NSG rule:
 
-| Setting | Value       |
-| ------- | ----------- |
-| Source  | Any         |
-| Service | HTTPS       |
-| Port    | 443         |
-| Action  | Allow       |
-| Name    | Allow-HTTPS |
+| Setting          | Value       |
+| ---------------- | ----------- |
+| Source           | Any         |
+| Service          | HTTPS       |
+| Destination Port | 443         |
+| Protocol         | TCP         |
+| Action           | Allow       |
+| Priority         | 320         |
+| Name             | Allow-HTTPS |
+
+Click:
+```
+Add
+```
 
 ---
+
+### Test HTTPS
+
+Open the browser and visit:
+```
+https://4.155.111.190
+```
+
+Since no SSL/TLS certificate was configured on the Apache web server, HTTPS did not load a secure website.
+
+This is the expected behavior because opening Port 443 only allows HTTPS traffic to reach the VM. A web server must also be configured with a valid SSL/TLS certificate before HTTPS can be used successfully.
+
+#### Important Note
+
+Opening Port 443 alone does NOT create HTTPS.
+
+You also need:
+
+- SSL/TLS certificate
+- Apache or Nginx HTTPS configuration
+
 
 ## Important Note
 
@@ -3920,15 +4014,15 @@ Port 443
 
 +
 
-Certificate
+SSL/TLS Certificate
 
 +
 
-Apache/Nginx HTTPS Setup
+Apache/Nginx HTTPS Configuration
 
 =
 
-Secure Website
+Secure HTTPS Website
 ```
 
 ---
@@ -3944,7 +4038,7 @@ VM can accept HTTPS traffic
 However:
 
 ```text
-HTTPS will work only after SSL configuration
+HTTPS will work only after configuring an SSL/TLS certificate and enabling HTTPS on the web server.
 ```
 
 ---
@@ -3956,8 +4050,8 @@ HTTPS will work only after SSL configuration
 ```text
 Internet
 
-      |
-      ▼
+    |
+    ▼
 
 NSG
 
@@ -3967,8 +4061,8 @@ NSG
 
 443 ❌
 
-      |
-      ▼
+   |
+   ▼
 
 VM
 ```
@@ -4055,15 +4149,18 @@ HTTP
 HTTPS Ready
 ```
 
+> Note: HTTPS traffic is now allowed by the NSG, but a secure HTTPS website requires SSL/TLS certificate configuration on the web server.
+
 ---
 
 ## Comparison Table
 
-| Port | Service | What Became Possible?                      |
-| ---- | ------- | ------------------------------------------ |
-| 22   | SSH     | Remote VM administration                   |
-| 80   | HTTP    | Website accessible through browser         |
-| 443  | HTTPS   | Secure web traffic after SSL configuration |
+| Port | Service | What Became Possible?                                                                                                    |
+| ---- | ------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 22   | SSH     | Successfully connected to and managed the Linux VM remotely.                                                             |
+| 80   | HTTP    | Apache web server became accessible through a web browser.                                                               |
+| 443  | HTTPS   | VM can receive HTTPS traffic, but HTTPS requires SSL/TLS certificate configuration before a secure website is available. |
+
 
 ---
 
@@ -4121,7 +4218,7 @@ because SSH should not be exposed unnecessarily.
 
 
 
-> Port 22 is used for SSH and allows secure remote administration of Linux virtual machines. Port 80 is used for HTTP and allows users to access web applications without encryption. Port 443 is used for HTTPS and enables encrypted web communication after SSL/TLS configuration. In my Azure lab, opening port 22 allowed SSH access to the VM, opening port 80 allowed the Apache web page to be accessed from a browser, and opening port 443 allowed the VM to accept secure HTTPS traffic after certificate configuration.
+> Port 22 is used for SSH and allows secure remote administration of Linux virtual machines. Port 80 is used for HTTP and allows users to access web applications without encryption. Port 443 is used for HTTPS and supports encrypted web communication after SSL/TLS configuration. In my Azure lab, opening Port 22 allowed me to connect successfully to the VM using SSH, opening Port 80 allowed me to access the Apache default web page from a browser, and opening Port 443 allowed the VM to receive HTTPS traffic. However, HTTPS was not fully functional because an SSL/TLS certificate had not yet been configured.
 
 ---
 
@@ -4134,6 +4231,33 @@ Capture:
 3. ✅ NSG rule for Port 80
 4. ✅ Browser showing Apache page
 5. ✅ NSG rule for Port 443
+✅ NSG rule for Port 22
+✅ Successful SSH login
+✅ Apache installation and running status
+✅ NSG rule for Port 80
+✅ Browser showing Apache2 Ubuntu Default Page
+✅ NSG rule for Port 443
+✅ Browser test for https://4.155.111.190
+
+images/
+└── Q7. Open ports 22 80 and 443 one at a time documenting what became possible after each. Attach screenshots/
+    ├── port-22/
+    │   ├── 1-Inbound Port Rules.png
+    │   ├── 2_1-Add-inbound-security-rule before connecting.png
+    │   ├── 2-Add-inbound-security-rule.png
+    │   └── 3-successfully log in.png
+    │
+    ├── port-80/
+    │   ├── 1-Install Apache Web Server.png
+    │   ├── 2-systemctl.png
+    │   ├── 3-Add-inbound-security-rule.png
+    │   ├── 4-Added-inbound-security-rule.png
+    │   └── 5-Apache2-Ubuntu-Default-Page-It-works.png
+    │
+    └── port-443/
+        ├── 1-create inbound rules.png
+        ├── 2-Rule created.png
+        └── 3-Test HTTPS.png
 
 ---
 
@@ -4148,7 +4272,7 @@ SSH
 
 ↓
 
-Manage VM
+Manage Linux VM Remotely
 ```
 
 ```text
@@ -4160,7 +4284,7 @@ HTTP
 
 ↓
 
-Website Access
+Access Apache Website
 ```
 
 ```text
@@ -4172,7 +4296,9 @@ HTTPS
 
 ↓
 
-Secure Website Traffic
+Encrypted Web Traffic
+
+(Requires SSL/TLS Certificate)
 ```
 
 ---
@@ -4183,7 +4309,7 @@ What is the difference between NSG Source options: Any vs My IP Address vs Servi
 
 ## Answer
 
-In Q7, we learned:
+
 
 > Opening a port creates a door.
 
