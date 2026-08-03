@@ -419,7 +419,7 @@ Similarly, every device on a network needs a unique IP address.
 
 ```
 
-Laptop  → 10.0.0.4
+Laptop   → 10.0.0.4
 VM       → 10.0.0.5
 Database → 10.0.0.6
 
@@ -477,10 +477,26 @@ Think of `/16` as saying:
 - /24 means → first 24 bits = network, remaining 8 bits = hosts
 
 ```bash
-192.168.1  .  0
-←  24 bits  → ← 8 bits →
-  (network)    (hosts)
+192.168.1.0/24
+
+192.168.1  |  0
+ Network   | Host
+
+24 bits    | 8 bits
 ````
+> So everything before the last dot is the network, and the last octet identifies the host.
+
+Or in binary:
+```bash
+192        168        1          0
+11000000 . 10101000 . 00000001 . 00000000
+
+<--------- 24 bits ---------><-- 8 bits -->
+        Network ID              Host ID
+```        
+So:
+- **Network portion (24 bits)**: 192.168.1
+- **Host portion (8 bits)**: 0
 
 Subnet mask equivalent:
 
@@ -504,6 +520,24 @@ That's:
 
 ```
 256 addresses in one network.
+```
+
+## Examples in the same /24 network
+```bash
+192.168.1.1
+192.168.1.10
+192.168.1.50
+192.168.1.100
+192.168.1.254
+```
+
+All of these belong to the **192.168.1.0/24** network because the **first 24 bits** (192.168.1) are the same.
+
+The address ranges are:
+```bash
+Network Address : 192.168.1.0
+Usable Hosts    : 192.168.1.1 – 192.168.1.254
+Broadcast       : 192.168.1.255
 ```
 
 ---
