@@ -431,28 +431,24 @@ An IP address is simply the **address of a device on a network**.
 
 ### Step 2: What is a CIDR Block?
 
-CIDR (Classless Inter-Domain Routing) tells us:
-
-It's a compact way to write an IP address + its network size together.
+CIDR (Classless Inter-Domain Routing) is a compact way to write an IP address together with its network size.
 
 Example:
 
 ```
-
 192.168.1.0/24
-
 ```
 
-The `/24` part is called the prefix length - it tells me how many bits are reserved for the network, and how many are left for hosts (devices).
 
+The `/24` part is called the **prefix length**. It tells me how many bits belong to the **network** and how many are available for **hosts (devices)**.
+
+For example:
 > **How big is this network?**
 
 Look at this:
 
 ```
-
 10.0.0.0/16
-
 ```
 
 It has two parts:
@@ -460,9 +456,9 @@ It has two parts:
 ```
 
 10.0.0.0   → Network Address
-/16        → Size of the network
+/16        → Size of the network (Prefix Length)
 
-````
+```
 
 Think of `/16` as saying:
 
@@ -483,15 +479,16 @@ Think of `/16` as saying:
  Network   | Host
 
 24 bits    | 8 bits
-````
-> So everything before the last dot is the network, and the last octet identifies the host.
+```
+> For a /24 network, everything before the last dot identifies the network, and the last octet identifies the host.
 
 Or in binary:
+
 ```bash
 192        168        1          0
 11000000 . 10101000 . 00000001 . 00000000
 
-<--------- 24 bits ---------><-- 8 bits -->
+<--------- 24 bits -----------><-- 8 bits -->
         Network ID              Host ID
 ```        
 So:
@@ -567,6 +564,10 @@ So usable:
 Total − 2
 ```
 
+> **Note:** The standard networking calculation gives **254 usable hosts** in a `/24` subnet because the first address is the **network address** and the last address is the **broadcast address**.
+
+> **Azure adds one more rule:** Azure reserves **5 IP addresses in every subnet**, so a `/24` subnet provides **251 usable IP addresses** in Azure.
+
 ---
 
 ## Table: CIDR, Subnet Mask, Total IPs, Usable Hosts
@@ -585,41 +586,75 @@ Total − 2
 
 ## Step 3: Analogy
 
-Imagine my school.
+Imagine a school.
 
 The principal asks:
 
-"How many students should we prepare classrooms for?"
+> **"How many students should we prepare classrooms for?"**
 
-Option 1:
+### Option 1: 20 students
 
+A small school.
+
+One classroom is enough. If the teacher makes an announcement, only 20 students hear it.
+
+### Option 2: 500 students
+
+A large school.
+
+If all 500 students are placed in **one giant classroom**, it becomes noisy and difficult to manage.
+
+When one student asks,
+
+> **"Who has a pencil?"**
+
+all 500 students hear the question, even though only one student might answer.
+
+This wastes everyone's attention.
+
+---
+
+### Networks work the same way
+
+A **large network** is like one giant classroom.
+
+When one computer sends a **broadcast message**, every device in that network receives it, even if the message is only relevant to one device.
+
+This creates unnecessary network traffic.
+
+---
+
+### Subnetting solves this problem
+
+Instead of one classroom with 500 students, the principal creates **25 classrooms with 20 students each**.
+
+Now, when a student asks,
+
+> **"Who has a pencil?"**
+
+only the 20 students in that classroom hear the question.
+
+The other 480 students continue their work without interruption.
+
+Similarly, **subnetting divides one large network into smaller networks (subnets)**. A broadcast sent within one subnet stays in that subnet and does not disturb devices in other subnets.
+
+---
+
+### CIDR and network size
+
+CIDR tells us **how large a network is**.
+
+* **Smaller number after `/` → Larger network → More host IP addresses**
+* **Larger number after `/` → Smaller network → Fewer host IP addresses**
+
+```text
+/16 → Large network (many hosts)
+/24 → Smaller network (fewer hosts)
+/28 → Very small network
 ```
-20 students
-```
 
-Small school.
+> **Easy way to remember:** CIDR decides the size of the "school," while subnetting divides that school into "classrooms" to make the network more organized, efficient, and secure.
 
-Option 2:
-
-```
-500 students
-```
-
-Big school - students all sharing one giant classroom. Chaos. Nobody can hear anyone. One person sneezes and everyone knows.
-
-CIDR works exactly like that.
-
-Subnetting is like dividing that school into separate classrooms - each with its own group, its own rules, its own door.
-
-A **smaller number after `/` means a bigger network.**
-
-```
-/16 → BIG network
-
-/24 → SMALLER network
-```
-
-This is opposite of what many beginners expect.
 
 ## Benefits:
 
@@ -666,37 +701,63 @@ is just one small block inside that society.
 
 ## Step 5: Visual Diagram
 
+```text
+10.0.0.0/16  (Large Network)
+
++-----------------------------------------------------------+
+|                                                           |
+| 10.0.0.0/24   → Subnet 1                                 |
+| 10.0.1.0/24   → Subnet 2                                 |
+| 10.0.2.0/24   → Subnet 3                                 |
+| 10.0.3.0/24   → Subnet 4                                 |
+|      ...                                                 |
+| 10.0.254.0/24 → Subnet 255                               |
+| 10.0.255.0/24 → Subnet 256                               |
+|                                                           |
++-----------------------------------------------------------+
 ```
-10.0.0.0/16
 
-+------------------------------------------------------+
-|                                                      |
-| 10.0.0.x                                              |
-| 10.0.1.x                                              |
-| 10.0.2.x                                              |
-| 10.0.3.x                                              |
-| 10.0.4.x                                              |
-| .....                                                  |
-| 10.0.255.x                                             |
-|                                                      |
-+------------------------------------------------------+
-```
 
-Inside this large network, I can create many smaller `/24` subnets.
-
-Example:
-
-```
+```text
 10.0.0.0/24
-
-10.0.1.0/24
-
-10.0.2.0/24
-
-10.0.3.0/24
+│
+├── Network Address    : 10.0.0.0
+├── Usable Hosts       : 10.0.0.1 – 10.0.0.254
+└── Broadcast Address  : 10.0.0.255
 ```
 
-All of these fit inside the `/16` network.
+Another subnet:
+
+```text
+10.0.1.0/24
+│
+├── Network Address    : 10.0.1.0
+├── Usable Hosts       : 10.0.1.1 – 10.0.1.254
+└── Broadcast Address  : 10.0.1.255
+```
+
+### Key takeaway
+
+Inside this large `/16` network, I can create many smaller `/24` subnets.
+
+```text
+Large Network (/16)
+        │
+        ├── 10.0.0.0/24
+        ├── 10.0.1.0/24
+        ├── 10.0.2.0/24
+        ├── 10.0.3.0/24
+        ├── ...
+        └── 10.0.255.0/24
+```
+> All of these fit inside the `10.0.0.0/16` network.
+
+So:
+
+* **10.0.0.0/16** is the **parent network**.
+* **10.0.0.0/24**, **10.0.1.0/24**, **10.0.2.0/24**, etc., are **child subnets** created from that parent network.
+* A **/16** network can be divided into **256 separate /24 subnets** (from `10.0.0.0/24` through `10.0.255.0/24`). This is exactly how organizations split a large network into smaller, easier-to-manage subnetworks.
+
 
 ---
 
@@ -782,15 +843,11 @@ Usable = 251
 
 ```
 
-For a `/16` network:
+For a `/16` VNet:
 
-```
+- Total address space = 65,536 IP addresses.
 
-65,536 total addresses
-
-```
-
-(The 5 reserved IP rule applies to each subnet I create, not to the whole VNet.)
+When you create subnets inside the VNet, Azure reserves **5 IP addresses in each subnet**, not in the VNet itself.
 
 ---
 
@@ -798,38 +855,26 @@ For a `/16` network:
 
 ## Use `/16` when:
 
-* Building a complete company network
-* Creating many subnets
+* Creating a large Virtual Network (VNet)
+* Planning to create many subnets
 * Planning for future growth
-* Hosting hundreds or thousands of VMs
+* Hosting hundreds or thousands of resources
 
 Example:
 
-```
-
+```text
 Company
-
-↓
-
-One VNet
-
-↓
-
-Frontend
-
-Backend
-
-Database
-
-AKS
-
-Bastion
-
-VPN
-
+   │
+   └── VNet (/16)
+       ├── Frontend Subnet (/24)
+       ├── Backend Subnet (/24)
+       ├── Database Subnet (/24)
+       ├── AKS Subnet
+       ├── Bastion Subnet
+       └── Gateway Subnet
 ```
 
-I'll need lots of IP addresses.
+A `/16` provides enough IP address space for multiple subnets and future expansion.
 
 ---
 
@@ -861,20 +906,14 @@ No need for thousands of IP addresses.
 ```
 
 10.0.0.0/16
-
 │
-
-├──10.0.0.0/24
-
-├──10.0.1.0/24
-
-├──10.0.2.0/24
-
-├──10.0.3.0/24
-
-├──10.0.4.0/24
-
-└── ...
+├── 10.0.0.0/24
+├── 10.0.1.0/24
+├── 10.0.2.0/24
+├── 10.0.3.0/24
+├── 10.0.4.0/24
+├── ...
+└── 10.0.255.0/24
 
 ```
 
@@ -882,9 +921,11 @@ Think of `/16` as a **big pizza**.
 
 Each `/24` is **one slice of that pizza**.
 
+Every slice belongs to the same pizza, just as every `/24` subnet belongs to the parent `/16` network.
+
 ---
 
-## ## Step 10: Comparison Table
+## Step 10: Comparison Table
 
 | Feature                    | `10.0.0.0/16`                                  | `10.0.1.0/24`                                            |
 | -------------------------- | ---------------------------------------------- | -------------------------------------------------------- |
@@ -895,97 +936,105 @@ Each `/24` is **one slice of that pizza**.
 | Future Expansion           | Excellent                                      | Limited                                                  |
 | Contains Multiple Subnets? | Yes                                            | No (it's already a subnet-sized network in most designs) |
 
+
+
 ---
 
-## ## Step 11: Remember
+## Step 11: Remember
 
 ```
 
-Smaller CIDR number
-
-↓
-
-Bigger Network
-
-↓
-
-More IP addresses
+Smaller CIDR Number
+        ↓
+Larger Network
+        ↓
+More IP Addresses
 
 ```
 ```
 
 /16
-
-↓
-
-BIG
+ ↓
+Large Network
+ ↓
+65,536 IP Addresses
 
 ```
 ```
 
 /24
+ ↓
+Smaller Network
+ ↓
+256 IP Addresses
 
-↓
+```
 
-SMALL
-
+```
+CIDR    Network Size    Total IPs
+---------------------------------
+/16     Large           65,536
+/24     Smaller            256
+/28     Very Small          16
 ```
 
 Remember:
 
-> **The smaller the number after the slash, the larger the network.**
+> **The smaller the CIDR number (after the /), the larger the network and the more IP addresses it contains.**
+
+> **The larger the CIDR number, the smaller the network and the fewer IP addresses it contains.**
 
 ---
 
-> `10.0.0.0/16` is a larger network that provides 65,536 IP addresses and is commonly used for a Virtual Network because it allows room to create multiple subnets in the future. `10.0.1.0/24` is a smaller network with 256 IP addresses (251 usable in Azure after Azure reserves 5 IPs) and is typically used as an individual subnet for a specific workload such as frontend servers or a development environment. I usually choose `/16` for the overall VNet and `/24` for each subnet because it provides good organization and room for growth.
+> `10.0.0.0/16` is a larger network that provides **65,536 IP addresses** and is commonly used for a **Virtual Network (VNet)** because it provides enough address space to create multiple subnets and allows room for future growth. `10.0.1.0/24` is a smaller network that provides **256 IP addresses** (or **251 usable IP addresses in Azure**, since Azure reserves 5 addresses per subnet) and is typically used as an individual subnet for a specific workload such as frontend servers, backend servers, or development environments. I usually choose a `/16` for the VNet and `/24` for individual subnets because it keeps workloads organized, provides room for expansion, and follows common Azure networking best practices.
 
 ---
 
 ## Common Questions
 
-## Can I create multiple `/24` subnets inside one `/16` VNet?
+### Can I create multiple `/24` subnets inside one `/16` VNet?
 
 Yes.
 
 ---
 
-## Is `/16` larger than `/24`?
+### Is `/16` larger than `/24`?
 
 Yes.
 
 ---
 
-## Which provides more IP addresses?
+### Which provides more IP addresses?
 
 `/16`
 
 ---
 
-## Does Azure reserve some IP addresses?
+### Does Azure reserve some IP addresses?
 
 Yes, Azure reserves **5 IP addresses in every subnet**.
 
 ---
 
-## What is CIDR?
+### What is CIDR?
 
 Classless Inter-Domain Routing (CIDR) is a compact way to write IP address ranges and their network masks.
 
 ---
 
-## Why is CIDR notation useful?
+### Why is CIDR notation useful?
 
 It lets network engineers allocate address space precisely, aggregate routes and keep routing tables smaller.
 
 ---
 
-## How is an IP address structured?
+### How is an IP address structured?
 
 An IPv4 address consists of four 8-bit numbers (octets) ranging from 0 to 255, separated by dots.
 
 ---
 
-## What does the number after the slash mean?
+### What does the number after the slash mean?
 
 The slash value (e.g. /24) shows how many bits belong to the network prefix; the rest identify individual hosts.
 
