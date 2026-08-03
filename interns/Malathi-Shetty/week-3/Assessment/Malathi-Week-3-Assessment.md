@@ -2056,14 +2056,17 @@ Azure Virtual Machine
 
 Use:
 
-| Setting              | Value                                       |
-| -------------------- | ------------------------------------------- |
-| Resource Group       | week3-rg                                    |
-| Virtual Machine Name | week3-vm                                    |
-| Region               | Same region as my VNet                    |
-| Image                | Ubuntu Server 24.04 LTS                     |
-| Size                 | Standard B1s (or available low-cost option) |
-| Authentication       | SSH Public Key                              |
+| Setting              | Value                                          |
+| -------------------- | ---------------------------------------------- |
+| Resource Group       | week3-rg                                       |
+| Virtual Machine Name | week3-vm                                       |
+| Region               | **West US 2**                                  |
+| Image                | Ubuntu Server 24.04 LTS                        |
+| Size                 | **Standard B2ats_v2 (Free services eligible)** |
+| Authentication       | SSH Public Key (Ed25519)                       |
+| Username             | azureuser                                      |
+| Public Inbound Ports | None                                           |
+
 
 ---
 
@@ -2071,10 +2074,15 @@ Use:
 
 Select:
 
-| Setting         | Value           |
-| --------------- | --------------- |
-| Virtual Network | week3-vnet      |
-| Subnet          | frontend-subnet |
+| Setting                                     | Value           |
+| ------------------------------------------- | --------------- |
+| Virtual Network                             | week3-vnet      |
+| Subnet                                      | frontend-subnet |
+| Public IP                                   | week3-vm-pip    |
+| Public Inbound Ports                        | **None**        |
+| Delete Public IP and NIC when VM is deleted | Enabled         |
+
+> Note: This configuration ensured that no inbound SSH rule was created during VM deployment.
 
 Now check:
 
@@ -2135,24 +2143,26 @@ Copy the Public IP address.
 Example:
 
 ```
-20.xxx.xxx.xxx
+4.155.111.190
 ```
 
 From my terminal:
 
 ```bash
-ssh azureuser@20.xxx.xxx.xxx
+ssh -i week3-vm_key.pem azureuser@4.155.111.190
 ```
 
 ---
 
 ## Expected Result
 
-You will most likely receive:
+The terminal returned the following output:
 
+```text
+malathi@Deepak:/d/devops/devopslearning/pem$ ssh -i week3-vm_key.pem azureuser@4.155.111.190
+ssh: connect to host 4.155.111.190 port 22: Connection timed out
 ```
-Connection timed out
-```
+> This proves that the SSH request could not reach the virtual machine because port 22 was blocked.
 
 ---
 
@@ -2161,27 +2171,30 @@ Connection timed out
 The traffic flow looks like this:
 
 ```
-my Laptop
+My Laptop
 
-      |
-      ▼
+     │
+
+SSH Request
+
+     │
 
 Internet
 
-      |
-      ▼
+     │
 
 Azure NSG
 
-      |
-      X
+┌───────────────────────────┐
+│ Port 22 ❌ BLOCKED        │
+│ Packet Dropped            │
+└───────────────────────────┘
 
-SSH Port 22 Blocked
-
-      |
-      ▼
+     │
 
 Azure VM
+
+Never receives the request
 ```
 
 The request never reaches the VM.
@@ -2189,6 +2202,24 @@ The request never reaches the VM.
 The firewall silently drops the traffic.
 
 my computer keeps waiting until the timeout period expires.
+
+**Think of the VM as a house.**
+```
+            🏠 Azure VM
+               │
+        🚪 Door = Port 22
+               │
+        👮 Security Guard (NSG)
+               │
+         ❌ Door Locked
+```
+I have:
+
+✅ Correct **Public IP**
+✅ Correct Username (**azureuser**)
+✅ Correct SSH private key (**week3-vm_key.pem**)
+
+But the Network Security Group (NSG) blocks port 22, so the SSH request never reaches the VM.
 
 ---
 
@@ -2314,73 +2345,121 @@ Connection Refused
 
 ## Which Error Did You Receive?
 
-Because the VM was created with:
+I attempted to connect using SSH.
 
+Command executed:
 ```
-No inbound ports open
+ssh -i week3-vm_key.pem azureuser@4.155.111.190
 ```
+Result:
+```
+ssh: connect to host 4.155.111.190 port 22: Connection timed out
+```
+I received a **Connection Timed Out** error because:
+```
+SSH Request
 
-The expected error is:
+↓
 
-```
+Azure NSG
+
+↓
+
+Port 22 Blocked
+
+↓
+
+Request Never Reaches VM
+
+↓
+
 Connection Timed Out
 ```
-
-Reason:
-
-```
-SSH Port 22
-
-↓
-
-Blocked by NSG
-
-↓
-
-Request never reaches VM
-
-↓
-
-Timeout
-```
+The request was blocked before reaching the virtual machine.
 
 ---
 
-## Screenshots 
+## Screenshots
 
-Capture:
+### 1. Creating the Virtual Machine
 
-## 1. VM Overview
+<img width="2481" height="990" alt="image" src="https://github.com/user-attachments/assets/bb8179ab-4de0-4a3d-a3df-ea20e2629c20" />
+<img width="2481" height="932" alt="image" src="https://github.com/user-attachments/assets/0cec9086-be4e-4cb8-acbe-31b778eb9a4c" />
+<img width="547" height="1229" alt="image" src="https://github.com/user-attachments/assets/30434601-98db-4556-a549-784c49e05ebb" />
 
-Show:
 
-* VM name
-* Running status
-* Public IP
+---
 
-## 2. Networking Page
+### 2. Public IP Configuration
 
-Show:
+<img width="2551" height="1229" alt="image" src="https://github.com/user-attachments/assets/a411ee8c-598c-495b-87be-fc38700917c0" />
 
-```
-No inbound security rules
-```
+---
 
-or
+### 3. Networking Configuration
 
-```
-Port 22 not allowed
-```
+<img width="2498" height="1048" alt="image" src="https://github.com/user-attachments/assets/36b54bae-6a42-4758-8f94-31091aaac95b" />
+<img width="2282" height="1229" alt="image" src="https://github.com/user-attachments/assets/ad87ed6d-2141-4a94-b830-7009b08d112d" />
 
-## 3. Terminal Output
 
-Show:
+---
 
-```text
-ssh azureuser@<public-ip>
+### 4. Management Configuration
 
-Connection timed out
-```
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/38325b99-6a4c-4f36-8e2c-c509a72d7347" />
+
+
+---
+
+### 5. Disk Configuration
+
+<img width="1205" height="1092" alt="image" src="https://github.com/user-attachments/assets/33ab4717-0f1b-4994-8f5e-648fbbdf344d" />
+<img width="762" height="1227" alt="image" src="https://github.com/user-attachments/assets/dcff92cd-f1df-4b80-9c16-8f6e2bd1a21d" />
+
+
+---
+
+### 6. Monitoring Configuration
+
+<img width="1070" height="1229" alt="image" src="https://github.com/user-attachments/assets/7e7d8a38-c63e-48f1-b826-83a56b7d5dc4" />
+
+
+---
+
+### 7. Review and Create
+
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/0ead0aed-e935-4b34-a096-2cc4f4977f59" />
+<img width="781" height="1228" alt="image" src="https://github.com/user-attachments/assets/503fe4ba-18e1-4401-ac66-a4e84b15a423" />
+
+
+---
+
+### 8. Deployment Progress
+
+<img width="2481" height="1177" alt="image" src="https://github.com/user-attachments/assets/d92f4639-c204-4183-9865-67cc5f663891" />
+<img width="2496" height="813" alt="image" src="https://github.com/user-attachments/assets/e5e12e52-03f8-4c09-a556-2632b2dee917" />
+
+
+---
+
+### 9. Deployment Completed
+
+<img width="2503" height="986" alt="image" src="https://github.com/user-attachments/assets/597f1c3a-eaf6-44e3-9b48-79b2ab652c88" />
+
+
+---
+
+### 10. Downloaded SSH Private Key
+
+<img width="2072" height="1177" alt="image" src="https://github.com/user-attachments/assets/6c432af3-0588-4baa-925b-1e8d6d0fce21" />
+
+
+---
+
+### 11. SSH Connection Attempt
+
+<img width="2483" height="1104" alt="image" src="https://github.com/user-attachments/assets/4ff03809-2598-438b-ab1d-a4a1784c9911" />
+
 
 ---
 
@@ -2500,7 +2579,8 @@ Connection Refused
 
 
 
-# Q6. What is the difference between a **Network Security Group (NSG)** and a **Route Table**? Compare them in a table covering purpose, what they act on, and what they attach to.
+# Q6. 
+What is the difference between a **Network Security Group (NSG)** and a **Route Table**? Compare them in a table covering purpose, what they act on, and what they attach to.
 
 ## Answer
 
@@ -2533,7 +2613,7 @@ Should this traffic be allowed?
 
 Whenever a packet moves inside Azure, two questions must be answered.
 
-# Question 1:
+### Question 1:
 
 > Where should this packet travel?
 
@@ -2547,7 +2627,7 @@ Route Table
 
 ---
 
-# Question 2:
+### Question 2:
 
 > Is this packet allowed?
 
@@ -4032,7 +4112,8 @@ Secure Website Traffic
 ---
 
 
-# Q8. What is the difference between NSG Source options: Any vs My IP Address vs Service Tag? Which is safest for SSH?
+# Q8. 
+What is the difference between NSG Source options: Any vs My IP Address vs Service Tag? Which is safest for SSH?
 
 ## Answer
 
@@ -10356,13 +10437,13 @@ Different names are expected.
 
 ---
 
-#### Assignment Answer (Short Version)
+
 
 > I created an AKS cluster with one worker node and connected to it using `kubectl`. The `kubectl get nodes` command confirmed that the node was in the Ready state, and `kubectl get pods -A` displayed the Kubernetes system Pods. Unlike Minikube, which runs locally on my laptop, AKS is a managed Kubernetes service in Azure where Microsoft manages the control plane and the worker nodes run on Azure Virtual Machines.
 
 ---
 
-#### Quick Revision
+#### Revision
 
 ######## Minikube
 
@@ -10423,22 +10504,12 @@ You'll learn:
 ---
 
 
-#### Q19.
+# Q19.
 What is the difference between **Docker Hub** and **Azure Container Registry**? Create an ACR, push an image to it, and attach a screenshot.
 
-#### Answer
+## Answer
 
-Excellent! 🎉 Q19 is one of the most practical questions because you'll learn **where Docker images are stored**.
 
-You already know how to build a Docker image. Now you'll learn where to keep it so Kubernetes (AKS) can pull it.
-
-Let's learn it like a kid.
-
----
-
-#### Q19. What is the difference between Docker Hub and Azure Container Registry (ACR)? Create an ACR, push an image to it, and attach a screenshot.
-
----
 
 ## Step 1: What is a Container Registry?
 
@@ -10981,19 +11052,19 @@ Only employees can access it.
 
 ---
 
-#### Interview Answer (2 Minutes)
+
 
 > Docker Hub is a general-purpose container registry provided by Docker that hosts both public and private container images. Azure Container Registry (ACR) is Microsoft's private container registry service designed for Azure environments. ACR integrates closely with Azure services such as AKS, provides Azure-based authentication and access control, and is commonly used for enterprise applications. In this lab, I created an Azure Container Registry, tagged my Docker image with the registry name, pushed it successfully to ACR, and verified that the image appeared in the repository.
 
 ---
 
-#### Assignment Answer (Short Version)
+
 
 > Docker Hub is a public container registry widely used for sharing Docker images, while Azure Container Registry (ACR) is a private Azure-native registry designed for secure storage and management of container images. I created an ACR, logged into it, tagged my Docker image with the registry URL, pushed it successfully, and verified the uploaded image in the Azure Portal.
 
 ---
 
-#### Quick Revision
+#### Revision
 
 ######## Docker Hub
 
@@ -11043,26 +11114,10 @@ We'll move away from infrastructure and learn **Azure DevOps**:
 ---
 
 
-#### Q20.
+# Q20.
 What is the difference between the **Azure Portal** (`portal.azure.com`) and **Azure DevOps** (`dev.azure.com`)? What is a **service connection** and why is it needed to link them?
 
-#### Answer
-
-Awesome! 🎉 We're now at **Q20**, where many beginners get confused because both names start with **Azure**.
-
-Remember this:
-
-> **Azure Portal builds and manages cloud resources.**
->
-> **Azure DevOps builds and deploys your application.**
-
-Think of them as **two different tools that work together**.
-
----
-
-#### Q20. What is the difference between the Azure Portal (portal.azure.com) and Azure DevOps (dev.azure.com)? What is a Service Connection and why is it needed to link them?
-
----
+## Answer
 
 ## Step 1: First Understand the Two Websites
 
@@ -11493,19 +11548,19 @@ the delivery staff can't enter.
 
 ---
 
-#### Interview Answer (2 Minutes)
+
 
 > Azure Portal is the web interface used to create and manage Azure cloud resources such as Virtual Machines, Resource Groups, Storage Accounts, and AKS clusters. Azure DevOps is a platform used for source code management, CI/CD pipelines, work tracking, and software delivery. A Service Connection is a secure authentication link that allows Azure DevOps pipelines to access Azure resources. It is required so pipelines can perform actions such as pushing Docker images to Azure Container Registry or deploying applications to AKS without exposing user credentials.
 
 ---
 
-#### Assignment Answer (Short Version)
+
 
 > Azure Portal is used to create and manage Azure infrastructure, while Azure DevOps is used to manage source code, build pipelines, and application deployments. A Service Connection securely connects Azure DevOps to an Azure subscription by providing authenticated access. This allows CI/CD pipelines to deploy resources or applications to Azure services such as Azure Container Registry and AKS.
 
 ---
 
-#### Quick Revision
+#### Revision
 
 ######## Azure Portal
 
@@ -11519,7 +11574,7 @@ Create Storage
 Manage Cloud
 ```
 
-######## Azure DevOps
+### Azure DevOps
 
 ```text
 Git Repo
@@ -11533,7 +11588,7 @@ Test
 Deploy
 ```
 
-######## Service Connection
+### Service Connection
 
 ```text
 Azure DevOps
