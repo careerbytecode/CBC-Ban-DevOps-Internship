@@ -78,15 +78,20 @@ Now map this to Azure.
 
 Azure
 │
-├── Resource Group
-│
-│   ├── Virtual Network
-│   │
-│   ├── Subnet 1
-│   ├── Subnet 2
-│   └── Subnet 3
-
+└── Resource Group
+    │
+    └── Virtual Network (VNet)
+        │
+        ├── Subnet 1
+        │   └── Resources (VMs, NICs, Azure Bastion, Azure Firewall, etc.)
+        │
+        ├── Subnet 2
+        │   └── Resources (VMs, NICs, VM Scale Sets, etc.)
+        │
+        └── Subnet 3
+            └── Resources (SQL Server VM or Azure SQL Managed Instance, NICs, etc.)
 ```
+> Note: A Resource Group contains all the resources you create. Network-connected resources (such as VMs, VM Scale Sets, Azure Bastion, Azure Firewall, and Azure SQL Managed Instance) are associated with a subnet inside a Virtual Network. Other resources (such as Storage Accounts, Azure SQL Database, Azure Container Registry, and Key Vault) belong to the Resource Group but are not placed inside a subnet.
 
 ---
 
@@ -155,13 +160,11 @@ Imagine my house.
 
 ```
 
-* House
-
-* Living Room
-
-* Kitchen
-
-* Bedroom
+House
+│
+├── Living Room
+├── Kitchen
+└── Bedroom
 
 ```
 
@@ -173,13 +176,13 @@ Exactly the same.
 
 ```
 
-* VNet
-
-* Frontend subnet
-
-* Backend subnet
-
-* Database subnet
+House
+│
+└── Hallway (VNet)
+      │
+      ├── Living Room (Frontend Subnet)
+      ├── Kitchen (Backend Subnet)
+      └── Bedroom (Database Subnet)
 
 ```
 
@@ -274,17 +277,32 @@ Then:
 
 * VM1
 
-* Frontend
+      * Frontend
 
 * VM2
 
-* Backend
+      * Backend
 
-* SQL Server
+      * SQL Server
 
 ```
 
 Each stays in its own subnet.
+
+```
+Week3-RG                  ← Resource Group
+│
+└── Shopping-VNet         ← Virtual Network
+    │
+    ├── Frontend-Subnet
+    │     └── VM1 (Frontend)
+    │
+    ├── Backend-Subnet
+    │     └── VM2 (Backend)
+    │
+    └── Database-Subnet
+          └── Azure SQL VM / SQL Server
+```          
 
 ---
 
@@ -322,20 +340,19 @@ or
 ```
 
 Resource Group
-
-↓
-
-VNet
-
-↓
-
-Subnet
+└── VNet
+    ├── Frontend Subnet
+    ├── Backend Subnet
+    └── Database Subnet
 
 ```
 
 ---
 
-> A Resource Group is a logical container that organizes related Azure resources, making them easier to manage, monitor, and delete together. A Virtual Network, or VNet, provides a private network where Azure resources can securely communicate with each other. A Subnet is a smaller section within a VNet that helps organize resources based on their role, such as frontend, backend, or database servers. An easy analogy is that a Resource Group is like a cupboard, the VNet is a shelf inside it, and Subnets are compartments on that shelf used to organize different items.
+> A Resource Group is a logical container that organizes related Azure resources, making them easier to manage, monitor, and delete together. 
+> A Virtual Network, or VNet, provides a private network where Azure resources can securely communicate with each other. 
+> A Subnet is a smaller section within a VNet that helps organize resources based on their role, such as frontend, backend, or database servers. 
+> An easy analogy is that a Resource Group is like a cupboard, the VNet is a shelf inside it, and Subnets are compartments on that shelf used to organize different items.
 
 ---
 
@@ -412,7 +429,7 @@ An IP address is simply the **address of a device on a network**.
 
 ---
 
-## Step 2: What is a CIDR Block?
+### Step 2: What is a CIDR Block?
 
 CIDR (Classless Inter-Domain Routing) tells us:
 
