@@ -736,6 +736,9 @@ Another subnet:
 └── Broadcast Address  : 10.0.1.255
 ```
 
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/fc5c1825-962e-44cd-b436-6f4e81312f5f" />
+
+
 ### Key takeaway
 
 Inside this large `/16` network, I can create many smaller `/24` subnets.
