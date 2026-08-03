@@ -1851,21 +1851,11 @@ Requires Proper Security
 
 
 
-# Q5. Create a VM with no inbound ports open and attempt to SSH. Explain the difference between a **Connection Timed Out** error and a **Connection Refused** error, and which one you received.
+# Q5. 
+Create a VM with no inbound ports open and attempt to SSH. Explain the difference between a **Connection Timed Out** error and a **Connection Refused** error, and which one you received.
 
 ## Answer
 
-This is my first practical Azure networking troubleshooting lab.
-
-This lab helps you understand:
-
-* How to create an Azure Virtual Machine
-* How SSH works
-* What inbound ports mean
-* How Network Security Groups (NSGs) control access
-* The difference between **Connection Timed Out** and **Connection Refused**
-
----
 
 ## Step 1: What is an Azure Virtual Machine (VM)?
 
@@ -1940,8 +1930,6 @@ my Location
       ▼
 
 Friend's House
-
-      🚪
 ```
 
 The door is like a network port.
