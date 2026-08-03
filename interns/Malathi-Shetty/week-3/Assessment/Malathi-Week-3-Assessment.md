@@ -3183,6 +3183,9 @@ week3-vm
 Networking
 ```
 
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/a3f41304-4de4-4952-8b9a-c0cbfed03b43" />
+
+
 ---
 
 ## Common Beginner Mistakes
@@ -3646,13 +3649,11 @@ and:
 ssh -i week3-vm_key.pem azureuser@4.155.111.190
 ```
 
-images/
-└── Q7. Open ports 22 80 and 443 one at a time documenting what became possible after each. Attach screenshots/
-    └── port-22/
-        ├── 1-Inbound Port Rules.png
-        ├── 2_1-Add-inbound-security-rule before connecting.png
-        ├── 2-Add-inbound-security-rule.png
-        └── 3-successfully log in.png
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/6919f565-5502-460f-9ab6-7781a2edae05" />
+<img width="2560" height="1327" alt="image" src="https://github.com/user-attachments/assets/33240fa9-b026-440d-a79a-ea05c9264dcd" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/0c966ba2-27bb-4e6f-98dd-2d03db7b0523" />
+<img width="910" height="912" alt="image" src="https://github.com/user-attachments/assets/2ec56f99-9050-42d8-8deb-423ed051e3f8" />
+
 
 ---
 
@@ -3856,14 +3857,12 @@ Apache2 Ubuntu Default Page
 It works!
 ```
 
-images/
-└── Q7. Open ports 22 80 and 443 one at a time documenting what became possible after each. Attach screenshots/
-    └── port-80/
-        ├── 1-Install Apache Web Server.png
-        ├── 2-systemctl.png
-        ├── 3-Add-inbound-security-rule.png
-        ├── 4-Added-inbound-security-rule.png
-        └── 5-Apache2-Ubuntu-Default-Page-It-works.png
+<img width="1316" height="767" alt="image" src="https://github.com/user-attachments/assets/85fb5d85-4e2f-4f86-bf2a-ff322481fb15" />
+<img width="975" height="397" alt="image" src="https://github.com/user-attachments/assets/f54d481a-bf71-43fe-ab79-cc8ecccdeedf" />
+<img width="2560" height="1251" alt="image" src="https://github.com/user-attachments/assets/5c59d5d8-0d9f-49de-89d8-0b9aad4f9cc2" />
+<img width="1135" height="598" alt="image" src="https://github.com/user-attachments/assets/d12aea10-5b26-40a2-a853-5bcb7eac60fc" />
+<img width="2560" height="1661" alt="image" src="https://github.com/user-attachments/assets/661dfbd9-65ae-46d8-97d5-0e58b638ff74" />
+
 
 ---
 
@@ -3975,6 +3974,10 @@ Click:
 Add
 ```
 
+<img width="728" height="1176" alt="image" src="https://github.com/user-attachments/assets/25f4a0e9-8d3c-4a7a-87f8-039cb7fe8ef4" />
+<img width="1396" height="791" alt="image" src="https://github.com/user-attachments/assets/fb4d2665-e31e-4a28-8f08-e15b07161526" />
+
+
 ---
 
 ### Test HTTPS
@@ -3987,6 +3990,10 @@ https://4.155.111.190
 Since no SSL/TLS certificate was configured on the Apache web server, HTTPS did not load a secure website.
 
 This is the expected behavior because opening Port 443 only allows HTTPS traffic to reach the VM. A web server must also be configured with a valid SSL/TLS certificate before HTTPS can be used successfully.
+
+
+<img width="2127" height="911" alt="image" src="https://github.com/user-attachments/assets/41177adc-1565-41ec-a5ef-a5a4fffd4911" />
+
 
 #### Important Note
 
@@ -4220,44 +4227,9 @@ because SSH should not be exposed unnecessarily.
 
 > Port 22 is used for SSH and allows secure remote administration of Linux virtual machines. Port 80 is used for HTTP and allows users to access web applications without encryption. Port 443 is used for HTTPS and supports encrypted web communication after SSL/TLS configuration. In my Azure lab, opening Port 22 allowed me to connect successfully to the VM using SSH, opening Port 80 allowed me to access the Apache default web page from a browser, and opening Port 443 allowed the VM to receive HTTPS traffic. However, HTTPS was not fully functional because an SSL/TLS certificate had not yet been configured.
 
----
 
-## Screenshots Checklist
 
-Capture:
 
-1. ✅ NSG rule for Port 22
-2. ✅ Successful SSH login
-3. ✅ NSG rule for Port 80
-4. ✅ Browser showing Apache page
-5. ✅ NSG rule for Port 443
-✅ NSG rule for Port 22
-✅ Successful SSH login
-✅ Apache installation and running status
-✅ NSG rule for Port 80
-✅ Browser showing Apache2 Ubuntu Default Page
-✅ NSG rule for Port 443
-✅ Browser test for https://4.155.111.190
-
-images/
-└── Q7. Open ports 22 80 and 443 one at a time documenting what became possible after each. Attach screenshots/
-    ├── port-22/
-    │   ├── 1-Inbound Port Rules.png
-    │   ├── 2_1-Add-inbound-security-rule before connecting.png
-    │   ├── 2-Add-inbound-security-rule.png
-    │   └── 3-successfully log in.png
-    │
-    ├── port-80/
-    │   ├── 1-Install Apache Web Server.png
-    │   ├── 2-systemctl.png
-    │   ├── 3-Add-inbound-security-rule.png
-    │   ├── 4-Added-inbound-security-rule.png
-    │   └── 5-Apache2-Ubuntu-Default-Page-It-works.png
-    │
-    └── port-443/
-        ├── 1-create inbound rules.png
-        ├── 2-Rule created.png
-        └── 3-Test HTTPS.png
 
 ---
 
