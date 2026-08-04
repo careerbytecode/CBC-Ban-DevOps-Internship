@@ -7574,7 +7574,7 @@ RG-Stage
 RG-Prod
 ```
 
-In Azure, groups are created in Microsoft Entra ID (formerly Azure Active Directory). Assigning Azure RBAC roles to an Entra ID group automatically grants the same permissions to all members of that group.
+In Azure, groups are created in Microsoft Entra ID (formerly Azure Active Directory). You can assign Azure RBAC roles either directly to individual users or to Microsoft Entra ID groups. When a user signs in, Azure evaluates both direct role assignments and group-based role assignments to determine the user's effective permissions.
 
 ---
 
@@ -7645,7 +7645,7 @@ John
 10 Users
 ```
 
-Now assign the **Contributor** role **once**.
+Instead of assigning the role to every user, assign the **Contributor** role to the **Dev-Team** group on each Resource Group.
 
 ```text
 Contributor
@@ -7760,42 +7760,15 @@ For each Resource Group:
 Assign Contributor to each user.
 
 ```text
-RG1
-
-↓
-
-10 Assignments
-
-RG2
-
-↓
-
-10 Assignments
-
-RG3
-
-↓
-
-10 Assignments
-
-RG4
-
-↓
-
-10 Assignments
-
-RG5
-
-↓
-
-10 Assignments
+RG1  → 10 Role Assignments
+RG2  → 10 Role Assignments
+RG3  → 10 Role Assignments
+RG4  → 10 Role Assignments
+RG5  → 10 Role Assignments
+────────────────────────────
+Total = 50 Role Assignments
 ```
 
-Total:
-
-```text
-50 Assignments
-```
 
 Imagine if the company had 500 employees!
 
@@ -7851,7 +7824,7 @@ You must manually assign:
 * RG4
 * RG5
 
-Five separate role assignments.
+Five separate role assignments - one for each Resource Group.
 
 ---
 
