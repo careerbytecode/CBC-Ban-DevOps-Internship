@@ -9324,7 +9324,7 @@ It manages containers instead of chefs.
 
 "On-Premises" means:
 
-> **You own and manage everything myself.**
+> **You own and manage everything yourself.**
 
 Imagine building my own house.
 
@@ -9462,23 +9462,25 @@ Company manages everything.
 ```text
 Microsoft Azure
 
- │
+        │
 
- ▼
+        ▼
 
-AKS
+AKS Control Plane
+(Managed by Microsoft)
 
- │
+        │
 
- ▼
+        ▼
 
 Worker Nodes
+(Customer Managed)
 
- │
+        │
 
- ▼
+        ▼
 
-Applications
+Applications & Pods
 ```
 
 Microsoft manages much of the platform.
@@ -9487,34 +9489,40 @@ Microsoft manages much of the platform.
 
 ## Step 5: Who Does What?
 
-## On-Prem
+## On-Prem Responsibilities
 
 You manage:
 
-* Servers
-* Networking
-* Control Plane
-* Upgrades
-* Backups
-* Security patches
+• Physical or virtual servers
+• Operating system
+• Kubernetes control plane
+• Worker nodes
+• Networking
+• Storage
+• Upgrades
+• Backups
+• Security patches
+• Monitoring
 
 ---
 
-## AKS
+## AKS Responsibilities
 
 Microsoft manages:
 
-* Kubernetes Control Plane
-* API Server
-* etcd
-* High availability of the control plane
+• Kubernetes Control Plane
+• API Server
+• etcd
+• Control plane high availability
+• Control plane upgrades (Azure-assisted)
 
-You mainly manage:
+You manage:
 
-* Worker nodes
-* Applications
-* Deployments
-* Containers
+• Node pools (worker nodes)
+• Applications
+• Containers
+• Kubernetes manifests
+• Scaling your workloads
 
 ---
 
@@ -9550,9 +9558,9 @@ You focus on teaching.
 
 | Feature           | AKS (Managed Kubernetes)  | On-Premises Kubernetes                                         |
 | ----------------- | ------------------------- | -------------------------------------------------------------- |
-| Infrastructure    | Azure Cloud               | Company's own servers                                          |
+| Infrastructure    | Azure-managed cloud infrastructure               | Organization-owned physical or virtual infrastructure                                          |
 | Control Plane     | Managed by Microsoft      | Managed by the company                                         |
-| Installation      | Quick                     | Manual installation                                            |
+| Installation      | Cluster provisioning through Azure Portal, CLI, or ARM/Bicep                     | Manual installation                                            |
 | Upgrades          | Easier, Azure-assisted    | Manual responsibility                                          |
 | High Availability | Built-in options          | Must be designed and managed                                   |
 | Scaling           | Easy through Azure        | Manual planning and hardware dependent                         |
@@ -9654,13 +9662,23 @@ You live in it.
 
 
 
-> AKS is a managed Kubernetes service provided by Microsoft Azure. In AKS, Microsoft manages important platform components such as the Kubernetes control plane, making deployment, upgrades, and maintenance easier. In an on-premises Kubernetes cluster, the organization is responsible for installing, configuring, upgrading, securing, and maintaining the entire Kubernetes environment, including the control plane and infrastructure. AKS reduces operational overhead and is commonly used for cloud-native workloads, while on-premises Kubernetes is suitable for organizations that require complete control over their infrastructure.
+> AKS (Azure Kubernetes Service) is a managed Kubernetes service provided by Microsoft Azure. Microsoft manages the Kubernetes control plane, including components such as the API server and etcd, while customers manage worker nodes, applications, containers, and workloads. This simplifies cluster deployment, upgrades, maintenance, and reduces operational overhead. In contrast, an on-premises Kubernetes cluster is fully managed by the organization, including servers, networking, Kubernetes installation, control plane, upgrades, security, and troubleshooting. AKS allows teams to focus on deploying and managing applications, whereas on-premises Kubernetes provides greater control over the infrastructure but requires significantly more administrative effort and maintenance.
 
 ---
 
+Lab Verification
 
+✅ Created an Azure Kubernetes Service (AKS) cluster.
 
-> AKS is a managed Kubernetes service where Microsoft manages the Kubernetes control plane and simplifies operations such as upgrades and maintenance. In contrast, an on-premises Kubernetes cluster is fully managed by the organization, including servers, networking, Kubernetes installation, upgrades, and troubleshooting. AKS reduces operational effort and allows teams to focus on deploying applications, while on-premises Kubernetes provides greater control but requires more administrative work.
+✅ Selected the Standard_D2as_v5 VM size because the B-series VM size was not supported for AKS node pools in the selected region.
+
+✅ Configured a single system node pool with 1 worker node to stay within the Azure Free Trial vCPU quota.
+
+✅ Verified the Review + Create configuration before deploying the cluster.
+
+✅ Successfully deployed the AKS cluster in the week3-rg resource group.
+
+> Lab Note: During the lab, the initial B-series VM size (Standard_B2s_v2) could not be used because AKS does not support scheduling B-series node pools in the selected region. I changed the node pool VM size to Standard_D2as_v5 and configured a single worker node (1-1) to meet the Azure Free Trial vCPU quota requirements. This is a common real-world scenario where cluster configuration must be adjusted based on Azure service limitations and subscription quotas.
 
 ---
 
@@ -9684,14 +9702,17 @@ AKS
 
 Microsoft manages:
 
-Control Plane
-Kubernetes platform
+• Control Plane
+• API Server
+• etcd
+• Platform Upgrades
 
 You manage:
 
-Worker Nodes
-Applications
-Pods
+• Worker Nodes
+• Pods
+• Deployments
+• Applications
 ```
 
 ---
