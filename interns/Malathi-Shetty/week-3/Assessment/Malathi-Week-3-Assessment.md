@@ -9937,11 +9937,7 @@ Microsoft manages:
 * etcd
 * High Availability of the control plane
 
-You don't install them.
-
-You don't patch them.
-
-Microsoft is responsible for maintaining, patching, and ensuring the availability of the control plane.
+You don't install or maintain these components. Microsoft is responsible for deploying, patching, upgrading, monitoring, and maintaining the Control Plane to ensure the Kubernetes cluster remains available and secure.
 
 ---
 
@@ -10204,19 +10200,9 @@ Cooks Food
 
 ---
 
-Lab Verification
+### Observation from the AKS Lab
 
-✔ Created an Azure Kubernetes Service (AKS) cluster named week3-aks.
-
-✔ Configured a single system node pool with 1 worker node.
-
-✔ Selected the Standard_D2as_v5 VM size after changing from a B-series VM, which is not supported for AKS node pools in the selected region.
-
-✔ Verified during cluster creation that the Control Plane is a Microsoft-managed service and is not directly configurable by the user.
-
-✔ Verified that the Worker Node is a customer-managed Azure Virtual Machine, where the VM size and node count are selected during cluster creation.
-
-✔ Confirmed from the Review + Create page that the cluster uses one system node pool while the control plane is automatically managed by Azure.
+During the AKS cluster creation in Q16, I selected the Standard_D2as_v5 VM size and configured one system node. Azure automatically provisioned and managed the Kubernetes Control Plane, while I configured the Worker Node settings such as the VM size and node count. This demonstrates that Microsoft manages the Control Plane, whereas customers manage and pay for the Worker Nodes and the Azure resources associated with them.
 
 
 ---
@@ -10490,6 +10476,39 @@ Replace the names if you used different ones.
 
 ---
 
+## Output After Running the Command
+
+After running:
+
+```bash
+az aks get-credentials --resource-group week3-rg --name week3-aks
+```
+
+I received the following output:
+
+```text
+Merged "week3-aks" as current context in /home/malathi/.kube/config
+```
+
+### What does this mean?
+
+This message confirms that the connection between **kubectl** and the AKS cluster was successfully established.
+
+It means:
+
+* ✅ Azure found the **week3-aks** Kubernetes cluster.
+* ✅ Azure downloaded the cluster credentials.
+* ✅ The credentials were added to the **kubeconfig** file (`~/.kube/config`).
+* ✅ `kubectl` now knows which AKS cluster to communicate with.
+
+In simple words, **kubectl is now configured to send commands to my AKS cluster**.
+
+---
+
+
+
+
+
 ## What does this command do?
 
 Think of it like getting the address of my new school.
@@ -10522,6 +10541,23 @@ AKS Cluster
 Connected
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 ## Step 8: Verify Connection
@@ -10537,7 +10573,30 @@ Expected output looks similar to:
 ```text
 NAME                              STATUS   ROLES   AGE   VERSION
 
-aks-nodepool1-xxxxxxxx-vmss0000   Ready    agent   10m   v1.xx.x
+aks-agentpool-23273842-vmss000000   Ready    <none>   61m   v1.35.6
+
+```
+
+**What does this output tell us?**
+
+* ✅ The AKS cluster is running successfully.
+* ✅ One worker node has been created.
+* ✅ The node is in the **Ready** state, meaning it is healthy and can run Pods.
+* ✅ The cluster is running Kubernetes version **v1.35.6**.
+
+```text
+In my AKS cluster, I observed several Kubernetes system Pods running successfully, including:
+
+• CoreDNS
+• kube-proxy
+• metrics-server
+• cloud-node-manager
+• Azure CSI Disk Driver
+• Azure CSI File Driver
+• Azure Workload Identity Webhook
+• Azure CNI components
+
+These system Pods are automatically deployed by AKS to provide networking, DNS, storage, monitoring, and other core Kubernetes services.
 ```
 
 Notice something different?
@@ -10677,7 +10736,7 @@ Everything runs in Azure.
 | Runs Where?       | Your laptop                | Azure Cloud                      |
 | Best For          | Learning and local testing | Production and cloud deployments |
 | Control Plane     | Local                      | Managed by Microsoft             |
-| Worker Nodes      | Local machine              | Azure Virtual Machines           |
+| Worker Nodes      | Local machine              | Azure Virtual Machine Scale Set (VMSS) nodes           |
 | Scalability       | Limited                    | Easy to scale                    |
 | High Availability | Limited                    | Supported through Azure          |
 | Internet Required | Not always                 | Yes                              |
@@ -10786,13 +10845,24 @@ Different names are expected.
 
 
 
-> In this lab, I created an AKS cluster with one worker node and connected to it using the `az aks get-credentials` command. I verified the connection with `kubectl get nodes` and viewed the running system Pods using `kubectl get pods -A`. Compared to Minikube, AKS runs in Azure as a managed Kubernetes service where Microsoft manages the control plane, while Minikube runs entirely on a local machine for development and learning purposes.
+> In this lab, I created an Azure Kubernetes Service (AKS) cluster with one worker node and connected to it using the az aks get-credentials command. I verified the cluster by running kubectl get nodes, which showed the worker node in the Ready state. I also ran kubectl get pods -A to confirm that Kubernetes system Pods such as CoreDNS, kube-proxy, and metrics-server were running successfully. Compared to Minikube, which runs locally on my laptop, AKS runs in Azure as a managed Kubernetes service where Microsoft manages the control plane while the worker nodes run on Azure Virtual Machines managed by the customer.
 
 ---
 
+## Lab Verification
 
+✓ Created an AKS cluster named week3-aks.
+✓ Configured a single worker node (Node Count: 1).
+✓ Connected kubectl to the AKS cluster using:
+  az aks get-credentials --resource-group week3-rg --name week3-aks
+✓ Verified the AKS cluster by running:
+  kubectl get nodes
+✓ Confirmed that the worker node was in the Ready state.
+✓ Verified the Kubernetes system Pods using:
+  kubectl get pods -A
+✓ Observed that CoreDNS, kube-proxy, metrics-server, cloud-node-manager, and other system Pods were running successfully.
+✓ Compared the AKS cluster with the Minikube cluster used in Week 2.
 
-> I created an AKS cluster with one worker node and connected to it using `kubectl`. The `kubectl get nodes` command confirmed that the node was in the Ready state, and `kubectl get pods -A` displayed the Kubernetes system Pods. Unlike Minikube, which runs locally on my laptop, AKS is a managed Kubernetes service in Azure where Microsoft manages the control plane and the worker nodes run on Azure Virtual Machines.
 
 ---
 
