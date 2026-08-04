@@ -9941,9 +9941,7 @@ You don't install them.
 
 You don't patch them.
 
-You don't repair them.
-
-Microsoft does.
+Microsoft is responsible for maintaining, patching, and ensuring the availability of the control plane.
 
 ---
 
@@ -10090,12 +10088,13 @@ AKS
 
 ↓
 
-1 Node
+1 System Node
 
 ↓
 
-Standard_B2s
+Standard_D2as_v5
 ```
+> Azure created a managed Kubernetes control plane and one Standard_D2as_v5 worker node. Microsoft manages the control plane, while I manage and pay for the worker node VM and any associated Azure resources.
 
 Azure creates:
 
@@ -10123,14 +10122,15 @@ You pay for the **Standard_B2s VM**, not for the managed control plane itself.
 
 ## Comparison Table
 
-| Feature | Control Plane | Worker Nodes |
-|----------|---------------|--------------|
-| Main Purpose | Manages the cluster | Runs applications |
-| Runs Pods? | No | Yes |
-| Managed By (AKS) | Microsoft | Customer |
-| User Access | Limited | Full (through node management and workloads) |
-| Separate Charge in AKS | No separate charge | Yes (VMs and related resources) |
-| Examples | API Server, Scheduler, etcd | Virtual Machines running Pods |
+| Feature             | AKS Control Plane                                   | AKS Worker Nodes                                                  |
+| ------------------- | --------------------------------------------------- | ----------------------------------------------------------------- |
+| Purpose             | Manages the Kubernetes cluster                      | Runs Pods and containers                                          |
+| Managed By          | Microsoft                                           | Customer                                                          |
+| Paid By             | No separate control-plane charge (standard AKS)     | Customer pays for VMs and related Azure resources                 |
+| Components          | API Server, Scheduler, Controller Manager, etcd     | Azure Virtual Machines, kubelet, container runtime                |
+| Runs Applications   | No                                                  | Yes                                                               |
+| User Responsibility | Configure cluster settings and Kubernetes resources | Choose VM size, node count, deploy applications, scale node pools |
+
 
 ---
 
@@ -10200,13 +10200,24 @@ Cooks Food
 
 
 
-> An AKS cluster consists of a Control Plane and one or more Worker Nodes. The Control Plane is responsible for managing the Kubernetes cluster by scheduling Pods, maintaining cluster state, and handling API requests. In AKS, Microsoft manages the Control Plane, so users do not manage or pay separately for it. Worker Nodes are Azure Virtual Machines where containers and Pods actually run. Customers are responsible for choosing the node size, scaling the node pool, deploying applications, and paying for the Worker Node VMs and other Azure resources they consume.
+> An AKS cluster consists of a managed Control Plane and one or more Worker Nodes. The Control Plane is the brain of the cluster and is responsible for scheduling Pods, maintaining the cluster state, and handling API requests. In AKS, Microsoft manages, patches, and maintains the Control Plane, and there is no separate charge for it in the standard AKS offering. Worker Nodes are Azure Virtual Machines where Pods and containers run. Customers choose the VM size, configure the node pools, deploy applications, scale workloads, and pay for the Worker Nodes and any associated Azure resources such as storage and load balancers.
 
 ---
 
+Lab Verification
 
+✔ Created an Azure Kubernetes Service (AKS) cluster named week3-aks.
 
-> In AKS, the Control Plane is the management component of Kubernetes and is operated by Microsoft. It handles scheduling, cluster state, and API operations. The Worker Nodes are Azure Virtual Machines that run Pods and containers. Microsoft manages the Control Plane without a separate charge, while customers manage and pay for the Worker Nodes and the Azure resources associated with them.
+✔ Configured a single system node pool with 1 worker node.
+
+✔ Selected the Standard_D2as_v5 VM size after changing from a B-series VM, which is not supported for AKS node pools in the selected region.
+
+✔ Verified during cluster creation that the Control Plane is a Microsoft-managed service and is not directly configurable by the user.
+
+✔ Verified that the Worker Node is a customer-managed Azure Virtual Machine, where the VM size and node count are selected during cluster creation.
+
+✔ Confirmed from the Review + Create page that the cluster uses one system node pool while the control plane is automatically managed by Azure.
+
 
 ---
 
