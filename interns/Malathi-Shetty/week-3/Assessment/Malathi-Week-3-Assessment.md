@@ -6917,7 +6917,7 @@ What is the difference between **authentication** and **authorization**? Give on
 
 ## Answer
 
-This is one of the **most important concepts in cloud computing**. It doesn't just apply to Azure—it also applies to AWS, Linux, Kubernetes, GitHub, and even my phone.
+This is one of the most important concepts in cloud computing. It doesn't just apply to Azure—it also applies to AWS, Linux, Kubernetes, GitHub, and even smartphones.
 
 Many confuse these two words:
 
@@ -7063,31 +7063,27 @@ Now Azure knows:
 
 ## Authentication Failure Example
 
-Suppose my password is wrong.
+Suppose my password is incorrect.
 
-You enter:
-
-```text
-Username
-
-Malathi
-
-Password
-
-12345
-```
-
-But my real password is different.
-
-Azure says:
+I enter:
 
 ```text
+Username: malathi@example.com
+
+Password: WrongPassword
+
+↓
+
 ❌ Invalid Username or Password
 ```
 
 This is an **Authentication Failure**.
 
+Azure cannot verify my identity because the credentials are incorrect.
+
 Azure doesn't know who you are.
+
+
 
 ---
 
@@ -7167,11 +7163,11 @@ You log into Azure.
 Authentication succeeds.
 
 ```text
-Microsoft Login
+Microsoft Account
 
 ↓
 
-Success
+Authentication Successful
 ```
 
 Now you try:
@@ -7196,6 +7192,8 @@ Authorization failed.
 
 ---
 
+
+
 ## Another Real-Life Example
 
 Think about an ATM.
@@ -7217,15 +7215,20 @@ Authentication
 ---
 
 ## Step 2
-
-Try to withdraw $5,000.
-
-Bank checks my balance.
-
-Only $500 available.
-
-```text
-❌ Transaction Denied
+```
+ATM Card
+      │
+      ▼
+Enter Correct PIN
+      │
+      ▼
+Authentication Success
+      │
+      ▼
+Try to Change Bank Settings
+      │
+      ▼
+❌ Not Allowed
 ```
 
 That's Authorization.
@@ -7337,17 +7340,17 @@ Success
 Malathi tries:
 
 ```text
-Delete VM
+Delete Resource Group
 ```
 
 Azure checks:
 
 ```text
-Role
+Azure RBAC Role
 
 ↓
 
-Reader
+Reader Role
 ```
 
 Reader cannot delete.
@@ -7394,13 +7397,9 @@ Wrong password = Authentication Failure.
 
 
 
-> Authentication is the process of verifying a user's identity, such as by using a username and password, SSH key, or multi-factor authentication. It answers the question, "Who are you?" Authorization happens after successful authentication and determines what actions the user is allowed to perform. It answers the question, "What are you allowed to do?" An example of authentication failure is entering an incorrect password and being unable to log in. An example of authorization failure is successfully logging into Azure but being denied permission to delete a virtual machine because my assigned role does not allow that action.
-
----
+> Authentication is the process of verifying a user's identity using credentials such as a username and password, SSH key, or multi-factor authentication (MFA). It answers the question, **"Who are you?"** Authorization takes place only after successful authentication and determines what actions the authenticated user is permitted to perform. It answers the question, **"What are you allowed to do?"** An example of an authentication failure is entering an incorrect password, which prevents the user from logging in because Azure cannot verify the user's identity. An example of an authorization failure is successfully logging into Azure but receiving an **"Access Denied"** message when attempting to delete a virtual machine or resource group because the assigned Azure RBAC role does not grant the required permissions.
 
 
-
-> Authentication verifies the identity of a user, while authorization determines what that authenticated user is permitted to do. For example, entering an incorrect password results in an authentication failure because Azure cannot verify the user's identity. Logging into Azure successfully but receiving an "Access Denied" message when trying to delete a resource group is an authorization failure because the user lacks the required permissions.
 
 ---
 
@@ -7455,9 +7454,34 @@ Delete Resource Group
 
 Reason:
 
-No Contributor Role
+The user has the Reader role, which does not have permission to delete resources.
 ```
 
+✅ Final Real Azure Example (Complete)
+
+```
+Malathi
+
+↓
+
+Login
+
+↓
+
+✅ Authentication Success
+
+↓
+
+Delete Resource Group
+
+↓
+
+❌ Authorization Failed
+
+Reason:
+
+The user has the Reader role, which does not have permission to delete resources.
+```
 
 # Q13.
 
@@ -7476,7 +7500,7 @@ For example:
 * Contributor → Can create, modify, and delete resources (but cannot manage access).
 * Owner → Full control, including assigning roles to others.
 
-Think of a role as a **job responsibility**.
+Think of a role as a predefined set of permissions, similar to a job responsibility.
 
 ---
 
@@ -7550,6 +7574,8 @@ RG-Stage
 RG-Prod
 ```
 
+In Azure, groups are created in Microsoft Entra ID (formerly Azure Active Directory). Assigning Azure RBAC roles to an Entra ID group automatically grants the same permissions to all members of that group.
+
 ---
 
 ## Method 1: Assign Role to Each User
@@ -7581,11 +7607,12 @@ Now repeat this for 5 Resource Groups.
 That's:
 
 ```text
-10 Users × 5 Resource Groups
-
-=
-
-50 Role Assignments
+10 Users
+      ×
+5 Resource Groups
+      │
+      ▼
+50 Individual Role Assignments
 ```
 
 A lot of work!
@@ -7667,19 +7694,19 @@ No need to update every door individually.
 ## User-Based Assignment
 
 ```text
-Admin
-
- │
-
- ├── Rahul → Contributor
-
- ├── Priya → Contributor
-
- ├── Amit → Contributor
-
- ├── Sara → Contributor
-
- └── ... (10 Users)
+                 Admin
+                   │
+      ┌────────────┼────────────┐
+      │            │            │
+      ▼            ▼            ▼
+   Rahul       Priya        Amit
+      │            │            │
+Contributor  Contributor  Contributor
+      │            │            │
+      ▼            ▼            ▼
+ RG1, RG2,     RG1, RG2,    RG1, RG2,
+ RG3, RG4,     RG3, RG4,    RG3, RG4,
+ RG5           RG5          RG5
 ```
 
 Lots of repeated work.
@@ -7689,37 +7716,21 @@ Lots of repeated work.
 ## Group-Based Assignment
 
 ```text
-Admin
-
- │
-
- ▼
-
-Dev-Team Group
-
- │
-
- ├── Rahul
-
- ├── Priya
-
- ├── Amit
-
- ├── Sara
-
- └── ...
-
- │
-
- ▼
-
-Contributor Role
-
- │
-
- ▼
-
-Resource Group
+                Microsoft Entra ID
+                      │
+                      ▼
+               Dev-Team Group
+        ┌─────────┼─────────┐
+        │         │         │
+     Rahul     Priya      Amit
+        │         │         │
+        └─────────┼─────────┘
+                  │
+                  ▼
+      Contributor Role Assignment
+                  │
+                  ▼
+      RG1, RG2, RG3, RG4, RG5
 ```
 
 One assignment benefits everyone.
@@ -7882,14 +7893,17 @@ Access is removed automatically.
 
 ## Comparison Table
 
-| Feature         | Role Assigned to User       | Role Assigned to Group |
-| --------------- | --------------------------- | ---------------------- |
-| Assigned To     | Individual user             | Azure Entra ID group   |
-| Administration  | More manual work            | Easier to manage       |
-| Best for        | One or two users            | Teams and departments  |
-| New Employee    | Assign roles manually       | Add user to the group  |
-| Employee Leaves | Remove multiple assignments | Remove from the group  |
-| Scalability     | Poor for large teams        | Excellent              |
+| Feature               | Role Assigned to User         | Role Assigned to Group     |
+| --------------------- | ----------------------------- | -------------------------- |
+| Assigned To           | Individual user               | Microsoft Entra ID group   |
+| Number of Assignments | More                          | Fewer                      |
+| Administration        | Manual                        | Easier                     |
+| Scalability           | Low                           | High                       |
+| Best For              | Individual users              | Teams and departments      |
+| New Employee          | Assign role manually          | Add user to the group      |
+| Employee Leaves       | Remove individual assignments | Remove user from the group |
+| Recommended by Azure  | Small scenarios               | Production environments    |
+
 
 ---
 
@@ -7976,15 +7990,73 @@ Azure groups work the same way.
 
 ---
 
+Suppose the Dev-Team group's role changes from Reader to Contributor.
+
+User-based approach:
+Update permissions for every individual user.
+
+Group-based approach:
+Update the role assignment once for the group.
+
+All members receive the updated permissions automatically.
+
+Example:
+
+```
+Role Change Scenario
+
+Current Role
+Reader
+
+↓
+
+Need to Change
+
+↓
+
+Contributor
+```
+### User-Based
+
+```
+Update Rahul
+
+↓
+
+Update Priya
+
+↓
+
+Update Amit
+
+↓
+
+...
+
+Repeat for every user
+```
+
+### Group-Based
+
+```
+Update Dev-Team Group
+
+↓
+
+Reader → Contributor
+
+↓
+
+All members receive the new permission automatically
+```
 
 
-> A role assignment to a user gives permissions directly to one individual. A role assignment to a group gives permissions to all members of that group. In a scenario where 10 people need access to 5 Resource Groups, assigning roles individually would require 50 separate assignments. Using a group, I would add all 10 users to an Entra ID group and assign the required role to the group for each Resource Group. This reduces administrative effort, simplifies onboarding and offboarding, and follows Azure RBAC best practices.
 
 ---
 
 
 
-> Assigning a role directly to a user gives permissions only to that individual. Assigning a role to an Entra ID group gives the same permissions to every member of the group. For a team of 10 people needing access to 5 Resource Groups, assigning roles individually would require 50 role assignments. By creating one group, adding all 10 users, and assigning the role to the group, only 5 assignments are needed. This approach is easier to manage, scales better, and is the recommended practice in Azure.
+> A role assignment to a user grants permissions directly to one individual, whereas a role assignment to a Microsoft Entra ID group grants the same permissions to all members of that group. In a scenario where 10 people need access to 5 Resource Groups, assigning roles individually would require 50 separate role assignments (10 users × 5 Resource Groups). By creating one Entra ID group, adding all 10 users to it, and assigning the required role to the group for each Resource Group, only 5 role assignments are needed. This approach significantly reduces administrative effort, simplifies onboarding and offboarding, scales more efficiently as teams grow, minimizes configuration errors, and follows Azure RBAC best practices for managing permissions.
 
 ---
 
@@ -8007,11 +8079,15 @@ Group Assignment
 
 ↓
 
+One Group
+
+↓
+
 Many Users
 
 ↓
 
-One Permission
+One Role Assignment
 
 ↓
 
