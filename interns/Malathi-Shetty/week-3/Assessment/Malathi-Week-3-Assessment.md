@@ -5939,13 +5939,13 @@ This is exactly how **Azure Bastion** works.
 
 Suppose my VM has:
 
-* Public IP
-* Port 22 Open
+* A Public IP address
+* An NSG rule that allows inbound SSH (Port 22)
 
 Architecture:
 
 ```text
-my Laptop
+My Laptop
       │
       ▼
 Internet
@@ -5954,7 +5954,8 @@ Internet
 Public IP
       │
       ▼
-Port 22 (SSH)
+NSG
+(Allow Port 22)
       │
       ▼
 Azure VM
@@ -6001,10 +6002,10 @@ Think of Bastion as a **secure jump server** managed by Azure.
 Architecture:
 
 ```text
-my Laptop
+My Laptop
       │
       ▼
-Azure Portal
+Azure Portal (HTTPS)
       │
       ▼
 Azure Bastion
@@ -6019,6 +6020,7 @@ Azure VM
 Notice something important...
 
 The VM **does not need a Public IP**.
+Azure Bastion connects to the VM over its private IP address inside the Virtual Network (VNet), so the VM remains inaccessible directly from the internet.
 
 ---
 
@@ -6056,7 +6058,7 @@ They use Bastion.
 
 ---
 
-## ASCII Comparison
+## Comparison
 
 ## Public IP + SSH
 
@@ -6108,10 +6110,29 @@ With Public IP:
 
 ```text
 Internet
+      │
+      ▼
+Public IP
+      │
+      ▼
+Azure VM
+```
+and
 
-↓
-
-VM
+```
+Internet
+      │
+      ▼
+Azure Portal (HTTPS)
+      │
+      ▼
+Azure Bastion
+      │
+      ▼
+Private Azure Network
+      │
+      ▼
+Azure VM
 ```
 
 Anyone can see the VM.
@@ -6155,11 +6176,14 @@ Azure Bastion provides:
 | ---------------------------------- | --------------------------- | ----------------------- |
 | Public IP required on VM?          | Yes                         | No                      |
 | SSH Port (22) exposed to Internet? | Yes                         | No                      |
+| Uses Private IP to reach VM?       | No                          | Yes                     |
 | Security                           | Lower (internet-facing)     | Higher (private access) |
 | Connection Method                  | SSH client (Terminal/PuTTY) | Azure Portal (browser)  |
 | Attack Surface                     | Higher                      | Lower                   |
-| Microsoft Managed                  | No                          | Yes                     |
+| Microsoft Managed Service          | No                          | Yes                     |
 | Best For                           | Labs, testing               | Production environments |
+
+> **Note:** Azure Bastion is a paid Azure service. In many learning labs and Azure Free Trial exercises, a Public IP with an NSG rule for Port 22 is commonly used because it is simpler and avoids additional Bastion costs.
 
 ---
 
