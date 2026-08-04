@@ -6403,6 +6403,10 @@ Azure will ask for:
 AzureBastionSubnet
 ```
 
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/0a33ef43-52ff-4f2d-9ad9-5d3189be719f" />
+<img width="2500" height="575" alt="image" src="https://github.com/user-attachments/assets/76852794-0914-4f7a-b9ab-5293a7acd0e2" />
+
+
 ---
 
 ## What is AzureBastionSubnet?
@@ -6507,6 +6511,15 @@ Click:
 ```text
 Connect
 ```
+<img width="2483" height="971" alt="image" src="https://github.com/user-attachments/assets/3b9d5aa3-a0bb-4060-a7ef-c6351afba46d" />
+
+<img width="2483" height="971" alt="image" src="https://github.com/user-attachments/assets/d75e37f5-2d09-4d4a-baaf-1515068f9ed3" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/f38fe9a6-11ec-44d1-b7b9-a6168dec10ea" />
+<img width="1168" height="1167" alt="image" src="https://github.com/user-attachments/assets/b2281f32-67f7-42dc-aa73-c1a400fa652d" />
+<img width="2068" height="818" alt="image" src="https://github.com/user-attachments/assets/69c1cd77-3932-438d-bdec-16d55259b042" />
+<img width="2560" height="1474" alt="image" src="https://github.com/user-attachments/assets/b2e59ecf-7abe-485c-bb26-04d575b29bd7" />
+<img width="2560" height="1474" alt="image" src="https://github.com/user-attachments/assets/d3e3f388-5c1a-4e3b-be39-00b49c3d8480" />
+
 
 ---
 
@@ -6753,6 +6766,17 @@ Copy text.
 
 Paste into terminal.
 
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/6e15e8e4-0354-44a7-8834-51d3440c0b0d" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/c9720b0c-541b-47e8-aa08-d1a9908c9347" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/0a8ffe1f-d0dd-4e96-adfe-cdcc102231fc" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/91e5e4f6-1f7b-42c1-b1b8-f7576da2f317" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/8585de36-0b2f-4a06-ad05-34e2270e4ce8" />
+<img width="2485" height="1163" alt="image" src="https://github.com/user-attachments/assets/09bb01a5-cbc5-4ae4-b041-aa1646aec164" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/ac1d1eed-d5f8-4410-a023-d3be5b30f019" />
+<img width="2027" height="1248" alt="image" src="https://github.com/user-attachments/assets/22570833-2361-4fe9-9a12-d9df3f45490f" />
+<img width="2555" height="1175" alt="image" src="https://github.com/user-attachments/assets/3c5d0a53-e178-4b0a-95d5-03b92f5b9888" />
+<img width="2545" height="952" alt="image" src="https://github.com/user-attachments/assets/61d7f443-f0d0-4340-975a-14f367e3a6c4" />
+<img width="1320" height="302" alt="image" src="https://github.com/user-attachments/assets/addb8c5e-5bb1-4e00-bd42-11efc545b5a0" />
 
 
 ---
@@ -6837,6 +6861,14 @@ After completing the lab, I:
 - Deleted `week3-bastion-pip`
 
 This stopped Bastion-related charges while keeping my VM and Virtual Network intact for the remaining Week 3 labs.
+
+<img width="2487" height="1123" alt="image" src="https://github.com/user-attachments/assets/8083cb84-d07c-414b-9bc3-04ba3844ff92" />
+<img width="2501" height="1177" alt="image" src="https://github.com/user-attachments/assets/0789195d-71b0-4b12-89b1-b06f96633338" />
+<img width="2497" height="1180" alt="image" src="https://github.com/user-attachments/assets/ba2baae5-4b26-4fff-a9ea-03d5c9f79580" />
+<img width="2495" height="903" alt="image" src="https://github.com/user-attachments/assets/02cab345-72e0-4573-8cf0-fae5392ef109" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/6793faba-affb-41f2-a65c-868f796eb1e4" />
+<img width="2560" height="1970" alt="image" src="https://github.com/user-attachments/assets/abae523e-0b7d-44fe-92df-c33643c42282" />
+
 
 ---
 
