@@ -5200,20 +5200,9 @@ No configuration required.
 ```text
 Azure Automatically Creates
 
-
-VM A
-
- |
-
- |
-
-System Route
-
- |
-
- |
-
-VM B
++------+      System Route      +------+
+| VM A | ---------------------> | VM B |
++------+                        +------+
 ```
 
 ---
@@ -5418,18 +5407,17 @@ Success
 ## After UDR with Next Hop = None
 
 ```text
-VM
-
-↓
-
-User Defined Route
-
-↓
-
+Internet Traffic
+        |
+        ▼
+Azure VM
+        |
+        ▼
+User-Defined Route
+Destination: 0.0.0.0/0
 Next Hop: None
-
-↓
-
+        |
+        ✖
 Traffic Dropped
 ```
 
@@ -5567,6 +5555,34 @@ Save.
 
 ## Step 4: Test the Effect
 
+Before associating the Route Table:
+
+```bash
+ssh -i week3-vm_key.pem azureuser@<public-ip>
+```
+
+Expected:
+
+```text
+Welcome to Ubuntu 24.04 LTS
+```
+
+After associating the Route Table:
+
+```bash
+ssh -i week3-vm_key.pem azureuser@<public-ip>
+```
+
+Result:
+
+```text
+ssh: connect to host <public-ip> port 22: Connection timed out
+```
+
+This happened because the User-Defined Route (UDR) with **Destination = 0.0.0.0/0** and **Next Hop = None** prevented network traffic from reaching the VM.
+
+Example:
+
 Before applying the UDR:
 
 ```bash
@@ -5614,25 +5630,16 @@ because traffic has no next hop.
 ## Before UDR
 
 ```text
-VM
-
- |
-
- ▼
-
+Azure VM
+     |
+     ▼
 System Route
-
- |
-
- ▼
-
+     |
+     ▼
 Internet
-
- |
-
- ▼
-
-Success
+     |
+     ▼
+✅ Connection Successful
 ```
 
 ---
@@ -5640,28 +5647,14 @@ Success
 ## After UDR
 
 ```text
-VM
-
- |
-
- ▼
-
-User Defined Route
-
-Destination:
-
-0.0.0.0/0
-
-
-Next Hop:
-
-None
-
-
- |
-
- ▼
-
+Azure VM
+     |
+     ▼
+User-Defined Route
+Destination: 0.0.0.0/0
+Next Hop: None
+     |
+     ✖
 Traffic Dropped
 ```
 
@@ -5787,19 +5780,21 @@ None
 
 3. Subnet association page
 
-4. Terminal showing internet connectivity failure
+4. Terminal showing SSH timeout after associating the UDR.
 
 Example:
 
-```bash
-curl https://www.microsoft.com
-```
+ssh -i week3-vm_key.pem azureuser@<public-ip>
+
+↓
+
+ssh: connect to host <public-ip> port 22: Connection timed out
 
 ---
 
 
 
-> A System Route is automatically created and managed by Azure to provide default network connectivity between resources such as virtual networks, subnets, and the internet. A User-Defined Route (UDR) is manually created by users to override Azure's default routing behavior and control where traffic should flow. In my lab, I created a UDR with destination `0.0.0.0/0` and configured the next hop as `None`. After associating it with the subnet, outbound internet traffic from the VM was dropped because Azure had no next hop to forward the packets.
+> A System Route is automatically created and managed by Azure to provide default network connectivity between resources such as virtual networks, subnets, and the internet. A User-Defined Route (UDR) is manually created by users to override Azure's default routing behavior and control where traffic should flow. In my lab, I created a UDR with destination `0.0.0.0/0` and configured the next hop as `None`. After associating it with the subnet, Azure had no valid next hop for traffic matching 0.0.0.0/0. As a result, network connectivity was interrupted, and my SSH connection to the VM timed out, demonstrating the effect of a User-Defined Route with Next Hop = None.
 
 ---
 
