@@ -5761,8 +5761,6 @@ is used.
 
 ## Screenshots 
 
-Capture:
-
 1. Route Table creation page
 <img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/d9dbf98f-d26c-4136-b590-b556b91e933f" />
 
@@ -5809,6 +5807,10 @@ ssh -i week3-vm_key.pem azureuser@<public-ip>
 ↓
 
 ssh: connect to host <public-ip> port 22: Connection timed out
+
+
+
+
 
 ---
 
