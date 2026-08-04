@@ -10863,6 +10863,13 @@ Different names are expected.
 ✓ Observed that CoreDNS, kube-proxy, metrics-server, cloud-node-manager, and other system Pods were running successfully.
 ✓ Compared the AKS cluster with the Minikube cluster used in Week 2.
 
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/f7fb4ed1-0504-4e11-a275-b9c6b0a2c961" />
+<img width="1555" height="557" alt="image" src="https://github.com/user-attachments/assets/3d97ab1e-09b1-482e-866e-27aed24b7b8a" />
+<img width="2558" height="773" alt="image" src="https://github.com/user-attachments/assets/25c81f3e-ef7e-4957-9f81-77c75caeaaf9" />
+<img width="832" height="107" alt="image" src="https://github.com/user-attachments/assets/75271c11-76dc-49f4-ae9b-85929d2fb787" />
+<img width="732" height="80" alt="image" src="https://github.com/user-attachments/assets/dc1a054a-36a4-4ee8-9592-6c3142d35391" />
+<img width="1042" height="463" alt="image" src="https://github.com/user-attachments/assets/039e2421-eceb-4c74-80fb-d4621a71113d" />
+
 
 ---
 
