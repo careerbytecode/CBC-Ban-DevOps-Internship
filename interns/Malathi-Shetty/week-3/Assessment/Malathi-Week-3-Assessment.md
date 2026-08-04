@@ -8077,17 +8077,24 @@ Create an Entra ID user and group, add the user to the group, and assign a role 
 
 Microsoft Entra ID (previously called Azure Active Directory) is Azure's Identity and Access Management (IAM) service. It manages identities such as users, groups, and applications, authenticates them, and works with Azure RBAC to authorize access to Azure resources.
 
-It manages:
+It manages identities such as:
 
 • Users
 • Groups
 • Applications
-• Identities
+• Service Principals
 
 Think of it as Azure's **employee directory**.
 
-Reason:
-- Roles actually belong to Azure RBAC. Entra ID manages identities. It isn't wrong to say "stores roles," but "manages identities" is technically more accurate.
+> ### Note:
+> - Roles actually belong to Azure RBAC. Entra ID manages identities. It isn't wrong to say "stores roles," but "manages identities" is technically more accurate.
+
+> Why?
+> - Users ✅
+> - Groups ✅
+> - Applications ✅
+> - Service Principals are real Entra ID identities.
+> - "Identities" as a bullet is a little vague because everything in the list is already an identity.
 
 ---
 
@@ -8744,11 +8751,11 @@ Azure combines all assigned permissions. This is called the user's effective per
 ---
 ## Lab Verification
 
-✓ Created a Microsoft Entra ID user.
-✓ Created a Security Group.
-✓ Added the user to the group.
-✓ Assigned the Contributor role to the group at the Resource Group scope.
-✓ Verified that the group appears under Role Assignments for week3-rg.
+1. Created a Microsoft Entra ID user.
+2. Created a Security Group.
+3. Added the user to the group.
+4. Assigned the Contributor role to the group at the Resource Group scope.
+5. Verified the role assignment in IAM for week3-rg.
 
 <img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/08c7651f-2b5c-485a-9e01-31012af9e4a8" />
 <img width="2497" height="615" alt="image" src="https://github.com/user-attachments/assets/9a4480c7-46c4-4528-a9e7-194c782b6728" />
@@ -8770,7 +8777,8 @@ Azure combines all assigned permissions. This is called the user's effective per
 
 
 
-> In this lab, I created a new Microsoft Entra ID user and a Security Group, added the user to the group, and assigned the Contributor role to the group at the Resource Group scope using Azure RBAC. Instead of assigning permissions directly to individual users, Microsoft recommends assigning Azure RBAC roles to groups instead of individual users because permissions are easier to manage and automatically apply to all group members so that all members inherit the required permissions. This simplifies permission management, reduces administrative effort, and makes onboarding and offboarding users much easier while following Azure RBAC best practices.
+> In this lab, I created a Microsoft Entra ID user and a Security Group, added the user to the group, and assigned the Contributor role to the group at the Resource Group scope using Azure RBAC. Microsoft recommends assigning Azure RBAC roles to groups instead of individual users because group members automatically inherit the assigned permissions. This approach simplifies permission management, reduces administrative effort, supports easier onboarding and offboarding, and follows Azure RBAC best practices.
+
 ---
 
 ## Revision
