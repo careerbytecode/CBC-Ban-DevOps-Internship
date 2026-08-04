@@ -8079,6 +8079,7 @@ Create an Entra ID user and group, add the user to the group, and assign a role 
 ## Step 1: What is Microsoft Entra ID?
 
 Microsoft Entra ID (previously called **Azure Active Directory**) is Azure's **Identity and Access Management (IAM)** service.
+It authenticates users and groups, while Azure RBAC uses those identities to authorize access to Azure resources.
 
 It stores:
 
@@ -8124,30 +8125,22 @@ We'll create this:
 
 ```text
 Microsoft Entra ID
-
-│
-
-├── User
-
-│     Malathi-Test
-
-│
-
-└── Group
-
-      Dev-Team
-
-            │
-
-            ▼
-
-      Contributor Role
-
-            │
-
-            ▼
-
-     week3-rg
+        │
+        ├── User
+        │      │
+        │      ▼
+        │  Malathi-Test
+        │
+        └── Security Group
+               │
+               ▼
+           Dev-Team
+               │
+               ▼
+      Contributor Role (Azure RBAC)
+               │
+               ▼
+            week3-rg
 ```
 
 ---
@@ -8315,10 +8308,11 @@ Select
 Now my group looks like:
 
 ```text
+Security Group
+
 Dev-Team
-
-↓
-
+    │
+    ▼
 Malathi Test
 ```
 
@@ -8387,10 +8381,9 @@ Identity
 
 and
 
-Access
-
-Management
+Access Management
 ```
+Azure uses IAM together with Azure RBAC to control who can access Azure resources and what actions they are allowed to perform.
 
 This is where Azure decides:
 
@@ -8474,14 +8467,15 @@ Now:
 
 ```text
 Dev-Team
-
-↓
-
-Contributor
-
-↓
-
+      │
+      ▼
+Contributor Role
+      │
+      ▼
 week3-rg
+      │
+      ▼
+All members inherit the permission
 ```
 
 Everyone inside **Dev-Team** now has Contributor access to **week3-rg**.
@@ -8555,11 +8549,43 @@ Suppose **Malathi Test** logs into Azure.
 Azure checks:
 
 ```text
-Who are you?
-
-↓
-
 Malathi Test
+
+      │
+
+      ▼
+
+Authentication (Microsoft Entra ID)
+
+      │
+
+      ▼
+
+Member of Dev-Team
+
+      │
+
+      ▼
+
+Azure RBAC
+
+      │
+
+      ▼
+
+Contributor
+
+      │
+
+      ▼
+
+week3-rg
+
+      │
+
+      ▼
+
+✅ Access Granted
 ```
 
 Azure sees:
@@ -8665,15 +8691,11 @@ Many assignments.
 ## With Group
 
 ```text
-Developers
+Rahul    ─┐
 
-↓
+Priya    ─┼──► Dev-Team ─► Contributor ─► week3-rg
 
-Contributor
-
-↓
-
-RG
+Malathi  ─┘
 ```
 
 One assignment.
@@ -8710,6 +8732,12 @@ Security Group
 If the user isn't a member,
 
 they won't inherit the group's permissions.
+
+---
+
+## Assigning the role at the wrong scope
+
+For this lab, the Contributor role should be assigned at the Resource Group scope, not at the Subscription or Management Group scope.
 
 ---
 
@@ -8750,42 +8778,51 @@ Their inherited access is removed.
 
 ---
 
-#
-
-> In this lab, I created a new Microsoft Entra ID user and a Security Group. I added the user to the group and then assigned the Contributor role to the group at the Resource Group scope using Azure RBAC. This approach follows best practices because permissions are managed through groups instead of individual users, making onboarding and offboarding much easier.
-
----
 
 
-
-> I created a Microsoft Entra ID user and a Security Group, added the user to the group, and assigned the Contributor role to the group at the Resource Group scope using Azure RBAC. Assigning roles to groups instead of individual users simplifies permission management because any new user added to the group automatically inherits the assigned permissions.
-
+> In this lab, I created a new Microsoft Entra ID user and a Security Group, added the user to the group, and assigned the Contributor role to the group at the Resource Group scope using Azure RBAC. Instead of assigning permissions directly to individual users, Azure recommends assigning roles to groups so that all members inherit the required permissions. This simplifies permission management, reduces administrative effort, and makes onboarding and offboarding users much easier while following Azure RBAC best practices.
 ---
 
 ## Revision
 
 ```text
-Entra ID
+Microsoft Entra ID
 
-↓
+        │
+
+        ▼
 
 Create User
 
-↓
+        │
+
+        ▼
 
 Create Security Group
 
-↓
+        │
+
+        ▼
 
 Add User to Group
 
-↓
+        │
+
+        ▼
 
 Assign Contributor Role
 
-↓
+        │
 
-Resource Group
+        ▼
+
+Resource Group (week3-rg)
+
+        │
+
+        ▼
+
+User Inherits Permissions
 ```
 
 ---
