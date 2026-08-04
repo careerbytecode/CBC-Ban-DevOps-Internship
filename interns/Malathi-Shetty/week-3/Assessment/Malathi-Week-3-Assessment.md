@@ -9678,6 +9678,15 @@ Lab Verification
 
 ✅ Successfully deployed the AKS cluster in the week3-rg resource group.
 
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/3f34b05a-cd6a-4f47-a26e-96e2304b0aa2" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/1e991ad2-5ee3-47bb-83f1-6e4909441dc6" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/f2941af7-b2f1-4c8e-bdcc-2d4faee07a3d" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/78f49042-d887-45a8-bdea-bc979c43e5e4" />
+<img width="2481" height="817" alt="image" src="https://github.com/user-attachments/assets/edbf9133-8e85-4879-aec0-56502c43bcd8" />
+<img width="2077" height="832" alt="image" src="https://github.com/user-attachments/assets/01c5092b-adb5-4c62-81d3-55be327dc586" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/a2d6a415-db13-49a7-986e-e7c35496be7e" />
+
+
 > Lab Note: During the lab, the initial B-series VM size (Standard_B2s_v2) could not be used because AKS does not support scheduling B-series node pools in the selected region. I changed the node pool VM size to Standard_D2as_v5 and configured a single worker node (1-1) to meet the Azure Free Trial vCPU quota requirements. This is a common real-world scenario where cluster configuration must be adjusted based on Azure service limitations and subscription quotas.
 
 ---
