@@ -4314,18 +4314,9 @@ That person is the **source**.
 In networking:
 
 ```text
-Source
-   |
-   |
-   ▼
-Destination
-
-
-my Laptop
-      |
-      |
-      ▼
-Azure VM
++--------------------+      SSH (22)      +------------------------+
+| My Laptop (Source) | -----------------> | Azure VM (Destination) |
++--------------------+                    +------------------------+
 ```
 
 ---
@@ -4341,18 +4332,11 @@ Azure VM
 Example:
 
 ```text
-Laptop
-
-Source IP:
-49.xx.xx.xx
-
-
-Destination:
-
-Azure VM
-
-Port:
-22
+Source IP: <your-public-ip>
+        |
+        |  Port 22 (SSH)
+        ▼
+Destination: Azure VM
 ```
 
 Meaning:
@@ -4527,27 +4511,18 @@ Every IP address on Internet
 ## Diagram
 
 ```text
-             Internet
-
- Laptop A  ─────┐
-
- Laptop B  ─────┤
-
- Hacker    ─────┤
-
- Bot       ─────┘
-
-
-          ▼
-
-        NSG
-
-     Source: Any
-
-
-          ▼
-
-       Azure VM
+              Internet
+                  |
+     +------------+------------+
+     |            |            |
+ Laptop A     Laptop B      Hacker
+     |            |            |
+     +------------+------------+
+                  |
+          NSG (Source: Any)
+                  |
+                  ▼
+             Azure VM
 ```
 
 Everyone can try.
@@ -4596,16 +4571,17 @@ Port 22 Open
 
 ## What is My IP Address?
 
-Azure detects my current public IP.
+Azure automatically fills in my current public IP address as the source when I choose My IP Address.
+
+Reason:
+Azure isn't continuously tracking my IP-it simply uses the public IP detected at the time I create the rule.
 
 Example:
 
 ```
 my Laptop
 
-Public IP:
-
-49.37.xx.xx
+Public IP: <my-public-ip>
 ```
 
 Azure creates:
@@ -4613,13 +4589,9 @@ Azure creates:
 ```
 Allow
 
-Source:
+Source: <my-public-ip>
 
-49.37.xx.xx
-
-Port:
-
-22
+Port: 22
 ```
 
 ---
@@ -4627,25 +4599,17 @@ Port:
 ## Diagram
 
 ```text
-my Laptop
-
-49.xx.xx.xx
-
-      │
-
+My Laptop
+<my-public-ip>
+      |
+      |
       ▼
-
-    NSG
-
-Allow:
-
-49.xx.xx.xx
-
-      │
-
+NSG Rule
+Source = <my-public-ip>
+Port = 22
+      |
       ▼
-
-    VM
+Azure VM
 ```
 
 ---
@@ -4664,7 +4628,10 @@ Attacker ❌
 
 ## Security Level
 
-✅ Highest security for personal SSH access.
+✅ Highest security among these three source options for personal SSH access.
+
+Reason:
+There are even more secure methods like VPN, Azure Bastion, or Just-In-Time (JIT) VM access. So it's better not to say it's the absolute highest security.
 
 Best for:
 
@@ -4710,18 +4677,14 @@ VirtualNetwork
 Without Service Tag:
 
 ```text
-Azure IP 1
 
-Azure IP 2
-
-Azure IP 3
-
-Azure IP 4
-
-      |
-      ▼
-
-      VM
+Azure IP 1 ──┐
+Azure IP 2 ──┤
+Azure IP 3 ──┤
+Azure IP 4 ──┘
+        |
+        ▼
+      NSG Rule
 ```
 
 Too many IPs.
@@ -4731,19 +4694,15 @@ Too many IPs.
 With Service Tag:
 
 ```text
-AzureLoadBalancer
-
+Azure Service
+(AzureLoadBalancer)
         |
-
         ▼
-
-       NSG
-
+NSG Rule
+Source = AzureLoadBalancer
         |
-
         ▼
-
-       VM
+Azure VM
 ```
 
 Azure manages the addresses.
@@ -4808,31 +4767,20 @@ Therefore, we should restrict who can connect.
 ## Secure SSH Flow
 
 ```text
-my Laptop
-
-       |
-       |
-       ▼
-
-Source:
-
-My IP Address
-
-
-       |
-       |
-       ▼
-
-NSG
-
-Allow Port 22
-
-
-       |
-       |
-       ▼
-
-Azure VM
+My Laptop
+(Public IP: <my-public-ip>)
+          |
+          | SSH (Port 22)
+          ▼
++-------------------------+
+| NSG Rule                |
+| Source = My IP Address  |
+| Port = 22               |
+| Action = Allow          |
++-------------------------+
+          |
+          ▼
+      Azure VM
 ```
 
 ---
@@ -4843,18 +4791,17 @@ Because:
 
 ```text
 Internet
-
-      |
-      |
-      ▼
-
-Port 22 Open
-
-      |
-      |
-      ▼
-
-Attackers can try login
+    |
+    | SSH Requests
+    ▼
+NSG Rule
+Source = Any
+    |
+    ▼
+Azure VM
+    |
+    ▼
+Anyone/Attackers can attempt login
 ```
 
 Even if password is strong, allowing everyone increases risk.
@@ -4870,13 +4817,9 @@ Example:
 Wrong:
 
 ```
-Source:
+Source: AzureLoadBalancer
 
-AzureLoadBalancer
-
-Port:
-
-22
+Port: 22
 ```
 
 my laptop does not belong to Azure Load Balancer.
@@ -4936,6 +4879,14 @@ Configure:
 | Priority | 300            |
 | Name     | Allow-SSH-MyIP |
 
+
+
+Remember:
+Azure only requires the priority to be unique.
+It doesn't have to be 300 specifically.
+
+So if actual lab shows 310, 320, or another unused value, keep the actual value from your portal.
+
 ---
 
 ## Test SSH
@@ -4954,26 +4905,18 @@ Welcome to Ubuntu
 
 ---
 
-## Screenshots Required
-
-Take screenshots of:
+## Screenshots
 
 ## 1. NSG Rule
 
 Showing:
 
 ```
-Source:
-
-My IP Address
-
-Destination:
-
-VM
-
-Port:
-
-22
+Source: My IP Address
+Service: SSH
+Destination: Any/VirtualMachine
+Destination Port: 22
+Action: Allow
 ```
 
 ---
@@ -4985,6 +4928,10 @@ Terminal:
 ```text
 ubuntu@week3-vm:
 ```
+
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/0c966ba2-27bb-4e6f-98dd-2d03db7b0523" />
+<img width="910" height="912" alt="image" src="https://github.com/user-attachments/assets/2ec56f99-9050-42d8-8deb-423ed051e3f8" />
+
 
 ---
 
@@ -5022,18 +4969,20 @@ Thinking My IP Address is permanent.
 
 my public IP can change.
 
+> If my internet provider assigns me a new public IP, I must update the NSG rule; otherwise, SSH access will fail.
+
 Example:
 
 Today:
 
 ```
-49.xx.xx.xx
+<my-public-ip>
 ```
 
 Tomorrow:
 
 ```
-103.xx.xx.xx
+<new-public-ip>
 ```
 
 You may need to update the rule.
@@ -5081,25 +5030,16 @@ Azure Managed Group
 ## Remember 
 
 ```
-NSG Source
-
-Who can enter?
-
-        |
-
-        +---- Any
-        |
-        +---- Everyone
-
-
-        +---- My IP
-        |
-        +---- Only Me
-
-
-        +---- Service Tag
-        |
-        +---- Azure Group
+NSG Source (Who can enter?)
+    |
+    +-- Any
+    |     → Everyone
+    |
+    +-- My IP Address
+    |     → Only My Computer
+    |
+    +-- Service Tag
+          → Azure Service Group
 ```
 
 ---
