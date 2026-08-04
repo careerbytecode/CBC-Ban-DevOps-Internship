@@ -1,4 +1,4 @@
-<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/2b578268-2b87-4662-a545-f069b2ed2057" />
+
 # Questions
 
 # Q1.
