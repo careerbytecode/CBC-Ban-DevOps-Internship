@@ -3627,9 +3627,8 @@ SSH Login Successful
 
 ---
 
-## Screenshot Required
+## Screenshot 
 
-Capture:
 
 ✅ Inbound Port Rule showing:
 
@@ -3822,9 +3821,7 @@ Website Displayed
 
 ---
 
-## Screenshot Required
-
-Capture:
+## Screenshot 
 
 
 ✅ Apache installation
@@ -8078,17 +8075,19 @@ Create an Entra ID user and group, add the user to the group, and assign a role 
 
 ## Step 1: What is Microsoft Entra ID?
 
-Microsoft Entra ID (previously called **Azure Active Directory**) is Azure's **Identity and Access Management (IAM)** service.
-It authenticates users and groups, while Azure RBAC uses those identities to authorize access to Azure resources.
+Microsoft Entra ID (previously called Azure Active Directory) is Azure's Identity and Access Management (IAM) service. It manages identities such as users, groups, and applications, authenticates them, and works with Azure RBAC to authorize access to Azure resources.
 
-It stores:
+It manages:
 
-* Users
-* Groups
-* Applications
-* Roles
+• Users
+• Groups
+• Applications
+• Identities
 
 Think of it as Azure's **employee directory**.
+
+Reason:
+- Roles actually belong to Azure RBAC. Entra ID manages identities. It isn't wrong to say "stores roles," but "manages identities" is technically more accurate.
 
 ---
 
@@ -8201,9 +8200,7 @@ Think of it like creating a new employee account.
 
 ---
 
-## Screenshot 1
 
-Take a screenshot showing:
 
 ```text
 Microsoft Entra ID
@@ -8261,9 +8258,6 @@ Microsoft 365 Groups are mainly for collaboration tools like Outlook and Teams.
 
 ---
 
-## Screenshot 2
-
-Take a screenshot showing:
 
 ```text
 Groups
@@ -8330,9 +8324,7 @@ Dev-Team
 
 ---
 
-## Screenshot 3
 
-Take a screenshot showing:
 
 ```text
 Dev-Team
@@ -8503,7 +8495,7 @@ Microsoft Entra ID
 
 +-----------------+
 
- Contributor Role
+Contributor Role (Azure RBAC)
 
 +-----------------+
 
@@ -8520,9 +8512,7 @@ Microsoft Entra ID
 
 ---
 
-## Screenshot 4
 
-Take a screenshot showing:
 
 ```text
 Resource Group
@@ -8588,29 +8578,7 @@ week3-rg
 ✅ Access Granted
 ```
 
-Azure sees:
 
-```text
-Member of Dev-Team
-```
-
-Azure checks:
-
-```text
-Dev-Team
-
-↓
-
-Contributor
-
-↓
-
-week3-rg
-```
-
-Result:
-
-Access Granted
 
 ---
 
@@ -8657,7 +8625,7 @@ Contributor
 
 ↓
 
-RG
+week3-rg
 ```
 
 ```text
@@ -8669,7 +8637,7 @@ Contributor
 
 ↓
 
-RG
+week3-rg
 ```
 
 ```text
@@ -8681,7 +8649,7 @@ Contributor
 
 ↓
 
-RG
+week3-rg
 ```
 
 Many assignments.
@@ -8739,18 +8707,7 @@ they won't inherit the group's permissions.
 
 For this lab, the Contributor role should be assigned at the Resource Group scope, not at the Subscription or Management Group scope.
 
----
 
-## Screenshots Required
-
-my assignment asks for every step.
-
-Take these:
-
-* User Created
-* Group Created
-* User Added to Group
-* IAM showing Contributor assigned to Dev-Team
 
 ---
 
@@ -8778,9 +8735,42 @@ Their inherited access is removed.
 
 ---
 
+## Can a user have permissions from both a direct role assignment and a group role assignment?
+
+Yes.
+
+Azure combines all assigned permissions. This is called the user's effective permissions.
+
+---
+## Lab Verification
+
+✓ Created a Microsoft Entra ID user.
+✓ Created a Security Group.
+✓ Added the user to the group.
+✓ Assigned the Contributor role to the group at the Resource Group scope.
+✓ Verified that the group appears under Role Assignments for week3-rg.
+
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/08c7651f-2b5c-485a-9e01-31012af9e4a8" />
+<img width="2497" height="615" alt="image" src="https://github.com/user-attachments/assets/9a4480c7-46c4-4528-a9e7-194c782b6728" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/06d4f1ed-ff85-4ab5-b56d-a773f13fcf3e" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/801d0e82-0b94-43b6-bde9-e2a4f95c7657" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/ec5c3fd8-192c-482d-bb94-11a174daa851" />
+<img width="1622" height="1087" alt="image" src="https://github.com/user-attachments/assets/6bd7ef28-5678-41c5-a81b-51d22eb09d00" />
+<img width="958" height="1167" alt="image" src="https://github.com/user-attachments/assets/6c00e827-ad04-4fd1-b3ce-3cfdf301f0e6" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/db336255-0323-42b7-98aa-1dde63663d2f" />
+<img width="2206" height="1037" alt="image" src="https://github.com/user-attachments/assets/a02bf584-2230-4242-b82b-7241d0c3de6c" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/8d7a49aa-1624-4f14-b20b-b877839a658b" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/7afa243c-60be-4d6e-8666-5ea96a33e9d9" />
+<img width="2493" height="1128" alt="image" src="https://github.com/user-attachments/assets/2f965a8a-5cf6-4258-9cf0-37a890fb4ff5" />
+<img width="2477" height="1122" alt="image" src="https://github.com/user-attachments/assets/8c2674c3-da70-499a-931c-c4f20e9b790c" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/3c3e7a97-b832-49b5-a98a-fa40bbaa1f48" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/e189cc57-2a0c-4b16-8c59-e3e35ee41dc5" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/9c3cd8d2-9091-4d79-9ab7-267a14466727" />
 
 
-> In this lab, I created a new Microsoft Entra ID user and a Security Group, added the user to the group, and assigned the Contributor role to the group at the Resource Group scope using Azure RBAC. Instead of assigning permissions directly to individual users, Azure recommends assigning roles to groups so that all members inherit the required permissions. This simplifies permission management, reduces administrative effort, and makes onboarding and offboarding users much easier while following Azure RBAC best practices.
+
+
+> In this lab, I created a new Microsoft Entra ID user and a Security Group, added the user to the group, and assigned the Contributor role to the group at the Resource Group scope using Azure RBAC. Instead of assigning permissions directly to individual users, Microsoft recommends assigning Azure RBAC roles to groups instead of individual users because permissions are easier to manage and automatically apply to all group members so that all members inherit the required permissions. This simplifies permission management, reduces administrative effort, and makes onboarding and offboarding users much easier while following Azure RBAC best practices.
 ---
 
 ## Revision
@@ -8811,6 +8801,7 @@ Add User to Group
         ▼
 
 Assign Contributor Role
+(Azure RBAC)
 
         │
 
@@ -10582,10 +10573,6 @@ Similarly, AKS runs several system Pods behind the scenes.
 
 ## What Changed Compared to Minikube?
 
-Let's compare.
-
----
-
 ## Minikube
 
 ```text
@@ -10648,11 +10635,9 @@ Everything runs in Azure.
 
 ---
 
-#### Screenshots Required
 
-Take these screenshots:
 
-#### Screenshot 1
+
 
 AKS Cluster Overview
 
@@ -10664,7 +10649,7 @@ week3-aks
 
 ---
 
-#### Screenshot 2
+
 
 Node Pool
 
@@ -10678,7 +10663,7 @@ Node Count
 
 ---
 
-#### Screenshot 3
+
 
 Cloud Shell
 
@@ -10690,7 +10675,7 @@ kubectl get nodes
 
 ---
 
-#### Screenshot 4
+
 
 Cloud Shell
 
@@ -10750,7 +10735,7 @@ Different names are expected.
 
 ---
 
-#### Interview Answer
+
 
 > In this lab, I created an AKS cluster with one worker node and connected to it using the `az aks get-credentials` command. I verified the connection with `kubectl get nodes` and viewed the running system Pods using `kubectl get pods -A`. Compared to Minikube, AKS runs in Azure as a managed Kubernetes service where Microsoft manages the control plane, while Minikube runs entirely on a local machine for development and learning purposes.
 
@@ -10762,7 +10747,7 @@ Different names are expected.
 
 ---
 
-#### Revision
+## Revision
 
 ######## Minikube
 
@@ -10806,19 +10791,6 @@ Pods
 
 ---
 
-######## 🌟 Before Moving to Q19
-
-Q19 shifts from Kubernetes to **Container Registries**.
-
-You'll learn:
-
-* What **Docker Hub** is
-* What **Azure Container Registry (ACR)** is
-* Why companies prefer ACR with AKS
-* How to create an ACR
-* How to tag and push a Docker image
-* Every command explained step by step, plus the exact screenshots needed for your assignment.
-
 
 ---
 
@@ -10858,7 +10830,7 @@ That place is called a **Container Registry**.
 
 ---
 
-#### Kid Analogy 👶
+####  Analogy 
 
 Imagine you baked a cake.
 
@@ -10906,7 +10878,7 @@ Millions of developers download images from Docker Hub.
 
 ---
 
-#### Kid Analogy
+## Analogy
 
 Docker Hub is like:
 
@@ -11174,7 +11146,7 @@ The tag adds the destination.
 
 ---
 
-## ## Step 10: Push the Image
+## Step 10: Push the Image
 
 Run:
 
@@ -11186,7 +11158,7 @@ Docker uploads the image.
 
 ---
 
-#### ASCII Diagram
+#### Diagram
 
 ```text
 Laptop
@@ -11218,7 +11190,7 @@ Azure Container Registry
 
 ---
 
-## ## Step 11: Verify
+## Step 11: Verify
 
 Go to:
 
@@ -11297,9 +11269,6 @@ The difference is **where they're stored** and **how they're managed**.
 
 #### Screenshots Required
 
-Take these screenshots:
-
-#### 📸 Screenshot 1
 
 Container Registry Overview
 
@@ -11311,7 +11280,7 @@ week3acr
 
 ---
 
-#### 📸 Screenshot 2
+
 
 Repositories
 
@@ -11323,7 +11292,7 @@ myapp
 
 ---
 
-#### 📸 Screenshot 3
+
 
 Tag:
 
@@ -11335,7 +11304,6 @@ inside the repository.
 
 ---
 
-#### 📸 Screenshot 4
 
 Terminal showing:
 
@@ -11347,7 +11315,7 @@ completed successfully.
 
 ---
 
-#### Easy Memory Trick
+### Remember
 
 Think of photos.
 
@@ -11383,7 +11351,7 @@ Only employees can access it.
 
 ---
 
-#### Revision
+## Revision
 
 ######## Docker Hub
 
@@ -11419,18 +11387,6 @@ Deploy Application
 
 ---
 
-######## 🎯 Next: Q20
-
-We'll move away from infrastructure and learn **Azure DevOps**:
-
-* **Azure Portal vs Azure DevOps**
-* What each one is used for
-* What a **Service Connection** is
-* Why Azure DevOps cannot deploy to Azure without one
-* CI/CD pipeline flow with simple ASCII diagrams and real-world analogies.
-
-
----
 
 
 # Q20.
@@ -11482,7 +11438,7 @@ Think of it as your **software factory**.
 
 ---
 
-#### Kid Analogy 👶
+## Analogy
 
 Imagine you're building a house.
 
@@ -11631,7 +11587,7 @@ Azure DevOps has **no permission** to create VMs, push images, or deploy to AKS.
 
 ---
 
-#### Kid Analogy 👶
+## Analogy
 
 Imagine your school.
 
@@ -11835,7 +11791,7 @@ If your pipeline needs to interact with Azure (for example, pushing to ACR or de
 
 ---
 
-#### Easy Memory Trick
+### Remember
 
 Think of building a restaurant.
 
@@ -11879,7 +11835,7 @@ the delivery staff can't enter.
 
 ---
 
-#### Revision
+## Revision
 
 ######## Azure Portal
 
@@ -12326,11 +12282,11 @@ The warehouse is Azure Container Registry.
 
 ---
 
-## Screenshots Required
+## Screenshots 
 
 
 
-## Screenshot 1
+
 
 Azure DevOps Pipeline
 
@@ -12342,7 +12298,7 @@ Pipeline Name
 
 ---
 
-## Screenshot 2
+
 
 Pipeline Run
 
@@ -12356,7 +12312,7 @@ Successful Run
 
 ---
 
-## Screenshot 3
+
 
 Pipeline Logs
 
@@ -12372,7 +12328,7 @@ completed successfully.
 
 ---
 
-## Screenshot 4
+
 
 Azure Container Registry
 
@@ -12384,7 +12340,7 @@ Repositories
 
 ---
 
-## Screenshot 5
+
 
 Repository Tag
 
