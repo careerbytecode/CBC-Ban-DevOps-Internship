@@ -6248,7 +6248,8 @@ Without Bastion:
 ```text
 Visitor
 
-↓
+    │
+    ▼
 
 Classroom
 ```
@@ -6261,17 +6262,14 @@ With Bastion:
 
 ```text
 Visitor
-
-↓
-
+    │
+    ▼
 Security Office
-
-↓
-
+    │
+    ▼
 Visitor Pass
-
-↓
-
+    │
+    ▼
 Classroom
 ```
 
@@ -6325,13 +6323,9 @@ Then choose:
 Dissociate
 ```
 
-or
+Azure detaches the Public IP from the VM's Network Interface.
 
-```text
-Delete Public IP
-```
-
-(depending on the portal experience)
+> **Note:** In my lab, I dissociated the Public IP instead of deleting it. This allowed me to reattach the same Public IP later if required.
 
 Now my VM only has:
 
@@ -6391,12 +6385,17 @@ Create
 
 Fill these values:
 
-| Field           | Value             |
-| --------------- | ----------------- |
-| Resource Group  | week3-rg          |
-| Name            | week3-bastion     |
-| Region          | Same region as VM |
-| Virtual Network | week3-vnet        |
+| Field           | Value              |
+| --------------- | ------------------ |
+| Resource Group  | week3-rg           |
+| Name            | week3-bastion      |
+| Region          | West US 2          |
+| Virtual Network | week3-vnet         |
+| Subnet          | AzureBastionSubnet |
+| Tier            | Basic              |
+| Public IP       | week3-bastion-pip  |
+| Copy & Paste    | Enabled            |
+
 
 Azure will ask for:
 
@@ -6439,24 +6438,28 @@ Principal has a separate office.
 Similarly,
 
 ```text
-Frontend Subnet
-
-↓
-
-VMs
-```
-
-```text
-AzureBastionSubnet
-
-↓
-
-Only Bastion
+Azure Virtual Network
+│
+├── frontend-subnet
+│      │
+│      └── week3-vm
+│
+└── AzureBastionSubnet
+       │
+       └── Azure Bastion
 ```
 
 ---
 
-Azure usually creates this subnet for you if needed.
+In my lab, I created the **AzureBastionSubnet** manually before deploying Bastion.
+
+Azure requires a dedicated subnet named exactly:
+
+```text
+AzureBastionSubnet
+```
+
+Only Azure Bastion can use this subnet.
 
 ---
 
@@ -6494,8 +6497,10 @@ Bastion
 
 Enter:
 
-* Username
-* Password (or SSH key, depending on how you created the VM)
+- Username: `azureuser`
+- Authentication Type: **SSH Private Key from Local**
+- Upload the `week3-vm_key.pem` file
+- Leave the SSH Passphrase empty (because my key has no passphrase)
 
 Click:
 
@@ -6512,41 +6517,72 @@ Instead of opening PuTTY or Terminal...
 Azure opens the VM **inside my web browser**.
 
 ```text
-Browser
-
-↓
-
+My Laptop (Browser)
+        │
+        ▼
 Azure Portal
-
-↓
-
-Bastion
-
-↓
-
-VM
+        │
+        ▼
+Azure Bastion
+        │
+        ▼
+week3-vm
 ```
 
 No Public IP needed.
 
 ---
 
+```
+                Azure Virtual Network
+
++------------------------------------------------------+
+
+        AzureBastionSubnet
+              │
+              ▼
+      +----------------+
+      | Azure Bastion  |
+      +----------------+
+              │
+              │ Private IP
+              ▼
+      +----------------+
+      |   week3-vm     |
+      | 10.0.1.4       |
+      +----------------+
+
++------------------------------------------------------+
+
+          ▲
+          │
+     Azure Portal
+          │
+     My Laptop
+```
+
 ## Step 6: Enable Copy/Paste
 
 Inside the Bastion session,
 
-Look for:
+In my lab, **Copy and Paste** was already enabled because I selected the option while creating Azure Bastion.
+
+I verified it by copying text and pasting it into the Ubuntu terminal.
+
+Example:
 
 ```text
-Settings
+My Laptop
 
-↓
+Copy Text
+      │
+      ▼
+Azure Bastion
+      │
+      ▼
+Ubuntu Terminal
 
-Clipboard
-
-↓
-
-Enable
+Hello Azure Bastion
 ```
 
 (The exact location can vary slightly depending on the Azure Portal version.)
@@ -6634,32 +6670,52 @@ VM
 ---
 
 ## What Changed?
+```
+Before Bastion
 
-Before Bastion:
+Public IP      ✔
+SSH Client     ✔
+Port 22 Open   ✔
 
-```text
-Need Public IP
+↓
 
-Need SSH Client
+After Bastion
 
-Port 22 Open
+Public IP      ✖
+SSH Client     ✖
+Browser Access ✔
+Private IP     ✔
 ```
 
-After Bastion:
-
-```text
-No Public IP
-
-Browser Access
-
-Private Connection
 ```
+                 Azure Virtual Network
+
++--------------------------------------------------+
+
+ AzureBastionSubnet            frontend-subnet
+
+      │                              │
+
+      ▼                              ▼
+
+Azure Bastion ───────────────► week3-vm
+                               Private IP
+                               10.0.1.4
+
++--------------------------------------------------+
+
+                ▲
+                │
+         Azure Portal
+                │
+           My Laptop
+```           
 
 ---
 
 ## Screenshots 
 
-## Screenshot 1
+
 
 Bastion Overview
 
@@ -6671,7 +6727,7 @@ week3-bastion
 
 ---
 
-## Screenshot 2
+
 
 VM
 
@@ -6685,19 +6741,19 @@ This proves the VM has no Public IP.
 
 ---
 
-## Screenshot 3
+
 
 Browser showing Bastion connected to the VM.
 
 ---
 
-## Screenshot 4
+
 
 Copy text.
 
 Paste into terminal.
 
-Take a screenshot.
+
 
 ---
 
@@ -6751,7 +6807,7 @@ You must use the Azure Portal and Bastion.
 
 #
 
-> In this lab, I deployed Azure Bastion in the same Virtual Network as my virtual machine. I removed the VM's Public IP and connected to it through the Azure Portal using Bastion. Azure Bastion used the VM's private IP address, so the VM remained inaccessible directly from the internet. I also enabled clipboard support and successfully copied and pasted text into the VM terminal. This approach is more secure because it avoids exposing SSH (port 22) to the public internet.
+> In this lab, I deployed Azure Bastion in the same Virtual Network as my virtual machine. I first removed the VM's Public IP so that it was no longer directly accessible from the internet. Next, I created an AzureBastionSubnet, deployed week3-bastion, and connected to the VM through the Azure Portal using my SSH private key. The connection was established using the VM's private IP address (10.0.1.4), without exposing SSH (port 22) to the internet. I also verified that Copy and Paste was enabled by successfully copying text into the Ubuntu terminal. After completing the lab and capturing all required screenshots, I deleted Azure Bastion and its Public IP to avoid unnecessary Azure charges.
 
 ---
 
@@ -6759,17 +6815,13 @@ You must use the Azure Portal and Bastion.
 
 ```text
 SSH
-
-↓
-
+ │
+ ▼
 Direct Door
-```
 
-```text
 Azure Bastion
-
-↓
-
+ │
+ ▼
 Security Gate
 ```
 
@@ -6777,16 +6829,14 @@ Security Gate
 
 ## Cost Tip
 
-Azure Bastion is **billable**.
+Azure Bastion is a **billable service**.
 
-Once you've:
+After completing the lab, I:
 
-* Connected successfully
-* Taken my screenshots
+- Deleted `week3-bastion`
+- Deleted `week3-bastion-pip`
 
-Delete it if you don't need it anymore.
-
-This follows my assignment's instruction to avoid unnecessary Azure costs.
+This stopped Bastion-related charges while keeping my VM and Virtual Network intact for the remaining Week 3 labs.
 
 ---
 
