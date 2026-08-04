@@ -1,4 +1,4 @@
-
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/2b578268-2b87-4662-a545-f069b2ed2057" />
 # Questions
 
 # Q1.
@@ -5764,6 +5764,12 @@ is used.
 Capture:
 
 1. Route Table creation page
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/d9dbf98f-d26c-4136-b590-b556b91e933f" />
+
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/fdb4dfee-e0b0-4037-846e-a06453e8e5bf" />
+<img width="2560" height="1474" alt="image" src="https://github.com/user-attachments/assets/11eb693c-82e8-464f-a1ae-8b8a12b6873c" />
+
+
 
 2. Route rule showing:
 
@@ -5778,7 +5784,21 @@ Next Hop:
 None
 ```
 
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/ae011ebb-cde6-407b-b3cb-4ec8bc90d730" />
+
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/941a3e71-4148-4624-ac11-3c2f645a45d3" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/bfa4f6b2-045f-4c97-ab73-f1e965882141" />
+
+
 3. Subnet association page
+
+
+
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/9340c84f-b3bd-46ae-8f1e-6391419ea75b" />
+
+<img width="2500" height="1112" alt="image" src="https://github.com/user-attachments/assets/5f3cd5d4-17af-43cc-ad0d-1ffc4a5020ab" />
+<img width="2496" height="840" alt="image" src="https://github.com/user-attachments/assets/d698d0c3-16a4-4ab7-813d-0fda6620e75a" />
+
 
 4. Terminal showing SSH timeout after associating the UDR.
 
@@ -5792,6 +5812,12 @@ ssh: connect to host <public-ip> port 22: Connection timed out
 
 ---
 
+<img width="2527" height="1137" alt="image" src="https://github.com/user-attachments/assets/ad382ca4-b630-4a5b-b9cd-807470c47a8e" />
+<img width="2482" height="777" alt="image" src="https://github.com/user-attachments/assets/5f8bd150-8604-42ee-95b2-f9e6b44f26c7" />
+
+<img width="2487" height="767" alt="image" src="https://github.com/user-attachments/assets/ca352a3e-5a22-415f-8a91-2ba95c80ab97" />
+<img width="2481" height="1226" alt="image" src="https://github.com/user-attachments/assets/007e71d6-4f04-48d0-8e84-2ede03038dc9" />
+<img width="2526" height="347" alt="image" src="https://github.com/user-attachments/assets/a5277753-6db5-4394-8e52-36f08d1bf41f" />
 
 
 > A System Route is automatically created and managed by Azure to provide default network connectivity between resources such as virtual networks, subnets, and the internet. A User-Defined Route (UDR) is manually created by users to override Azure's default routing behavior and control where traffic should flow. In my lab, I created a UDR with destination `0.0.0.0/0` and configured the next hop as `None`. After associating it with the subnet, Azure had no valid next hop for traffic matching 0.0.0.0/0. As a result, network connectivity was interrupted, and my SSH connection to the VM timed out, demonstrating the effect of a User-Defined Route with Next Hop = None.
