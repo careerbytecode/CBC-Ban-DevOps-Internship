@@ -12023,11 +12023,11 @@ Azure DevOps must prove its identity before Azure allows it to create or modify 
 
 ## Step 5: What is a Service Connection?
 
-A **Service Connection** is a **trusted connection between Azure DevOps and Azure**.
+A **Service Connection** is a **secure authentication and authorization link between Azure DevOps and an Azure subscription**.
 
 It tells Azure:
 
-> "I trust this Azure DevOps project."
+> "This Azure DevOps project is authorized to access these Azure resources."
 
 Without it,
 
@@ -12066,15 +12066,17 @@ Azure DevOps
 
       │
 
-      ▼
-
-Deploy
+Deployment Request
 
       │
 
       ▼
 
 Azure
+
+      │
+
+No Authentication
 
       │
 
@@ -12118,29 +12120,45 @@ Imagine your application.
 ```text
 Developer
 
-↓
+      │
 
 Git Push
 
-↓
+      │
+
+      ▼
 
 Azure DevOps
 
-↓
+      │
 
-Build Docker Image
+CI/CD Pipeline
 
-↓
+      │
+
+      ▼
 
 Service Connection
 
-↓
+      │
 
-Azure Container Registry
+Authenticates with Azure
 
-↓
+      │
 
-AKS
+      ▼
+
+Azure Resources
+
+   ├── Azure Container Registry (ACR)
+
+   └── Azure Kubernetes Service (AKS)
+
+      │
+
+      ▼
+
+Application Deployed
 ```
 
 Without the Service Connection,
@@ -12151,7 +12169,7 @@ the pipeline stops before reaching Azure.
 
 ## Step 8: What Information Does a Service Connection Store?
 
-It securely stores credentials so Azure DevOps can authenticate with Azure.
+It securely stores or manages the authentication information Azure DevOps uses to access Azure resources.
 
 Depending on how it's configured, it may use:
 
@@ -12170,7 +12188,7 @@ You don't have to type your Azure username and password every time a pipeline ru
 | Website                  | portal.azure.com                       | dev.azure.com                                                 |
 | Purpose                  | Manage Azure resources                 | Develop and deploy applications                               |
 | Used By                  | Cloud Administrators, DevOps Engineers | Developers, QA, DevOps Engineers                              |
-| Creates VMs?             | ✅ Yes                                  | ❌ No (unless deploying through a pipeline using Azure access) |
+| Creates VMs?             | ✅ Yes                                  | ❌ No (it can only create them indirectly through Azure using a Service Connection and pipeline) |
 | Runs Pipelines?          | ❌ No                                   | ✅ Yes                                                         |
 | Stores Git Repositories? | ❌ No                                   | ✅ Yes                                                         |
 | Manages Resource Groups? | ✅ Yes                                  | ❌ Not directly                                                |
@@ -12208,6 +12226,12 @@ Allows delivery trucks inside.
 ```text
 Service Connection
 ```
+
+---
+
+### Real-World Example
+
+During my Azure DevOps capstone project, I used Azure DevOps to manage the source code and CI/CD pipeline for the application. The pipeline built the Docker images, performed code quality and security checks, and deployed the application to Azure resources. To allow Azure DevOps to securely access Azure services such as Azure Container Registry (ACR) and Azure Kubernetes Service (AKS), a Service Connection was used to securely authenticate Azure DevOps with Azure resources. It provides authenticated access without storing Azure usernames and passwords in the pipeline.
 
 ---
 
@@ -12273,13 +12297,7 @@ the delivery staff can't enter.
 
 
 
-> Azure Portal is the web interface used to create and manage Azure cloud resources such as Virtual Machines, Resource Groups, Storage Accounts, and AKS clusters. Azure DevOps is a platform used for source code management, CI/CD pipelines, work tracking, and software delivery. A Service Connection is a secure authentication link that allows Azure DevOps pipelines to access Azure resources. It is required so pipelines can perform actions such as pushing Docker images to Azure Container Registry or deploying applications to AKS without exposing user credentials.
-
----
-
-
-
-> Azure Portal is used to create and manage Azure infrastructure, while Azure DevOps is used to manage source code, build pipelines, and application deployments. A Service Connection securely connects Azure DevOps to an Azure subscription by providing authenticated access. This allows CI/CD pipelines to deploy resources or applications to Azure services such as Azure Container Registry and AKS.
+> Azure Portal is the web-based interface used to create, configure, and manage Azure cloud resources such as Virtual Machines, Resource Groups, Storage Accounts, Virtual Networks, and Azure Kubernetes Service (AKS) clusters. Azure DevOps is a platform that supports the complete software development lifecycle by providing source code management, work tracking, Git repositories, CI/CD pipelines, testing, and application deployment. A **Service Connection** is a secure authentication and authorization mechanism that links Azure DevOps to an Azure subscription, allowing CI/CD pipelines to access Azure resources without exposing user credentials. It enables pipelines to securely perform tasks such as pushing Docker images to Azure Container Registry (ACR), deploying applications to AKS, and managing Azure resources as part of an automated deployment workflow.
 
 ---
 
@@ -12288,25 +12306,43 @@ the delivery staff can't enter.
 ######## Azure Portal
 
 ```text
-Create VM
+Azure Portal
 
-Create AKS
+      │
 
-Create Storage
+Create Resources
 
-Manage Cloud
+      ├── Virtual Machine
+
+      ├── AKS
+
+      ├── Storage
+
+      └── Networking
 ```
 
 ### Azure DevOps
 
 ```text
-Git Repo
+Azure DevOps
+
+      │
+
+Git Repository
+
+      │
 
 CI/CD Pipeline
 
+      │
+
 Build
 
+      │
+
 Test
+
+      │
 
 Deploy
 ```
