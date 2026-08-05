@@ -13218,9 +13218,30 @@ The warehouse is Azure Container Registry.
 
 ✓ latest and Build ID image tags
 
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/b4815ee3-e14c-4101-8214-31a3ff1bc697" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/4347f9cb-e397-4770-a5f9-0507a9739f16" />
+<img width="2560" height="1352" alt="image" src="https://github.com/user-attachments/assets/0e7355ae-7871-47f1-8167-1789a77e4be7" />
+<img width="1370" height="897" alt="image" src="https://github.com/user-attachments/assets/1d0ffbb9-c4af-4579-8080-1e8aa118b1ca" />
+<img width="1460" height="1003" alt="image" src="https://github.com/user-attachments/assets/1d9abaef-5ee0-47e9-afe5-96299762e0ca" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/287a26db-5a4b-46cc-9e73-ce3bc232b50e" />
+<img width="888" height="403" alt="image" src="https://github.com/user-attachments/assets/3fc61ac6-d8ef-4c53-a12f-09933df2b871" />
+<img width="953" height="447" alt="image" src="https://github.com/user-attachments/assets/d35ba025-7e10-421d-af13-645ccc7a7d60" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/61f79313-a098-4d30-b02b-1ca4b7b43152" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/cf77f0c1-a322-4a39-8e56-c91d9229a4aa" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/92f0e044-9e9a-4be8-83ad-10c69fb12ccc" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/a26292dd-430d-4170-8f3a-c7e6acf12598" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/542bda7f-236e-46c5-8e8b-f75c415aa14b" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/48626a2e-799e-4bdf-947c-9cd854b86326" />
+<img width="613" height="203" alt="image" src="https://github.com/user-attachments/assets/785d43ad-092d-40bc-88cc-a15f77c937af" />
+<img width="511" height="190" alt="image" src="https://github.com/user-attachments/assets/88cd706e-c2d5-43ba-af7a-7eab9b95c6e7" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/4ab23cf7-fa67-475e-a6a1-eaa5dfb9039c" />
 
 
-Reference: https://github.com/bymalathi/azure-week3-assignment.git
+
+---
+
+## Reference: 
+- https://github.com/bymalathi/azure-week3-assignment.git
 
 
 
