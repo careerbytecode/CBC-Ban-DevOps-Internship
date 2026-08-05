@@ -13153,65 +13153,56 @@ Image Ready
 
 ## Cleanup
 
+# Cleanup: Delete All Azure Resources and Attach Proof
 
-## Cleanup: Delete All Azure Resources and Attach Proof
-
-After completing all the labs and taking the required screenshots, I should delete the Azure resources I created to avoid unnecessary charges.
+After completing all the Azure labs, successfully running the Azure DevOps pipeline, and capturing all the required screenshots, I deleted the Azure resources created during this assignment to avoid unnecessary charges.
 
 ---
 
 ## Why Should We Delete Resources?
 
-Remember assignment warning:
+Azure resources such as Virtual Machines, Azure Kubernetes Service (AKS), Azure Bastion, Public IP addresses, Azure Container Registry (ACR), and other services may continue to incur charges if they remain deployed.
 
-> **VMs, Bastion, AKS, Public IPs, and other Azure resources can incur charges if they continue running.**
+Deleting unused resources helps keep the Azure subscription clean and prevents unnecessary costs.
 
 ---
 
 ## Analogy
 
-Imagine I book a hotel room.
+Imagine booking a hotel room.
 
 ```text
-I Check In
+Check In
 
 ↓
 
-Use Room
+Use the Room
 
 ↓
 
-Finish Trip
+Finish the Stay
 
 ↓
 
 Check Out
 ```
 
-If I never check out...
+If I never check out, the hotel continues charging me.
 
-The hotel keeps charging me.
-
-Azure works exactly the same way.
-
-If my resources continue running,
-
-Azure may continue billing my subscription.
+Azure works the same way. If resources continue running after the lab is completed, Azure may continue billing the subscription.
 
 ---
 
-## What Should We Delete?
+# Resources Created During the Lab
 
-If my created everything inside **one Resource Group** (recommended), deleting it is the easiest option.
-
-Example:
+During this assignment, I created the following Azure resources:
 
 ```text
-week3-rg
+Resource Group (week3-rg)
 
 │
 
-├── Virtual Machine
+├── Virtual Machine (week3-vm)
 
 ├── Virtual Network
 
@@ -13221,28 +13212,22 @@ week3-rg
 
 ├── Public IP
 
-├── Azure Bastion
+├── Azure Bastion (if created)
 
-├── AKS Cluster
+├── Azure Container Registry (malathiweek3acr)
 
-├── Azure Container Registry
+├── Azure Kubernetes Service (AKS) (if created)
 
-├── Route Table
-
-└── Other Azure Resources
+└── Other supporting resources
 ```
 
-Instead of deleting each resource one by one,
-
-delete the **Resource Group**.
-
-Everything inside it is deleted automatically.
+Since these resources were created inside the same Resource Group, deleting the Resource Group removes everything together.
 
 ---
 
-## Step 1: Open Azure Portal
+# Step 1: Open Azure Portal
 
-Go to:
+Navigate to:
 
 ```text
 Azure Portal
@@ -13254,19 +13239,21 @@ Resource Groups
 
 ---
 
-## Step 2: Open my Resource Group
+# Step 2: Open the Resource Group
 
-For example:
+Open the Resource Group used for this assignment.
+
+Example:
 
 ```text
 week3-rg
 ```
 
-I'll see all the resources inside the Resource Group.
+Inside the Resource Group, I can see all the Azure resources created during the lab.
 
 ---
 
-## Step 3: Delete the Resource Group
+# Step 3: Delete the Resource Group
 
 Click:
 
@@ -13274,7 +13261,7 @@ Click:
 Delete Resource Group
 ```
 
-Azure will ask me to confirm the deletion.
+Azure asks for confirmation.
 
 Type the Resource Group name exactly.
 
@@ -13292,7 +13279,7 @@ Delete
 
 ---
 
-## What Happens?
+# What Happens?
 
 ```text
 Delete Resource Group
@@ -13303,28 +13290,30 @@ Delete Resource Group
 
 Delete Virtual Machine
 
-Delete AKS
-
-Delete Azure Bastion
-
 Delete Virtual Network
 
-Delete NSG
+Delete Network Security Group
 
 Delete Public IP
 
 Delete Azure Container Registry
 
-Delete Everything
+Delete Azure Bastion (if created)
+
+Delete AKS Cluster (if created)
+
+Delete Remaining Resources
 ```
+
+Azure automatically deletes every resource inside the Resource Group.
 
 This process may take several minutes.
 
 ---
 
-## Alternative (Azure CLI)
+# Alternative Using Azure CLI
 
-If I am using Azure CLI, run:
+The same cleanup can also be performed using Azure CLI.
 
 ```bash
 az group delete --name week3-rg --yes --no-wait
@@ -13336,13 +13325,13 @@ az group delete --name week3-rg --yes --no-wait
 az group delete
 ```
 
-Deletes a Resource Group.
+Deletes an Azure Resource Group.
 
 ```text
 --name week3-rg
 ```
 
-Specifies which Resource Group to delete.
+Specifies the Resource Group to delete.
 
 ```text
 --yes
@@ -13354,59 +13343,53 @@ Automatically confirms the deletion.
 --no-wait
 ```
 
-Starts the deletion immediately without waiting for it to finish.
+Starts the deletion immediately without waiting for the process to finish.
 
 ---
 
-## How Do I Know It's Deleted?
+# How Do I Know It Was Deleted?
 
-Go back to:
+Return to:
 
 ```text
+Azure Portal
+
+↓
+
 Resource Groups
 ```
 
-If I no longer see:
+If the Resource Group shows:
 
 ```text
-week3-rg
+Status: Deleting
 ```
 
-or its status changes to:
+or later disappears from the list,
 
-```text
-Deleting
-```
-
-and later disappears,
-
-my cleanup was successful.
+the cleanup was successful.
 
 ---
 
-## Screenshot
+# Screenshots
 
-## Option 1 (Recommended)
+### Option 1 (Recommended)
+
+Capture the Resource Group showing:
 
 ```text
-Resource Groups
-
-↓
-
 week3-rg
-
-↓
 
 Status: Deleting
 ```
 
-This proves I initiated the cleanup.
+This proves that the cleanup process was initiated.
 
 ---
 
-## Option 2
+### Option 2
 
-After deletion completes:
+After the deletion completes, capture:
 
 ```text
 Resource Groups
@@ -13420,41 +13403,41 @@ week3-rg
 Not Found
 ```
 
-or the Resource Group is no longer listed.
+or show that the Resource Group is no longer listed.
 
 ---
 
-## Common Beginner Mistakes
+# Common Beginner Mistakes
 
-## ❌ Deleting only the Virtual Machine
+### ❌ Deleting only the Virtual Machine
 
-The VM is deleted, but resources like:
+Deleting only the Virtual Machine may leave behind resources such as:
 
 * Public IP
 * Azure Bastion
-* AKS
 * Azure Container Registry
+* AKS Cluster
 * Managed Disks
 
-may still exist and could continue to incur charges.
+These resources may continue to incur charges.
 
 ---
 
-## ❌ Forgetting Managed Disks
+### ❌ Forgetting Managed Disks
 
-If my delete VMs individually, always verify whether the managed disks were also removed.
+If resources are deleted individually, always verify that the managed disks are also removed.
 
-Deleting the **Resource Group** removes everything together.
-
----
-
-## ❌ Deleting the Wrong Resource Group
-
-Always verify the Resource Group name before confirming the deletion.
+Deleting the entire Resource Group removes all associated resources together.
 
 ---
 
-## Remember
+### ❌ Deleting the Wrong Resource Group
+
+Always verify the Resource Group name before confirming deletion.
+
+---
+
+# Remember
 
 ```text
 One Resource Group
@@ -13465,13 +13448,16 @@ One Delete
 
 ↓
 
-Everything Removed
+All Azure Resources Removed
+
+↓
+
+No Unnecessary Charges
 ```
 
 ---
 
-
-> After completing all the required Azure labs and capturing the necessary screenshots, I deleted the entire Resource Group containing all the Azure resources. This removed the Virtual Machine, AKS cluster, Azure Bastion, Azure Container Registry, Virtual Network, Network Security Group, Public IP, and other related resources, helping avoid unnecessary Azure charges.
+> After completing all the required Azure networking, Virtual Machine, Azure Container Registry, and Azure DevOps pipeline labs, I captured the required screenshots and deleted the Resource Group (`week3-rg`). This removed all associated Azure resources, including the Virtual Machine (`week3-vm`), Virtual Network, Network Security Group, Public IP, Azure Container Registry (`malathiweek3acr`), and other supporting resources created during the assignment. Deleting the Resource Group is the recommended cleanup method because it removes all related resources in a single operation and helps prevent unnecessary Azure charges.
 
 ---
 
@@ -13482,23 +13468,24 @@ Complete Assignment
 
 ↓
 
-Take Screenshots
+Capture Screenshots
 
 ↓
 
-Delete Resource Group
+Delete Resource Group (week3-rg)
 
 ↓
 
-All Resources Removed
+All Azure Resources Removed
 
 ↓
 
-No Unnecessary Charges
+No Unnecessary Azure Charges
 ```
 
 ---
 
+### Complete Azure Week 3 Learning Journey
 
 ```text
 Azure Networking
@@ -13509,7 +13496,7 @@ Virtual Machines
 
 ↓
 
-Public & Private IPs
+Public & Private IP Addresses
 
 ↓
 
@@ -13517,7 +13504,7 @@ Azure Bastion
 
 ↓
 
-Microsoft Entra ID & RBAC
+Microsoft Entra ID & Azure RBAC
 
 ↓
 
@@ -13529,7 +13516,7 @@ Azure Container Registry (ACR)
 
 ↓
 
-Azure DevOps & CI Pipeline
+Azure DevOps CI Pipeline
 
 ↓
 
