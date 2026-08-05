@@ -11171,6 +11171,27 @@ Review + Create
 Create
 ```
 
+## Lab Performed
+
+For this assignment, I created my own Azure Container Registry with the following configuration:
+
+| Setting               | Value             |
+| --------------------- | ----------------- |
+| Resource Group        | `week3-rg`        |
+| Registry Name         | `malathiweek3acr` |
+| Region                | `West US 2`       |
+| SKU                   | `Basic`           |
+| Public Network Access | Enabled           |
+| Authentication        | Azure RBAC        |
+
+After deployment completed successfully, Azure created the registry with the login server:
+
+```text
+malathiweek3acr.azurecr.io
+```
+
+
+
 ---
 
 ## Step 7: Enable Admin User
@@ -11208,6 +11229,31 @@ You'll use these to log in.
 
 ---
 
+## Step 7.1: Verify the Registry from Azure CLI
+
+To verify that the registry was created successfully, I ran:
+
+```bash
+az acr list --output table
+```
+
+Output:
+
+```text
+NAME                  RESOURCE GROUP    LOCATION    SKU
+---------------------------------------------------------
+malathiweek3acr       week3-rg          westus2     Basic
+```
+
+### What does this command do?
+
+It lists all Azure Container Registries in my subscription.
+
+It confirmed that my registry had been created successfully.
+
+
+---
+
 ## Step 8: Login to ACR
 
 Open Azure Cloud Shell or your terminal.
@@ -11242,111 +11288,342 @@ Welcome!
 
 ---
 
-## Step 9: Tag the Image
+## Step 8.1: Login Successful
 
-Suppose your image is:
-
-```text
-myapp:latest
-```
-
-Tell Docker where you want to upload it.
-
-Run:
+I logged into my Azure Container Registry using:
 
 ```bash
-docker tag myapp:latest week3acr.azurecr.io/myapp:v1
+az acr login --name malathiweek3acr
 ```
+
+Output:
+
+```text
+Login Succeeded
+```
+
+### What does this mean?
+
+```text
+Azure CLI
+
+      │
+
+      ▼
+
+Checks my Azure account
+
+      │
+
+      ▼
+
+Authenticates Docker
+
+      │
+
+      ▼
+
+Docker can now push images
+```
+
+The message **Login Succeeded** confirms that Docker is now authenticated with my Azure Container Registry.
 
 ---
 
-######## Why Tag?
+## Step 9: Tag the Docker Image
 
-Imagine sending a parcel.
+Before uploading an image, Docker needs to know **where** to upload it.
+
+My image already existed locally as:
+
+```text
+myapp:v1
+```
+
+I tagged it with my Azure Container Registry login server:
+
+```bash
+docker tag myapp:v1 malathiweek3acr.azurecr.io/myapp:v1
+```
+
+### Why is tagging required?
+
+Think of sending a courier parcel.
 
 Without an address,
 
-The courier doesn't know where to deliver it.
+the courier doesn't know where to deliver it.
 
-The tag adds the destination.
+```text
+Docker Image
 
----
+↓
 
-## Step 10: Push the Image
+Destination Address
 
-Run:
+↓
 
-```bash
-docker push week3acr.azurecr.io/myapp:v1
+Azure Container Registry
 ```
 
-Docker uploads the image.
+The tag acts like the destination address.
 
 ---
 
-#### Diagram
+## Verify the Tag
+
+I verified the image using:
+
+```bash
+docker images | grep myapp
+```
+
+Output:
+
+```text
+malathiweek3acr.azurecr.io/myapp:v1
+
+myapp:v1
+```
+
+This confirmed that the image now had both:
+
+* Local image name
+* Azure Container Registry image name
+
+---
+
+## Step 10: Push the Image to Azure Container Registry
+
+After tagging the image, I uploaded it using:
+
+```bash
+docker push malathiweek3acr.azurecr.io/myapp:v1
+```
+
+Docker uploaded each image layer one by one.
+
+Output ended with:
+
+```text
+v1: digest: sha256:...
+
+size: 856
+```
+
+This indicates that the image was uploaded successfully.
+
+---
+
+### What happens during `docker push`?
 
 ```text
 Laptop
 
- │
-
- ▼
+     │
 
 Docker Image
 
- │
-
- ▼
+     │
 
 Tag Image
 
- │
+     │
 
- ▼
+Authenticate
 
-Push
+     │
 
- │
+Upload Layers
 
- ▼
+     │
 
 Azure Container Registry
 ```
 
 ---
 
-## Step 11: Verify
+# Improve the Architecture Diagram
 
-Go to:
+Instead of
+
+```text
+Developer
+
+↓
+
+Azure Container Registry
+
+↓
+
+AKS
+
+↓
+
+Runs Pods
+```
+
+use
+
+```text
+Developer
+
+      │
+
+docker build
+
+      │
+
+      ▼
+
+Docker Image
+
+      │
+
+docker tag
+
+      │
+
+      ▼
+
+Azure Container Registry
+
+      │
+
+docker pull
+
+      │
+
+      ▼
+
+AKS Cluster
+
+      │
+
+      ▼
+
+Running Pods
+```
+
+Much easier to understand.
+
+---
+
+# Improve Docker Hub Diagram
+
+Instead of
+
+```text
+Developer
+
+↓
+
+Docker Hub
+
+↓
+
+Anyone Can Pull Public Images
+```
+
+use
+
+```text
+Developer
+
+      │
+
+Push Image
+
+      │
+
+      ▼
+
+Docker Hub
+
+      │
+
+Public Internet
+
+      │
+
+      ▼
+
+Anyone can pull public images
+```
+
+---
+
+# Improve ACR Diagram
+
+```text
+Developer
+
+      │
+
+Push Image
+
+      │
+
+      ▼
+
+Azure Container Registry
+
+      │
+
+Azure Authentication
+
+      │
+
+      ▼
+
+AKS / Azure Services
+
+      │
+
+      ▼
+
+Deploy Containers
+```
+
+---
+
+## Step 11: Verify the Image in Azure Portal
+
+After the push completed successfully, I verified the uploaded image in Azure Portal.
+
+Navigate to:
 
 ```text
 Azure Portal
 
 ↓
 
-Container Registry
+Container Registries
+
+↓
+
+malathiweek3acr
 
 ↓
 
 Repositories
 ```
 
-You should see:
+Repository displayed:
 
 ```text
 myapp
 ```
 
-Click it.
+Open the repository.
 
-You'll see:
+Tag displayed:
 
 ```text
 v1
 ```
 
-Success!
+This confirms that the image was successfully stored in Azure Container Registry.
 
 ---
 
@@ -11393,7 +11670,77 @@ The difference is **where they're stored** and **how they're managed**.
 
 ---
 
-#### Screenshots Required
+## Lab Verification
+
+✓ Created Azure Container Registry named **malathiweek3acr**
+
+✓ Verified the registry using:
+
+```bash
+az acr list --output table
+```
+
+✓ Logged into Azure Container Registry successfully:
+
+```bash
+az acr login --name malathiweek3acr
+```
+
+Output:
+
+```text
+Login Succeeded
+```
+
+✓ Built a Docker image:
+
+```bash
+docker build -t myapp:v1 .
+```
+
+✓ Tagged the image:
+
+```bash
+docker tag myapp:v1 malathiweek3acr.azurecr.io/myapp:v1
+```
+
+✓ Verified the tagged image:
+
+```bash
+docker images | grep myapp
+```
+
+✓ Successfully pushed the image:
+
+```bash
+docker push malathiweek3acr.azurecr.io/myapp:v1
+```
+
+✓ Verified the image in Azure Portal under:
+
+```text
+Container Registries
+
+↓
+
+malathiweek3acr
+
+↓
+
+Repositories
+
+↓
+
+myapp
+
+↓
+
+v1
+```
+
+---
+
+#### Screenshots 
 
 
 Container Registry Overview
@@ -11467,14 +11814,7 @@ Only employees can access it.
 
 
 
-> Docker Hub is a general-purpose container registry provided by Docker that hosts both public and private container images. Azure Container Registry (ACR) is Microsoft's private container registry service designed for Azure environments. ACR integrates closely with Azure services such as AKS, provides Azure-based authentication and access control, and is commonly used for enterprise applications. In this lab, I created an Azure Container Registry, tagged my Docker image with the registry name, pushed it successfully to ACR, and verified that the image appeared in the repository.
-
----
-
-
-
-> Docker Hub is a public container registry widely used for sharing Docker images, while Azure Container Registry (ACR) is a private Azure-native registry designed for secure storage and management of container images. I created an ACR, logged into it, tagged my Docker image with the registry URL, pushed it successfully, and verified the uploaded image in the Azure Portal.
-
+> Docker Hub is a general-purpose container registry provided by Docker that allows developers to store and share both public and private container images. Azure Container Registry (ACR) is Microsoft's private, Azure-native container registry that integrates seamlessly with Azure services such as Azure Kubernetes Service (AKS) and supports secure authentication and access control using Azure. In this lab, I created an Azure Container Registry named **malathiweek3acr**, logged into it using the Azure CLI, tagged my Docker image (`myapp:v1`) with the ACR login server, successfully pushed the image to the registry, and verified that the **myapp:v1** repository and image were available in the Azure Portal. This demonstrates how ACR provides a secure and centralized location for storing container images that can be deployed to Azure-based Kubernetes environments.
 ---
 
 ## Revision
