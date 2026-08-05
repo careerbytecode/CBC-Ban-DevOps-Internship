@@ -12556,7 +12556,7 @@ Before creating the pipeline, I completed the following prerequisites:
 
 ✅ Connected GitHub to Azure DevOps
 
-✅ Created a Docker Registry Service Connection named week3-acr-connection-docker
+✅ Created a Docker Registry Service Connection (`week3-acr-connection-docker`) to authenticate Azure DevOps with Azure Container Registry.
 
 ---
 
@@ -12581,7 +12581,7 @@ The following components were created and configured during the lab:
 | Docker Image                       | `myapp`                              |
 | Azure Container Registry           | `malathiweek3acr`                    |
 | Docker Registry Service Connection | `week3-acr-connection-docker`        |
-| Build Agent                        | Microsoft-hosted (`ubuntu-latest`)   |
+| Build Agent                        | Microsoft-hosted Agent (`ubuntu-latest`)  |
 
 The application consists of a simple HTML page that is copied into an Nginx container using a Dockerfile. The pipeline automatically builds the Docker image whenever changes are pushed to the `main` branch and publishes the image to Azure Container Registry.
 
@@ -12797,7 +12797,9 @@ Push Image
 Pipeline Completed Successfully
 ```
 
-The pipeline used a **Microsoft-hosted Ubuntu agent** to execute all build steps.
+
+
+During execution, Azure DevOps automatically provisioned a **Microsoft-hosted Ubuntu agent**, checked out the source code from GitHub, built the Docker image using the Dockerfile, authenticated with Azure Container Registry through the Docker Registry Service Connection, and pushed the image with both the Build ID and `latest` tags.
 
 ---
 
@@ -12840,262 +12842,6 @@ This confirmed that Azure DevOps successfully built the Docker image and pushed 
 ---
 
 
-
-## Step 10: Create the Pipeline
-
-I opened my Azure DevOps project and created a new pipeline.
-```text
-Navigation:
-
-Azure DevOps
-
-↓
-
-Pipelines
-
-↓
-
-New Pipeline
-
-↓
-
-GitHub
-
-↓
-
-Selected Repository
-
-↓
-
-azure-week3-assignment
-
-↓
-
-Existing Azure Pipelines YAML File
-
-↓
-
-azure-pipelines.yml
-
-↓
-
-Run Pipeline
-```
----
-
-## Step 11: Pipeline YAML
-
-A simple pipeline can include these stages:
-
-```text
-Checkout Code
-
-↓
-
-Build Docker Image
-
-↓
-
-Login to ACR
-
-↓
-
-Push Docker Image
-```
-
----
-
-## Example YAML
-
-```yaml
-trigger:
-- main
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-variables:
-  imageRepository: 'myapp'
-  containerRegistry: 'week3-acr-connection-docker'
-  dockerfilePath: 'Dockerfile'
-  tag: '$(Build.BuildId)'
-
-steps:
-
-- checkout: self
-
-- task: Docker@2
-  displayName: Build and Push Docker Image
-  inputs:
-    command: buildAndPush
-    repository: $(imageRepository)
-    dockerfile: $(dockerfilePath)
-    containerRegistry: $(containerRegistry)
-    tags: |
-      $(tag)
-      latest
-```
-
----
-
-## Step 11.1 – Understanding the YAML
-
-```text
-trigger:
-    │
-    ▼
-Runs the pipeline whenever code is pushed to the main branch.
-
-pool:
-    │
-    ▼
-Uses a Microsoft-hosted Ubuntu virtual machine.
-
-checkout:
-    │
-    ▼
-Downloads the latest source code from GitHub.
-
-Docker Build:
-    │
-    ▼
-Builds a Docker image using the Dockerfile.
-
-Docker Registry Service Connection:
-    │
-    ▼
-Authenticates securely with Azure Container Registry.
-
-Docker Push:
-    │
-    ▼
-Pushes the Docker image to Azure Container Registry using two tags:
-
-• Build ID
-• latest
-```
-
----
-
-## What Does This Pipeline Do?
-
-```text
-checkout
-
-↓
-
-Downloads my source code
-```
-
-```text
-Docker Build
-
-↓
-
-Creates Docker Image
-```
-
-```text
-Docker Push
-
-↓
-
-Uploads image to Azure Container Registry
-```
-
-Everything is automatic.
-
----
-
-## Analogy
-
-Imagine making a birthday cake.
-
-Instead of:
-
-* Mixing ingredients
-* Baking
-* Decorating
-* Delivering
-
-myself,
-
-you press one button.
-
-The machine does everything.
-
-That is what the pipeline does.
-
----
-
-## Step 12: Run the Pipeline
-
-After committing the pipeline YAML to GitHub, Azure DevOps automatically triggered the pipeline because of:
-
-```text
-trigger:
-- main
-
-The pipeline executed the following stages:
-
-Checkout Source Code
-
-↓
-
-Build Docker Image
-
-↓
-
-Authenticate with Azure Container Registry
-
-↓
-
-Push Image
-
-↓
-
-Pipeline Completed Successfully
-```
-
----
-
-## Step 13: Verify the Image
-
-
-
-
-After the pipeline completed successfully, I verified the uploaded image in Azure Portal.
-
-```text
-Navigation:
-
-Azure Portal
-
-↓
-
-Container Registries
-
-↓
-
-malathiweek3acr
-
-↓
-
-Repositories
-
-↓
-
-myapp
-
-The repository contained:
-
-latest
-
-and
-
-Build ID tag
-```
-This confirmed that the Docker image was successfully pushed to Azure Container Registry.
 
 
 
@@ -13189,34 +12935,24 @@ The warehouse is Azure Container Registry.
 
 ---
 
+ 
 
 
+### Screenshots
 
+1. GitHub Repository (azure-week3-assignment)
 
+2. Azure DevOps Pipeline
 
+3. Successful Pipeline Run
 
-## Screenshots 
+4. Pipeline Logs
 
+5. Azure Container Registry
 
-✓ GitHub repository (azure-week3-assignment)
+6. Repository (myapp)
 
-✓ azure-pipelines.yml
-
-✓ Dockerfile
-
-✓ README.md
-
-✓ Git commit history (minimum five commits)
-
-✓ Azure DevOps pipeline run
-
-✓ Pipeline logs showing Docker build and push
-
-✓ Azure Container Registry (Repositories)
-
-✓ myapp repository
-
-✓ latest and Build ID image tags
+7. Image Tags (latest and Build ID)
 
 <img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/b4815ee3-e14c-4101-8214-31a3ff1bc697" />
 <img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/4347f9cb-e397-4770-a5f9-0507a9739f16" />
@@ -13240,8 +12976,9 @@ The warehouse is Azure Container Registry.
 
 ---
 
-## Reference: 
-- https://github.com/bymalathi/azure-week3-assignment.git
+## GitHub Repository
+
+https://github.com/bymalathi/azure-week3-assignment
 
 
 
