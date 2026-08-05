@@ -11022,7 +11022,7 @@ Anyone can download public Docker images.
 
 ## Step 3: What is Azure Container Registry (ACR)?
 
-Azure Container Registry is Microsoft's **private container registry**.
+Azure Container Registry (ACR) is Microsoft's Azure-native **private container registry** service for securely storing and managing container images and OCI artifacts.
 
 Instead of storing images on Docker Hub,
 
@@ -11031,7 +11031,7 @@ You store them inside **your Azure subscription**.
 Example:
 
 ```text
-week3acr.azurecr.io/myapp:v1
+malathiweek3acr.azurecr.io/myapp:v1
 ```
 
 Only authorized users and Azure services can access it.
@@ -11155,8 +11155,8 @@ Fill:
 | Field          | Value                              |
 | -------------- | ---------------------------------- |
 | Resource Group | week3-rg                           |
-| Registry Name  | week3acr (must be globally unique) |
-| Region         | Same region                        |
+| Registry Name  | malathiweek3acr (must be globally unique) |
+| Region         | West US 2                        |
 | SKU            | Basic                              |
 
 Choose **Basic** because it's sufficient for the assignment and keeps costs lower.
@@ -11261,10 +11261,10 @@ Open Azure Cloud Shell or your terminal.
 Run:
 
 ```bash
-az acr login --name week3acr
+az acr login --name malathiweek3acr
 ```
 
-Replace `week3acr` with your registry name.
+Replace `malathiweek3acr` with your registry name.
 
 ---
 
@@ -11401,7 +11401,7 @@ After tagging the image, I uploaded it using:
 docker push malathiweek3acr.azurecr.io/myapp:v1
 ```
 
-Docker uploaded each image layer one by one.
+Docker uploaded the image to Azure Container Registry layer by layer. Since Docker images are made up of multiple layers, only the required layers are transferred. The final digest confirms that the image was uploaded successfully.
 
 Output ended with:
 
@@ -11443,27 +11443,7 @@ Azure Container Registry
 
 ---
 
-# Improve the Architecture Diagram
 
-Instead of
-
-```text
-Developer
-
-↓
-
-Azure Container Registry
-
-↓
-
-AKS
-
-↓
-
-Runs Pods
-```
-
-use
 
 ```text
 Developer
@@ -11509,23 +11489,7 @@ Much easier to understand.
 
 ---
 
-# Improve Docker Hub Diagram
-
-Instead of
-
-```text
-Developer
-
-↓
-
-Docker Hub
-
-↓
-
-Anyone Can Pull Public Images
-```
-
-use
+#  Docker Hub Diagram
 
 ```text
 Developer
@@ -11553,7 +11517,7 @@ Anyone can pull public images
 
 ---
 
-# Improve ACR Diagram
+#  ACR Diagram
 
 ```text
 Developer
@@ -11657,7 +11621,7 @@ Your registry name becomes part of the image name.
 Example:
 
 ```text
-week3acr.azurecr.io/myapp:v1
+malathiweek3acr.azurecr.io/myapp:v1
 ```
 
 ---
@@ -11748,7 +11712,7 @@ Container Registry Overview
 Show:
 
 ```text
-week3acr
+malathiweek3acr
 ```
 
 ---
@@ -11832,7 +11796,7 @@ Only employees can access it.
 
 
 
-> Docker Hub is a general-purpose container registry provided by Docker that allows developers to store and share both public and private container images. Azure Container Registry (ACR) is Microsoft's private, Azure-native container registry that integrates seamlessly with Azure services such as Azure Kubernetes Service (AKS) and supports secure authentication and access control using Azure. In this lab, I created an Azure Container Registry named **malathiweek3acr**, logged into it using the Azure CLI, tagged my Docker image (`myapp:v1`) with the ACR login server, successfully pushed the image to the registry, and verified that the **myapp:v1** repository and image were available in the Azure Portal. This demonstrates how ACR provides a secure and centralized location for storing container images that can be deployed to Azure-based Kubernetes environments.
+> Docker Hub is a general-purpose container registry provided by Docker that allows developers to store and share both public and private container images. Azure Container Registry (ACR) is Microsoft's Azure-native private container registry that securely stores and manages container images while integrating seamlessly with Azure services such as Azure Kubernetes Service (AKS). It supports Azure-based authentication, role-based access control (RBAC), and secure image management for enterprise applications. In this lab, I created an Azure Container Registry named **malathiweek3acr**, logged into it using the Azure CLI, tagged my Docker image (`myapp:v1`) with the ACR login server, successfully pushed the image to the registry, and verified that the **myapp:v1** repository and image tag v1 were available in the Azure Portal. This demonstrates how Azure Container Registry provides a secure, centralized repository for storing container images that can be easily integrated with Azure services such as AKS for containerized application deployments.
 ---
 
 ## Revision
