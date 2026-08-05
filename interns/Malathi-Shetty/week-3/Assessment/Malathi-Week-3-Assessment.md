@@ -13405,6 +13405,14 @@ Not Found
 
 or show that the Resource Group is no longer listed.
 
+
+<img width="2503" height="1182" alt="image" src="https://github.com/user-attachments/assets/a35e9289-d163-4c40-969d-27bbdbd9c089" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/076d4957-395b-4bd9-ae94-cdc894772736" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/36a58d3b-f6ff-41cb-8f7d-741f1c2e8917" />
+<img width="2560" height="1229" alt="image" src="https://github.com/user-attachments/assets/7622a508-789e-49eb-a64a-59de6f7a6402" />
+
+
+
 ---
 
 # Common Beginner Mistakes
