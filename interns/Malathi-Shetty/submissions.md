@@ -79,19 +79,23 @@ https://www.instagram.com/reel/DbIUJP1Pg6s/
 **GitHub Folder:** https://github.com/bymalathi/flavorforge-azure-devsecops-capstone.git
 
 **Registered in PROJECTS-CATALOG.md:** 
-Project 3 — Multi-Stage CI/CD Pipeline (Azure DevOps)
-Assigned to: Malathi
+#### 🔧 Project 3 — Multi-Stage CI/CD Pipeline (Azure DevOps)
+**Assigned to: Malathi**
 
-Scenario: Ship an application through a complete multi-stage pipeline.
-DevOps focus: Azure DevOps YAML pipeline — build → test → containerize → push to ACR → deploy to AKS.
-Key concepts: Azure DevOps Pipelines · multi-stage YAML · ACR.
-✅ Done when: a single push runs distinct stages (Build → Test → Push → Deploy), each visible as its own block in the pipeline run.
+- **Scenario:** Ship an application through a complete multi-stage pipeline.
+- **DevOps focus:** **Azure DevOps YAML pipeline** — build → test → containerize → push to **ACR** → deploy to AKS.
+- **Key concepts:** Azure DevOps Pipelines · multi-stage YAML · ACR.
+- **✅ Done when:** a single push runs distinct **stages** (Build → Test → Push → Deploy), each visible as its own block in the pipeline run.
+
+```yaml
 stages:
   - stage: Build
   - stage: Test
   - stage: Push        # to ACR
   - stage: Deploy      # to AKS
-🎯 The focus is the stages, not just one build task. Show the multi-stage graph in the run.
+```
+
+> 🎯 The focus is the **stages**, not just one build task. Show the multi-stage graph in the run.
 
 ---
 
