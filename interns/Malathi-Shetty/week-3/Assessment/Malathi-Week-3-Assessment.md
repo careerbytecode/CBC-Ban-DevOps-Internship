@@ -148,7 +148,7 @@ It provides:
 
 Without a VNet...
 
-my VM has nowhere to live.
+A VM requires a Virtual Network and subnet to enable private network communication.
 
 ---
 
@@ -1069,7 +1069,7 @@ Azure will ask me to create them in this order.
 
 ## Analogy
 
-Imagine my mom says:
+Consider building a house.
 
 > "We're building a new house."
 
