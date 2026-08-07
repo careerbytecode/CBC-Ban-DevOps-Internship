@@ -68,3 +68,41 @@ stages:
               tags: |
                 $(imageTag)
                 latest
+
+  - stage: DeployStaging
+    displayName: Deploy to AKS staging
+    dependsOn: Validate
+    condition: succeeded()
+
+    jobs:
+      - job: DeployToStaging
+        displayName: Deploy application to staging namespace
+
+        steps:
+          - checkout: self
+
+          - task: KubernetesManifest@1
+            displayName: Create staging namespace
+            inputs:
+              action: deploy
+              connectionType: azureResourceManager
+              azureSubscriptionConnection: 'sc-azure-capstone'
+              azureResourceGroup: 'rg-devops-capstone'
+              kubernetesCluster: 'aks-devops-capstone'
+              manifests: |
+                $(projectPath)/k8s/staging/namespace.yaml
+
+          - task: KubernetesManifest@1
+            displayName: Deploy application to staging
+            inputs:
+              action: deploy
+              connectionType: azureResourceManager
+              azureSubscriptionConnection: 'sc-azure-capstone'
+              azureResourceGroup: 'rg-devops-capstone'
+              kubernetesCluster: 'aks-devops-capstone'
+              namespace: 'staging'
+              manifests: |
+                $(projectPath)/k8s/staging/deployment.yaml
+                $(projectPath)/k8s/staging/service.yaml
+              containers: |
+                capstoneacr134949.azurecr.io/devops-capstone-webapp:$(imageTag)

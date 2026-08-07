@@ -24,7 +24,7 @@ spec:
           value: v1
         - name: APP_ENVIRONMENT
           value: staging
-        image: devops-capstone-webapp:v1
+        image: capstoneacr134949.azurecr.io/devops-capstone-webapp:latest
         livenessProbe:
           failureThreshold: 3
           httpGet:
