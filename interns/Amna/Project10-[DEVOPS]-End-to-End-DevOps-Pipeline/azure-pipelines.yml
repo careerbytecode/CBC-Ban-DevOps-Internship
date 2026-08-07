@@ -58,11 +58,13 @@ stages:
               testRunTitle: 'Flask application tests'
 
           - task: Docker@2
-            displayName: Build Docker image
+            displayName: Build and push Docker image to ACR
             inputs:
-              command: build
+              command: buildAndPush
+              containerRegistry: 'sc-acr-capstone'
               repository: '$(imageRepository)'
               Dockerfile: '$(projectPath)/app/Dockerfile'
               buildContext: '$(projectPath)/app'
               tags: |
                 $(imageTag)
+                latest
