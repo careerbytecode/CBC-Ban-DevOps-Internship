@@ -107,3 +107,42 @@ stages:
                 $(manifestProjectPath)/k8s/staging/service.yaml
               containers: |
                 capstoneacr134949.azurecr.io/devops-capstone-webapp:$(imageTag)
+
+  - stage: DeployProduction
+    displayName: Deploy to AKS production
+    dependsOn: DeployStaging
+    condition: succeeded()
+
+    jobs:
+      - job: DeployToProduction
+        displayName: Deploy application to production namespace
+
+        steps:
+          - checkout: self
+
+          - task: KubernetesManifest@1
+            displayName: Create production namespace
+            inputs:
+              action: deploy
+              connectionType: azureResourceManager
+              azureSubscriptionConnection: 'sc-azure-capstone'
+              azureResourceGroup: 'rg-devops-capstone'
+              kubernetesCluster: 'aks-devops-capstone'
+              manifests: |
+                $(manifestProjectPath)/k8s/production-namespace.yaml
+
+          - task: KubernetesManifest@1
+            displayName: Deploy application to production
+            inputs:
+              action: deploy
+              connectionType: azureResourceManager
+              azureSubscriptionConnection: 'sc-azure-capstone'
+              azureResourceGroup: 'rg-devops-capstone'
+              kubernetesCluster: 'aks-devops-capstone'
+              namespace: 'production'
+              manifests: |
+                $(manifestProjectPath)/k8s/production/deployment.yaml
+                $(manifestProjectPath)/k8s/production/service.yaml
+                $(manifestProjectPath)/k8s/production/hpa.yaml
+              containers: |
+                capstoneacr134949.azurecr.io/devops-capstone-webapp:$(imageTag)
