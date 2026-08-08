@@ -13,6 +13,7 @@ pr:
 
 variables:
   projectPath: '$(Build.SourcesDirectory)/interns/Amna/Project10-[DEVOPS]-End-to-End-DevOps-Pipeline'
+  manifestProjectPath: '$(Build.SourcesDirectory)/interns/Amna/Project10-[[]DEVOPS]-End-to-End-DevOps-Pipeline'
   imageRepository: 'devops-capstone-webapp'
   imageTag: '$(Build.BuildId)'
 
@@ -90,7 +91,7 @@ stages:
               azureResourceGroup: 'rg-devops-capstone'
               kubernetesCluster: 'aks-devops-capstone'
               manifests: |
-                $(projectPath)/k8s/staging/namespace.yaml
+                $(manifestProjectPath)/k8s/staging/namespace.yaml
 
           - task: KubernetesManifest@1
             displayName: Deploy application to staging
@@ -102,7 +103,7 @@ stages:
               kubernetesCluster: 'aks-devops-capstone'
               namespace: 'staging'
               manifests: |
-                $(projectPath)/k8s/staging/deployment.yaml
-                $(projectPath)/k8s/staging/service.yaml
+                $(manifestProjectPath)/k8s/staging/deployment.yaml
+                $(manifestProjectPath)/k8s/staging/service.yaml
               containers: |
                 capstoneacr134949.azurecr.io/devops-capstone-webapp:$(imageTag)
