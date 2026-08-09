@@ -4,7 +4,7 @@ metadata:
   name: devops-capstone-webapp
   namespace: production
 spec:
-  maxReplicas: 6
+  maxReplicas: 3
   metrics:
   - resource:
       name: cpu
@@ -12,7 +12,7 @@ spec:
         averageUtilization: 70
         type: Utilization
     type: Resource
-  minReplicas: 3
+  minReplicas: 2
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment

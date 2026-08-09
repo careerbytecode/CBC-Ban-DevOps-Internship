@@ -6,7 +6,7 @@ metadata:
   name: devops-capstone-webapp
   namespace: production
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: devops-capstone-webapp

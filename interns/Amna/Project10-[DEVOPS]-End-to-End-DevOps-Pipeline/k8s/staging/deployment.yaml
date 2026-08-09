@@ -6,7 +6,7 @@ metadata:
   name: devops-capstone-webapp
   namespace: staging
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: devops-capstone-webapp
