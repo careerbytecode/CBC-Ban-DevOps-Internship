@@ -1,0 +1,21 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  imageName: 'week3AssImage'
+
+steps:
+- task: DockerInstaller@0
+
+- task: Docker@2
+  displayName: Build and push image
+  inputs:
+    containerRegistry: 'week3AssSC'   # Service connection to ACR
+    repository: 'week3assRepository'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      $(Build.BuildId)
