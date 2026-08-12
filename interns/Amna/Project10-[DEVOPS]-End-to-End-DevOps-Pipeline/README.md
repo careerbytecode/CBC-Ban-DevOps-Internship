@@ -62,6 +62,10 @@
 
 The goal is to build a small web application and take it through a complete DevOps lifecycle.
 
+The finished flow is shown below:
+
+![What You Will Build Diagram](screenshots/architecture/what-you-will-build-diagram.png)
+
 The finished flow is:
 
 ```text
@@ -145,6 +149,8 @@ Docker container
 ```
 
 ## Final Azure architecture
+
+![End-to-End DevOps Pipeline Architecture](screenshots/architecture/devops-architecture.png)
 
 ```text
 GitHub
@@ -249,37 +255,35 @@ Azure Monitor setup
 
 This avoids confusion between a local Minikube or K3s kubeconfig and the real AKS cluster.
 
-### 4.3 Floci-AZ is a local learning step, not the final Azure proof
+### 4.3 Floci-AZ and the final Azure environment
 
-Floci-AZ is useful for local Azure-compatible API practice.
+Floci-AZ was used during the local learning phase to practice Azure-compatible APIs without creating unnecessary cloud resources.
 
-The final project still uses real:
+The final deployment uses real Azure services:
 
-```text
-Azure Container Registry
-Azure Kubernetes Service
-Application Gateway for Containers
-Azure Monitor
-Container Insights
-```
+- Azure Container Registry
+- Azure Kubernetes Service
+- Application Gateway for Containers
+- Azure Monitor
+- Container Insights
 
-Do not present Floci-AZ as the production Azure deployment.
+Floci-AZ is therefore not part of the production deployment.
 
-### 4.4 Do not keep old local ingress manifests in the final Azure project
+### 4.4 Ingress design
 
-During local Kubernetes experiments you may have created classic `Ingress` manifests for Traefik or another local ingress controller.
+Earlier local Kubernetes experiments used classic `Ingress` resources. The final Azure deployment uses Application Gateway for Containers with the Kubernetes Gateway API instead.
 
-They are **not part of the final Azure deployment** in this project and should be removed from the final capstone repository so a beginner does not accidentally deploy the wrong ingress configuration.
-
-The real Azure public routing in this guide uses:
+The final routing path is:
 
 ```text
 ApplicationLoadBalancer
-Gateway
-HTTPRoute
+→ Gateway
+→ HTTPRoute
+→ Kubernetes Service
+→ Application Pods
 ```
 
-The Azure DevOps pipeline therefore deploys the application Deployments, Services, namespace manifests, and production HPA only. It does not deploy classic `Ingress` manifests.
+For this reason, the old classic Ingress manifests are not included in the final project.
 
 ### 4.5 Keep enough pod capacity on a one-node learning cluster
 
@@ -2958,6 +2962,10 @@ Log Analytics workspace
 ```
 
 The current Azure Portal may open **Queries hub** over the query editor.
+
+### Screenshot checkpoint
+
+![Turning off Queries Hub ](screenshots/monitoring/container-log-queries-hub.png)
 
 If that happens:
 
