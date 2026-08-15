@@ -3738,6 +3738,16 @@ you no longer need the Azure environment
 
 ---
 
+## Demo Video
+
+A complete walkthrough of the project is available here:
+
+[Watch the Project Demo](https://drive.google.com/drive/folders/1_C-to_eRAowJzv_RW5XWDmVpvGcVMkqn?usp=sharing)
+
+The demo shows the end-to-end implementation, including the CI/CD pipeline, AKS deployment, Application Gateway for Containers, and monitoring.
+
+---
+
 # 36. Cleanup
 
 ## Local Docker
@@ -3874,33 +3884,6 @@ Because Azure services and preview features can change, check the current offici
   https://learn.microsoft.com/en-us/azure/azure-monitor/containers/kubernetes-monitoring-enable
 - Monitor AKS:
   https://learn.microsoft.com/en-us/azure/aks/monitor-aks
-
----
-
-# Final Project Definition of Done
-
-The project is complete when you can prove all of the following:
-
-```text
-[ ] Application code exists in GitHub
-[ ] Unit tests pass
-[ ] Docker image builds successfully
-[ ] Azure DevOps pipeline runs automatically from the project branch
-[ ] Docker image is pushed to Azure Container Registry
-[ ] Image has a traceable Build ID tag
-[ ] Staging pod is Running in AKS
-[ ] Production pods are Running in AKS
-[ ] HPA exists for production
-[ ] Production Service is routed through Application Gateway for Containers
-[ ] Public browser request works over HTTP
-[ ] Container Insights is enabled
-[ ] Production logs are visible in ContainerLogV2
-[ ] CPU and memory metrics are visible
-[ ] Required screenshots are saved
-[ ] README is complete
-[ ] Required 3–5 minute demo video is recorded and submitted separately
-[ ] Azure resources are stopped or deleted when no longer needed
-```
 
 ---
 
