@@ -1,0 +1,926 @@
+
+# 📚 Azure Reference Documentation & Learning Resources
+
+This section provides additional reference material for understanding,
+creating, configuring, and managing the Azure resources used by FlavorForge.
+
+FlavorForge uses Microsoft Azure for its cloud infrastructure, including:
+
+- Azure Resource Group
+- Azure Container Registry (ACR)
+- Azure Kubernetes Service (AKS)
+- Azure CLI
+
+These resources are provided for readers who want to understand Azure beyond
+the project-specific implementation.
+
+> **Recommended approach:** Start with the official Microsoft Azure
+> documentation and Microsoft Learn modules, then use the videos and tutorials
+> for additional practical understanding.
+
+---
+
+# 1. Microsoft Azure Official Documentation
+
+## Azure Documentation
+
+Microsoft Azure documentation is the primary technical reference for Azure
+services, architecture, CLI commands, security, networking, monitoring, and
+resource management.
+
+[Microsoft Azure Documentation](https://learn.microsoft.com/azure/)
+
+Use this as the main source of truth for Azure-related questions.
+
+Important areas include:
+
+- Azure fundamentals
+- Azure CLI
+- Resource Groups
+- Azure Container Registry
+- Azure Kubernetes Service
+- Identity and access
+- Networking
+- Monitoring
+- Security
+- Cost management
+
+---
+
+# 2. Azure Fundamentals
+
+Before working with individual Azure services, beginners should understand
+the basic Azure concepts.
+
+[Azure Fundamentals](https://learn.microsoft.com/training/azure/)
+
+Important concepts include:
+
+- Azure subscriptions
+- Resource Groups
+- Regions
+- Resources
+- Resource providers
+- Azure Resource Manager
+- Identity and access
+- Azure pricing and cost management
+
+These concepts help explain how FlavorForge resources are organized in Azure.
+
+---
+
+# 3. Azure Architecture and Resource Management
+
+Azure Resource Manager (ARM) provides the management layer for Azure resources.
+
+[Azure Resource Manager Documentation](https://learn.microsoft.com/azure/azure-resource-manager/)
+
+Conceptually:
+
+```text
+Azure Subscription
+        |
+        +----------------------+
+        |                      |
+        v                      v
+ Resource Group          Resource Group
+        |
+        +----------------------------+
+        |             |              |
+        v             v              v
+       ACR           AKS          Other Resources
+````
+
+FlavorForge uses Azure Resource Manager resources to create and manage its
+cloud infrastructure.
+
+---
+
+# 4. Azure CLI
+
+Azure CLI is the command-line tool used to create and manage Azure resources.
+
+[Azure CLI Documentation](https://learn.microsoft.com/cli/azure/)
+
+Azure CLI is particularly important to FlavorForge because the infrastructure
+setup and verification use Azure CLI commands.
+
+Example:
+
+```bash
+az login
+
+az account show
+
+az group list
+```
+
+---
+
+# 5. Azure CLI Installation
+
+Readers who want to reproduce the FlavorForge environment should install the
+Azure CLI using Microsoft's official instructions.
+
+[Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+
+Supported installation methods are provided for:
+
+* Windows
+* Linux
+* macOS
+* Docker
+
+Always use the official installation instructions because package and
+installation requirements can change over time.
+
+---
+
+# 6. Azure CLI Login and Subscription
+
+After installing Azure CLI, authenticate with Azure.
+
+```bash
+az login
+```
+
+View the active subscription:
+
+```bash
+az account show
+```
+
+List available subscriptions:
+
+```bash
+az account list
+```
+
+Set the required subscription:
+
+```bash
+az account set --subscription "<subscription-name-or-id>"
+```
+
+Official reference:
+
+[Azure CLI Account Commands](https://learn.microsoft.com/cli/azure/account)
+
+---
+
+# 7. Azure Resource Groups
+
+A Resource Group is a logical container for Azure resources.
+
+[Azure Resource Groups Documentation](https://learn.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)
+
+Resource Groups help organize resources that belong to the same application,
+environment, or lifecycle.
+
+FlavorForge uses:
+
+```text
+Resource Group
+    flavorforge-rg
+        |
+        +---- Azure Container Registry
+        |
+        +---- Azure Kubernetes Service
+```
+
+---
+
+# 8. Resource Group — Azure CLI Reference
+
+Azure CLI can be used to create a Resource Group.
+
+Example:
+
+```bash
+az group create \
+  --name <resource-group-name> \
+  --location <azure-region>
+```
+
+List Resource Groups:
+
+```bash
+az group list --output table
+```
+
+Show a Resource Group:
+
+```bash
+az group show \
+  --name <resource-group-name>
+```
+
+Delete a Resource Group:
+
+```bash
+az group delete \
+  --name <resource-group-name>
+```
+
+Official reference:
+
+[Azure CLI Resource Group Commands](https://learn.microsoft.com/cli/azure/group)
+
+> **Important:** Deleting a Resource Group can delete the resources contained
+> within it. Use the delete command carefully.
+
+---
+
+# 9. Azure Regions
+
+Azure resources are deployed into Azure regions.
+
+[Azure Geographies and Regions](https://azure.microsoft.com/explore/global-infrastructure/geographies/)
+
+A region represents a geographic location where Azure provides cloud
+infrastructure.
+
+FlavorForge uses:
+
+```text
+Azure Region
+East US
+```
+
+The actual region used by a project should always be verified against the
+current Azure resources rather than assumed from documentation.
+
+---
+
+# 10. Azure Container Registry (ACR)
+
+Azure Container Registry is Microsoft's managed private container registry
+service.
+
+[Azure Container Registry Documentation](https://learn.microsoft.com/azure/container-registry/)
+
+ACR is used to store and manage Docker and OCI container images.
+
+Conceptually:
+
+```text
+Developer / CI Pipeline
+          |
+          v
+     Docker Build
+          |
+          v
+   Container Image
+          |
+          v
+ Azure Container Registry
+          |
+          v
+           AKS
+```
+
+FlavorForge uses ACR as the container image registry for its frontend and
+backend images.
+
+---
+
+# 11. ACR — Azure CLI Reference
+
+The Azure CLI provides commands for creating and managing ACR.
+
+[Azure CLI ACR Commands](https://learn.microsoft.com/cli/azure/acr)
+
+Example:
+
+```bash
+az acr create \
+  --resource-group <resource-group-name> \
+  --name <registry-name> \
+  --sku Basic
+```
+
+List registries:
+
+```bash
+az acr list --output table
+```
+
+Show registry information:
+
+```bash
+az acr show \
+  --name <registry-name> \
+  --resource-group <resource-group-name>
+```
+
+---
+
+# 12. ACR Login
+
+Azure CLI can authenticate Docker to an Azure Container Registry.
+
+```bash
+az acr login \
+  --name <registry-name>
+```
+
+This allows Docker commands to interact with the registry.
+
+Official reference:
+
+[az acr login](https://learn.microsoft.com/cli/azure/acr#az-acr-login)
+
+---
+
+# 13. ACR Images and Repositories
+
+ACR stores container repositories and image tags.
+
+List repositories:
+
+```bash
+az acr repository list \
+  --name <registry-name> \
+  --output table
+```
+
+List tags:
+
+```bash
+az acr repository show-tags \
+  --name <registry-name> \
+  --repository <repository-name>
+```
+
+Official reference:
+
+[Azure Container Registry Repositories](https://learn.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+
+FlavorForge uses versioned Docker images that are pushed to ACR and later
+referenced by Kubernetes workloads.
+
+---
+
+# 14. ACR Authentication and AKS
+
+AKS needs permission to pull private images from ACR.
+
+Azure provides supported integration between AKS and ACR.
+
+[Authenticate with Azure Container Registry from Azure Kubernetes Service](https://learn.microsoft.com/azure/aks/cluster-container-registry-integration)
+
+Conceptually:
+
+```text
+                Azure
+                  |
+       +----------+----------+
+       |                     |
+       v                     v
+      ACR                    AKS
+       |                     |
+ Docker Images          Kubernetes Pods
+       |                     |
+       +------ Pull ---------+
+```
+
+This is an important concept when deploying private container images to AKS.
+
+---
+
+# 15. Azure Kubernetes Service (AKS)
+
+Azure Kubernetes Service is Microsoft's managed Kubernetes service.
+
+[Azure Kubernetes Service Documentation](https://learn.microsoft.com/azure/aks/)
+
+AKS provides managed Kubernetes capabilities while integrating Kubernetes
+with Azure services.
+
+FlavorForge uses AKS to run its containerized application.
+
+---
+
+# 16. AKS Architecture
+
+Conceptually:
+
+```text
+                    Azure
+                      |
+                      v
+                    AKS
+                      |
+             +--------+--------+
+             |                 |
+        Control Plane        Nodes
+                               |
+                     +---------+---------+
+                     |                   |
+                   Frontend            Backend
+                    Pods                 Pods
+                     |                   |
+                     +---------+---------+
+                               |
+                         Kubernetes
+                         Services
+```
+
+For a deeper understanding of Kubernetes itself, refer to the project's
+separate Kubernetes reference documentation.
+
+---
+
+# 17. Create an AKS Cluster
+
+The Azure CLI can be used to create an AKS cluster.
+
+Example:
+
+```bash
+az aks create \
+  --resource-group <resource-group-name> \
+  --name <aks-cluster-name> \
+  --node-count 2 \
+  --generate-ssh-keys
+```
+
+Official reference:
+
+[Create an AKS Cluster with Azure CLI](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-cli)
+
+FlavorForge uses:
+
+```text
+AKS Cluster
+flavorforge-aks
+
+Region
+East US
+
+Node Count
+2
+
+Node Size
+Standard_D2as_v7
+```
+
+These values are project-specific and should be verified against the actual
+Azure environment when reproducing the project.
+
+---
+
+# 18. Connect to AKS
+
+After creating an AKS cluster, retrieve Kubernetes credentials:
+
+```bash
+az aks get-credentials \
+  --resource-group <resource-group-name> \
+  --name <aks-cluster-name>
+```
+
+Then verify the connection:
+
+```bash
+kubectl get nodes
+```
+
+Official reference:
+
+[Connect to an AKS Cluster](https://learn.microsoft.com/azure/aks/learn/quick-kubernetes-deploy-cli)
+
+This creates or updates the local Kubernetes configuration used by `kubectl`.
+
+---
+
+# 19. AKS and Kubernetes
+
+AKS provides the managed Azure infrastructure while Kubernetes provides the
+container orchestration layer.
+
+```text
+Azure
+  |
+  v
+AKS
+  |
+  v
+Kubernetes
+  |
+  +---- Namespace
+  |
+  +---- Deployment
+  |
+  +---- Pods
+  |
+  +---- Services
+  |
+  +---- ConfigMaps
+  |
+  +---- Secrets
+  |
+  +---- HPA
+```
+
+This distinction is important:
+
+> **AKS is Microsoft's managed Kubernetes service. Kubernetes is the
+> orchestration platform running within AKS.**
+
+---
+
+# 20. AKS Scaling
+
+AKS supports scaling of the Kubernetes cluster and its workloads.
+
+[Scale an AKS Cluster](https://learn.microsoft.com/azure/aks/scale-cluster)
+
+There are two different concepts:
+
+### Cluster Scaling
+
+Changes the number or size of Kubernetes nodes.
+
+### Workload Scaling
+
+Changes the number of application Pods.
+
+FlavorForge uses Kubernetes workload mechanisms such as Deployments and HPA.
+These should not be confused with scaling the underlying AKS node pool.
+
+---
+
+# 21. AKS Monitoring
+
+Azure provides monitoring capabilities for AKS.
+
+[Azure Monitor Container Insights for AKS](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)
+
+Monitoring can help investigate:
+
+* Node health
+* Pod health
+* CPU usage
+* Memory usage
+* Container logs
+* Cluster performance
+* Application behavior
+
+FlavorForge documentation includes Azure monitoring as part of the overall
+cloud-native architecture.
+
+---
+
+# 22. Azure CLI + ACR + AKS Workflow
+
+The main Azure workflow used by FlavorForge can be understood as:
+
+```text
+Azure CLI
+   |
+   v
+Resource Group
+   |
+   +----------------------+
+   |                      |
+   v                      v
+  ACR                    AKS
+   |                      |
+   | Docker Images        |
+   |                      |
+   +--------->------------+
+              |
+              v
+        Kubernetes Pods
+              |
+              v
+       FlavorForge App
+```
+
+The Resource Group provides the organizational boundary.
+
+ACR stores the container images.
+
+AKS runs the containerized application.
+
+Azure CLI provides command-line management of these resources.
+
+---
+
+# 23. Microsoft Learn — Azure CLI Training
+
+Microsoft Learn provides structured training for Azure CLI and Azure resource
+management.
+
+[Azure CLI Learning Resources](https://learn.microsoft.com/training/browse/?terms=Azure%20CLI)
+
+Recommended topics include:
+
+* Azure CLI basics
+* Resource management
+* Azure resources
+* Authentication
+* Azure automation
+
+---
+
+# 24. Microsoft Learn — Azure Container Registry
+
+Microsoft Learn provides hands-on learning resources for Azure Container
+Registry.
+
+[Azure Container Registry Learning Resources](https://learn.microsoft.com/training/browse/?terms=Azure%20Container%20Registry)
+
+Recommended topics include:
+
+* Creating registries
+* Pushing container images
+* Pulling images
+* Managing repositories
+* Authentication
+* ACR security
+
+---
+
+# 25. Microsoft Learn — AKS
+
+Microsoft Learn provides structured AKS learning paths and modules.
+
+[Azure Kubernetes Service Learning Resources](https://learn.microsoft.com/training/browse/?terms=Azure%20Kubernetes%20Service)
+
+Recommended topics include:
+
+* AKS fundamentals
+* Cluster creation
+* Application deployment
+* Networking
+* Storage
+* Scaling
+* Security
+* Monitoring
+
+---
+
+# 🎥 26. Azure Videos and Visual Learning
+
+Videos are useful for understanding Azure concepts visually.
+
+## Microsoft Azure YouTube Channel
+
+[Microsoft Azure YouTube Channel](https://www.youtube.com/@MicrosoftAzure)
+
+Useful topics to search for include:
+
+* Azure fundamentals
+* Azure CLI
+* Azure Container Registry
+* Azure Kubernetes Service
+* AKS architecture
+* Azure networking
+* Azure security
+* Azure monitoring
+
+> **Important:** Videos are supplementary learning material. Microsoft Learn
+> and official Azure documentation should remain the primary technical
+> references.
+
+---
+
+# 27. Microsoft Learn Video and Training Content
+
+Microsoft Learn includes interactive modules, demonstrations, exercises, and
+learning paths.
+
+[Microsoft Learn](https://learn.microsoft.com/training/)
+
+This is recommended for readers who prefer guided learning instead of
+documentation-only references.
+
+---
+
+# 28. Azure Architecture Center
+
+For readers interested in cloud architecture and enterprise design patterns:
+
+[Azure Architecture Center](https://learn.microsoft.com/azure/architecture/)
+
+Useful topics include:
+
+* Cloud architecture
+* Well-Architected Framework
+* Azure application architecture
+* Containers
+* Kubernetes
+* DevOps
+* Security
+* Reliability
+
+This is useful for understanding how the individual Azure services used by
+FlavorForge fit into a larger cloud architecture.
+
+---
+
+# 29. Azure Well-Architected Framework
+
+The Azure Well-Architected Framework provides guidance for designing reliable,
+secure, efficient, and cost-conscious cloud workloads.
+
+[Azure Well-Architected Framework](https://learn.microsoft.com/azure/well-architected/)
+
+The framework covers:
+
+* Reliability
+* Security
+* Cost Optimization
+* Operational Excellence
+* Performance Efficiency
+
+This can be used as additional reading for readers interested in improving the
+FlavorForge architecture beyond the learning-capstone implementation.
+
+---
+
+# 🎥 30. Recommended Video Learning Order
+
+For beginners, use videos in this order:
+
+```text
+Azure Fundamentals
+       ↓
+Azure CLI
+       ↓
+Resource Groups
+       ↓
+Azure Container Registry
+       ↓
+Azure Kubernetes Service
+       ↓
+AKS + ACR Integration
+       ↓
+Deploy Kubernetes Application
+       ↓
+Azure Monitoring
+```
+
+Use the official Microsoft Azure and Microsoft Learn resources whenever
+possible.
+
+---
+
+# 31. Official Azure GitHub Resources
+
+Microsoft maintains many Azure-related repositories on GitHub.
+
+[Microsoft Azure GitHub](https://github.com/Azure)
+
+These repositories can be useful for:
+
+* Examples
+* Infrastructure code
+* Documentation
+* Azure samples
+* Kubernetes examples
+* Automation
+
+---
+
+# 32. Recommended Reference Order for FlavorForge
+
+For a beginner following FlavorForge, the recommended order is:
+
+| Order | Resource                 | Purpose                          |
+| ----: | ------------------------ | -------------------------------- |
+|     1 | Azure Fundamentals       | Understand Azure                 |
+|     2 | Azure Resource Manager   | Understand resources             |
+|     3 | Azure CLI                | Learn command-line management    |
+|     4 | Resource Groups          | Understand resource organization |
+|     5 | Azure Container Registry | Understand image storage         |
+|     6 | ACR + AKS Integration    | Understand image pulling         |
+|     7 | AKS                      | Understand managed Kubernetes    |
+|     8 | Connect to AKS           | Learn cluster access             |
+|     9 | Azure Monitor            | Understand monitoring            |
+|    10 | Microsoft Learn          | Hands-on training                |
+|    11 | Azure Videos             | Visual learning                  |
+|    12 | FlavorForge Azure Guide  | Apply everything to the project  |
+
+---
+
+# 33. How These References Relate to FlavorForge
+
+The external references should be used together with the project-specific
+documentation.
+
+```text
+Microsoft Azure Documentation
+            |
+            v
+      Azure Fundamentals
+            |
+            v
+        Azure CLI
+            |
+            v
+      Resource Group
+         /       \
+        v         v
+       ACR       AKS
+        |         |
+        |         v
+        |     Kubernetes
+        |         |
+        +-----> Images
+                  |
+                  v
+          FlavorForge Pods
+                  |
+                  v
+           FlavorForge App
+```
+
+The official Microsoft documentation explains **Azure itself**.
+
+The FlavorForge BUILD-JOURNEY explains **how Azure services are used in this
+specific project**.
+
+---
+
+# 34. Recommended Learning Principle
+
+> **Understand the Azure service first, create it using Azure CLI second,
+> verify the actual Azure resource third, and connect it to the application
+> only after the resource is confirmed.**
+
+For example:
+
+```text
+Create Resource Group
+        ↓
+Verify Resource Group
+        ↓
+Create ACR
+        ↓
+Verify ACR
+        ↓
+Create AKS
+        ↓
+Verify AKS
+        ↓
+Connect AKS to ACR
+        ↓
+Verify Kubernetes access
+        ↓
+Deploy FlavorForge
+```
+
+Useful verification commands include:
+
+```bash
+az group show --name <resource-group-name>
+
+az acr show \
+  --name <registry-name> \
+  --resource-group <resource-group-name>
+
+az aks show \
+  --name <aks-cluster-name> \
+  --resource-group <resource-group-name>
+
+az aks get-credentials \
+  --resource-group <resource-group-name> \
+  --name <aks-cluster-name>
+
+kubectl get nodes
+```
+
+---
+
+# 35. Reference Priority
+
+Use resources in this priority:
+
+```text
+1. Microsoft Azure Documentation
+                ↓
+2. Microsoft Learn
+                ↓
+3. Official Azure CLI Reference
+                ↓
+4. Official ACR Documentation
+                ↓
+5. Official AKS Documentation
+                ↓
+6. Microsoft Azure Videos
+                ↓
+7. Azure Architecture Center
+                ↓
+8. Third-Party Tutorials
+                ↓
+9. FlavorForge Project Implementation
+```
+
+> **Source-of-truth principle:** Microsoft Azure and Microsoft Learn
+> documentation should be treated as the authoritative reference for Azure,
+> ACR, AKS, and Azure CLI. Videos and third-party tutorials are supplementary
+> learning resources.
+

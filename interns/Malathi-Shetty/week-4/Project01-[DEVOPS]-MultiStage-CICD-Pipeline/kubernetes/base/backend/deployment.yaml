@@ -1,0 +1,118 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend
+
+  annotations:
+    kubernetes.io/change-cause: "Release 1.8 - Backend health probe update"
+
+
+  labels:
+    app: backend
+
+spec:
+  replicas: 2
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: backend
+
+          image: flavorforgeacr2026ms.azurecr.io/flavorforge-backend:1.8
+
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 3000
+
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: PORT
+
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: NODE_ENV
+                  
+            - name: CORS_ORIGIN
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: CORS_ORIGIN
+
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: APP_NAME
+
+            - name: APP_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: APP_VERSION
+
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: JWT_SECRET
+
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: DATABASE_PASSWORD
+
+            - name: BUILD_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: BUILD_VERSION
+
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "128Mi"
+              ephemeral-storage: "256Mi"
+
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+              ephemeral-storage: "1000Mi"
+
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+
+            initialDelaySeconds: 15
+            periodSeconds: 20

@@ -1,0 +1,610 @@
+.
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+├── SECURITY.md
+├── argocd
+│   ├── README.md
+│   └── flavorforge-app.yaml
+├── argocd-pipeline.yml
+├── azure-pipelines.yml
+├── backend
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── coverage
+│   │   ├── cobertura-coverage.xml
+│   │   ├── junit.xml
+│   │   ├── lcov-report
+│   │   │   ├── base.css
+│   │   │   ├── block-navigation.js
+│   │   │   ├── favicon.png
+│   │   │   ├── index.html
+│   │   │   ├── prettify.css
+│   │   │   ├── prettify.js
+│   │   │   ├── sort-arrow-sprite.png
+│   │   │   ├── sorter.js
+│   │   │   └── src
+│   │   └── lcov.info
+│   ├── jest.config.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── src
+│   │   ├── app.js
+│   │   ├── config
+│   │   │   └── app.config.js
+│   │   ├── controllers
+│   │   │   ├── health.controller.js
+│   │   │   └── recipe.controller.js
+│   │   ├── database
+│   │   ├── middleware
+│   │   ├── models
+│   │   ├── routes
+│   │   │   ├── health.routes.js
+│   │   │   └── recipe.routes.js
+│   │   ├── server.js
+│   │   ├── services
+│   │   │   ├── health.service.js
+│   │   │   └── recipe.service.js
+│   │   └── utils
+│   └── tests
+│       ├── app.test.js
+│       ├── controllers.test.js
+│       └── services.test.js
+├── docker
+│   └── README.md
+├── docker-compose.yml
+├── docs
+│   ├── README.md
+│   ├── adr
+│   │   ├── ADR-001-gitops-adoption.md
+│   │   ├── ADR-002-kubernetes-deployment.md
+│   │   └── ADR-003-kustomize-environment-management.md
+│   ├── api
+│   │   ├── README.md
+│   │   ├── api-examples.md
+│   │   ├── authentication.md
+│   │   ├── backend-api.md
+│   │   └── health-check.md
+│   ├── architecture
+│   │   ├── 01-system-architecture.md
+│   │   ├── 02-application-architecture.md
+│   │   ├── 03-cloud-architecture.md
+│   │   └── 04-security-architecture.md
+│   ├── cleanup
+│   │   ├── 01-local-cleanup.md
+│   │   ├── 02-azure-resource-cleanup.md
+│   │   ├── 03-cost-management.md
+│   │   └── README.md
+│   ├── diagrams
+│   │   ├── azure-deployment-architecture-diagram.png
+│   │   ├── before-after-gitops-architecture.png
+│   │   ├── cloud-observability-architecture-diagram.png
+│   │   ├── flavorforge-application-architecture.png
+│   │   ├── flavorforge-devsecops-lifecycle-infographic.png
+│   │   ├── flavorforge-enterprise-cloud-architecture.png
+│   │   └── kubernetes-architecture-overview.png
+│   ├── generated
+│   │   └── PROJECT_STATUS.md
+│   ├── implementation
+│   │   ├── 01-project-planning.md
+│   │   ├── 02-prerequisites-and-setup.md
+│   │   ├── 03-project-structure.md
+│   │   ├── 04-application-architecture.md
+│   │   ├── 05-frontend-development.md
+│   │   ├── 06-backend-development.md
+│   │   ├── 07-dockerization.md
+│   │   └── README.md
+│   ├── pipeline
+│   │   ├── README.md
+│   │   ├── azure-devops-pipeline.md
+│   │   └── azure-devops-setup-guide.md
+│   ├── presentation
+│   │   ├── 01-README.md
+│   │   ├── 02-demo-prerequisites.md
+│   │   ├── 03-demo-day.md
+│   │   ├── 04-presentation-script.md
+│   │   ├── 05-live-demo-flow.md
+│   │   ├── 06-incident-scenarios.md
+│   │   ├── 07-interviewer-questions.md
+│   │   ├── 08-speaker-notes.md
+│   │   ├── 09-presentation-slides.md
+│   │   ├── 10-demo-environment-reset.md
+│   │   ├── 11-demo-startup-runbook.md
+│   │   └── FlavorForge Azure DevSecOps Capstone Project.pptx
+│   ├── project
+│   │   ├── 01-problem-statement.md
+│   │   ├── 02-project-objectives.md
+│   │   ├── 03-solution-overview.md
+│   │   └── 04-verification-and-validation-report
+│   │       ├── 01-Introduction.md
+│   │       ├── 02-Purpose.md
+│   │       ├── 03-Scope.md
+│   │       ├── 04-Success-Criteria.md
+│   │       ├── 05-Verification-Strategy.md
+│   │       ├── 06-Source-Code-Verification.md
+│   │       ├── 07-CI-CD-Verification.md
+│   │       ├── 08-Security-Verification.md
+│   │       ├── 09-Container-Verification.md
+│   │       ├── 10-Azure-Infrastructure-Verification.md
+│   │       ├── 11-Kubernetes-Verification.md
+│   │       ├── 12-GitOps-Verification.md
+│   │       ├── 13-Application-Verification.md
+│   │       ├── 14-Operations-Monitoring-and-Observability-Verification.md
+│   │       ├── 15-Final-Acceptance-Summary.md
+│   │       └── 16-Engineering-Assessment-and-Conclusion.md
+│   ├── security
+│   │   └── secrets-management.md
+│   ├── troubleshooting
+│   │   ├── 01-application-issues.md
+│   │   ├── 02-docker-issues.md
+│   │   ├── 03-pipeline-issues.md
+│   │   ├── 04-security-quality-issues.md
+│   │   ├── 05-kubernetes-issues.md
+│   │   ├── 06-argocd-gitops-issues.md
+│   │   ├── 07-azure-cloud-issues.md
+│   │   └── README.md
+│   └── week-4
+│       ├── 01-implementation.md
+│       ├── 02-prerequisites-and-setup.md
+│       ├── 03-repository-structure.md
+│       ├── 04-step-by-step-implementation.md
+│       ├── 05-project-outcome.md
+│       └── BUILD-JOURNEY
+│           ├── 01-prerequisites
+│           ├── 02-github
+│           ├── 03-application
+│           ├── 04-docker
+│           ├── 05-azure
+│           ├── 06-kubernetes
+│           ├── 07-kustomize
+│           ├── 08-azure-devops
+│           ├── 09-sonarcloud
+│           ├── 10-trivy
+│           ├── 11-argocd
+│           ├── 12-devsecops
+│           ├── 13-documentation
+│           ├── 14-troubleshooting
+│           ├── 15-final-verification
+│           ├── BUILD-JOURNEY.md
+│           └── README.md
+├── frontend
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── nginx.conf.template
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   ├── favicon.svg
+│   │   └── icons.svg
+│   ├── src
+│   │   ├── App.jsx
+│   │   ├── api
+│   │   │   ├── apiClient.js
+│   │   │   └── apiClient.test.js
+│   │   ├── assets
+│   │   │   └── hero.png
+│   │   ├── components
+│   │   │   ├── BackendStatus
+│   │   │   ├── CategoryFilter
+│   │   │   ├── EmptyState
+│   │   │   ├── ErrorBoundary
+│   │   │   ├── FeatureCard
+│   │   │   ├── Features
+│   │   │   ├── Footer
+│   │   │   ├── Header
+│   │   │   ├── Hero
+│   │   │   ├── NotFound
+│   │   │   ├── RecipeCard
+│   │   │   ├── RecipeList
+│   │   │   ├── SearchBar
+│   │   │   └── ui
+│   │   ├── config
+│   │   ├── hooks
+│   │   ├── layouts
+│   │   │   └── Layout.jsx
+│   │   ├── main.jsx
+│   │   ├── pages
+│   │   │   ├── AboutPage.jsx
+│   │   │   ├── ContactPage.jsx
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── HomePage.test.jsx
+│   │   │   └── RecipesPage.jsx
+│   │   ├── services
+│   │   │   ├── healthService.js
+│   │   │   └── recipeService.js
+│   │   ├── styles
+│   │   │   ├── global.css
+│   │   │   └── variables.css
+│   │   ├── test
+│   │   │   └── setup.js
+│   │   └── utils
+│   └── vite.config.js
+├── kubernetes
+│   ├── README.md
+│   ├── base
+│   │   ├── autoscaling
+│   │   │   ├── hpa.yaml
+│   │   │   └── kustomization.yaml
+│   │   ├── backend
+│   │   │   ├── deployment.yaml
+│   │   │   ├── kustomization.yaml
+│   │   │   └── service.yaml
+│   │   ├── config
+│   │   │   ├── backend-configmap.yaml
+│   │   │   ├── kustomization.yaml
+│   │   │   └── secret-template.yaml
+│   │   ├── frontend
+│   │   │   ├── deployment.yaml
+│   │   │   ├── kustomization.yaml
+│   │   │   └── service.yaml
+│   │   ├── ingress
+│   │   │   ├── ingress.yaml
+│   │   │   └── kustomization.yaml
+│   │   ├── kustomization.yaml
+│   │   └── namespace.yaml
+│   └── overlays
+│       ├── dev
+│       │   ├── backend-replica-patch.yaml
+│       │   ├── frontend-replica-patch.yaml
+│       │   └── kustomization.yaml
+│       ├── prod
+│       │   ├── backend-replica-patch.yaml
+│       │   ├── frontend-replica-patch.yaml
+│       │   └── kustomization.yaml
+│       └── qa
+│           ├── backend-replica-patch.yaml
+│           ├── frontend-replica-patch.yaml
+│           └── kustomization.yaml
+├── package-lock.json
+├── project-tree.txt
+├── reports
+│   └── trivy
+│       ├── backend-high-critical.txt
+│       ├── backend-image-report.json
+│       ├── backend-image-report.txt
+│       ├── filesystem-report.json
+│       ├── filesystem-report.txt
+│       ├── frontend-high-critical.txt
+│       ├── frontend-image-report.json
+│       └── frontend-image-report.txt
+├── screenshots
+│   ├── argo-cd
+│   │   ├── 1-install.png
+│   │   ├── 2-pods-svc.png
+│   │   ├── 3-create-argocd-yaml.png
+│   │   ├── 4-flavorforge-application-details-tree-argo-cd.png
+│   │   ├── argocd-applications.png
+│   │   ├── argocd-crds.png
+│   │   ├── argocd-pods-running.png
+│   │   └── argocd-services.png
+│   ├── azure
+│   │   ├── 01-azure-cli-authenticated.png
+│   │   ├── 02-resource-group-created.png
+│   │   ├── 03-containerregistry-provider-registered.png
+│   │   ├── 04-acr-created.png
+│   │   ├── 05-tag-create.png
+│   │   ├── 06-az-acr-login-success.png
+│   │   ├── 07-docker-images.png
+│   │   ├── 08-tag-the-images-and-verify-in-docker-images.png
+│   │   ├── 09-verify-images-in-acr.png
+│   │   ├── 10-az-aks-create.png
+│   │   ├── 11-connect-local-machine-to-aks.png
+│   │   ├── 12-acr-tag.png
+│   │   ├── 13-acr-login-succeed.png
+│   │   ├── 15-aks-workloads-deployments-pods.png
+│   │   ├── 16-kubernetes-center-microsoft-azure.png
+│   │   ├── 17-backend-microsoft-azure.png
+│   │   ├── 18-frontend-microsoft-azure.png
+│   │   ├── 19-backend-live-logs.png
+│   │   ├── 20-backend-events.png
+│   │   ├── 21-2-frontend-replica-set.png
+│   │   ├── 21-replica-set.png
+│   │   ├── 22-services-ingress.png
+│   │   ├── 23-1-frontend-ip-configuration-load-balancer-azure-resource.png
+│   │   ├── 23-2-health-status-load-balancer-azure-resource.png
+│   │   ├── 23-3-load-balancing-rules-load-balancer-azure-resource.png
+│   │   ├── 23-4-load-balancing-rules-load-balancer-azure-resource.png
+│   │   ├── 23-load-balancer-azure-resource.png
+│   │   ├── 24-public-ip-address.png
+│   │   ├── 25-acr-images.png
+│   │   ├── 26-aks-start.png
+│   │   ├── 27-aks-cluster-running.png
+│   │   ├── 28-kubectl-get-nodes.png
+│   │   ├── 29-azure-version.png
+│   │   └── flavorforge-rg-microsoft-azure-resource-group.png
+│   ├── backend
+│   │   ├── 01-backend-folder-structure.png
+│   │   ├── 02-backend-health-endpoint.png
+│   │   ├── 03-backend-server-running.png
+│   │   ├── 04-health-endpoint-browser.png
+│   │   ├── 05-layered-backend-architecture.png
+│   │   ├── 06-backend-environment-configuration.png
+│   │   ├── 07-node24-installation.png
+│   │   ├── 08-nodemon-development-server.png
+│   │   ├── 09-backend-server-running.png
+│   │   ├── 10-cors-enabled-frontend-backend-connected.png
+│   │   ├── 11-recipes-api-structure.png
+│   │   ├── 12-recipes-api-working.png
+│   │   ├── 13-backend-api.png
+│   │   └── curl.png
+│   ├── build-journey
+│   │   ├── 01-pre-requisite
+│   │   │   └── 01-prerequisites-verification.png
+│   │   ├── 02-github
+│   │   │   ├── 01-github-repository-created.png
+│   │   │   ├── 01-github-repository.png
+│   │   │   ├── 02-PAT.png
+│   │   │   └── github-local-repository-remote.png
+│   │   ├── kustomize
+│   │   │   ├── Backend Deployment configuration.png
+│   │   │   ├── Base render.png
+│   │   │   ├── Complete production resources.png
+│   │   │   ├── Dev render.png
+│   │   │   ├── Frontend Deployment configuration.png
+│   │   │   ├── Ingress.png
+│   │   │   ├── Kubernetes-Kustomize structure.png
+│   │   │   ├── Kustomize version.png
+│   │   │   ├── Production render.png
+│   │   │   ├── Production workloads.png
+│   │   │   ├── QA render.png
+│   │   │   ├── Services + HPA.png
+│   │   │   ├── dev-render-success.png
+│   │   │   ├── hpa.png
+│   │   │   ├── ingress.png
+│   │   │   ├── kubectl-get-all.png
+│   │   │   ├── kubernetes-resources.png
+│   │   │   ├── kustomize-overlays.png
+│   │   │   ├── overlay-render-validation.png
+│   │   │   ├── prod-render-success.png
+│   │   │   ├── qa-render-success.png
+│   │   │   └── services-ingress.png
+│   │   ├── pipeline
+│   │   │   ├── prod
+│   │   │   └── qa
+│   │   ├── sonarqube
+│   │   │   ├── Login.png
+│   │   │   ├── azure-devops-sonarcloud-service-connection.png
+│   │   │   ├── flavorforge-project-overview.png
+│   │   │   ├── projects-sonarCloud-dashboard.png
+│   │   │   ├── settings-sonarcloud-service-connection-verified.png
+│   │   │   └── sonarqube-Access-Tokens.png
+│   │   └── trivy
+│   │       ├── Trivy filesystem evidence.png
+│   │       ├── Verify the JSON report.png
+│   │       ├── backend-report.png
+│   │       ├── filesystem-report-txt.png
+│   │       ├── frontend-report.png
+│   │       └── report.png
+│   ├── docker
+│   │   ├── 1-docker-build-success.png
+│   │   ├── 10-frontend-backend-container-running.png
+│   │   ├── 11-flavorforge-frontend-v2.png
+│   │   ├── 11-flavorforge-frontend-v4.png
+│   │   ├── 12-1-docker-ps.png
+│   │   ├── 12-docker-network-inspect-flavorforge-network.png
+│   │   ├── 13-1-docker-images.png
+│   │   ├── 13-2-backend-api.png
+│   │   ├── 13-2-frontend-api.png
+│   │   ├── 13-4-terminal-build-success.png
+│   │   ├── 13-5-website.png
+│   │   ├── 13-6-docker-logs.png
+│   │   ├── 13-docker-compose-running.png
+│   │   ├── 2-dockerignore-created.png
+│   │   ├── 3-build-context-optimized.png
+│   │   ├── 4-docker-images.png
+│   │   ├── 5-docker-run.png
+│   │   ├── 6-backend-build-success.png
+│   │   ├── 7-backend-container-running.png
+│   │   ├── 8-backend-health-success.png
+│   │   ├── 9-1-backend-recipes-success.png
+│   │   └── 9-backend-recipes-success.png
+│   ├── enterprise-azure-devops-release-simulation
+│   │   ├── 1-1-dev-azure-devops-environments.png
+│   │   ├── 1-2-dev-qa-prod-azure-devops-environments.png
+│   │   ├── 1-azure-devops-environments.png
+│   │   ├── 10-all-environments.png
+│   │   ├── 11-production-ingress.png
+│   │   ├── 12-ingress-controller.png
+│   │   ├── 13-1-acr-flavorforge-frontend.png
+│   │   ├── 13-acr-flavorforge-backend.png
+│   │   ├── 14-1-test-final-azure-pipeline.png
+│   │   ├── 14-2-dev-environment-final-azure-pipeline.png
+│   │   ├── 14-2-environment-final-azure-pipeline.png
+│   │   ├── 14-2-prod-environment-final-azure-pipeline.png
+│   │   ├── 14-2-qa-environment-final-azure-pipeline.png
+│   │   ├── 14-final-azure-pipeline.png
+│   │   ├── 15-extensions-sonarcloud.png
+│   │   ├── 16-code-coverage.png
+│   │   ├── 17-1-argocd-pipeline.png
+│   │   ├── 17-2-argocd-pipeline.png
+│   │   ├── 17-argocd-pipeline.png
+│   │   ├── 18-prerequisites.png
+│   │   ├── 19-az-account-show.png
+│   │   ├── 2-library.png
+│   │   ├── 2-prod-variables.png
+│   │   ├── 2-qa-variables.png
+│   │   ├── 20-ls.png
+│   │   ├── 20-tree-l-2.png
+│   │   ├── 21-ls-backend.png
+│   │   ├── 22-ls-frontend.png
+│   │   ├── 23-ls-kubernetes.png
+│   │   ├── 24-ls-docs.png
+│   │   ├── 3-1-approvals.png
+│   │   ├── 3-2-permissions.png
+│   │   ├── 3-2-qa-permissions.png
+│   │   ├── 3-approvals.png
+│   │   ├── 4-1-approvals-prod.png
+│   │   ├── 4-1-approvals-qa.png
+│   │   ├── 4-3-approvals-prod.png
+│   │   ├── 4-approvals-qa.png
+│   │   ├── 5-kubectl-get-svc-n-flavorforge-de.png
+│   │   ├── 6-kubectl-get-all-n-flavorforge-dev.png
+│   │   ├── 7-overlay.png
+│   │   ├── 8-ingress.png
+│   │   ├── 9-services.png
+│   │   ├── flavorforge-rg-microsoft-azure-resource-group.png
+│   │   ├── project.png
+│   │   └── resource-group-created.png
+│   ├── frontend
+│   │   ├── 03-react-application-running.png
+│   │   ├── 04-frontend-enterprise-structure.png
+│   │   ├── 05-frontend-global-styles-organization.png
+│   │   ├── 06-flavorforge-initial-home-page.png
+│   │   ├── 07-first-reusable-component.png
+│   │   ├── 08-application-skeleton.png
+│   │   ├── 09-design-system-foundation.png
+│   │   ├── 1-create-and-install-npm.png
+│   │   ├── 10-professional-navigation-bar.png
+│   │   ├── 11-hero-section.png
+│   │   ├── 12-features-section.png
+│   │   ├── 13-react-router-basic-routing.png
+│   │   ├── 14-shared-layout-with-outlet.png
+│   │   ├── 15-responsive-navigation.png
+│   │   ├── 16-reusable-button-component.png
+│   │   ├── 17-api-service-layer.png
+│   │   ├── 18-backendstatus-component.png
+│   │   ├── 19-reusable-loading-component.png
+│   │   ├── 2-http-localhost-5173.png
+│   │   ├── 20-reusable-badge-component.png
+│   │   ├── 21-frontend-recipes-integrated.png
+│   │   ├── 22-professional-recipe-cards.png
+│   │   ├── 23-1-recipe-search-working.png
+│   │   ├── 23-2-recipe-search-working.png
+│   │   ├── 23-recipe-search-working.png
+│   │   ├── 24-recipe-empty-state.png
+│   │   ├── 25-category-filtering-working.png
+│   │   ├── 26-responsive-recipe-grid.png
+│   │   ├── 27-mobile-navigation.png
+│   │   ├── 28-404-page.png
+│   │   ├── 29-error-boundary.png
+│   │   ├── 30-frontend-backend-build-success.png
+│   │   ├── 31-dist-folder.png
+│   │   └── 32-build-success.png
+│   ├── kubernetes
+│   │   ├── 1-configmap.png
+│   │   ├── 2-deployment.png
+│   │   ├── 3-environment-variables.png
+│   │   ├── 4-health-endpoint.png
+│   │   ├── all-deployment.png
+│   │   ├── backend-configmap.png
+│   │   ├── backend-deployment.png
+│   │   ├── backend-in-the-browser-http-104-45-175-93-api-health.png
+│   │   ├── base-backend-deployment-yaml.png
+│   │   ├── base-backend-service-yaml.png
+│   │   ├── base-frontend-deployment-yaml.png
+│   │   ├── base-frontend-service-yaml.png
+│   │   ├── base-namespace-yaml.png
+│   │   ├── deploy-flavorforge-to-aks
+│   │   │   ├── 1-create-namespace.png
+│   │   │   ├── 2-deploy-backend.png
+│   │   │   ├── 4-inspect-the-azure-load-balancer.png
+│   │   │   └── step-3-deploy-frontend.png
+│   │   ├── fetch-the-homepage-html-javascript-bundle-css-bundle.png
+│   │   ├── frontend-in-the-browser-http-104-45-175-93.png
+│   │   ├── hpa
+│   │   │   ├── 1-metrics-server.png
+│   │   │   ├── 2-autoscaling-configured-successfully.png
+│   │   │   ├── 3-deploymemts-pods.png
+│   │   │   ├── 4-kubectl-describe-deployment-backend-n-flavorforge.png
+│   │   │   ├── 5-kubectl-top-pods-n-flavorforge.png
+│   │   │   ├── 6-kubectl-get-hpa.png
+│   │   │   └── 7-kubectl-get-hpa-backend-hpa-n-flavorforge-o-yaml.png
+│   │   ├── kubectl-exec-backend.png
+│   │   ├── kubectl-get-all-n-flavorforge.png
+│   │   ├── nginx-ingress
+│   │   │   ├── 1-installation.png
+│   │   │   ├── 10-1-updating-build-version.png
+│   │   │   ├── 10-2-updating-build-version.png
+│   │   │   ├── 10-3-updating-build-version.png
+│   │   │   ├── 10-4-updating-build-version.png
+│   │   │   ├── 10-updating-build-version.png
+│   │   │   ├── 11-build-version.png
+│   │   │   ├── 12-1-get-all-flavorforge.png
+│   │   │   ├── 12-get-all-flavorforge.png
+│   │   │   ├── 2-change-type-loadbalancer-to-clusterip.png
+│   │   │   ├── 3-ingress-external-address.png
+│   │   │   ├── 4-frontend-http-4-157-77-48.png
+│   │   │   ├── 5-backend.png
+│   │   │   ├── 6-rollout-history.png
+│   │   │   ├── 7-api-health.png
+│   │   │   ├── 8-set-image.png
+│   │   │   └── 9-history.png
+│   │   ├── pods.png
+│   │   ├── rolling-update
+│   │   │   ├── 1-rollout-history.png
+│   │   │   └── 2-deployment-describe.png
+│   │   └── secrets
+│   │       ├── 0-secrets-created.png
+│   │       ├── 1-kubectl-get-secrets-n-flavorforge.png
+│   │       ├── 2-deployment-pods.png
+│   │       ├── 3-print-env-secret-password.png
+│   │       └── get secrets.png
+│   ├── kustomize
+│   ├── mermaid
+│   │   ├── acr-image-publishing.png
+│   │   ├── application-architecture.png
+│   │   ├── architecture-overview.png
+│   │   ├── argocd-gitops-workflow.png
+│   │   ├── azure-cloud-architecture.png
+│   │   ├── azure-devops-pipeline.png
+│   │   ├── ci-vs-gitops.png
+│   │   ├── cloud-native-architecture.png
+│   │   ├── code-to-deployment-workflow.png
+│   │   ├── deployment-verification.png
+│   │   ├── devsecops-lifecycle.png
+│   │   ├── devsecops-maturity.png
+│   │   ├── devsecops-workflow.png
+│   │   ├── docker-container-architecture.png
+│   │   ├── documentation-workflow.png
+│   │   ├── flavorforge-transformation-journey.png
+│   │   ├── gitops-deployment-model.png
+│   │   ├── gitops-deployment-workflow.png
+│   │   ├── horizontal-pod-autoscaler.png
+│   │   ├── ingress-request-flow.png
+│   │   ├── kubernetes-deployment.png
+│   │   ├── kubernetes-repository-structure.png
+│   │   ├── kubernetes-services-ingress.png
+│   │   ├── kustomize-overlays.png
+│   │   ├── manual-deployment-workflow.png
+│   │   ├── monitoring-operations.png
+│   │   ├── project-roadmap.png
+│   │   ├── project-summary.png
+│   │   ├── security-pipeline.png
+│   │   └── technology-stack-overview.png
+│   └── pipeline
+│       ├── 1-azure-devops-organizations.png
+│       ├── 10-acr-dockerhub.png
+│       ├── 11-service-connections.png
+│       ├── 12-acr-aks.png
+│       ├── 13-pipelines-run.png
+│       ├── 2-service-connection.png
+│       ├── 3-azure-resource-manager.png
+│       ├── 4-1-new-azure-service-connection.png
+│       ├── 4-new-azure-service-connection.png
+│       ├── 5-click-new-pipeline.png
+│       ├── 6-pipelines-run.png
+│       ├── 7-test.png
+│       ├── 8-pipelines-run-pass.png
+│       └── 9-advance-pipelines-run-pass.png
+├── scripts
+│   ├── README.md
+│   ├── azure-manager.sh
+│   ├── clean.sh
+│   ├── deploy.sh
+│   ├── generate_project_report.py
+│   ├── setup.sh
+│   ├── update_readme.py
+│   └── verify.sh
+├── sonar-project.properties
+└── videos
+    ├── BUILD-JOURNEY
+    │   ├── 01-prerequisites-verification.mp4
+    │   ├── 02-git-PAT.mp4
+    │   └── 02-git-verification.mp4
+    └── presentation-demo-recreated.mp4
+
+117 directories, 491 files

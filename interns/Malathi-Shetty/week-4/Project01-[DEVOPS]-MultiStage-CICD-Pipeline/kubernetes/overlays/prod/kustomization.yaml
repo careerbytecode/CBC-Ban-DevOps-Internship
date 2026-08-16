@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+  - ../../base/ingress
+
+namespace: flavorforge
+
+patches:
+  - path: backend-replica-patch.yaml
+    target:
+      kind: Deployment
+      name: backend
+
+  - path: frontend-replica-patch.yaml
+    target:
+      kind: Deployment
+      name: frontend

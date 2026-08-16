@@ -1,0 +1,909 @@
+trigger:
+  branches:
+    include:
+    - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  dockerRegistryServiceConnection: 'flavorforge-acr-connection'
+  imageRepositoryBackend: 'flavorforge-backend'
+  imageRepositoryFrontend: 'flavorforge-frontend'
+
+  containerRegistry: 'flavorforgeacr2026ms.azurecr.io'
+
+  imageTag: '$(Build.BuildId)'
+
+  aksResourceGroup: 'flavorforge-rg'
+  aksClusterName: 'flavorforge-aks'
+
+stages:
+
+# ==========================================================
+# BUILD STAGE
+# ==========================================================
+
+- stage: Build
+  displayName: "Build FlavorForge Application"
+
+  jobs:
+
+  - job: BackendBuild
+    displayName: "Build Backend"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - task: UseNode@1
+      displayName: "Install Node.js 22 LTS"
+      inputs:
+        version: "22.x"
+
+    - script: |
+        node -v
+        npm -v
+      displayName: "Verify Node Installation"
+
+    - script: |
+        cd backend
+        npm ci --ignore-scripts
+      displayName: "Install Backend Dependencies"
+
+    - script: |
+        cd backend
+        npm test
+      displayName: "Run Backend Tests"
+
+  - job: FrontendBuild
+    displayName: "Build Frontend"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - task: UseNode@1
+      displayName: "Install Node.js 22 LTS"
+      inputs:
+        version: "22.x"
+
+    - script: |
+        cd frontend
+        npm ci --ignore-scripts
+      displayName: "Install Frontend Dependencies"
+
+    - script: |
+        cd frontend
+        npm run build
+      displayName: "Build React Application"
+
+# ==========================================================
+# TEST STAGE
+# ==========================================================
+
+- stage: Test
+  displayName: "Test and Quality Validation"
+  dependsOn: Build
+
+  jobs:
+
+  - job: BackendSmokeTest
+    displayName: "Backend API Smoke Test"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - task: UseNode@1
+      displayName: "Install Node.js 22 LTS"
+      inputs:
+        version: "22.x"
+
+    - script: |
+        cd backend
+        npm ci --ignore-scripts
+      displayName: "Install Backend Dependencies"
+
+    - script: |
+        cd backend
+        node src/server.js &
+        sleep 10
+        curl --fail http://localhost:3000/api/health
+      displayName: "Verify Backend Health Endpoint"
+
+  - job: FrontendValidation
+    displayName: "Frontend Production Validation"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - task: UseNode@1
+      displayName: "Install Node.js 22 LTS"
+      inputs:
+        version: "22.x"
+
+
+    - script: |
+        cd frontend
+        pwd
+        ls -la
+        cat package.json
+      displayName: "Debug Frontend Package"
+
+    - script: |
+        cd frontend
+        npm ci --ignore-scripts
+        npm test
+      displayName: "Run Frontend Tests with Coverage"
+
+    - script: |
+        echo "Backend Coverage"
+        ls -R backend/coverage
+
+        echo "Frontend Coverage"
+        ls -R frontend/coverage
+      displayName: "Verify Backend and Frontend Coverage"
+
+# ==========================================================
+# SECURITY STAGE
+# ==========================================================
+
+- stage: Security
+  displayName: "Security Validation"
+  dependsOn: Test
+
+  jobs:
+
+  - job: DependencyScan
+    displayName: "Node Dependency Security Scan"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - task: UseNode@1
+      displayName: "Install Node.js 22 LTS"
+      inputs:
+        version: "22.x"
+
+    - script: |
+        cd backend
+        npm ci --ignore-scripts
+        npm audit --audit-level=critical
+      displayName: "Backend Dependency Audit"
+
+    - script: |
+        cd frontend
+        npm ci --ignore-scripts
+        npm audit --audit-level=critical
+      displayName: "Frontend Dependency Audit"
+
+# ==========================================================
+# CODE QUALITY STAGE
+# ==========================================================
+
+- stage: CodeQuality
+  displayName: "SonarCloud Code Quality Analysis"
+  dependsOn: Security
+
+  jobs:
+
+  - job: SonarScan
+    displayName: "Run SonarCloud Analysis"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - task: SonarCloudPrepare@4
+      displayName: "Prepare SonarCloud Analysis"
+
+      inputs:
+        SonarCloud: 'flavorforge-sonarcloud-sc'
+        organization: 'malathi-shetty'
+        scannerMode: 'cli'
+        configMode: 'manual'
+        cliProjectKey: 'shettymalathib_flavorforge-azure-devsecops-capstone'
+        cliProjectName: 'FlavorForge'
+
+        extraProperties: |
+          sonar.sources=backend/src,frontend/src,kubernetes
+          sonar.exclusions=**/*.test.js
+          sonar.javascript.lcov.reportPaths=backend/coverage/lcov.info,frontend/coverage/lcov.info
+          sonar.sourceEncoding=UTF-8
+
+    - task: UseNode@1
+      displayName: "Install Node.js 22 LTS"
+      inputs:
+        version: "22.x"
+
+    - script: |
+        cd backend
+        npm ci --ignore-scripts
+      displayName: "Install Backend Dependencies"
+
+    - script: |
+        cd backend
+        npm test -- --coverage
+      displayName: "Run Jest Tests with Coverage"
+
+    - script: |
+        cd frontend
+        npm ci --ignore-scripts
+        npm run test
+      displayName: "Run Frontend Tests with Coverage"
+
+    - task: PublishTestResults@2
+      displayName: "Publish Test Results"
+
+      inputs:
+        testResultsFormat: "JUnit"
+        testResultsFiles: "backend/coverage/junit.xml"
+        failTaskOnFailedTests: true
+
+    - task: PublishCodeCoverageResults@2
+      displayName: "Publish Code Coverage"
+
+      inputs:
+        codeCoverageTool: "Cobertura"
+        summaryFileLocation: "$(System.DefaultWorkingDirectory)/backend/coverage/lcov.info"
+        reportDirectory: "$(System.DefaultWorkingDirectory)/backend/coverage"
+
+    - task: PublishCodeCoverageResults@2
+      displayName: "Publish Frontend Coverage"
+
+      inputs:
+          codeCoverageTool: "Cobertura"
+          summaryFileLocation: "$(System.DefaultWorkingDirectory)/frontend/coverage/lcov.info"
+          reportDirectory: "$(System.DefaultWorkingDirectory)/frontend/coverage"
+
+    - script: |
+        echo "Coverage files:"
+        ls -R backend/coverage
+
+        echo "LCOV Preview:"
+        head -20 backend/coverage/lcov.info
+      displayName: "Verify Coverage Reports"
+
+    - script: |
+        echo "Backend Coverage"
+        ls backend/coverage
+
+        echo "Frontend Coverage"
+        ls frontend/coverage
+      displayName: "Verify Coverage Reports"
+
+    - task: SonarCloudAnalyze@4
+      displayName: "Run SonarCloud Analysis"
+
+    - task: SonarCloudPublish@4
+      displayName: "Publish Quality Gate"
+
+      inputs:
+        pollingTimeoutSec: "300"
+
+# ==========================================================
+# DOCKER BUILD STAGE
+# ==========================================================
+
+- stage: DockerBuild
+  displayName: "Docker Image Build"
+  dependsOn: CodeQuality
+
+  jobs:
+
+  - job: BackendDockerBuild
+    displayName: "Build Backend Docker Image"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - script: |
+        mkdir -p reports/docker
+
+        docker build \
+          -t flavorforge-backend:$(Build.BuildId) \
+          -t flavorforge-backend:latest \
+          ./backend
+      displayName: "Build Backend Docker Image"
+
+    - script: |
+        docker save \
+          flavorforge-backend:$(Build.BuildId) \
+          -o reports/docker/backend-image.tar
+      displayName: "Export Backend Docker Image"
+
+    - publish: reports/docker
+      artifact: backend-image
+      displayName: "Publish Backend Image Artifact"
+
+  - job: FrontendDockerBuild
+    displayName: "Build Frontend Docker Image"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - script: |
+        echo "Checking frontend configuration..."
+        ls -la frontend
+        cat frontend/.env.docker
+      displayName: "Verify Frontend Configuration"
+
+    - script: |
+        mkdir -p reports/docker
+
+        docker build \
+          -f frontend/Dockerfile \
+          -t flavorforge-frontend:$(Build.BuildId) \
+          -t flavorforge-frontend:latest \
+          frontend
+      displayName: "Build Frontend Docker Image"
+
+    - script: |
+        docker save \
+          flavorforge-frontend:$(Build.BuildId) \
+          -o reports/docker/frontend-image.tar
+      displayName: "Export Frontend Docker Image"
+
+    - publish: reports/docker
+      artifact: frontend-image
+      displayName: "Publish Frontend Image Artifact"
+
+# ==========================================================
+# TRIVY SECURITY SCAN
+# ==========================================================
+
+- stage: TrivyScan
+  displayName: "Trivy Security Scan"
+  dependsOn: DockerBuild
+
+  jobs:
+
+  - job: TrivyFilesystem
+    displayName: "Filesystem Security Scan"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - script: |
+        sudo apt-get update
+        sudo apt-get install -y wget gnupg lsb-release apt-transport-https
+
+        curl \
+          --proto '=https' \
+          --tlsv1.2 \
+          --location \
+          --fail \
+          --silent \
+          --show-error \
+          https://aquasecurity.github.io/trivy-repo/deb/public.key \
+        | gpg --dearmor \
+        | sudo tee /usr/share/keyrings/trivy.gpg >/dev/null
+
+        echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" \
+        | sudo tee /etc/apt/sources.list.d/trivy.list
+
+        sudo apt-get update
+        sudo apt-get install -y trivy
+      displayName: "Install Trivy"
+
+    - script: |
+        mkdir -p reports/trivy
+      displayName: "Create Report Directory"
+
+    - script: |
+        trivy fs \
+          --format table \
+          . | tee reports/trivy/filesystem-report.txt
+      displayName: "Filesystem Scan"
+
+    - script: |
+        trivy fs \
+          --format json \
+          -o reports/trivy/filesystem-report.json \
+          .
+      displayName: "Filesystem JSON Report"
+
+    - publish: reports/trivy
+      artifact: trivy-filesystem
+      displayName: "Publish Filesystem Reports"
+
+  - job: TrivyImageScan
+    displayName: "Docker Image Security Scan"
+
+    steps:
+
+    - checkout: self
+      fetchDepth: 0
+
+    - script: |
+        sudo apt-get update
+        sudo apt-get install -y wget gnupg lsb-release apt-transport-https
+
+        curl \
+          --proto '=https' \
+          --tlsv1.2 \
+          --location \
+          --fail \
+          --silent \
+          --show-error \
+          https://aquasecurity.github.io/trivy-repo/deb/public.key \
+        | gpg --dearmor \
+        | sudo tee /usr/share/keyrings/trivy.gpg >/dev/null
+
+        echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" \
+        | sudo tee /etc/apt/sources.list.d/trivy.list
+
+        sudo apt-get update
+        sudo apt-get install -y trivy
+      displayName: "Install Trivy"
+
+    - script: |
+        mkdir -p reports/trivy
+      displayName: "Create Report Directory"
+
+    - script: |
+        docker build \
+          -t flavorforge-backend:latest \
+          ./backend
+
+        docker build \
+          -t flavorforge-frontend:latest \
+          ./frontend
+      displayName: "Rebuild Docker Images"
+
+    - script: |
+        docker images
+      displayName: "Verify Docker Images"
+
+    - script: |
+        trivy image \
+          --format table \
+          flavorforge-backend:latest \
+          | tee reports/trivy/backend-image.txt
+      displayName: "Scan Backend Image"
+
+    - script: |
+        trivy image \
+          --format json \
+          -o reports/trivy/backend-image.json \
+          flavorforge-backend:latest
+      displayName: "Backend Image JSON Report"
+
+    - script: |
+        trivy image \
+          --format table \
+          flavorforge-frontend:latest \
+          | tee reports/trivy/frontend-image.txt
+      displayName: "Scan Frontend Image"
+
+    - script: |
+        trivy image \
+          --format json \
+          -o reports/trivy/frontend-image.json \
+          flavorforge-frontend:latest
+      displayName: "Frontend Image JSON Report"
+
+    - publish: reports/trivy
+      artifact: trivy-image-reports
+      displayName: "Publish Image Scan Reports"
+
+# ==========================
+# PUSH TO ACR
+# ==========================
+
+- stage: Push
+  displayName: "Push Images To ACR"
+
+  dependsOn:
+    - DockerBuild
+
+  jobs:
+
+    - job: PushBackend
+      displayName: "Push Backend Image To ACR"
+
+      steps:
+
+        - checkout: self
+          fetchDepth: 0
+
+
+        - task: Docker@2
+          displayName: "Build Backend Image"
+
+          inputs:
+            command: build
+            containerRegistry: $(dockerRegistryServiceConnection)
+            repository: $(imageRepositoryBackend)
+            dockerfile: backend/Dockerfile
+            tags: |
+              $(imageTag)
+
+
+        - task: Docker@2
+          displayName: "Push Backend Image"
+
+          inputs:
+            command: push
+            containerRegistry: $(dockerRegistryServiceConnection)
+            repository: $(imageRepositoryBackend)
+            tags: |
+              $(imageTag)
+
+
+        - script: |
+            echo "====================================="
+            echo "Backend Image Push Completed"
+            echo "Registry: $(containerRegistry)"
+            echo "Repository: $(imageRepositoryBackend)"
+            echo "Tag: $(imageTag)"
+            echo "====================================="
+          displayName: "Verify Backend Push"
+
+
+
+    - job: PushFrontend
+      displayName: "Push Frontend Image To ACR"
+
+      steps:
+
+        - checkout: self
+          fetchDepth: 0
+
+
+        - task: Docker@2
+          displayName: "Build Frontend Image"
+
+          inputs:
+            command: build
+            containerRegistry: $(dockerRegistryServiceConnection)
+            repository: $(imageRepositoryFrontend)
+            dockerfile: frontend/Dockerfile
+            tags: |
+              $(imageTag)
+
+
+
+        - task: Docker@2
+          displayName: "Push Frontend Image"
+
+          inputs:
+            command: push
+            containerRegistry: $(dockerRegistryServiceConnection)
+            repository: $(imageRepositoryFrontend)
+            tags: |
+              $(imageTag)
+
+
+        - script: |
+            echo "====================================="
+            echo "Frontend Image Push Completed"
+            echo "Registry: $(containerRegistry)"
+            echo "Repository: $(imageRepositoryFrontend)"
+            echo "Tag: $(imageTag)"
+            echo "====================================="
+          displayName: "Verify Frontend Push"
+
+# ==========================
+# DEPLOY TO AKS
+# ==========================
+
+- stage: Deploy
+  displayName: "Deploy To AKS"
+
+  dependsOn:
+    - Push
+
+  jobs:
+
+    - job: DeployAKS
+      displayName: "Deploy FlavorForge"
+
+      steps:
+
+        - checkout: self
+          fetchDepth: 0
+
+        - task: AzureCLI@2
+          displayName: "Deploy to AKS"
+
+          inputs:
+            connectedServiceNameARM: 'flavorforge-azure-sc'
+            scriptType: bash
+            scriptLocation: inlineScript
+
+            inlineScript: |
+              echo "Deploying to AKS..."
+
+              az aks get-credentials \
+                --resource-group $(aksResourceGroup) \
+                --name $(aksClusterName) \
+                --overwrite-existing
+
+              kubectl apply -k kubernetes/overlays/prod
+
+              kubectl set image deployment/backend-prod \
+                backend=$(containerRegistry)/$(imageRepositoryBackend):$(imageTag) \
+                -n flavorforge-prod
+
+              kubectl set image deployment/frontend-prod \
+                frontend=$(containerRegistry)/$(imageRepositoryFrontend):$(imageTag) \
+                -n flavorforge-prod
+
+              kubectl rollout status deployment/backend-prod -n flavorforge-prod
+
+              kubectl rollout status deployment/frontend-prod -n flavorforge-prod
+
+              echo "Deployment completed successfully."
+
+################################################################################
+# AI DEVSECOPS REPORT
+################################################################################
+
+- stage: AIReports
+  displayName: "Generate DevSecOps Report"
+
+  dependsOn:
+    - CodeQuality
+    - TrivyScan
+
+  jobs:
+
+    - job: AIReport
+      displayName: "Generate Build Summary"
+
+      steps:
+
+        - checkout: self
+          fetchDepth: 0
+
+        - script: |
+            mkdir -p reports
+
+            echo "# FlavorForge DevSecOps Report" > reports/BuildSummary.md
+            echo "" >> reports/BuildSummary.md
+            echo "Build ID: $(Build.BuildId)" >> reports/BuildSummary.md
+            echo "" >> reports/BuildSummary.md
+            echo "Pipeline Status: SUCCESS" >> reports/BuildSummary.md
+            echo "" >> reports/BuildSummary.md
+            echo "Completed Checks" >> reports/BuildSummary.md
+            echo "- Backend Build" >> reports/BuildSummary.md
+            echo "- Frontend Build" >> reports/BuildSummary.md
+            echo "- Backend Smoke Test" >> reports/BuildSummary.md
+            echo "- Dependency Audit" >> reports/BuildSummary.md
+            echo "- SonarCloud Analysis" >> reports/BuildSummary.md
+            echo "- Docker Image Build" >> reports/BuildSummary.md
+            echo "- Trivy Filesystem Scan" >> reports/BuildSummary.md
+            echo "- Trivy Image Scan" >> reports/BuildSummary.md
+
+          displayName: "Generate Markdown Report"
+
+        - task: PublishPipelineArtifact@1
+
+          inputs:
+            targetPath: reports
+            artifact: ai-devsecops-report
+
+################################################################################
+# DEPLOY TO DEVELOPMENT
+################################################################################
+
+- stage: DeployDev
+  displayName: "Deploy to Development"
+
+  dependsOn:
+    - AIReports
+
+  condition: succeeded()
+
+  jobs:
+
+    - deployment: DeployToDev
+
+      displayName: "Deploy FlavorForge to Dev"
+
+      environment: "FlavorForge-Dev"
+
+      strategy:
+        runOnce:
+
+          deploy:
+
+            steps:
+
+              - checkout: self
+                fetchDepth: 0
+
+              - download: current
+
+              - script: |
+                  echo "=================================="
+                  echo "FlavorForge Release Simulation"
+                  echo "Environment : Development"
+                  echo "Build ID    : $(Build.BuildId)"
+                  echo "Branch      : $(Build.SourceBranchName)"
+                  echo "=================================="
+
+                displayName: "Display Deployment Information"
+
+              - script: |
+                  echo "Simulating deployment..."
+                  sleep 10
+                  echo "Deployment completed successfully."
+
+                displayName: "Simulate Deployment"
+
+################################################################################
+# DEPLOY TO QA
+################################################################################
+
+- stage: DeployQA
+  displayName: "Deploy to QA"
+
+  dependsOn:
+    - DeployDev
+
+  variables:
+    - group: FlavorForge-QA-Variables
+
+  jobs:
+
+    - deployment: DeployQA
+
+      displayName: "QA Deployment"
+
+      environment: FlavorForge-QA
+
+      strategy:
+        runOnce:
+
+          deploy:
+
+            steps:
+
+              - checkout: self
+                fetchDepth: 0
+
+              - download: current
+
+              - script: |
+                  echo "======================================"
+                  echo "FlavorForge QA Deployment"
+                  echo "======================================"
+
+                  echo "Environment : $(APP_ENV)"
+                  echo "Build Number: $(Build.BuildNumber)"
+                  echo "Build ID    : $(Build.BuildId)"
+                  echo "Repository  : $(Build.Repository.Name)"
+                  echo "Branch      : $(Build.SourceBranchName)"
+                  echo "Commit      : $(Build.SourceVersion)"
+                  echo "Requested By: $(Build.RequestedFor)"
+                  echo "API URL     : $(API_URL)"
+                  echo "Log Level   : $(LOG_LEVEL)"
+                  echo "Deployment completed successfully."
+
+                displayName: "Simulate QA Deployment"
+
+################################################################################
+# DEPLOY TO PRODUCTION
+################################################################################
+
+- stage: DeployProd
+  displayName: "Deploy to Production"
+
+  dependsOn:
+    - DeployQA
+
+  variables:
+    - group: FlavorForge-Prod-Variables
+
+  jobs:
+
+    - deployment: DeployProduction
+
+      displayName: "Production Deployment"
+
+      environment: FlavorForge-Prod
+
+      strategy:
+        runOnce:
+
+          deploy:
+
+            steps:
+
+              - checkout: self
+                fetchDepth: 0
+
+              - download: current
+
+              - script: |
+                  echo "======================================"
+                  echo "FlavorForge Production Deployment"
+                  echo "======================================"
+
+                  echo "Environment : $(APP_ENV)"
+                  echo "Build Number: $(Build.BuildNumber)"
+                  echo "Build ID    : $(Build.BuildId)"
+                  echo "Repository  : $(Build.Repository.Name)"
+                  echo "Branch      : $(Build.SourceBranchName)"
+                  echo "Commit      : $(Build.SourceVersion)"
+                  echo "Requested By: $(Build.RequestedFor)"
+                  echo "API URL     : $(API_URL)"
+                  echo "Log Level   : $(LOG_LEVEL)"
+                  echo "Deployment completed successfully."
+
+                displayName: "Simulate Production Deployment"
+
+################################################################################
+# RELEASE SUMMARY
+################################################################################
+
+- stage: ReleaseSummary
+  displayName: "Release Summary"
+
+  dependsOn:
+    - DeployProd
+
+  jobs:
+
+    - job: Summary
+
+      displayName: "Generate Release Notes"
+
+      steps:
+
+        - checkout: self
+          fetchDepth: 0
+
+        - script: |
+            mkdir -p reports
+
+            cat > reports/ReleaseSummary.md << EOF
+            # FlavorForge Release Summary
+
+            ## Release Information
+
+            - Build Number: $(Build.BuildNumber)
+            - Build ID: $(Build.BuildId)
+            - Repository: $(Build.Repository.Name)
+            - Branch: $(Build.SourceBranchName)
+            - Commit: $(Build.SourceVersion)
+            - Requested By: $(Build.RequestedFor)
+
+            ## Deployment Status
+
+            ✅ Development
+            ✅ QA
+            ✅ Production
+
+            ## Generated
+
+            $(Date:yyyy-MM-dd)
+            EOF
+
+          displayName: "Generate Release Summary"
+
+        - task: PublishPipelineArtifact@1
+
+          displayName: "Publish Release Summary"
+
+          inputs:
+            targetPath: reports
+            artifact: release-summary
+

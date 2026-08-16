@@ -1,0 +1,190 @@
+trigger:
+  branches:
+    include:
+    - main
+
+
+pool:
+  vmImage: ubuntu-latest
+
+
+variables:
+  aksResourceGroup: flavorforge-rg
+  aksClusterName: flavorforge-aks
+
+
+stages:
+
+- stage: ArgoCDDeploy
+  displayName: "ArgoCD GitOps Deployment"
+
+
+  jobs:
+
+
+  # ==================================================
+  # JOB 1 - Validate AKS
+  # ==================================================
+
+  - job: AKSValidation
+    displayName: "Validate AKS Connection"
+
+
+    steps:
+
+    - checkout: self
+
+
+    - task: AzureCLI@2
+      displayName: "Connect to AKS and Validate"
+
+      inputs:
+
+        connectedServiceNameARM: flavorforge-azure-sc
+
+        scriptType: bash
+
+        scriptLocation: inlineScript
+
+
+        inlineScript: |
+
+          echo "Getting AKS Credentials"
+
+          az aks get-credentials \
+          --resource-group $(aksResourceGroup) \
+          --name $(aksClusterName) \
+          --overwrite-existing
+
+
+          echo "Checking Cluster Nodes"
+
+          kubectl get nodes
+
+
+
+  # ==================================================
+  # JOB 2 - Deploy ArgoCD Application
+  # ==================================================
+
+  - job: ArgoCDApplication
+
+    displayName: "Deploy ArgoCD Application"
+
+    dependsOn: AKSValidation
+
+
+    steps:
+
+
+    - checkout: self
+
+
+    - task: AzureCLI@2
+
+      displayName: "Apply ArgoCD Manifest"
+
+
+      inputs:
+
+        connectedServiceNameARM: flavorforge-azure-sc
+
+        scriptType: bash
+
+        scriptLocation: inlineScript
+
+
+        inlineScript: |
+
+
+          echo "Getting AKS Credentials"
+
+
+          az aks get-credentials \
+          --resource-group $(aksResourceGroup) \
+          --name $(aksClusterName) \
+          --overwrite-existing
+
+
+
+          echo "Applying ArgoCD Application"
+
+
+          kubectl apply \
+          -f argocd/flavorforge-app.yaml \
+          --validate=false
+
+
+
+          echo "ArgoCD Application Created"
+
+
+          kubectl get applications -n argocd
+
+
+
+
+  # ==================================================
+  # JOB 3 - Verify Deployment
+  # ==================================================
+
+  - job: VerifyDeployment
+
+    displayName: "Verify ArgoCD Sync"
+
+
+    dependsOn: ArgoCDApplication
+
+
+    steps:
+
+
+    - task: AzureCLI@2
+
+      displayName: "Validate GitOps Deployment"
+
+
+      inputs:
+
+        connectedServiceNameARM: flavorforge-azure-sc
+
+        scriptType: bash
+
+        scriptLocation: inlineScript
+
+
+        inlineScript: |
+
+
+          echo "Getting AKS Credentials"
+
+
+          az aks get-credentials \
+          --resource-group $(aksResourceGroup) \
+          --name $(aksClusterName) \
+          --overwrite-existing
+
+
+
+          echo "Waiting for ArgoCD Sync"
+
+
+          kubectl wait \
+          --for=jsonpath='{.status.sync.status}'=Synced \
+          application/flavorforge \
+          -n argocd \
+          --timeout=180s
+
+
+
+          echo "ArgoCD Application Status"
+
+
+          kubectl get applications -n argocd
+
+
+
+          echo "Production Workloads"
+
+
+          kubectl get pods -n flavorforge

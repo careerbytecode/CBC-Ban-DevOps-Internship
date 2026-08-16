@@ -100,3 +100,54 @@ stages:
 ---
 
 *Part of the CareerByteCode Bangalore – Cloud & DevOps Internship Program.*
+
+---
+
+## Week 4 — FlavorForge Azure DevSecOps Capstone
+
+### Project
+
+**FlavorForge — Multi-Stage DevSecOps Pipeline**
+
+A full-stack application demonstrating an end-to-end Azure DevSecOps
+implementation.
+
+### Technologies
+
+- Docker
+- Kubernetes
+- Azure CLI
+- Azure Container Registry
+- Azure Kubernetes Service
+- Azure DevOps
+- SonarCloud
+- Trivy
+- Kustomize
+- Argo CD
+- GitOps
+
+### Major Deliverables
+
+- Azure DevOps multi-stage YAML pipeline
+- Dockerized frontend and backend
+- ACR image publishing
+- AKS deployment
+- Kubernetes manifests
+- Kustomize Dev/QA/Prod overlays
+- SonarCloud Quality Gate
+- Trivy security scanning
+- Argo CD GitOps demonstration
+- BUILD-JOURNEY documentation
+- Troubleshooting documentation
+- Final verification
+- Presentation material
+
+### Project Location
+
+`week-4/Project01-[DEVOPS]-MultiStage-CICD-Pipeline/`
+
+### Documentation
+
+The complete implementation is documented in:
+
+`week-4/Project01-[DEVOPS]-MultiStage-CICD-Pipeline/docs/BUILD-JOURNEY/` and `https://github.com/bymalathi/flavorforge-azure-devsecops-capstone.git`

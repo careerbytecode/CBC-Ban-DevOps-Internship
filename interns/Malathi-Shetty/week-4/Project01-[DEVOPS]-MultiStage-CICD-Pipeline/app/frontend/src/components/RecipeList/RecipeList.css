@@ -1,0 +1,31 @@
+.recipe-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+.recipe-list h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.recipe-grid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+
+  gap: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-list {
+    padding: var(--spacing-md);
+  }
+}

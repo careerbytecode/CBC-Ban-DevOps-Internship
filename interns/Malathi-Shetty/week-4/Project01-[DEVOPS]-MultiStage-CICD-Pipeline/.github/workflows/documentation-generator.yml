@@ -1,0 +1,56 @@
+name: Automated Documentation Generator
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-documentation:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate Project Documentation
+        run: |
+          python scripts/generate_project_report.py
+          python scripts/update_readme.py
+
+      - name: Commit and Push Documentation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin
+          git reset --hard origin/main
+
+          python scripts/generate_project_report.py
+          python scripts/update_readme.py
+
+          git add .
+
+          if git diff --cached --quiet; then
+            echo "No documentation changes."
+            exit 0
+          fi
+
+          git commit -m "docs: update generated documentation"
+
+          git push origin HEAD:main

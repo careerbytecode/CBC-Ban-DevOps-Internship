@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: flavorforge
+  namespace: argocd
+
+spec:
+
+  project: default
+
+  source:
+    repoURL: https://github.com/shettymalathib/flavorforge-azure-devsecops-capstone.git
+    targetRevision: main
+    path: kubernetes/overlays/prod
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: flavorforge
+
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    name: backend
+    jsonPointers:
+    - /spec/replicas
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
