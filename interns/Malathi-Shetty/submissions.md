@@ -74,8 +74,10 @@ https://www.instagram.com/p/DcPjtcrK9Yh/
 https://www.linkedin.com/feed/update/urn:li:activity:7496151837503520769/
 
 **LinkedIn Video:** -
+https://www.linkedin.com/posts/bymalathi_careerbytecode-devops-devsecops-ugcPost-7495497102010269696-d1oB/
 
 **Instagram Video:** -
+https://www.instagram.com/p/DcQ-zjLjUNj/
 
 ---
 
