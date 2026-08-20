@@ -19,10 +19,13 @@ This file tracks all my required CareerByteCode Cloud & DevOps Internship submis
 ## Day 0 – Joined
 
 **LinkedIn Post:** -
+https://www.linkedin.com/feed/update/urn:li:activity:7490987545611124736/
 
 **LinkedIn Video:** _(Optional)_
+https://www.linkedin.com/feed/update/urn:li:activity:7495774136645074945/
 
 **Instagram Video:** _(Optional)_
+https://www.instagram.com/p/DcPijUtK1g2/
 
 ---
 
@@ -55,16 +58,20 @@ https://www.instagram.com/reel/DbIUJP1Pg6s/
 ## Week 3 – Azure & CI/CD
 
 **LinkedIn Post:** -
+https://www.linkedin.com/feed/update/urn:li:activity:7490995117785518080/
 
 **LinkedIn Video:** -
+https://www.linkedin.com/feed/update/urn:li:activity:7495849577942564864/
 
 **Instagram Video:** -
+https://www.instagram.com/p/DcPjtcrK9Yh/
 
 ---
 
 ## Week 4 – DevOps Capstone
 
 **LinkedIn Post:** -
+https://www.linkedin.com/feed/update/urn:li:activity:7496151837503520769/
 
 **LinkedIn Video:** -
 
