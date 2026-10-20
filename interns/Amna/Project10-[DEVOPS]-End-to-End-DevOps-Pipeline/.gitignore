@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+coverage.xml
+htmlcov/
+
+# Local Floci-AZ emulator data
+floci-data/
+
+# Generated test reports
+test-results/

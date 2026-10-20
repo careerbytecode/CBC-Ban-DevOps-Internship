@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: devops-capstone-webapp
+  name: devops-capstone-webapp
+  namespace: staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-capstone-webapp
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: devops-capstone-webapp
+    spec:
+      containers:
+      - env:
+        - name: APP_NAME
+          value: DevOps Capstone Web App
+        - name: APP_VERSION
+          value: v1
+        - name: APP_ENVIRONMENT
+          value: staging
+        image: capstoneacr134949.azurecr.io/devops-capstone-webapp:latest
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+          timeoutSeconds: 3
+        name: devops-capstone-webapp
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 3
+        resources:
+          limits:
+            cpu: 500m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+status: {}

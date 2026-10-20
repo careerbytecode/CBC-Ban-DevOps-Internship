@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <section class="hero">
+            <span class="badge">DevOps Capstone Project</span>
+            <h1>{{ app.name }}</h1>
+            <p>
+                A simple container-ready web application for demonstrating
+                Docker, CI/CD, Kubernetes, ingress, monitoring, and deployments.
+            </p>
+        </section>
+
+        <section class="status-card">
+            <div class="status-header">
+                <h2>Application Status</h2>
+                <span class="healthy">● Healthy</span>
+            </div>
+
+            <div class="grid">
+                <div class="item">
+                    <span class="label">Version</span>
+                    <strong>{{ app.version }}</strong>
+                </div>
+
+                <div class="item">
+                    <span class="label">Environment</span>
+                    <strong>{{ app.environment }}</strong>
+                </div>
+
+                <div class="item">
+                    <span class="label">Container Hostname</span>
+                    <strong>{{ app.hostname }}</strong>
+                </div>
+
+                <div class="item">
+                    <span class="label">Deployment Time</span>
+                    <strong>{{ app.deployment_time }}</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="endpoints">
+            <h2>Useful Endpoints</h2>
+
+            <a href="/health">
+                <code>/health</code>
+                <span>Kubernetes health check</span>
+            </a>
+
+            <a href="/version">
+                <code>/version</code>
+                <span>Build and deployment information</span>
+            </a>
+
+            <a href="/api/status">
+                <code>/api/status</code>
+                <span>Runtime service status</span>
+            </a>
+        </section>
+
+        <footer>
+            Built for an end-to-end DevOps pipeline.
+        </footer>
+    </main>
+</body>
+</html>

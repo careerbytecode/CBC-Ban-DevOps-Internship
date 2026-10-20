@@ -1,0 +1,148 @@
+trigger:
+  branches:
+    include:
+      - capstone-project10
+  paths:
+    include:
+      - 'interns/Amna/Project10-[DEVOPS]-End-to-End-DevOps-Pipeline/**'
+
+pr:
+  branches:
+    include:
+      - main
+
+variables:
+  projectPath: '$(Build.SourcesDirectory)/interns/Amna/Project10-[DEVOPS]-End-to-End-DevOps-Pipeline'
+  manifestProjectPath: '$(Build.SourcesDirectory)/interns/Amna/Project10-[[]DEVOPS]-End-to-End-DevOps-Pipeline'
+  imageRepository: 'devops-capstone-webapp'
+  imageTag: '$(Build.BuildId)'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: Validate
+    displayName: Test and validate application
+
+    jobs:
+      - job: TestAndBuild
+        displayName: Run tests and build Docker image
+
+        steps:
+          - checkout: self
+
+          - task: UsePythonVersion@0
+            displayName: Use Python 3.12
+            inputs:
+              versionSpec: '3.12'
+
+          - script: |
+              python -m pip install --upgrade pip
+              python -m pip install -r "$(projectPath)/app/requirements.txt"
+            displayName: Install Python dependencies
+
+          - script: |
+              mkdir -p "$(projectPath)/test-results"
+
+              python -m pytest \
+                -q tests/test_app.py \
+                --junitxml="$(projectPath)/test-results/pytest.xml"
+            displayName: Run unit tests
+            workingDirectory: '$(projectPath)/app'
+
+          - task: PublishTestResults@2
+            displayName: Publish unit-test results
+            condition: succeededOrFailed()
+            inputs:
+              testResultsFormat: JUnit
+              testResultsFiles: '$(projectPath)/test-results/pytest.xml'
+              testRunTitle: 'Flask application tests'
+
+          - task: Docker@2
+            displayName: Build and push Docker image to ACR
+            inputs:
+              command: buildAndPush
+              containerRegistry: 'sc-acr-capstone'
+              repository: '$(imageRepository)'
+              Dockerfile: '$(projectPath)/app/Dockerfile'
+              buildContext: '$(projectPath)/app'
+              tags: |
+                $(imageTag)
+                latest
+
+  - stage: DeployStaging
+    displayName: Deploy to AKS staging
+    dependsOn: Validate
+    condition: succeeded()
+
+    jobs:
+      - job: DeployToStaging
+        displayName: Deploy application to staging namespace
+
+        steps:
+          - checkout: self
+
+          - task: KubernetesManifest@1
+            displayName: Create staging namespace
+            inputs:
+              action: deploy
+              connectionType: azureResourceManager
+              azureSubscriptionConnection: 'sc-azure-capstone'
+              azureResourceGroup: 'rg-devops-capstone'
+              kubernetesCluster: 'aks-devops-capstone'
+              manifests: |
+                $(manifestProjectPath)/k8s/staging/namespace.yaml
+
+          - task: KubernetesManifest@1
+            displayName: Deploy application to staging
+            inputs:
+              action: deploy
+              connectionType: azureResourceManager
+              azureSubscriptionConnection: 'sc-azure-capstone'
+              azureResourceGroup: 'rg-devops-capstone'
+              kubernetesCluster: 'aks-devops-capstone'
+              namespace: 'staging'
+              manifests: |
+                $(manifestProjectPath)/k8s/staging/deployment.yaml
+                $(manifestProjectPath)/k8s/staging/service.yaml
+              containers: |
+                capstoneacr134949.azurecr.io/devops-capstone-webapp:$(imageTag)
+
+  - stage: DeployProduction
+    displayName: Deploy to AKS production
+    dependsOn: DeployStaging
+    condition: succeeded()
+
+    jobs:
+      - job: DeployToProduction
+        displayName: Deploy application to production namespace
+
+        steps:
+          - checkout: self
+
+          - task: KubernetesManifest@1
+            displayName: Create production namespace
+            inputs:
+              action: deploy
+              connectionType: azureResourceManager
+              azureSubscriptionConnection: 'sc-azure-capstone'
+              azureResourceGroup: 'rg-devops-capstone'
+              kubernetesCluster: 'aks-devops-capstone'
+              manifests: |
+                $(manifestProjectPath)/k8s/production-namespace.yaml
+
+          - task: KubernetesManifest@1
+            displayName: Deploy application to production
+            inputs:
+              action: deploy
+              connectionType: azureResourceManager
+              azureSubscriptionConnection: 'sc-azure-capstone'
+              azureResourceGroup: 'rg-devops-capstone'
+              kubernetesCluster: 'aks-devops-capstone'
+              namespace: 'production'
+              manifests: |
+                $(manifestProjectPath)/k8s/production/deployment.yaml
+                $(manifestProjectPath)/k8s/production/service.yaml
+                $(manifestProjectPath)/k8s/production/hpa.yaml
+              containers: |
+                capstoneacr134949.azurecr.io/devops-capstone-webapp:$(imageTag)
