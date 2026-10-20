@@ -1,0 +1,71 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2026-08-13T04:14:19.631145485Z",
+  "ArtifactName": ".",
+  "ArtifactType": "filesystem",
+  "Metadata": {
+    "ImageConfig": {
+      "architecture": "",
+      "created": "0001-01-01T00:00:00Z",
+      "os": "",
+      "rootfs": {
+        "type": "",
+        "diff_ids": null
+      },
+      "config": {}
+    }
+  },
+  "Results": [
+    {
+      "Target": "backend/package-lock.json",
+      "Class": "lang-pkgs",
+      "Type": "npm"
+    },
+    {
+      "Target": "frontend/package-lock.json",
+      "Class": "lang-pkgs",
+      "Type": "npm",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "GHSA-qwww-vcr4-c8h2",
+          "PkgID": "react-router@7.18.1",
+          "PkgName": "react-router",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/react-router@7.18.1",
+            "UID": "2d38ccb6a40a3d8d"
+          },
+          "InstalledVersion": "7.18.1",
+          "FixedVersion": "7.18.2, 8.3.0",
+          "Status": "fixed",
+          "Layer": {},
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://github.com/advisories/GHSA-qwww-vcr4-c8h2",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "React Router: RSC Mode CSRF Bypass Allows Action Execution Before 400 Response",
+          "Description": "This is a follow up to CVE-2026-22030 to address related CSRF flows in unstable RSC code paths.\n\n\u003e [!NOTE]\n\u003e This only affects your application if you are using the unstable RSC APIs",
+          "Severity": "HIGH",
+          "VendorSeverity": {
+            "ghsa": 3
+          },
+          "CVSS": {
+            "ghsa": {}
+          },
+          "References": [
+            "http://github.com/remix-run/react-router/pull/15311",
+            "https://github.com/remix-run/react-router",
+            "https://github.com/remix-run/react-router/blob/main/CHANGELOG.md#v830",
+            "https://github.com/remix-run/react-router/commit/7a71c728ad116bd78699a258b2014ce9585729f5",
+            "https://github.com/remix-run/react-router/releases/tag/react-router@8.3.0",
+            "https://github.com/remix-run/react-router/security/advisories/GHSA-qwww-vcr4-c8h2"
+          ],
+          "PublishedDate": "2026-07-24T16:44:43Z",
+          "LastModifiedDate": "2026-08-07T18:14:58Z"
+        }
+      ]
+    }
+  ]
+}

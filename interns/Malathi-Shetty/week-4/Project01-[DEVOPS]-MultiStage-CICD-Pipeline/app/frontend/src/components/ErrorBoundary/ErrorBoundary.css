@@ -1,0 +1,16 @@
+.error-boundary {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: var(--spacing-xl);
+
+  text-align: center;
+}
+
+.error-boundary h1 {
+  color: #dc2626;
+  margin-bottom: var(--spacing-lg);
+}
+
+.error-boundary button {
+  margin-top: var(--spacing-lg);
+}

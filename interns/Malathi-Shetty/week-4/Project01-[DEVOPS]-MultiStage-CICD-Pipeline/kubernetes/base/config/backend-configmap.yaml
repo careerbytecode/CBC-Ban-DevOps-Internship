@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: backend-config
+  namespace: flavorforge
+
+data:
+  PORT: "3000"
+  NODE_ENV: "production"
+  CORS_ORIGIN: "http://4.157.77.48"
+  APP_NAME: "FlavorForge Backend"
+  APP_VERSION: "1.8"
+  BUILD_VERSION: "1.8"

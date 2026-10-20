@@ -1,0 +1,33 @@
+:root {
+  /* Brand Colors */
+  --color-primary: #ff6b35;
+  --color-primary-dark: #e85a2a;
+
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* Typography */
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadow */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
+}

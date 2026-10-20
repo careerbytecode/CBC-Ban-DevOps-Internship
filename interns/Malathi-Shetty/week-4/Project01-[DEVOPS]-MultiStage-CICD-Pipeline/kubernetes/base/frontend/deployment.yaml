@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: frontend
+    
+  annotations:
+    kubernetes.io/change-cause: "Release 1.4 - Backend health probe update"
+
+  labels:
+    app: frontend
+
+spec:
+  replicas: 2
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+
+  selector:
+    matchLabels:
+      app: frontend
+
+  template:
+    metadata:
+      labels:
+        app: frontend
+
+    spec:
+      automountServiceAccountToken: false
+      
+      containers:
+        - name: frontend
+
+          image: flavorforgeacr2026ms.azurecr.io/flavorforge-frontend:1.8
+
+          env:
+            - name: BACKEND_HOST
+              value: backend
+
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 80
+
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+              ephemeral-storage: "200Mi"
+
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
+              ephemeral-storage: "500Mi"

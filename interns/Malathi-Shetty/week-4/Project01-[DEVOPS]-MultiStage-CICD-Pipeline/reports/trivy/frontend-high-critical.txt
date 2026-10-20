@@ -1,0 +1,48 @@
+
+flavorforge-frontend:latest (alpine 3.23.4)
+===========================================
+Total: 11 (HIGH: 11, CRITICAL: 0)
+
+┌──────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
+│   Library    │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version │                            Title                             │
+├──────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ c-ares       │ CVE-2026-33630 │ HIGH     │ fixed  │ 1.34.6-r0         │ 1.34.8-r0     │ c-ares: c-ares: Use-after-free / double-free in              │
+│              │                │          │        │                   │               │ query-completion handling                                    │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-33630                   │
+├──────────────┼────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ curl         │ CVE-2026-5773  │          │        │ 8.17.0-r1         │ 8.20.0-r0     │ curl: libcurl: Wrong file transfer due to incorrect SMB      │
+│              │                │          │        │                   │               │ connection reuse                                             │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-5773                    │
+│              ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-6276  │          │        │                   │               │ curl: libcurl: Information disclosure due to cookie leak     │
+│              │                │          │        │                   │               │ when reusing connections with...                             │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-6276                    │
+├──────────────┼────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ libcrypto3   │ CVE-2026-45447 │          │        │ 3.5.6-r0          │ 3.5.7-r0      │ openssl: Heap Use-After-Free in OpenSSL PKCS7_verify()       │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-45447                   │
+├──────────────┼────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ libcurl      │ CVE-2026-5773  │          │        │ 8.17.0-r1         │ 8.20.0-r0     │ curl: libcurl: Wrong file transfer due to incorrect SMB      │
+│              │                │          │        │                   │               │ connection reuse                                             │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-5773                    │
+│              ├────────────────┤          │        │                   │               ├──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-6276  │          │        │                   │               │ curl: libcurl: Information disclosure due to cookie leak     │
+│              │                │          │        │                   │               │ when reusing connections with...                             │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-6276                    │
+├──────────────┼────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ libexpat     │ CVE-2026-45186 │          │        │ 2.7.5-r0          │ 2.8.1-r0      │ libexpat: denial of service via crafted XML input            │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-45186                   │
+│              ├────────────────┤          │        │                   ├───────────────┼──────────────────────────────────────────────────────────────┤
+│              │ CVE-2026-56408 │          │        │                   │ 2.8.2-r0      │ libexpat before 2.8.2 has an integer overflow in copyString. │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-56408                   │
+├──────────────┼────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ libssl3      │ CVE-2026-45447 │          │        │ 3.5.6-r0          │ 3.5.7-r0      │ openssl: Heap Use-After-Free in OpenSSL PKCS7_verify()       │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-45447                   │
+├──────────────┼────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ libxml2      │ CVE-2026-6732  │          │        │ 2.13.9-r0         │ 2.13.9-r1     │ libxml2: libxml2: Denial of Service via crafted              │
+│              │                │          │        │                   │               │ XSD-validated document                                       │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-6732                    │
+├──────────────┼────────────────┤          │        ├───────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│ nghttp2-libs │ CVE-2026-27135 │          │        │ 1.68.0-r0         │ 1.68.1        │ nghttp2: nghttp2: Denial of Service via malformed HTTP/2     │
+│              │                │          │        │                   │               │ frames after session termination...                          │
+│              │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-27135                   │
+└──────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────┴──────────────────────────────────────────────────────────────┘

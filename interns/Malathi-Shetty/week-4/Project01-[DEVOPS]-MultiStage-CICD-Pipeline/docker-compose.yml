@@ -1,0 +1,48 @@
+services:
+
+  backend:
+    image: flavorforge-backend:1.0
+    build:
+      context: ./backend
+    container_name: flavorforge-backend
+    ports:
+      - "3000:3000"
+
+    restart: unless-stopped
+
+    environment:
+      NODE_ENV: production
+      CORS_ORIGIN: http://localhost:8080
+
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    networks:
+      - flavorforge-network
+
+
+  frontend:
+    image: flavorforge-frontend:1.0
+    build:
+      context: ./frontend
+    container_name: flavorforge-frontend
+    ports:
+      - "8080:80"
+
+    restart: unless-stopped
+    
+    depends_on:
+      backend:
+        condition: service_healthy
+
+    networks:
+      - flavorforge-network
+
+
+networks:
+  flavorforge-network:
+    driver: bridge

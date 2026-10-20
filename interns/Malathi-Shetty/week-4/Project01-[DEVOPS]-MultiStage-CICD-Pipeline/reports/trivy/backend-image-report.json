@@ -1,0 +1,1545 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2026-08-13T04:31:21.617924706Z",
+  "ArtifactName": "flavorforge-backend:latest",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.24.1"
+    },
+    "ImageID": "sha256:d056af8f3ed7c08358d7bca9ffdc9b34602231084c21275306ab45a83baa4ff7",
+    "DiffIDs": [
+      "sha256:34884abbe92863fce933ed7c39c0e045631af0ed86d5cc0dfbdf9fdca426ce3c",
+      "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784",
+      "sha256:fe2c6446e3d9c78c5f734536452b9ea4bf7c4c46c4b4a575d2973b79691ec57a",
+      "sha256:baf2266664bacf240e13831e4192f8c92196c603ce8a20a4a50035ad87f8f2fb",
+      "sha256:d9d0f1ee219807f4e474836299f5cf79930b39435e9e3c30398e89acc8056c66",
+      "sha256:19f36c11bf7c71d727635a130be9945e462805295d551da6c982144c615b7a5a",
+      "sha256:8e9d0a98cbf8f606be5c57061118d7408660dc7df451a820d105fb0962bfa9ce",
+      "sha256:329c84d0a3284a050042110fee81033b43b40f8b6121f9b55215f540a2653fc5",
+      "sha256:b4f323a10f70da0a6ae4ea7906a21ea37ac2ffc656b342235f5ca8b9c310cd28"
+    ],
+    "RepoTags": [
+      "flavorforge-backend:latest"
+    ],
+    "RepoDigests": [
+      "flavorforge-backend@sha256:d056af8f3ed7c08358d7bca9ffdc9b34602231084c21275306ab45a83baa4ff7"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "created": "2026-08-13T03:41:15.907827821Z",
+      "history": [
+        {
+          "created": "2026-06-16T00:01:29Z",
+          "created_by": "ADD alpine-minirootfs-3.24.1-x86_64.tar.gz / # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-06-16T00:01:29Z",
+          "created_by": "CMD [\"/bin/sh\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-29T17:26:55Z",
+          "created_by": "ENV NODE_VERSION=22.23.2",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-29T17:26:55Z",
+          "created_by": "RUN /bin/sh -c addgroup -g 1000 node     \u0026\u0026 adduser -u 1000 -G node -s /bin/sh -D node     \u0026\u0026 apk add --no-cache         libstdc++     \u0026\u0026 apk add --no-cache --virtual .build-deps         curl     \u0026\u0026 ARCH= OPENSSL_ARCH='linux*' \u0026\u0026 alpineArch=\"$(apk --print-arch)\"       \u0026\u0026 case \"${alpineArch##*-}\" in         x86_64) ARCH='x64' CHECKSUM=\"2d18b5731055f7efa6c899004909b00ee110e38d3775745f60ec9ccf1f9982e7\" OPENSSL_ARCH=linux-x86_64;;         x86) OPENSSL_ARCH=linux-elf;;         aarch64) OPENSSL_ARCH=linux-aarch64;;         arm*) OPENSSL_ARCH=linux-armv4;;         ppc64le) OPENSSL_ARCH=linux-ppc64le;;         s390x) OPENSSL_ARCH=linux-s390x;;         *) ;;       esac   \u0026\u0026 if [ -n \"${CHECKSUM}\" ]; then     set -eu;     curl -fsSLO --compressed \"https://unofficial-builds.nodejs.org/download/release/v$NODE_VERSION/node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\";     echo \"$CHECKSUM  node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" | sha256sum -c -       \u0026\u0026 tar -xJf \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\" -C /usr/local --strip-components=1 --no-same-owner       \u0026\u0026 ln -s /usr/local/bin/node /usr/local/bin/nodejs;   else     echo \"Building from source\"     \u0026\u0026 apk add --no-cache --virtual .build-deps-full         binutils-gold         g++         gcc         gnupg         libgcc         linux-headers         make         python3         py-setuptools     \u0026\u0026 export GNUPGHOME=\"$(mktemp -d)\"     \u0026\u0026 for key in       5BE8A3F6C8A5C01D106C0AD820B1A390B168D356       DD792F5973C6DE52C432CBDAC77ABFA00DDBF2B7       CC68F5A3106FF448322E48ED27F5E38D5B0A215F       8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600       890C08DB8579162FEE0DF9DB8BEAB4DFCF555EF4       C82FA3AE1CBEDC6BE46B9360C43CEC45C17AB93C       108F52B48DB57BB0CC439B2997B01419BD92F80A       A363A499291CBBC940DD62E41F10027AF002F8B0       655F3B5C1FB3FA8D1A0CA6BDE4A7D232B936D2FD     ; do       { gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" \u0026\u0026 gpg --batch --fingerprint \"$key\"; } ||       { gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" \u0026\u0026 gpg --batch --fingerprint \"$key\"; } ;     done     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.xz\"     \u0026\u0026 curl -fsSLO --compressed \"https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc\"     \u0026\u0026 gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc     \u0026\u0026 gpgconf --kill all     \u0026\u0026 rm -rf \"$GNUPGHOME\"     \u0026\u0026 grep \" node-v$NODE_VERSION.tar.xz\\$\" SHASUMS256.txt | sha256sum -c -     \u0026\u0026 tar -xf \"node-v$NODE_VERSION.tar.xz\"     \u0026\u0026 cd \"node-v$NODE_VERSION\"     \u0026\u0026 ./configure     \u0026\u0026 make -j$(getconf _NPROCESSORS_ONLN) V=     \u0026\u0026 make install     \u0026\u0026 apk del .build-deps-full     \u0026\u0026 cd ..     \u0026\u0026 rm -Rf \"node-v$NODE_VERSION\"     \u0026\u0026 rm \"node-v$NODE_VERSION.tar.xz\" SHASUMS256.txt.asc SHASUMS256.txt;   fi   \u0026\u0026 rm -f \"node-v$NODE_VERSION-linux-$ARCH-musl.tar.xz\"   \u0026\u0026 find /usr/local/include/node/openssl/archs -mindepth 1 -maxdepth 1 ! -name \"$OPENSSL_ARCH\" -exec rm -rf {} \\;   \u0026\u0026 apk del .build-deps   \u0026\u0026 node --version   \u0026\u0026 npm --version   \u0026\u0026 rm -rf /tmp/* # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-07-29T17:26:55Z",
+          "created_by": "ENV YARN_VERSION=1.22.22",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-29T17:26:59Z",
+          "created_by": "RUN /bin/sh -c apk add --no-cache --virtual .build-deps-yarn curl gnupg tar   \u0026\u0026 export GNUPGHOME=\"$(mktemp -d)\"   \u0026\u0026 for key in     6A010C5166006599AA17F08146C2130DFD2497F5   ; do     { gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$key\" \u0026\u0026 gpg --batch --fingerprint \"$key\"; } ||     { gpg --batch --keyserver keyserver.ubuntu.com --recv-keys \"$key\" \u0026\u0026 gpg --batch --fingerprint \"$key\"; } ;   done   \u0026\u0026 curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz\"   \u0026\u0026 curl -fsSLO --compressed \"https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz.asc\"   \u0026\u0026 gpg --batch --verify yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   \u0026\u0026 gpgconf --kill all   \u0026\u0026 rm -rf \"$GNUPGHOME\"   \u0026\u0026 mkdir -p /opt   \u0026\u0026 tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/   \u0026\u0026 ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn   \u0026\u0026 ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg   \u0026\u0026 rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz   \u0026\u0026 apk del .build-deps-yarn   \u0026\u0026 yarn --version   \u0026\u0026 rm -rf /tmp/* # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-07-29T17:26:59Z",
+          "created_by": "COPY docker-entrypoint.sh /usr/local/bin/ # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-07-29T17:26:59Z",
+          "created_by": "ENTRYPOINT [\"docker-entrypoint.sh\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-29T17:26:59Z",
+          "created_by": "CMD [\"node\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-07-30T04:52:50Z",
+          "created_by": "WORKDIR /app",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-08-13T03:40:37Z",
+          "created_by": "RUN /bin/sh -c addgroup -S flavorforge \u0026\u0026     adduser -S -G flavorforge flavorforge # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-08-13T03:41:11Z",
+          "created_by": "COPY --chown=flavorforge:flavorforge /app/package*.json ./ # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-08-13T03:41:15Z",
+          "created_by": "COPY --chown=flavorforge:flavorforge /app/node_modules ./node_modules # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-08-13T03:41:15Z",
+          "created_by": "COPY --chown=flavorforge:flavorforge /app/src ./src # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2026-08-13T03:41:15Z",
+          "created_by": "USER flavorforge",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-08-13T03:41:15Z",
+          "created_by": "EXPOSE [3000/tcp]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2026-08-13T03:41:15Z",
+          "created_by": "CMD [\"node\" \"src/server.js\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:34884abbe92863fce933ed7c39c0e045631af0ed86d5cc0dfbdf9fdca426ce3c",
+          "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784",
+          "sha256:fe2c6446e3d9c78c5f734536452b9ea4bf7c4c46c4b4a575d2973b79691ec57a",
+          "sha256:baf2266664bacf240e13831e4192f8c92196c603ce8a20a4a50035ad87f8f2fb",
+          "sha256:d9d0f1ee219807f4e474836299f5cf79930b39435e9e3c30398e89acc8056c66",
+          "sha256:19f36c11bf7c71d727635a130be9945e462805295d551da6c982144c615b7a5a",
+          "sha256:8e9d0a98cbf8f606be5c57061118d7408660dc7df451a820d105fb0962bfa9ce",
+          "sha256:329c84d0a3284a050042110fee81033b43b40f8b6121f9b55215f540a2653fc5",
+          "sha256:b4f323a10f70da0a6ae4ea7906a21ea37ac2ffc656b342235f5ca8b9c310cd28"
+        ]
+      },
+      "config": {
+        "Cmd": [
+          "node",
+          "src/server.js"
+        ],
+        "Entrypoint": [
+          "docker-entrypoint.sh"
+        ],
+        "Env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "NODE_VERSION=22.23.2",
+          "YARN_VERSION=1.22.22"
+        ],
+        "User": "flavorforge",
+        "WorkingDir": "/app",
+        "ArgsEscaped": true
+      }
+    }
+  },
+  "Results": [
+    {
+      "Target": "flavorforge-backend:latest (alpine 3.24.1)",
+      "Class": "os-pkgs",
+      "Type": "alpine"
+    },
+    {
+      "Target": "Node.js",
+      "Class": "lang-pkgs",
+      "Type": "node-pkg",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2026-48758",
+          "PkgID": "@sigstore/core@2.0.0",
+          "PkgName": "@sigstore/core",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/@sigstore/core/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/%40sigstore/core@2.0.0",
+            "UID": "bde57db08d9c344d"
+          },
+          "InstalledVersion": "2.0.0",
+          "FixedVersion": "3.2.1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-48758",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "sigstore-core: @sigstore/core: Signature bypass due to incorrect encoding in preAuthEncoding",
+          "Description": "sigstore-js provides JavaScript libraries for interacting with Sigstore services. Prior to 3.2.1, the preAuthEncoding function in @sigstore/core uses Node.js ascii encoding when converting the PAE string to bytes, allowing payloadType to be mutated after signing without invalidating the signature and breaking the type-binding guarantee that DSSE is designed to provide. This issue is fixed in version 3.2.1.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-347"
+          ],
+          "VendorSeverity": {
+            "amazon": 3,
+            "ghsa": 2,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L",
+              "V3Score": 5.4
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L",
+              "V3Score": 5.4
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-48758",
+            "https://github.com/sigstore/sigstore-js",
+            "https://github.com/sigstore/sigstore-js/commit/b5aa4f1f8d2db0a9dfa6430fb114d9c2f1c304f7",
+            "https://github.com/sigstore/sigstore-js/pull/1657",
+            "https://github.com/sigstore/sigstore-js/releases/tag/@sigstore%2Fcore@3.2.1",
+            "https://github.com/sigstore/sigstore-js/security/advisories/GHSA-jfc7-64v2-mr8c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-48758",
+            "https://www.cve.org/CVERecord?id=CVE-2026-48758"
+          ],
+          "PublishedDate": "2026-07-14T21:17:01.113Z",
+          "LastModifiedDate": "2026-07-15T20:23:47.313Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-14257",
+          "PkgID": "brace-expansion@1.1.16",
+          "PkgName": "brace-expansion",
+          "PkgPath": "app/node_modules/test-exclude/node_modules/brace-expansion/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/brace-expansion@1.1.16",
+            "UID": "3ee03f8393a5db36"
+          },
+          "InstalledVersion": "1.1.16",
+          "FixedVersion": "5.0.8, 3.0.3, 2.1.3, 1.1.17",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:b49c48b3e43613518a42ef28b71bb07248123e039e9b06e08fba2e4621025964",
+            "DiffID": "sha256:329c84d0a3284a050042110fee81033b43b40f8b6121f9b55215f540a2653fc5"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-14257",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "brace-expansion: Brace-expansion: Denial of Service via memory exhaustion in expand() function",
+          "Description": "brace-expansion through 5.0.7 is vulnerable to denial of service via memory exhaustion. The expand() function limits the number of results with a max option (default 100,000) but does not bound the length of each result string. By chaining multiple brace groups, an attacker keeps the result count under the limit while making each result progressively longer, so total memory scales with both count and string length until the process hits a fatal, uncatchable out-of-memory error. About 7.5 KB of input ('{a,b}'.repeat(1500)) crashes a default Node.js process. Any application that passes attacker-influenced strings to brace-expansion.expand() - directly or transitively via minimatch / glob brace patterns - can be crashed by a small request. Fixed in 5.0.8 by adding a maxLength option (default 4,000,000) that bounds accumulated output and intermediate arrays.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-14257",
+            "https://github.com/juliangruber/brace-expansion",
+            "https://github.com/juliangruber/brace-expansion/commit/139d015104e71433ad52a41d19467c48ecbb2c7d",
+            "https://github.com/juliangruber/brace-expansion/commit/a1bd33999ea75262c4749fff3bbb0d1372bd07b5",
+            "https://github.com/juliangruber/brace-expansion/commit/cb4b9e47cc2ec777c14b2b4492fb431a56f6a031",
+            "https://github.com/juliangruber/brace-expansion/commit/d13ff455a58b0d56704f0111e3c2a0b16ceb06eb",
+            "https://github.com/juliangruber/brace-expansion/pull/129",
+            "https://github.com/juliangruber/brace-expansion/pull/130",
+            "https://github.com/juliangruber/brace-expansion/pull/136",
+            "https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-mh99-v99m-4gvg",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-14257",
+            "https://www.cve.org/CVERecord?id=CVE-2026-14257",
+            "https://www.npmjs.com/package/brace-expansion"
+          ],
+          "PublishedDate": "2026-07-23T14:17:00.25Z",
+          "LastModifiedDate": "2026-07-23T15:48:25.133Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-69152",
+          "PkgID": "brace-expansion@1.1.16",
+          "PkgName": "brace-expansion",
+          "PkgPath": "app/node_modules/test-exclude/node_modules/brace-expansion/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/brace-expansion@1.1.16",
+            "UID": "3ee03f8393a5db36"
+          },
+          "InstalledVersion": "1.1.16",
+          "FixedVersion": "1.1.18, 2.1.4, 3.0.6, 5.0.9",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:b49c48b3e43613518a42ef28b71bb07248123e039e9b06e08fba2e4621025964",
+            "DiffID": "sha256:329c84d0a3284a050042110fee81033b43b40f8b6121f9b55215f540a2653fc5"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-69152",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+          "Description": "The brace-expansion library generates arbitrary strings containing a common prefix and suffix. Prior to 1.1.18, 2.1.4, 3.0.6, and 5.0.9, expand() does not apply maxLength while constructing comma-alternative intermediate arrays or padded sequences, allowing attacker-controlled input to exhaust memory or block the event loop. The fix for CVE-2026-14257 is bypassed by the vulnerability. This issue is fixed in versions 1.1.18, 2.1.4, 3.0.6, and 5.0.9.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:52841",
+            "https://access.redhat.com/security/cve/CVE-2026-69152",
+            "https://bugzilla.redhat.com/2510722",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2510722",
+            "https://creativecommons.org/licenses/by/4.0/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-69152",
+            "https://errata.almalinux.org/10/ALSA-2026-52841.html",
+            "https://errata.rockylinux.org/RLSA-2026:52841",
+            "https://github.com/juliangruber/brace-expansion",
+            "https://github.com/juliangruber/brace-expansion/commit/139d015104e71433ad52a41d19467c48ecbb2c7d",
+            "https://github.com/juliangruber/brace-expansion/commit/1e30c930238d7162802d88a94189182def178dac",
+            "https://github.com/juliangruber/brace-expansion/commit/688a99eeaab02627c2b89ba8ba4821fecfa659cf",
+            "https://github.com/juliangruber/brace-expansion/commit/cb4b9e47cc2ec777c14b2b4492fb431a56f6a031",
+            "https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-rgw5-rvv9-x895",
+            "https://linux.oracle.com/cve/CVE-2026-69152.html",
+            "https://linux.oracle.com/errata/ELSA-2026-52841.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-69152",
+            "https://www.cve.org/CVERecord?id=CVE-2026-69152"
+          ],
+          "PublishedDate": "2026-08-03T17:16:45.953Z",
+          "LastModifiedDate": "2026-08-05T14:58:28.177Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-13149",
+          "PkgID": "brace-expansion@2.0.2",
+          "PkgName": "brace-expansion",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/brace-expansion/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/brace-expansion@2.0.2",
+            "UID": "e0d647a9ad61f8ba"
+          },
+          "InstalledVersion": "2.0.2",
+          "FixedVersion": "5.0.7, 1.1.16, 2.1.2",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13149",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "brace-expansion: Brace-expansion: Denial of Service due to exponential-time complexity",
+          "Description": "brace-expansion through 5.0.6 is vulnerable to denial of service. The expand() function exhibits exponential-time complexity in the number of consecutive non-expanding '{}' brace groups. An attacker who passes a crafted string to expand(), directly or transitively, can cause significant CPU consumption and event-loop blocking. The max option does not mitigate this, as it bounds the output size rather than the recursion work.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-407"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:47058",
+            "https://access.redhat.com/errata/RHSA-2026:47060",
+            "https://access.redhat.com/security/cve/CVE-2026-13149",
+            "https://bugzilla.redhat.com/2494813",
+            "https://bugzilla.redhat.com/2498116",
+            "https://bugzilla.redhat.com/2498120",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494813",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2498116",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2498120",
+            "https://creativecommons.org/licenses/by/4.0/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-13149",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-59873",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-59874",
+            "https://errata.almalinux.org/8/ALSA-2026-47060.html",
+            "https://errata.rockylinux.org/RLSA-2026:47058",
+            "https://github.com/juliangruber/brace-expansion",
+            "https://github.com/juliangruber/brace-expansion/commit/835d6be91201122d9adffb0c0c8c094189ace265",
+            "https://github.com/juliangruber/brace-expansion/commit/c7e33ec13ac1a684c116720843ce24e208611754",
+            "https://github.com/juliangruber/brace-expansion/commit/d74e63030c012e3b7ae81657b8d665619cd51b95",
+            "https://github.com/juliangruber/brace-expansion/pull/122",
+            "https://github.com/juliangruber/brace-expansion/pull/123",
+            "https://github.com/juliangruber/brace-expansion/releases/tag/v1.1.16",
+            "https://github.com/juliangruber/brace-expansion/releases/tag/v2.1.2",
+            "https://github.com/juliangruber/brace-expansion/releases/tag/v5.0.7",
+            "https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-3jxr-9vmj-r5cp",
+            "https://linux.oracle.com/cve/CVE-2026-13149.html",
+            "https://linux.oracle.com/errata/ELSA-2026-48034.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13149",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13149",
+            "https://www.npmjs.com/package/brace-expansion"
+          ],
+          "PublishedDate": "2026-06-30T10:16:34.56Z",
+          "LastModifiedDate": "2026-07-08T12:17:20.087Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-14257",
+          "PkgID": "brace-expansion@2.0.2",
+          "PkgName": "brace-expansion",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/brace-expansion/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/brace-expansion@2.0.2",
+            "UID": "e0d647a9ad61f8ba"
+          },
+          "InstalledVersion": "2.0.2",
+          "FixedVersion": "5.0.8, 3.0.3, 2.1.3, 1.1.17",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-14257",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "brace-expansion: Brace-expansion: Denial of Service via memory exhaustion in expand() function",
+          "Description": "brace-expansion through 5.0.7 is vulnerable to denial of service via memory exhaustion. The expand() function limits the number of results with a max option (default 100,000) but does not bound the length of each result string. By chaining multiple brace groups, an attacker keeps the result count under the limit while making each result progressively longer, so total memory scales with both count and string length until the process hits a fatal, uncatchable out-of-memory error. About 7.5 KB of input ('{a,b}'.repeat(1500)) crashes a default Node.js process. Any application that passes attacker-influenced strings to brace-expansion.expand() - directly or transitively via minimatch / glob brace patterns - can be crashed by a small request. Fixed in 5.0.8 by adding a maxLength option (default 4,000,000) that bounds accumulated output and intermediate arrays.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-14257",
+            "https://github.com/juliangruber/brace-expansion",
+            "https://github.com/juliangruber/brace-expansion/commit/139d015104e71433ad52a41d19467c48ecbb2c7d",
+            "https://github.com/juliangruber/brace-expansion/commit/a1bd33999ea75262c4749fff3bbb0d1372bd07b5",
+            "https://github.com/juliangruber/brace-expansion/commit/cb4b9e47cc2ec777c14b2b4492fb431a56f6a031",
+            "https://github.com/juliangruber/brace-expansion/commit/d13ff455a58b0d56704f0111e3c2a0b16ceb06eb",
+            "https://github.com/juliangruber/brace-expansion/pull/129",
+            "https://github.com/juliangruber/brace-expansion/pull/130",
+            "https://github.com/juliangruber/brace-expansion/pull/136",
+            "https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-mh99-v99m-4gvg",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-14257",
+            "https://www.cve.org/CVERecord?id=CVE-2026-14257",
+            "https://www.npmjs.com/package/brace-expansion"
+          ],
+          "PublishedDate": "2026-07-23T14:17:00.25Z",
+          "LastModifiedDate": "2026-07-23T15:48:25.133Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-69152",
+          "PkgID": "brace-expansion@2.0.2",
+          "PkgName": "brace-expansion",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/brace-expansion/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/brace-expansion@2.0.2",
+            "UID": "e0d647a9ad61f8ba"
+          },
+          "InstalledVersion": "2.0.2",
+          "FixedVersion": "1.1.18, 2.1.4, 3.0.6, 5.0.9",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-69152",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+          "Description": "The brace-expansion library generates arbitrary strings containing a common prefix and suffix. Prior to 1.1.18, 2.1.4, 3.0.6, and 5.0.9, expand() does not apply maxLength while constructing comma-alternative intermediate arrays or padded sequences, allowing attacker-controlled input to exhaust memory or block the event loop. The fix for CVE-2026-14257 is bypassed by the vulnerability. This issue is fixed in versions 1.1.18, 2.1.4, 3.0.6, and 5.0.9.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:52841",
+            "https://access.redhat.com/security/cve/CVE-2026-69152",
+            "https://bugzilla.redhat.com/2510722",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2510722",
+            "https://creativecommons.org/licenses/by/4.0/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-69152",
+            "https://errata.almalinux.org/10/ALSA-2026-52841.html",
+            "https://errata.rockylinux.org/RLSA-2026:52841",
+            "https://github.com/juliangruber/brace-expansion",
+            "https://github.com/juliangruber/brace-expansion/commit/139d015104e71433ad52a41d19467c48ecbb2c7d",
+            "https://github.com/juliangruber/brace-expansion/commit/1e30c930238d7162802d88a94189182def178dac",
+            "https://github.com/juliangruber/brace-expansion/commit/688a99eeaab02627c2b89ba8ba4821fecfa659cf",
+            "https://github.com/juliangruber/brace-expansion/commit/cb4b9e47cc2ec777c14b2b4492fb431a56f6a031",
+            "https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-rgw5-rvv9-x895",
+            "https://linux.oracle.com/cve/CVE-2026-69152.html",
+            "https://linux.oracle.com/errata/ELSA-2026-52841.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-69152",
+            "https://www.cve.org/CVERecord?id=CVE-2026-69152"
+          ],
+          "PublishedDate": "2026-08-03T17:16:45.953Z",
+          "LastModifiedDate": "2026-08-05T14:58:28.177Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-33750",
+          "PkgID": "brace-expansion@2.0.2",
+          "PkgName": "brace-expansion",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/brace-expansion/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/brace-expansion@2.0.2",
+            "UID": "e0d647a9ad61f8ba"
+          },
+          "InstalledVersion": "2.0.2",
+          "FixedVersion": "5.0.5, 3.0.2, 2.0.3, 1.1.13",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-33750",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "brace-expansion: brace-expansion: Denial of Service via zero step value in brace pattern",
+          "Description": "The brace-expansion library generates arbitrary strings containing a common prefix and suffix. Prior to versions 5.0.5, 3.0.2, 2.0.3, and 1.1.13, a brace pattern with a zero step value (e.g., `{1..2..0}`) causes the sequence generation loop to run indefinitely, making the process hang for seconds and allocate heaps of memory. Versions 5.0.5, 3.0.2, 2.0.3, and 1.1.13 fix the issue. As a workaround, sanitize strings passed to `expand()` to ensure a step value of `0` is not used.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-400"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "nvd": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+              "V3Score": 6.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-33750",
+            "https://github.com/juliangruber/brace-expansion",
+            "https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L107-L113",
+            "https://github.com/juliangruber/brace-expansion/blob/daa71bcb4a30a2df9bcb7f7b8daaf2ab30e5794a/src/index.ts#L184",
+            "https://github.com/juliangruber/brace-expansion/commit/311ac0d54994158c0a384e286a7d6cbb17ee8ed5",
+            "https://github.com/juliangruber/brace-expansion/commit/7fd684f89fdde3549563d0a6522226a9189472a2",
+            "https://github.com/juliangruber/brace-expansion/commit/b9cacd9e55e7a1fa588fe4b7bb1159d52f1d902a",
+            "https://github.com/juliangruber/brace-expansion/issues/98",
+            "https://github.com/juliangruber/brace-expansion/pull/95",
+            "https://github.com/juliangruber/brace-expansion/pull/96",
+            "https://github.com/juliangruber/brace-expansion/pull/97",
+            "https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-f886-m6hf-6m8v",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-33750",
+            "https://www.cve.org/CVERecord?id=CVE-2026-33750"
+          ],
+          "PublishedDate": "2026-03-27T15:16:57.297Z",
+          "LastModifiedDate": "2026-06-17T10:38:02.143Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-69152",
+          "PkgID": "brace-expansion@2.1.3",
+          "PkgName": "brace-expansion",
+          "PkgPath": "app/node_modules/glob/node_modules/brace-expansion/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/brace-expansion@2.1.3",
+            "UID": "67f7301dc37b2ed5"
+          },
+          "InstalledVersion": "2.1.3",
+          "FixedVersion": "1.1.18, 2.1.4, 3.0.6, 5.0.9",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:b49c48b3e43613518a42ef28b71bb07248123e039e9b06e08fba2e4621025964",
+            "DiffID": "sha256:329c84d0a3284a050042110fee81033b43b40f8b6121f9b55215f540a2653fc5"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-69152",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+          "Description": "The brace-expansion library generates arbitrary strings containing a common prefix and suffix. Prior to 1.1.18, 2.1.4, 3.0.6, and 5.0.9, expand() does not apply maxLength while constructing comma-alternative intermediate arrays or padded sequences, allowing attacker-controlled input to exhaust memory or block the event loop. The fix for CVE-2026-14257 is bypassed by the vulnerability. This issue is fixed in versions 1.1.18, 2.1.4, 3.0.6, and 5.0.9.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:52841",
+            "https://access.redhat.com/security/cve/CVE-2026-69152",
+            "https://bugzilla.redhat.com/2510722",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2510722",
+            "https://creativecommons.org/licenses/by/4.0/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-69152",
+            "https://errata.almalinux.org/10/ALSA-2026-52841.html",
+            "https://errata.rockylinux.org/RLSA-2026:52841",
+            "https://github.com/juliangruber/brace-expansion",
+            "https://github.com/juliangruber/brace-expansion/commit/139d015104e71433ad52a41d19467c48ecbb2c7d",
+            "https://github.com/juliangruber/brace-expansion/commit/1e30c930238d7162802d88a94189182def178dac",
+            "https://github.com/juliangruber/brace-expansion/commit/688a99eeaab02627c2b89ba8ba4821fecfa659cf",
+            "https://github.com/juliangruber/brace-expansion/commit/cb4b9e47cc2ec777c14b2b4492fb431a56f6a031",
+            "https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-rgw5-rvv9-x895",
+            "https://linux.oracle.com/cve/CVE-2026-69152.html",
+            "https://linux.oracle.com/errata/ELSA-2026-52841.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-69152",
+            "https://www.cve.org/CVERecord?id=CVE-2026-69152"
+          ],
+          "PublishedDate": "2026-08-03T17:16:45.953Z",
+          "LastModifiedDate": "2026-08-05T14:58:28.177Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-69152",
+          "PkgID": "brace-expansion@5.0.8",
+          "PkgName": "brace-expansion",
+          "PkgPath": "app/node_modules/brace-expansion/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/brace-expansion@5.0.8",
+            "UID": "c19e495d94bf1cf7"
+          },
+          "InstalledVersion": "5.0.8",
+          "FixedVersion": "1.1.18, 2.1.4, 3.0.6, 5.0.9",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:b49c48b3e43613518a42ef28b71bb07248123e039e9b06e08fba2e4621025964",
+            "DiffID": "sha256:329c84d0a3284a050042110fee81033b43b40f8b6121f9b55215f540a2653fc5"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-69152",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+          "Description": "The brace-expansion library generates arbitrary strings containing a common prefix and suffix. Prior to 1.1.18, 2.1.4, 3.0.6, and 5.0.9, expand() does not apply maxLength while constructing comma-alternative intermediate arrays or padded sequences, allowing attacker-controlled input to exhaust memory or block the event loop. The fix for CVE-2026-14257 is bypassed by the vulnerability. This issue is fixed in versions 1.1.18, 2.1.4, 3.0.6, and 5.0.9.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-400",
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:52841",
+            "https://access.redhat.com/security/cve/CVE-2026-69152",
+            "https://bugzilla.redhat.com/2510722",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2510722",
+            "https://creativecommons.org/licenses/by/4.0/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-69152",
+            "https://errata.almalinux.org/10/ALSA-2026-52841.html",
+            "https://errata.rockylinux.org/RLSA-2026:52841",
+            "https://github.com/juliangruber/brace-expansion",
+            "https://github.com/juliangruber/brace-expansion/commit/139d015104e71433ad52a41d19467c48ecbb2c7d",
+            "https://github.com/juliangruber/brace-expansion/commit/1e30c930238d7162802d88a94189182def178dac",
+            "https://github.com/juliangruber/brace-expansion/commit/688a99eeaab02627c2b89ba8ba4821fecfa659cf",
+            "https://github.com/juliangruber/brace-expansion/commit/cb4b9e47cc2ec777c14b2b4492fb431a56f6a031",
+            "https://github.com/juliangruber/brace-expansion/security/advisories/GHSA-rgw5-rvv9-x895",
+            "https://linux.oracle.com/cve/CVE-2026-69152.html",
+            "https://linux.oracle.com/errata/ELSA-2026-52841.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-69152",
+            "https://www.cve.org/CVERecord?id=CVE-2026-69152"
+          ],
+          "PublishedDate": "2026-08-03T17:16:45.953Z",
+          "LastModifiedDate": "2026-08-05T14:58:28.177Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-69192",
+          "PkgID": "ip-address@10.1.0",
+          "PkgName": "ip-address",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/ip-address/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/ip-address@10.1.0",
+            "UID": "bb35f9c13d5dd1cb"
+          },
+          "InstalledVersion": "10.1.0",
+          "FixedVersion": "10.3.1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-69192",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "ip-address: ip-address: Inconsistent IP address parsing leads to Server-Side Request Forgery (SSRF) and trust-boundary bypass",
+          "Description": "ip-address is a library for parsing and manipulating IPv4 and IPv6 addresses in JavaScript. Prior to 10.3.1, Address4 accepts an octet written with a leading zero and decodes it as decimal, while the WHATWG URL host parser, inet_aton, and getaddrinfo all decode a leading zero as octal. The library and the network stack therefore disagree about which host a string names. new Address4('012.0.0.1') reports correctForm() of 12.0.0.1 and isPrivate() of false, but fetch('http://012.0.0.1/') connects to 10.0.0.1. An application that builds a network trust-boundary decision on these checks, for example a filter intended to block Server-Side Request Forgery, or SSRF, will classify an internal target as external and allow the request. The defect is in the parse gate rather than in any one classifier, so every consumer of Address4 inherits it: isPrivate(), isLoopback(), isLinkLocal(), isCGNAT(), isInSubnet(), isHostInSubnet(), and correctForm() are all computed from the mis-decoded octets. This issue is fixed in version 10.3.1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-20",
+            "CWE-918"
+          ],
+          "VendorSeverity": {
+            "ghsa": 3,
+            "redhat": 3
+          },
+          "CVSS": {
+            "ghsa": {},
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+              "V3Score": 8.6
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-69192",
+            "https://github.com/beaugunderson/ip-address",
+            "https://github.com/beaugunderson/ip-address/commit/56368cb3d66c73ba0ee9b6b834fd31b22c2fd71e",
+            "https://github.com/beaugunderson/ip-address/releases/tag/v10.3.1",
+            "https://github.com/beaugunderson/ip-address/security/advisories/GHSA-mwp4-54f8-5fhr",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-69192",
+            "https://www.cve.org/CVERecord?id=CVE-2026-69192"
+          ],
+          "PublishedDate": "2026-08-03T20:17:29.96Z",
+          "LastModifiedDate": "2026-08-04T15:16:41.66Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-42338",
+          "PkgID": "ip-address@10.1.0",
+          "PkgName": "ip-address",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/ip-address/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/ip-address@10.1.0",
+            "UID": "bb35f9c13d5dd1cb"
+          },
+          "InstalledVersion": "10.1.0",
+          "FixedVersion": "10.1.1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-42338",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "ip-address: ip-address: Cross-site scripting via improper HTML escaping of untrusted input",
+          "Description": "ip-address is a library for parsing and manipulating IPv4 and IPv6 addresses in JavaScript. Prior to 10.1.1, Address6.group() and Address6.link() do not HTML-escape attacker-controlled content before embedding it in the HTML strings they return, and AddressError.parseMessage (emitted by the Address6 constructor for invalid input) can contain unescaped attacker-controlled content in one branch. An application that (1) passes untrusted input to Address6 and (2) renders the output of these methods, or the thrown error's parseMessage, as HTML (e.g. via innerHTML) is vulnerable to cross-site scripting. This vulnerability is fixed in 10.1.1.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-79"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "ghsa": 2,
+            "nvd": 2,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {},
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+              "V3Score": 6.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "V3Score": 8.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:33155",
+            "https://access.redhat.com/errata/RHSA-2026:33160",
+            "https://access.redhat.com/errata/RHSA-2026:33163",
+            "https://access.redhat.com/errata/RHSA-2026:33173",
+            "https://access.redhat.com/errata/RHSA-2026:33183",
+            "https://access.redhat.com/errata/RHSA-2026:33574",
+            "https://access.redhat.com/errata/RHSA-2026:34374",
+            "https://access.redhat.com/errata/RHSA-2026:35841",
+            "https://access.redhat.com/errata/RHSA-2026:35842",
+            "https://access.redhat.com/errata/RHSA-2026:35891",
+            "https://access.redhat.com/errata/RHSA-2026:35892",
+            "https://access.redhat.com/errata/RHSA-2026:36754",
+            "https://access.redhat.com/errata/RHSA-2026:36820",
+            "https://access.redhat.com/errata/RHSA-2026:39246",
+            "https://access.redhat.com/errata/RHSA-2026:39868",
+            "https://access.redhat.com/errata/RHSA-2026:41928",
+            "https://access.redhat.com/errata/RHSA-2026:41947",
+            "https://access.redhat.com/errata/RHSA-2026:44237",
+            "https://access.redhat.com/errata/RHSA-2026:44263",
+            "https://access.redhat.com/errata/RHSA-2026:44267",
+            "https://access.redhat.com/errata/RHSA-2026:51200",
+            "https://access.redhat.com/errata/RHSA-2026:52399",
+            "https://access.redhat.com/security/cve/CVE-2026-42338",
+            "https://bugzilla.redhat.com/2476810",
+            "https://bugzilla.redhat.com/2489980",
+            "https://bugzilla.redhat.com/2490000",
+            "https://bugzilla.redhat.com/2490006",
+            "https://bugzilla.redhat.com/2490008",
+            "https://bugzilla.redhat.com/2493325",
+            "https://bugzilla.redhat.com/2493326",
+            "https://bugzilla.redhat.com/2493329",
+            "https://bugzilla.redhat.com/2493331",
+            "https://bugzilla.redhat.com/2493332",
+            "https://bugzilla.redhat.com/2493333",
+            "https://bugzilla.redhat.com/2493335",
+            "https://bugzilla.redhat.com/2493337",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2476810",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2489980",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2490000",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2490006",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2490008",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2493325",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2493326",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2493329",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2493331",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2493332",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2493333",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2493335",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2493337",
+            "https://creativecommons.org/licenses/by/4.0/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-11525",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-12151",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-42338",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-48615",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-48618",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-48619",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-48928",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-48930",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-48933",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-48934",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-48935",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-6733",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-9678",
+            "https://errata.almalinux.org/8/ALSA-2026-41947.html",
+            "https://errata.rockylinux.org/RLSA-2026:35892",
+            "https://github.com/beaugunderson/ip-address",
+            "https://github.com/beaugunderson/ip-address/security/advisories/GHSA-v2v4-37r5-5v8g",
+            "https://linux.oracle.com/cve/CVE-2026-42338.html",
+            "https://linux.oracle.com/errata/ELSA-2026-41947.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-42338",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-42338.json",
+            "https://www.cve.org/CVERecord?id=CVE-2026-42338"
+          ],
+          "PublishedDate": "2026-05-12T20:16:41.13Z",
+          "LastModifiedDate": "2026-08-10T13:19:28.91Z"
+        },
+        {
+          "VulnerabilityID": "GHSA-5p4m-2wfm-xmqj",
+          "PkgID": "js-yaml@3.15.0",
+          "PkgName": "js-yaml",
+          "PkgPath": "app/node_modules/js-yaml/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/js-yaml@3.15.0",
+            "UID": "756795c8898d180a"
+          },
+          "InstalledVersion": "3.15.0",
+          "FixedVersion": "4.3.1, 3.15.1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:b49c48b3e43613518a42ef28b71bb07248123e039e9b06e08fba2e4621025964",
+            "DiffID": "sha256:329c84d0a3284a050042110fee81033b43b40f8b6121f9b55215f540a2653fc5"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+          "Description": "# Quadratic CPU consumption in `!!omap` resolution (js-yaml 3.x and 4.x)\n\n## Summary\n\n`resolveYamlOmap()` enforces key uniqueness for `!!omap` sequences with a linear\nscan (`objectKeys.indexOf(...)`) inside the per-element loop, making resolution\n**O(n²)** in the number of entries. A modestly sized YAML document therefore\nconsumes disproportionate CPU inside `yaml.load()`, giving a denial of service\nagainst any consumer that parses untrusted YAML.\n\n`!!omap` is registered in the **default schema**\n(`lib/schema/default.js` → `require('../type/omap')`), so a plain\n`yaml.load(untrustedInput)` with no options is affected — no custom schema or\nnon-default configuration is required.\n\n**This is the same weakness as CVE-2026-59870 / GHSA-724g-mxrg-4qvm**, which was\nfixed in the 5.x line in 5.2.1. That fix was never backported: both currently\nmaintained legacy lines still carry the original implementation.\n\n## Affected versions\n\n| Line | Latest tested | Status |\n|---|---|---|\n| 3.x | **3.15.0** | Affected — `objectKeys.indexOf(pairKey)` at `lib/type/omap.js:29` |\n| 4.x | **4.3.0** | Affected — `objectKeys.indexOf(pairKey)` at `lib/type/omap.js:30` |\n| 5.x | 5.2.2 | **Not affected** — fixed in 5.2.1 (uses a `Set`) |\n\nBoth figures are the newest release of each line at the time of writing, so\nthis is not a \"you are on an old version\" issue.\n\n## Details\n\n`lib/type/omap.js` (js-yaml 4.3.0):\n\n```js\nif (objectKeys.indexOf(pairKey) === -1) objectKeys.push(pairKey)\nelse return false\n```\n\n`objectKeys` grows by one element per entry, and `Array.prototype.indexOf` is a\nlinear scan, so resolving an `n`-entry `!!omap` performs roughly\n`1 + 2 + … + n` comparisons — quadratic in `n`. The work happens synchronously\ninside `yaml.load()`, blocking the event loop for its whole duration.\n\nThe 5.x line already solves exactly this by tracking seen keys in a `Set`\n(`src/tag/sequence/omap.ts`):\n\n```ts\nif (carrier.seen.has(key)) return 'duplicate key in ordered map'\ncarrier.seen.add(key)\n```\n\n## Proof of concept\n\n```js\n// poc.js  —  node poc.js\nconst yaml = require('js-yaml');\nconst doc = n =\u003e '!!omap\\n' + Array.from({length: n}, (_, i) =\u003e `- k${i}: ${i}`).join('\\n') + '\\n';\n\nfor (const n of [10000, 20000, 40000, 80000]) {\n  const d = doc(n), t = Date.now();\n  yaml.load(d);                      // default schema, no options\n  console.log(`n=${n} bytes=${d.length} load=${Date.now() - t}ms`);\n}\n```\n\n### Measured (node v20.20.2, default heap, no flags)\n\n**js-yaml 4.3.0**\n\n```\nn=10000  bytes=137787   load=54ms\nn=20000  bytes=297787   load=169ms\nn=40000  bytes=617787   load=646ms\nn=80000  bytes=1257787  load=2607ms\n```\n\n**js-yaml 3.15.0**\n\n```\nn=10000  bytes=137787   load=53ms\nn=20000  bytes=297787   load=166ms\nn=40000  bytes=617787   load=641ms\nn=80000  bytes=1257787  load=2567ms\n```\n\nRuntime grows by a factor of ~4 for each doubling of `n`, which is the\nsignature of O(n²) (linear growth would be ~2×).\n\nScaling further: a **2.48 MB** document with 150,000 entries blocked\n`yaml.load()` for **10.8 seconds**.\n\n## Impact\n\nAny service that parses attacker-influenced YAML with js-yaml 3.x or 4.x can be\nstalled with a small input. Because the loop is synchronous, a single request\nblocks the Node.js event loop and stalls every other request in the process —\nso the amplification is per-process, not just per-request.\n\nSuggested severity: consistent with **CVE-2026-59870** (the same weakness in\n5.x), i.e. Availability-only impact, network attack vector, no privileges or\nuser interaction required.\n\n## Suggested fix\n\nMirror the 5.x fix — replace the linear scan with a `Set`:\n\n```js\n// lib/type/omap.js\nconst seen = new Set()\n// ...\nif (seen.has(pairKey)) return false\nseen.add(pairKey)\n```\n\nThis preserves the existing duplicate-key rejection semantics exactly while\nmaking resolution O(n). A `maxOmapLength`-style cap would also work, but the\n`Set` matches what 5.x already ships and requires no new option.\n\n## References\n\n- CVE-2026-59870 / GHSA-724g-mxrg-4qvm — same weakness in 5.0.0–5.2.0, fixed in 5.2.1\n- `lib/type/omap.js` (3.x, 4.x) — the affected resolver\n- `lib/schema/default.js` — registers `!!omap` in the default schema\n\n## Discovery\n\nFound by an automated static-analysis and executed-proof-of-concept scanner run\nagainst js-yaml 4.2.0, then manually verified against 3.15.0 and 4.3.0 by\nexecuting the proof of concept above. All timings in this report were measured\non the **current** releases of each line, not on the version originally scanned.",
+          "Severity": "HIGH",
+          "VendorSeverity": {
+            "ghsa": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://github.com/nodeca/js-yaml",
+            "https://github.com/nodeca/js-yaml/security/advisories/GHSA-5p4m-2wfm-xmqj"
+          ],
+          "PublishedDate": "2026-08-06T20:27:32Z",
+          "LastModifiedDate": "2026-08-06T20:27:32Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-33671",
+          "PkgID": "picomatch@4.0.3",
+          "PkgName": "picomatch",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/picomatch/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/picomatch@4.0.3",
+            "UID": "317a06b4bb8f45b4"
+          },
+          "InstalledVersion": "4.0.3",
+          "FixedVersion": "4.0.4, 3.0.2, 2.3.2",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-33671",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "picomatch: Picomatch: Regular Expression Denial of Service via crafted extglob patterns",
+          "Description": "Picomatch is a glob matcher written JavaScript. Versions prior to 4.0.4, 3.0.2, and 2.3.2 are vulnerable to Regular Expression Denial of Service (ReDoS) when processing crafted extglob patterns. Certain patterns using extglob quantifiers such as `+()` and `*()`, especially when combined with overlapping alternatives or nested extglobs, are compiled into regular expressions that can exhibit catastrophic backtracking on non-matching input. Applications are impacted when they allow untrusted users to supply glob patterns that are passed to `picomatch` for compilation or matching. In those cases, an attacker can cause excessive CPU consumption and block the Node.js event loop, resulting in a denial of service. Applications that only use trusted, developer-controlled glob patterns are much less likely to be exposed in a security-relevant way. This issue is fixed in picomatch 4.0.4, 3.0.2 and 2.3.2. Users should upgrade to one of these versions or later, depending on their supported release line. If upgrading is not immediately possible, avoid passing untrusted glob patterns to `picomatch`. Possible mitigations include disabling extglob support for untrusted patterns by using `noextglob: true`, rejecting or sanitizing patterns containing nested extglobs or extglob quantifiers such as `+()` and `*()`, enforcing strict allowlists for accepted pattern syntax, running matching in an isolated worker or separate process with time and resource limits, and applying application-level request throttling and input validation for any endpoint that accepts glob patterns.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-1333"
+          ],
+          "VendorSeverity": {
+            "azure": 3,
+            "ghsa": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 6.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-33671",
+            "https://github.com/micromatch/picomatch",
+            "https://github.com/micromatch/picomatch/commit/5eceecd27543b8e056b9307d69e105ea03618a7d",
+            "https://github.com/micromatch/picomatch/security/advisories/GHSA-c2c7-rcm5-vvqj",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-33671",
+            "https://www.cve.org/CVERecord?id=CVE-2026-33671"
+          ],
+          "PublishedDate": "2026-03-26T22:16:30.21Z",
+          "LastModifiedDate": "2026-06-17T10:37:54.007Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-33672",
+          "PkgID": "picomatch@4.0.3",
+          "PkgName": "picomatch",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/picomatch/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/picomatch@4.0.3",
+            "UID": "317a06b4bb8f45b4"
+          },
+          "InstalledVersion": "4.0.3",
+          "FixedVersion": "4.0.4, 3.0.2, 2.3.2",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-33672",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "picomatch: Picomatch: Data integrity compromised via method injection with crafted POSIX bracket expressions",
+          "Description": "Picomatch is a glob matcher written JavaScript. Versions prior to 4.0.4, 3.0.2, and 2.3.2 are vulnerable to a method injection vulnerability affecting the `POSIX_REGEX_SOURCE` object. Because the object inherits from `Object.prototype`, specially crafted POSIX bracket expressions (e.g., `[[:constructor:]]`) can reference inherited method names. These methods are implicitly converted to strings and injected into the generated regular expression. This leads to incorrect glob matching behavior (integrity impact), where patterns may match unintended filenames. The issue does not enable remote code execution, but it can cause security-relevant logic errors in applications that rely on glob matching for filtering, validation, or access control. All users of affected `picomatch` versions that process untrusted or user-controlled glob patterns are potentially impacted. This issue is fixed in picomatch 4.0.4, 3.0.2 and 2.3.2. Users should upgrade to one of these versions or later, depending on their supported release line. If upgrading is not immediately possible, avoid passing untrusted glob patterns to picomatch. Possible mitigations include sanitizing or rejecting untrusted glob patterns, especially those containing POSIX character classes like `[[:...:]]`; avoiding the use of POSIX bracket expressions if user input is involved; and manually patching the library by modifying `POSIX_REGEX_SOURCE` to use a null prototype.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-1321"
+          ],
+          "VendorSeverity": {
+            "azure": 2,
+            "ghsa": 2,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "V3Score": 5.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-33672",
+            "https://github.com/micromatch/picomatch",
+            "https://github.com/micromatch/picomatch/commit/4516eb521f13a46b2fe1a1d2c9ef6b20ddc0e903",
+            "https://github.com/micromatch/picomatch/security/advisories/GHSA-3v7f-55p6-f55p",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-33672",
+            "https://www.cve.org/CVERecord?id=CVE-2026-33672"
+          ],
+          "PublishedDate": "2026-03-26T22:16:30.387Z",
+          "LastModifiedDate": "2026-06-17T10:37:54.113Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-48815",
+          "PkgID": "sigstore@3.1.0",
+          "PkgName": "sigstore",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/sigstore/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/sigstore@3.1.0",
+            "UID": "65639f4c9770ebae"
+          },
+          "InstalledVersion": "3.1.0",
+          "FixedVersion": "4.1.1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-48815",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "sigstore: Sigstore: Unauthorized certificates accepted due to ignored `certificateOIDs` verification option",
+          "Description": "sigstore-js provides JavaScript libraries for interacting with Sigstore services. Prior to 4.1.1, the documented certificateOIDs option in sigstore.verify() is accepted by the public API but discarded before verification, so required certificate extension OIDs are never checked and applications relying on certificateOIDs to restrict which certificates may sign artifacts can accept unauthorized certificates. This issue is fixed in version 4.1.1.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-347"
+          ],
+          "VendorSeverity": {
+            "amazon": 3,
+            "ghsa": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "V3Score": 5.9
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-48815",
+            "https://github.com/sigstore/sigstore-js",
+            "https://github.com/sigstore/sigstore-js/commit/7845532f9d17f6f765363dbee82b01bd159fb52b",
+            "https://github.com/sigstore/sigstore-js/pull/1658",
+            "https://github.com/sigstore/sigstore-js/pull/1658/changes",
+            "https://github.com/sigstore/sigstore-js/releases/tag/sigstore@4.1.1",
+            "https://github.com/sigstore/sigstore-js/security/advisories/GHSA-52v5-jr5w-gjxr",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-48815",
+            "https://www.cve.org/CVERecord?id=CVE-2026-48815"
+          ],
+          "PublishedDate": "2026-07-14T21:17:01.37Z",
+          "LastModifiedDate": "2026-07-15T20:23:47.313Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-59873",
+          "PkgID": "tar@7.5.11",
+          "PkgName": "tar",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/tar/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/tar@7.5.11",
+            "UID": "f262cae484a0c71c"
+          },
+          "InstalledVersion": "7.5.11",
+          "FixedVersion": "7.5.19",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-59873",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "tar: node-tar: Denial of Service via crafted gzip bomb",
+          "Description": "node-tar is a tar archive manipulation library for Node.js. Prior to 7.5.19, node-tar does not enforce hard upper bounds on total decompressed data, entry counts, or decompression ratio in extraction and parsing paths such as src/extract.ts, allowing a small crafted gzip bomb to exhaust disk space and CPU. This issue is fixed in version 7.5.19.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "ghsa": 4,
+            "nvd": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:47058",
+            "https://access.redhat.com/errata/RHSA-2026:47060",
+            "https://access.redhat.com/security/cve/CVE-2026-59873",
+            "https://bugzilla.redhat.com/2494813",
+            "https://bugzilla.redhat.com/2498116",
+            "https://bugzilla.redhat.com/2498120",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494813",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2498116",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2498120",
+            "https://creativecommons.org/licenses/by/4.0/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-13149",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-59873",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-59874",
+            "https://errata.almalinux.org/8/ALSA-2026-47060.html",
+            "https://errata.rockylinux.org/RLSA-2026:47058",
+            "https://github.com/isaacs/node-tar",
+            "https://github.com/isaacs/node-tar/commit/2812e9338665659b183aa7226518c307044957d3",
+            "https://github.com/isaacs/node-tar/releases/tag/v7.5.19",
+            "https://github.com/isaacs/node-tar/security/advisories/GHSA-23hp-3jrh-7fpw",
+            "https://linux.oracle.com/cve/CVE-2026-59873.html",
+            "https://linux.oracle.com/errata/ELSA-2026-48034.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59873",
+            "https://www.cve.org/CVERecord?id=CVE-2026-59873"
+          ],
+          "PublishedDate": "2026-07-08T16:16:33.867Z",
+          "LastModifiedDate": "2026-07-10T18:57:17.907Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-59874",
+          "PkgID": "tar@7.5.11",
+          "PkgName": "tar",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/tar/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/tar@7.5.11",
+            "UID": "f262cae484a0c71c"
+          },
+          "InstalledVersion": "7.5.11",
+          "FixedVersion": "7.5.18",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-59874",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "tar: Node-tar: Denial of Service via malformed tar archive header",
+          "Description": "node-tar is a tar archive manipulation library for Node.js. Prior to 7.5.18, tar.replace accepts a checksum-valid tar header with a negative base-256 encoded entry size, causing the archive scanner to make no progress while repeatedly parsing the same header. This issue is fixed in version 7.5.18.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-835"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "ghsa": 3,
+            "nvd": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:47058",
+            "https://access.redhat.com/errata/RHSA-2026:47060",
+            "https://access.redhat.com/security/cve/CVE-2026-59874",
+            "https://bugzilla.redhat.com/2494813",
+            "https://bugzilla.redhat.com/2498116",
+            "https://bugzilla.redhat.com/2498120",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494813",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2498116",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2498120",
+            "https://creativecommons.org/licenses/by/4.0/",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-13149",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-59873",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-59874",
+            "https://errata.almalinux.org/8/ALSA-2026-47060.html",
+            "https://errata.rockylinux.org/RLSA-2026:47058",
+            "https://github.com/isaacs/node-tar",
+            "https://github.com/isaacs/node-tar/commit/9e78bf058b2c22dd4d52e00d8922d5c06fc2f7b5",
+            "https://github.com/isaacs/node-tar/releases/tag/v7.5.18",
+            "https://github.com/isaacs/node-tar/security/advisories/GHSA-8x88-c5mf-7j5w",
+            "https://linux.oracle.com/cve/CVE-2026-59874.html",
+            "https://linux.oracle.com/errata/ELSA-2026-48034.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59874",
+            "https://www.cve.org/CVERecord?id=CVE-2026-59874"
+          ],
+          "PublishedDate": "2026-07-08T16:16:33.99Z",
+          "LastModifiedDate": "2026-07-10T18:54:12.67Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-53655",
+          "PkgID": "tar@7.5.11",
+          "PkgName": "tar",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/tar/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/tar@7.5.11",
+            "UID": "f262cae484a0c71c"
+          },
+          "InstalledVersion": "7.5.11",
+          "FixedVersion": "7.5.16",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-53655",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "node-tar: node-tar: File smuggling due to inconsistent tar archive parsing",
+          "Description": "node-tar is a full-featured Tar for Node.js. Prior to 7.5.16, tar (node-tar) applies a PAX extended header's size= record (and other PAX overrides) to the next header entry of any type, including intermediary metadata headers such as a GNU long-name (L) or long-link (K) entry. Per POSIX pax, a PAX extended header (x) describes the next file entry, not the intermediary extension headers that may sit between the x header and the file it annotates. Because node-tar lets the PAX size override the byte length of an intervening L/K/x header, an attacker can desynchronize node-tar's stream cursor relative to every other mainstream tar implementation (GNU tar, libarchive/bsdtar, Python tarfile, and the now-fixed tar-rs / astral-tokio-tar). The result is a tar parser interpretation differential (CWE-436): a single crafted archive yields a different set of members under node-tar than under the reference tar tools. An attacker can use this to hide a member from one parser while it is visible to another, which defeats security tooling whose scanner and extractor disagree on archive contents (e.g. a malware/secret scanner that lists entries with one library while a downstream step extracts with another) This vulnerability is fixed in 7.5.16.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-436"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "nvd": 2,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {},
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N",
+              "V3Score": 5.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:H/A:N",
+              "V3Score": 6.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-53655",
+            "https://github.com/isaacs/node-tar",
+            "https://github.com/isaacs/node-tar/security/advisories/GHSA-vmf3-w455-68vh",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-53655",
+            "https://www.cve.org/CVERecord?id=CVE-2026-53655"
+          ],
+          "PublishedDate": "2026-06-22T16:16:38.593Z",
+          "LastModifiedDate": "2026-06-26T20:03:47.01Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-59871",
+          "PkgID": "tar@7.5.11",
+          "PkgName": "tar",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/tar/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/tar@7.5.11",
+            "UID": "f262cae484a0c71c"
+          },
+          "InstalledVersion": "7.5.11",
+          "FixedVersion": "7.5.18",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-59871",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "node-tar: node-tar: Denial of Service due to incorrect PAX path handling",
+          "Description": "node-tar is a tar archive manipulation library for Node.js. Prior to 7.5.18, node-tar coerces all-digit PAX path and linkpath values in src/pax.ts to JavaScript numbers, causing downstream path handling such as normalizeWindowsPath(entry.path).split('/') to throw an uncaught TypeError. This issue is fixed in version 7.5.18.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-704"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "nvd": 3,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-59871",
+            "https://github.com/isaacs/node-tar",
+            "https://github.com/isaacs/node-tar/commit/e02a4e9e013c4be95302e2eb2047a942b883c27b",
+            "https://github.com/isaacs/node-tar/releases/tag/v7.5.18",
+            "https://github.com/isaacs/node-tar/security/advisories/GHSA-w8wr-v893-vjvp",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59871",
+            "https://www.cve.org/CVERecord?id=CVE-2026-59871"
+          ],
+          "PublishedDate": "2026-07-08T16:16:33.723Z",
+          "LastModifiedDate": "2026-07-10T19:02:55.14Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-59875",
+          "PkgID": "tar@7.5.11",
+          "PkgName": "tar",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/tar/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/tar@7.5.11",
+            "UID": "f262cae484a0c71c"
+          },
+          "InstalledVersion": "7.5.11",
+          "FixedVersion": "7.5.17",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-59875",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "node-tar: node-tar: Denial of Service via crafted archive with NUL bytes in metadata",
+          "Description": "node-tar is a tar archive manipulation library for Node.js. Prior to 7.5.17, node-tar does not strip NUL bytes from PAX path and linkpath records in src/pax.ts, allowing a crafted archive with values to reach fs.lstat or fs.open and terminate the process with an uncaught exception. This issue is fixed in version 7.5.17.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-248"
+          ],
+          "VendorSeverity": {
+            "ghsa": 2,
+            "redhat": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-59875",
+            "https://github.com/isaacs/node-tar",
+            "https://github.com/isaacs/node-tar/commit/7a635c29f5edbf083557374d43984273ecfed5b3",
+            "https://github.com/isaacs/node-tar/releases/tag/v7.5.17",
+            "https://github.com/isaacs/node-tar/security/advisories/GHSA-gvwx-54wh-qm9j",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-59875",
+            "https://www.cve.org/CVERecord?id=CVE-2026-59875"
+          ],
+          "PublishedDate": "2026-07-08T16:16:34.107Z",
+          "LastModifiedDate": "2026-07-10T19:10:59.333Z"
+        },
+        {
+          "VulnerabilityID": "GHSA-r292-9mhp-454m",
+          "PkgID": "tar@7.5.11",
+          "PkgName": "tar",
+          "PkgPath": "usr/local/lib/node_modules/npm/node_modules/tar/package.json",
+          "PkgIdentifier": {
+            "PURL": "pkg:npm/tar@7.5.11",
+            "UID": "f262cae484a0c71c"
+          },
+          "InstalledVersion": "7.5.11",
+          "FixedVersion": "7.5.21",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:efbef6f9e333972a10ca323e700496a64e7ddcc3a6725e6afbbae52e690f4a4a",
+            "DiffID": "sha256:5654eeaf04645c03fadc59bca7835753203d173222ab6ad8729f75b3dde98784"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://github.com/advisories/GHSA-r292-9mhp-454m",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory npm",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Anpm"
+          },
+          "Title": "node-tar: Uncontrolled recursion in mapHas/filesFilter allows uncatchable stack-overflow DoS via crafted long-path tar with member selection",
+          "Description": "## Summary\n`node-tar` (npm `tar`) contains an uncontrolled-recursion stack-exhaustion DoS in the internal `mapHas` helper used by `filesFilter`. When a consumer calls `tar.t(...)` or `tar.x(...)` with a non-empty member-selection list, node-tar installs a filter that closes over the recursive `mapHas` (`src/list.ts:33-44`). `mapHas` walks an entry path upward one `path.dirname()` call per recursion **with no segment cap**. A single crafted tar with a GNU-`L` (or PAX-`x`) long-path header can deliver a path of tens of thousands of `/`-separated segments (up to `maxMetaEntrySize` = 1 MiB). The recursion overflows the call stack, throwing an uncatchable `RangeError` that terminates the Node process on async/streaming consumers.\n\n## Root Cause\n`filesFilter` (`src/list.ts:27-51`) is installed whenever a caller passes a member-selection list (`src/list.ts:119-122`, `src/extract.ts:55-57`). Its filter is invoked at `src/parse.ts:253` (`entry.ignore = entry.ignore || !this.filter(entry.path, entry)`) inside `Parser[CONSUMEHEADER]` — and crucially **outside** the only try/catch in that method (which wraps `new Header` at `src/parse.ts:179-183`). `mapHas` recurses once per path segment with no depth limit. The `Unpack` `maxDepth` guard (`src/unpack.ts:342`, in `[CHECKPATH]`) only runs on the `'entry'` event, which fires *after* `CONSUMEHEADER` has already invoked the filter — so the stack overflows before any depth guard executes. `tar.t` (list) has no `maxDepth` at all.\n\n## Impact\nUnauthenticated, remotely-triggerable denial of service: a ~188-byte gzip (≈26 KB tar) crashes any service that lists or extracts *selected members* from an untrusted archive (package registries, CI artifact/cache restore, upload processors). On async (`await tar.t(...)`/`tar.x(...)`) and streaming/`pipe` consumers the `RangeError` escapes the promise as an `uncaughtException` and terminates the process — standard defensive `try/catch` around the async call does NOT prevent it. (The synchronous API is catchable; the async/stream paths — the dominant server pattern — are not.)\n\n## Proof of Concept\n```js\n// Build a tar whose single entry has a GNU-L long path of ~12,000 \"a/\" segments (~26 KB),\n// gzip it (≈188 bytes), then have a consumer list/extract with member selection:\nconst tar = require('tar');\nawait tar.t({ file: 'evil.tar.gz', gzip: true }, ['some-member']); // -\u003e RangeError, process exit\n```\nEmpirically reproduced on Node v24.18.0 against built `dist/commonjs` of node-tar 7.5.20: 188-byte gzip → 26,112-byte tar (12,000 segments) → uncaught `RangeError: Maximum call stack size exceeded` → process exit. A control run with no member-selection list (filter not installed) parses cleanly (exit 0), isolating `mapHas` as the sole cause.\n\n## Attack Chain\n1. **Entry.** Attacker crafts a tar with a GNU `L` (or PAX `x`) long-path header whose body is `\"a/\"`×~12000 (~26 KB), followed by a normal file entry.\n   - **Guard:** `maxMetaEntrySize` caps the meta body at 1 MiB (`src/parse.ts:241`).\n   - **Bypass proof:** 26 KB ≪ 1 MiB → accepted (verified: 26 KB archive parsed up to the filter).\n2. **Trigger.** Victim service calls `tar.t({file},[sel])` or `tar.x({file,cwd},[sel])` (member selection — a documented, common API).\n   - **Guard:** `Unpack.maxDepth` (default 1024) at `src/unpack.ts:342`; decompression-ratio guard.\n   - **Bypass proof:** `maxDepth` lives in `[CHECKPATH]` on the `'entry'` event, which fires *after* `CONSUMEHEADER`'s filter call — the crash occurs before it (extract exits 1 with default maxDepth). `tar.t` has no maxDepth. Ratio is ~139× (trivial); no total-bytes cap applies to the uncompressed meta body.\n3. **Sink.** `this.filter(entry.path)` → `mapHas` recurses once per `/` segment (`src/list.ts:39`).\n   - **Guard:** try/catch in `CONSUMEHEADER`.\n   - **Bypass proof:** the only try/catch wraps `new Header` (`src/parse.ts:179-183`); the `this.filter(...)` call at `src/parse.ts:253` is outside it. The `RangeError` propagates out of the stream write/`'data'` path → uncaught exception (verified: `process.on('uncaughtException')` fires; async `await`+`try/catch` does NOT intercept).\n4. **Impact.** Node process termination; a 188-byte gzip crashes any consumer that lists/extracts selected members from untrusted archives.\n\n## Bypass Evidence\n- `mapHas` recursion is member-name-independent: the crash fires even when the requested members do not match the malicious entry path — the attacker only needs the consumer to *use* member selection.\n- Standalone `mapHas` overflows at 20k–30k segments; on the real streaming path (atop `write → CONSUMECHUNK → CONSUMEHEADER → filter`) it crashes at ≤8k segments (finder's ~12k estimate is accurate for the reachable path).\n- Control (no member list → no filter) parses cleanly (exit 0), isolating `mapHas`.\n\n## Affected Versions\n`\u003c= 7.5.20` (npm `tar`). `mapHas` present verbatim on tag `v7.5.20` (latest GitHub release and npm `dist-tag latest`); no segment/depth cap in `src/list.ts` or the `CONSUMEHEADER` filter path; HEAD == 7.5.20, no unreleased fix.\n\n## Suggested Fix\nRewrite `mapHas` iteratively (walk `dirname` in a `while` loop with a segment/visited cap), or enforce a hard path-segment limit in `Header`/`Parser` independent of `maxMetaEntrySize`, applied before any per-entry filter runs.\n\n## Dedup Note\nDistinct from CVE-2024-28863 / GHSA-f5x3-32g6-qm9j \"lack of folders depth validation\" (that bounds `mkdir` recursion during *extraction* via `maxDepth` in `Unpack[CHECKPATH]` on the `'entry'` event — a different sink, code path, and fix; runs after the filter and does not apply to `tar.t`). Also distinct from the PAX NUL/numeric-path crash advisories (improper-input-to-fs / type confusion, not recursion) and the gzip-bomb advisory (resource exhaustion on disk writes). None touch `list.ts`/`filesFilter`/`mapHas` or require member selection.\n\n---\nReported by **zx (Jace)** — GitHub: @manus-use",
+          "Severity": "MEDIUM",
+          "VendorSeverity": {
+            "ghsa": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "V3Score": 5.3
+            }
+          },
+          "References": [
+            "https://github.com/isaacs/node-tar",
+            "https://github.com/isaacs/node-tar/commit/631ae59121bf8fc8a22bbae35f074cb9b789cd4a",
+            "https://github.com/isaacs/node-tar/releases/tag/v7.5.21",
+            "https://github.com/isaacs/node-tar/security/advisories/GHSA-r292-9mhp-454m"
+          ],
+          "PublishedDate": "2026-07-24T16:26:16Z",
+          "LastModifiedDate": "2026-07-24T16:26:17Z"
+        }
+      ]
+    }
+  ]
+}
